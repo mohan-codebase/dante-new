@@ -210,8 +210,7 @@
 }
 @media (min-width: 640px) { .site-header { height: 5rem; } }
 @media (min-width: 1024px) {
-  .site-header { top: 40px; }
-  .site-header.is-floating, .site-header.is-hidden { top: 0; }
+  .site-header { top: 0; }
 }
 
 /* Full-bleed white backdrop removed so the header is completely
