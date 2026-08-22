@@ -221,16 +221,60 @@
   display: none;
 }
 
-/* Because the header is now transparent over the dark banner, we must
-   make its contents white at rest, reverting to dark when floating. */
-.site-header:not(.is-floating) .text-ink-900,
-.site-header:not(.is-floating) .text-ink-500,
-.site-header:not(.is-floating) .text-brand-600 {
-  color: #fff;
-  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
+/* Desktop header at rest (transparent over the dark banner) */
+.site-header:not(.is-floating) .nav-link {
+  color: #ffffff;
+}
+.site-header:not(.is-floating) .nav-link[aria-current="page"] {
+  color: var(--color-brand-400);
+}
+.site-header:not(.is-floating) .nav-link:hover {
+  color: #ffffff;
 }
 .site-header:not(.is-floating) .nav-pill {
-  background: rgb(255 255 255 / .15);
+  background: rgb(255 255 255 / 0.18);
+}
+.site-header:not(.is-floating) [data-nav-toggle] {
+  color: #ffffff;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.25);
+}
+.site-header:not(.is-floating) [data-nav-toggle]:hover {
+  background-color: rgb(255 255 255 / 0.12);
+}
+
+/* Desktop header when floating (scrolled down) */
+.site-header.is-floating .nav-link {
+  color: var(--color-ink-900);
+}
+.site-header.is-floating .nav-link[aria-current="page"] {
+  color: var(--color-brand-600);
+}
+.site-header.is-floating .nav-link:hover {
+  color: var(--color-brand-600);
+}
+.site-header.is-floating .nav-pill {
+  background: var(--color-brand-50);
+}
+.site-header.is-floating [data-nav-toggle] {
+  color: var(--color-ink-900);
+}
+
+/* Dropdown menus — solid white cards with dark readable text, clean hover states, no text shadows */
+.site-header .group ul,
+.nav-dropdown {
+  background-color: #ffffff;
+  color: var(--color-ink-900);
+  box-shadow: var(--shadow-lift);
+}
+.site-header .group ul a,
+.nav-dropdown a {
+  color: var(--color-ink-700);
+  text-shadow: none;
+}
+.site-header .group ul a:hover,
+.nav-dropdown a:hover {
+  background-color: var(--color-brand-50);
+  color: var(--color-brand-700);
 }
 
 .site-header__shell {
@@ -308,8 +352,24 @@
    premium finish. */
 .nav-panel__card {
   border-radius: 1.25rem;
-  background: #fff;
+  background: #ffffff;
+  color: var(--color-ink-900);
   box-shadow: var(--shadow-lift), inset 0 0 0 1px rgb(35 35 35 / .06);
+}
+.nav-panel__card a,
+.nav-panel__card button {
+  color: var(--color-ink-900);
+  text-shadow: none;
+}
+.nav-panel__card div a {
+  color: var(--color-ink-700);
+}
+.nav-panel__card .btn-primary {
+  background-color: var(--color-brand-500);
+  color: var(--color-ink-900) !important;
+}
+.nav-panel__card .btn-outline {
+  color: var(--color-ink-900) !important;
 }
 
 /* ===============================================================

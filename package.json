@@ -1,0 +1,26 @@
+{
+  "name": "dante-new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i src/input.css -o dist/home.css --minify",
+    "watch:css": "tailwindcss -i src/input.css -o dist/home.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohan-codebase/dante-new.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mohan-codebase/dante-new/issues"
+  },
+  "homepage": "https://github.com/mohan-codebase/dante-new#readme",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
