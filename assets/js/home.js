@@ -136,51 +136,7 @@
     });
   });
 
-  /* ================================================================
-     NAV HOVER INDICATOR
-     A single pill that slides between items instead of each item
-     lighting up independently — it makes the pointer's target
-     unambiguous and gives the nav a sense of continuity. It follows
-     focus as well as hover, so it is not a mouse-only affordance.
-     ================================================================ */
-  var navList = document.querySelector('[data-nav-list]');
-  if (navList && gsap && !reduced.matches) {
-    var pill = navList.querySelector('.nav-pill');
-    var current = navList.querySelector('.nav-link[aria-current="page"]');
 
-    var moveTo = function (link) {
-      if (!pill) return;
-      if (!link) { gsap.to(pill, { opacity: 0, duration: 0.2, ease: 'power2.out' }); return; }
-      var box = link.getBoundingClientRect();
-      var base = navList.getBoundingClientRect();
-      gsap.to(pill, {
-        x: box.left - base.left,
-        width: box.width,
-        opacity: 1,
-        duration: 0.32,
-        ease: 'power3.out',
-        overwrite: 'auto'
-      });
-    };
-
-    $$('.nav-link', navList).forEach(function (link) {
-      link.addEventListener('pointerenter', function () { moveTo(link); });
-      link.addEventListener('focus', function () { moveTo(link); });
-    });
-    navList.addEventListener('pointerleave', function () { moveTo(current); });
-    navList.addEventListener('focusout', function (e) {
-      if (!navList.contains(e.relatedTarget)) moveTo(current);
-    });
-
-    /* Park it on the current page once fonts have settled the widths. */
-    var park = function () { if (current) moveTo(current); };
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(park);
-    else window.addEventListener('load', park);
-    window.addEventListener('resize', function () {
-      gsap.set(pill, { opacity: 0 });
-      park();
-    }, { passive: true });
-  }
 
   /* ================================================================
      HERO SLIDER

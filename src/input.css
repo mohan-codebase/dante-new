@@ -223,15 +223,13 @@
 /* Desktop header at rest (transparent over the dark banner) */
 .site-header:not(.is-floating) .nav-link {
   color: #ffffff;
+  transition: color 0.15s ease;
 }
 .site-header:not(.is-floating) .nav-link[aria-current="page"] {
   color: var(--color-brand-400);
 }
 .site-header:not(.is-floating) .nav-link:hover {
-  color: #ffffff;
-}
-.site-header:not(.is-floating) .nav-pill {
-  background: rgb(255 255 255 / 0.18);
+  color: var(--color-brand-400);
 }
 .site-header:not(.is-floating) [data-nav-toggle] {
   color: #ffffff;
@@ -244,15 +242,13 @@
 /* Desktop header when floating (scrolled down) */
 .site-header.is-floating .nav-link {
   color: var(--color-ink-900);
+  transition: color 0.15s ease;
 }
 .site-header.is-floating .nav-link[aria-current="page"] {
   color: var(--color-brand-600);
 }
 .site-header.is-floating .nav-link:hover {
   color: var(--color-brand-600);
-}
-.site-header.is-floating .nav-pill {
-  background: var(--color-brand-50);
 }
 .site-header.is-floating [data-nav-toggle] {
   color: var(--color-ink-900);
@@ -317,17 +313,7 @@
    mobile panel is open or focus is inside the header. */
 .site-header.is-hidden { transform: translate3d(0, calc(-100% - 1rem), 0); }
 
-/* Sliding hover/focus indicator behind the desktop nav.
-   Positioned and sized by GSAP; transform + width only. */
-.nav-pill {
-  position: absolute; left: 0; top: 50%;
-  height: 2.25rem; width: 0;
-  margin-top: -1.125rem;
-  border-radius: 9999px;
-  background: var(--color-brand-50);
-  opacity: 0;
-  pointer-events: none;
-}
+
 .nav-link { position: relative; z-index: 1; }
 /* Current page marker — a static rule, not scroll-spy: this nav points at
    other documents, so a moving "you are here" would be fiction. */
