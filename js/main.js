@@ -607,4 +607,29 @@
       frame.focus();
     });
   })();
+
+  /* ------------------------------------------------------- link routing */
+  (function handleMissingLinks() {
+    document.addEventListener('click', function (e) {
+      var target = e.target.closest('a');
+      if (!target) return;
+      var href = target.getAttribute('href');
+      if (!href) return;
+      // In-page anchors, tel, mailto, javascript
+      if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) {
+        return;
+      }
+      // Home / active pages / documents
+      if (href === 'index.html' || href === 'index.php' || href === '/' || href === '404.html' || href.includes('.pdf') || href.includes('assets/')) {
+        return;
+      }
+      // External websites (accreditations, social links, google maps)
+      if (href.startsWith('http') && !href.includes('drdantegonzales.com')) {
+        return;
+      }
+      // Route all placeholder / inner subpage links to the creative 404 page
+      e.preventDefault();
+      window.location.href = '404.html';
+    });
+  })();
 })();

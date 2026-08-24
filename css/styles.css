@@ -1920,7 +1920,120 @@ html:not(.js) .carousel__controls { display: none; }
   html:not(.js) .nav__drawer-foot { display: grid; }
 }
 
-/* ------------------------------------------------------------------ 27. PRINT */
+/* ------------------------------------------------------------------ 28. 404 ERROR PAGE */
+.error-hero {
+  min-height: 85vh;
+  position: relative;
+  padding-top: calc(82px + clamp(2.5rem, 2rem + 3vw, 5rem));
+  padding-bottom: clamp(4rem, 3rem + 3vw, 6rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.error-hero__wash {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(1000px 520px at 50% 15%, rgba(243, 218, 103, .28), transparent 70%),
+    radial-gradient(750px 500px at 80% 80%, rgba(24, 154, 214, .09), transparent 65%),
+    linear-gradient(180deg, var(--ivory) 0%, var(--paper) 100%);
+}
+.error-hero__inner {
+  width: 100%;
+  max-width: 820px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.error-hero__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .4rem 1.1rem;
+  border-radius: var(--r-pill);
+  background: var(--brand-50);
+  border: 1px solid var(--brand-200);
+  color: var(--brand-800);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  margin-bottom: var(--s-5);
+}
+.error-hero__code {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 3.5rem + 8vw, 10.5rem);
+  font-weight: 600;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--brand-900) 25%, var(--brand-600) 65%, var(--sun-500) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--s-3);
+}
+.error-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 1.4rem + 2.5vw, 3.6rem);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  color: var(--ink);
+  margin-bottom: var(--s-4);
+}
+.error-hero__desc {
+  font-size: clamp(1.05rem, 1rem + .2vw, 1.22rem);
+  color: var(--ink-2);
+  line-height: 1.6;
+  max-width: 580px;
+  margin-inline: auto;
+  margin-bottom: var(--s-7);
+}
+.error-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-4);
+  margin-bottom: var(--s-8);
+}
+.error-quicklinks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--s-4);
+  margin-top: var(--s-7);
+  text-align: left;
+}
+.error-card {
+  padding: 1.2rem 1.35rem;
+  border-radius: var(--r-md);
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--sh-sm);
+  transition: transform var(--t-fast) var(--e-out), border-color var(--t-fast) var(--e-out), box-shadow var(--t-fast) var(--e-out);
+  display: block;
+}
+.error-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-200);
+  box-shadow: var(--sh-md);
+  background: var(--brand-50);
+}
+.error-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .25rem;
+}
+.error-card__desc {
+  font-size: var(--fs-xs);
+  color: var(--ink-3);
+  line-height: 1.4;
+}
+
+/* ------------------------------------------------------------------ 29. PRINT */
 @media print {
   .header, .nav-scrim, .to-top, .video__play, .carousel__controls,
   .quiz__media, .ba__range, .ba__handle { display: none !important; }
