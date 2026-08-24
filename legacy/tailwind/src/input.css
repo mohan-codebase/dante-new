@@ -200,18 +200,14 @@
 .scroll-progress.is-active { opacity: 1; box-shadow: 0 1px 8px -1px rgb(248 159 60 / .5); }
 
 /* ===============================================================
-   FLOATING HEADER
+   STICKY HEADER
+   Pinned for the whole scroll; only the pill treatment changes.
    =============================================================== */
 .site-header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 40;
   height: 4.75rem;
-  will-change: transform, top;
-  transition: transform .4s cubic-bezier(.4, 0, .2, 1), top .4s cubic-bezier(.4, 0, .2, 1);
 }
 @media (min-width: 640px) { .site-header { height: 5rem; } }
-@media (min-width: 1024px) {
-  .site-header { top: 0; }
-}
 
 /* Full-bleed white backdrop removed so the header is completely
    transparent over the hero banner at rest. The frosted pill
@@ -221,6 +217,12 @@
 }
 
 /* Desktop header at rest (transparent over the dark banner) */
+.header-logo--light { display: block; }
+.header-logo--dark  { display: none; }
+
+.site-header.is-floating .header-logo--light { display: none; }
+.site-header.is-floating .header-logo--dark  { display: block; }
+
 .site-header:not(.is-floating) .nav-link {
   color: #ffffff;
   transition: color 0.15s ease;
@@ -275,43 +277,52 @@
 .site-header__shell {
   position: relative; z-index: 1;
   height: 100%;
-  margin-inline: auto; width: 100%; max-width: 80rem;
+  margin-inline: auto; width: 100%;
+  /* Fluid at rest: logo hard left, CTA hard right, nothing capping it. */
+  max-width: 100vw;
   padding-inline: 1.25rem;
-  transition: padding .4s cubic-bezier(.4, 0, .2, 1);
+  /* Both ends of the max-width are lengths (100vw, then 80rem), so the
+     browser can interpolate the reel-in rather than snapping. Slightly
+     slower than the colour fade — the width is the movement you watch. */
+  transition: max-width .55s cubic-bezier(.4, 0, .2, 1),
+              padding .55s cubic-bezier(.4, 0, .2, 1);
 }
 @media (min-width: 640px) { .site-header__shell { padding-inline: 1.5rem; } }
 @media (min-width: 1024px) { .site-header__shell { padding-inline: 2rem; } }
-.site-header.is-floating .site-header__shell { padding-block: .5rem; }
+
+/* Scrolled: reel in to the 80rem container. The extra inline padding is
+   what sells the shrink below 1280px, where 80rem is wider than the
+   viewport and the max-width alone would do nothing visible. */
+.site-header.is-floating .site-header__shell {
+  max-width: 80rem;
+  padding-block: .5rem;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 640px) { .site-header.is-floating .site-header__shell { padding-inline: 2.25rem; } }
+@media (min-width: 1024px) { .site-header.is-floating .site-header__shell { padding-inline: 3rem; } }
 
 .site-header__bar {
   position: relative;
   height: 100%;
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding-inline: 0;
-  border-radius: 0;
+  border-radius: 9999px;
   background: transparent;
   box-shadow: 0 0 0 0 rgb(35 35 35 / 0);
   transition: border-radius .4s cubic-bezier(.4, 0, .2, 1),
               background-color .4s ease,
               box-shadow .4s ease,
-              padding .4s cubic-bezier(.4, 0, .2, 1),
-              backdrop-filter .4s ease;
+              padding .4s cubic-bezier(.4, 0, .2, 1);
 }
+/* Scrolled: a solid white pill. No blur — the bar reads as an opaque
+   object sitting above the page, and the nav ink keeps the same
+   contrast no matter which section is passing underneath. */
 .site-header.is-floating .site-header__bar {
-  padding-inline: 1rem;
-  border-radius: 1.25rem;
-  background: rgb(255 255 255 / .82);
+  padding-inline: 1.25rem;
+  border-radius: 9999px;
+  background: #ffffff;
   box-shadow: var(--shadow-lift), inset 0 0 0 1px rgb(35 35 35 / .06);
-  backdrop-filter: blur(16px) saturate(180%);
-  -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
-@supports not (backdrop-filter: blur(1px)) {
-  .site-header.is-floating .site-header__bar { background: rgb(255 255 255 / .97); }
-}
-
-/* Retreats on scroll-down, returns on scroll-up. Suppressed whenever the
-   mobile panel is open or focus is inside the header. */
-.site-header.is-hidden { transform: translate3d(0, calc(-100% - 1rem), 0); }
 
 
 .nav-link { position: relative; z-index: 1; }
@@ -327,7 +338,9 @@
 /* Mobile panel — a floating card that echoes the pill, not a full-bleed drawer. */
 .nav-panel {
   position: absolute; top: 100%; inset-inline: 0;
-  margin-inline: auto; width: 100%; max-width: 80rem;
+  margin-inline: auto; width: 100%;
+  /* Fluid at rest: logo hard left, CTA hard right, nothing capping it. */
+  max-width: 100vw;
   padding-inline: 1.25rem;
 }
 @media (min-width: 640px) { .nav-panel { padding-inline: 1.5rem; } }
@@ -359,7 +372,266 @@
 
 /* ===============================================================
    FOOTER + BACK TO TOP
+
+   A floating footer. The <footer> itself is only the dark ground; the
+   content rides on a raised rounded panel inset from every edge, with an
+   oversized wordmark bleeding off the bottom behind it. The panel needs
+   to sit on a *darker* ground than itself to read as lifted, which is
+   why the ground is ink-950 and the panel is ink-850.
    =============================================================== */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  color: rgb(255 255 255 / .70);
+  background:
+    radial-gradient(48rem 30rem at 12% 6%, rgb(248 159 60 / .07), transparent 62%),
+    var(--color-ink-950);
+  padding-block: 3.5rem 2rem;
+}
+@media (min-width: 640px) { .site-footer { padding-block: 4.5rem 2.5rem; } }
+@media (min-width: 1024px) { .site-footer { padding-block: 6rem 3rem; } }
+
+.footer-panel {
+  position: relative;
+  z-index: 1;
+  border-radius: 1.75rem;
+  padding: 2rem 1.5rem;
+  background:
+    radial-gradient(52rem 30rem at 82% 4%, rgb(248 159 60 / .13), transparent 58%),
+    linear-gradient(168deg, var(--color-ink-850) 0%, #191919 100%);
+  box-shadow:
+    0 2px 4px rgb(0 0 0 / .3),
+    0 24px 48px -16px rgb(0 0 0 / .55),
+    0 48px 96px -32px rgb(0 0 0 / .6),
+    inset 0 0 0 1px rgb(255 255 255 / .07);
+}
+@media (min-width: 640px) {
+  .footer-panel { border-radius: 2.25rem; padding: 3rem 2.5rem; }
+}
+@media (min-width: 1024px) {
+  .footer-panel { border-radius: 2.75rem; padding: 4rem 3.5rem; }
+}
+
+/* Lit top edge — the cue that sells "raised" more cheaply than any
+   amount of extra shadow. */
+.footer-panel::before {
+  content: ""; position: absolute; inset-inline: 12%; top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / .28), transparent);
+  pointer-events: none;
+}
+
+.footer-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; } }
+@media (min-width: 1024px) { .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 3rem; } }
+
+/* Column heading with a short brand rule beneath — enough to separate
+   the nav columns without a full divider between them. */
+.footer-heading {
+  position: relative;
+  padding-bottom: .875rem;
+  font-family: var(--font-display);
+  font-size: .8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  color: #ffffff;
+}
+.footer-heading::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  height: 2px; width: 1.75rem; border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-brand-500), transparent);
+}
+
+.footer-list {
+  margin-top: 1.25rem;
+  display: flex; flex-direction: column; gap: .625rem;
+  font-size: .875rem;
+}
+
+/* Rating strip — real numbers from the practice's structured data. */
+.footer-rating {
+  margin-top: 1.5rem;
+  display: inline-flex; align-items: center; gap: .625rem;
+  padding: .5rem .875rem .5rem .75rem;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / .05);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / .09);
+}
+.footer-rating__stars { display: inline-flex; gap: 1px; color: var(--color-brand-500); }
+.footer-rating__text { font-size: .75rem; color: rgb(255 255 255 / .65); }
+.footer-rating__text strong { color: #ffffff; font-family: var(--font-display); font-weight: 700; }
+
+.footer-social {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.5rem; height: 2.5rem;
+  border-radius: 9999px;
+  color: #ffffff;
+  background: rgb(255 255 255 / .07);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / .10);
+  transition: transform .25s cubic-bezier(.16, 1, .3, 1), background-color .25s ease, color .25s ease;
+}
+.footer-social:hover {
+  transform: translateY(-3px);
+  background: var(--color-brand-500);
+  color: var(--color-ink-900);
+}
+
+/* ---- Offices row ---- */
+.footer-offices {
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgb(255 255 255 / .08);
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) { .footer-offices { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) {
+  .footer-offices { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin-top: 3.5rem; padding-top: 3.5rem; }
+}
+
+.footer-office {
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  background: rgb(255 255 255 / .035);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / .07);
+  transition: transform .35s cubic-bezier(.16, 1, .3, 1), background-color .35s ease, box-shadow .35s ease;
+}
+.footer-office:hover {
+  transform: translateY(-4px);
+  background: rgb(255 255 255 / .06);
+  box-shadow: inset 0 0 0 1px rgb(248 159 60 / .35), 0 18px 36px -18px rgb(0 0 0 / .7);
+}
+.footer-office__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+.footer-office__name {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: #ffffff; letter-spacing: -.01em;
+}
+.footer-office__more {
+  display: inline-flex; align-items: center; gap: .375rem;
+  font-family: var(--font-display); font-size: .6875rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .1em;
+  color: var(--color-brand-400);
+  transition: gap .25s ease, color .25s ease;
+}
+.footer-office__more:hover { gap: .625rem; color: var(--color-brand-300); }
+.footer-office__address {
+  margin-top: .625rem;
+  font-style: normal; font-size: .875rem; line-height: 1.6;
+  color: rgb(255 255 255 / .6);
+}
+.footer-office__contact { margin-top: 1rem; display: flex; flex-direction: column; gap: .375rem; }
+.footer-phone {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--font-display); font-size: 1rem; font-weight: 600;
+  color: #ffffff;
+  transition: color .25s ease;
+}
+.footer-phone svg { color: var(--color-brand-500); flex: none; }
+.footer-phone:hover { color: var(--color-brand-400); }
+.footer-mail {
+  font-size: .8125rem; color: rgb(255 255 255 / .55);
+  word-break: break-word;
+  transition: color .25s ease;
+}
+.footer-mail:hover { color: var(--color-brand-400); }
+
+/* Hours as a definition list: the day is the term, the span is the
+   value, and a dotted leader ties the two across the gap. */
+.footer-hours {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgb(255 255 255 / .10);
+  display: flex; flex-direction: column; gap: .4375rem;
+  font-size: .8125rem;
+}
+.footer-hours > div { display: flex; align-items: baseline; gap: .5rem; }
+.footer-hours dt { flex: none; color: rgb(255 255 255 / .55); }
+.footer-hours > div::after {
+  content: ""; order: 1; flex: 1 1 auto;
+  height: 0; margin-bottom: .25rem;
+  border-bottom: 1px dotted rgb(255 255 255 / .14);
+}
+.footer-hours dd { order: 2; flex: none; color: rgb(255 255 255 / .85); font-variant-numeric: tabular-nums; }
+.footer-hours dd.is-closed { color: rgb(255 255 255 / .4); }
+
+/* ---- Conversion card in the third slot ---- */
+.footer-cta {
+  display: flex; flex-direction: column;
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.5rem;
+  background:
+    radial-gradient(28rem 18rem at 80% 0%, rgb(248 159 60 / .22), transparent 62%),
+    linear-gradient(160deg, rgb(248 159 60 / .14), rgb(248 159 60 / .04));
+  box-shadow: inset 0 0 0 1px rgb(248 159 60 / .28);
+}
+.footer-cta__eyebrow {
+  font-family: var(--font-display); font-size: .6875rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .16em;
+  color: var(--color-brand-400);
+}
+.footer-cta__title {
+  margin-top: .75rem;
+  font-family: var(--font-display); font-size: 1.125rem; font-weight: 700;
+  line-height: 1.3; letter-spacing: -.01em;
+  color: #ffffff;
+}
+.footer-cta__body {
+  margin-top: .625rem;
+  font-size: .8125rem; line-height: 1.6;
+  color: rgb(255 255 255 / .65);
+}
+.footer-cta .btn-primary { margin-top: auto; }
+.footer-cta__note {
+  margin-top: .75rem;
+  text-align: center;
+  font-size: .6875rem;
+  color: rgb(255 255 255 / .5);
+}
+
+/* ---- Legal bar, on the ground rather than the panel ---- */
+.footer-base {
+  position: relative;
+  z-index: 1;
+  margin-top: 2rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  font-size: .75rem;
+  color: rgb(255 255 255 / .5);
+}
+@media (min-width: 640px) {
+  .footer-base { margin-top: 2.5rem; flex-direction: row; justify-content: space-between; }
+}
+.footer-base__links {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: .5rem 1.5rem;
+}
+
+/* Oversized wordmark. Sits behind the panel and is deliberately clipped
+   by the footer's overflow — a full word centred in the band would read
+   as a heading rather than as a watermark. */
+.footer-wordmark {
+  position: absolute;
+  left: 50%; bottom: -.35em;
+  transform: translateX(-50%);
+  z-index: 0;
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 19vw, 20rem);
+  font-weight: 800;
+  line-height: .8;
+  letter-spacing: -.05em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px rgb(255 255 255 / .07);
+  pointer-events: none;
+  user-select: none;
+}
+@supports not (-webkit-text-stroke: 1px red) {
+  .footer-wordmark { color: rgb(255 255 255 / .035); }
+}
+
 .footer-link {
   position: relative;
   display: inline-block;
@@ -402,8 +674,8 @@
   animation: pl-breathe 2s ease-in-out infinite;
 }
 @keyframes pl-breathe {
-  0%, 100% { filter: brightness(0) invert(1) drop-shadow(0 0 0px transparent); }
-  50% { filter: brightness(0) invert(1) drop-shadow(0 0 20px rgb(248 159 60 / .3)); }
+  0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+  50% { filter: drop-shadow(0 0 20px rgb(248 159 60 / .3)); }
 }
 #preloader .pl-bar span {
   background: linear-gradient(90deg, var(--color-brand-500), var(--color-brand-400), var(--color-brand-500));
@@ -555,3 +827,151 @@
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
+
+/* ===============================================================
+   RUNNING MARQUEE STRIP
+   Minimal ticker ribbon docked below the hero: flat ink ground, a single
+   low amber wash for warmth, bare icons and hairline dot separators.
+   Seamless GPU-accelerated motion with wide edge fades and hover pause.
+   =============================================================== */
+.marquee-strip {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(52rem 9rem at 50% 130%, rgb(248 159 60 / 0.22), transparent 70%),
+    var(--color-brand-50);
+  border-top: 1px solid rgb(232 135 28 / 0.16);
+  border-bottom: 1px solid rgb(232 135 28 / 0.16);
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent, black 4rem, black calc(100% - 4rem), transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 4rem, black calc(100% - 4rem), transparent);
+}
+
+@media (min-width: 640px) {
+  .marquee-mask {
+    mask-image: linear-gradient(to right, transparent, black 8rem, black calc(100% - 8rem), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8rem, black calc(100% - 8rem), transparent);
+  }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 46s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Item — no card, no chrome. Colour alone carries the hover. */
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-inline: 1.375rem;
+  white-space: nowrap;
+  color: rgb(61 61 61 / 0.85);
+  transition: color 0.25s ease;
+}
+@media (min-width: 640px) {
+  .marquee-item {
+    gap: 0.625rem;
+    padding-inline: 2rem;
+  }
+}
+.marquee-item:hover {
+  color: var(--color-ink-900);
+}
+
+/* Label — small caps ticker type. */
+.marquee-label {
+  font-family: var(--font-display);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+}
+@media (min-width: 640px) {
+  .marquee-label {
+    font-size: 0.75rem;
+  }
+}
+
+/* Bare stroke icon: the box that used to sit behind it added weight
+   without adding meaning. */
+.marquee-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-600);
+  opacity: 0.9;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.marquee-item:hover .marquee-icon-box {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Tag reads as a quiet amber caption rather than a pill. */
+.marquee-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-brand-700);
+  opacity: 0.85;
+  transition: opacity 0.25s ease;
+}
+.marquee-item:hover .marquee-tag {
+  opacity: 1;
+}
+
+/* Separator: a 3px dot instead of a glyph. */
+.marquee-divider {
+  display: block;
+  flex: none;
+  align-self: center;
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: var(--color-brand-600);
+  opacity: 0.4;
+  font-size: 0;
+  line-height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+/* ===============================================================
+   RECAPTCHA BADGE
+   Google permits hiding the floating badge when the official privacy
+   and terms notice is displayed in the form flow (see #consultation).
+   =============================================================== */
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+
+

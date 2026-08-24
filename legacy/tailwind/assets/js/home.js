@@ -11,17 +11,15 @@
   };
 
   /* ================================================================
-     FLOATING HEADER
-     Three states, all driven from one rAF-throttled scroll read:
-       at rest   — full-bleed white bar, sits on the page
+     STICKY HEADER
+     Two states, both driven from one rAF-throttled scroll read:
+       at rest   — transparent, sitting over the hero banner
        floating  — detached pill with blur and shadow (past 24px)
-       hidden    — retreats on scroll-down, returns on scroll-up
 
-     Hiding is gated behind a 420px threshold so it never flickers
-     during the small scrolls people make while reading, and it is
-     suppressed whenever the mobile menu is open or focus is inside
-     the header — a keyboard user must never lose the nav they are
-     tabbing through.
+     The bar stays pinned for the whole scroll. It used to retreat on
+     scroll-down and return on scroll-up, which meant the nav and the
+     "Book" call to action kept disappearing mid-page; holding the
+     4.75rem is worth having them always in reach.
      ================================================================ */
   var header = document.querySelector('[data-header]');
   var navPanel = document.querySelector('[data-nav-panel]');
@@ -29,28 +27,10 @@
 
   if (header) {
     var FLOAT_AT = 24;
-    var HIDE_AFTER = 420;
-    var lastY = window.scrollY;
     var ticking = false;
 
     var readScroll = function () {
-      var y = window.scrollY;
-      var delta = y - lastY;
-
-      header.classList.toggle('is-floating', y > FLOAT_AT);
-
-      var menuOpen = navPanel && !navPanel.hasAttribute('hidden');
-      var focusInside = header.contains(document.activeElement);
-
-      if (menuOpen || focusInside || y < HIDE_AFTER) {
-        header.classList.remove('is-hidden');
-      } else if (delta > 6) {
-        header.classList.add('is-hidden');
-      } else if (delta < -6) {
-        header.classList.remove('is-hidden');
-      }
-
-      lastY = y;
+      header.classList.toggle('is-floating', window.scrollY > FLOAT_AT);
       ticking = false;
     };
 
@@ -62,9 +42,6 @@
 
     readScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    /* A link focused by keyboard below the fold must not stay behind a
-       hidden header. */
-    header.addEventListener('focusin', function () { header.classList.remove('is-hidden'); });
   }
 
   /* ================================================================

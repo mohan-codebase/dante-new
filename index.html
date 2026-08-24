@@ -1,983 +1,1396 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Orthodontist in Dublin &amp; Tracy, CA | Dante Gonzales Orthodontics</title>
-<meta name="description" content="Board-certified orthodontist in Dublin &amp; Tracy, CA. Braces, Invisalign and sleep apnea treatment since 1998 — 12,000+ smiles, same-day starts and the Gonzales Lifetime Guarantee.">
-<link rel="canonical" href="https://drdantegonzales.com/">
+<title>Orthodontist in Dublin &amp; Tracy, CA | Braces &amp; Invisalign | Dante Gonzales Orthodontics</title>
+<meta name="description" content="Dante Gonzales Orthodontics of Dublin and Tracy, CA offers expert care with braces and Invisalign. Over 12,000 smiles transformed since 1998, same-day starts and the Gonzales Lifetime Guarantee.">
+<link rel="canonical" href="https://www.drdantegonzales.com/">
+<meta name="theme-color" content="#17679d">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dante Gonzales Orthodontics">
 <meta property="og:title" content="Orthodontist in Dublin &amp; Tracy, CA | Dante Gonzales Orthodontics">
-<meta property="og:description" content="Board-certified orthodontist in Dublin &amp; Tracy, CA. Braces, Invisalign and sleep apnea treatment since 1998 — 12,000+ smiles transformed.">
-<meta property="og:url" content="https://drdantegonzales.com/">
-<meta property="og:image" content="https://drdantegonzales.com/assets/img/banner/slide1.jpg">
+<meta property="og:description" content="Expert braces and Invisalign care in Dublin and Tracy, California. Over 12,000 smiles transformed since 1998.">
+<meta property="og:url" content="https://www.drdantegonzales.com/">
+<meta property="og:image" content="https://www.drdantegonzales.com/assets/img/photos/hero-smile.jpg">
+<meta property="og:image:alt" content="Patient of Dante Gonzales Orthodontics laughing with a confident smile">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Orthodontist in Dublin &amp; Tracy, CA | Dante Gonzales Orthodontics">
+<meta name="twitter:description" content="Expert braces and Invisalign care in Dublin and Tracy, California. Over 12,000 smiles transformed since 1998.">
+<meta name="twitter:image" content="https://www.drdantegonzales.com/assets/img/photos/hero-smile.jpg">
 
-<link rel="icon" href="assets/img/favicon.png">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/favicon.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;600;700;800&display=swap">
-<link rel="stylesheet" href="dist/home.css">
-
-<!-- Intro-critical CSS, inlined so the preloader paints on the very first
-     frame instead of flashing while dist/home.css is still in flight.
-     Without JS, and for reduced motion, the panel is never rendered. -->
-<style>
-  html:not(.js) #preloader { display: none; }
-  #preloader {
-    position: fixed; inset: 0; z-index: 90;
-    display: flex; align-items: center; justify-content: center;
-    background: #232323;
-  }
-  #preloader .pl-inner { display: flex; flex-direction: column; align-items: center; gap: 1.75rem; }
-  #preloader .pl-logo { width: 15rem; max-width: 68vw; height: auto; filter: brightness(0) invert(1); }
-  .js:not(.hero-ready) [data-hero-intro] { opacity: 0; }
-  @media (prefers-reduced-motion: reduce) {
-    #preloader { display: none; }
-    .js:not(.hero-ready) [data-hero-intro] { opacity: 1; }
-  }
-</style>
-
-<!-- Failsafe. If the motion bundle never boots — blocked, offline, a parse
-     error — reveal everything rather than stranding content invisible. -->
-<script>
-  setTimeout(function () {
-    if (window.__motionInit) return;
-    document.documentElement.classList.add('motion-ready', 'hero-ready');
-    var p = document.getElementById('preloader');
-    if (p) p.remove();
-  }, 2500);
-</script>
-
-<!-- Google Analytics 4 — carried over from the existing site -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VTMEXYM6YR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-VTMEXYM6YR');
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    { "@type": "Organization", "@id": "https://drdantegonzales.com/#organization",
-      "name": "Dante Gonzales Orthodontics", "url": "https://drdantegonzales.com/",
-      "logo": "https://drdantegonzales.com/assets/img/logo.png",
-      "foundingDate": "1998-09",
-      "sameAs": ["https://www.facebook.com/GonzalesOrtho","https://www.instagram.com/drdantegonzales/"] },
-    { "@type": "WebSite", "@id": "https://drdantegonzales.com/#website",
-      "url": "https://drdantegonzales.com/", "name": "Dante Gonzales Orthodontics",
-      "publisher": { "@id": "https://drdantegonzales.com/#organization" } },
-    { "@type": "Person", "@id": "https://drdantegonzales.com/#doctor",
-      "name": "Dr. Dante Gonzales", "honorificSuffix": "DMD, MSD", "jobTitle": "Orthodontist",
-      "alumniOf": ["University of California, Los Angeles","Tufts University School of Dental Medicine","University of the Pacific"],
-      "url": "https://drdantegonzales.com/about.php",
-      "worksFor": [{ "@id": "https://drdantegonzales.com/#dublin" }, { "@id": "https://drdantegonzales.com/#tracy" }] },
-    { "@type": "Dentist", "@id": "https://drdantegonzales.com/#dublin",
-      "name": "Dante Gonzales Orthodontics — Dublin", "url": "https://drdantegonzales.com/dublin-ca-orthodontic-office-contact.php",
-      "telephone": "+1-925-828-2244", "email": "info@drdantegonzales.com",
-      "image": "https://drdantegonzales.com/assets/img/logo.png",
-      "address": { "@type": "PostalAddress", "streetAddress": "4532 Dublin Blvd", "addressLocality": "Dublin",
-        "addressRegion": "CA", "postalCode": "94568", "addressCountry": "US" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "484" },
-      "openingHoursSpecification": [
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday",    "opens": "08:30", "closes": "18:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday",   "opens": "07:30", "closes": "17:30" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "07:30", "closes": "17:30" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday",  "opens": "08:30", "closes": "18:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday",    "opens": "08:00", "closes": "17:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday",  "opens": "08:15", "closes": "13:30" }
-      ],
-      "parentOrganization": { "@id": "https://drdantegonzales.com/#organization" } },
-    { "@type": "Dentist", "@id": "https://drdantegonzales.com/#tracy",
-      "name": "Dante Gonzales Orthodontics — Tracy", "url": "https://drdantegonzales.com/tracy-ca-orthodontic-office-contact.php",
-      "telephone": "+1-209-835-0977", "email": "tracyInfo@drdantegonzales.com",
-      "image": "https://drdantegonzales.com/assets/img/logo.png",
-      "address": { "@type": "PostalAddress", "streetAddress": "1417 N Tracy Blvd", "addressLocality": "Tracy",
-        "addressRegion": "CA", "postalCode": "95376", "addressCountry": "US" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "484" },
-      "openingHoursSpecification": [
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday",    "opens": "08:30", "closes": "17:30" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday",   "opens": "08:00", "closes": "17:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "08:00", "closes": "17:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday",  "opens": "08:00", "closes": "17:00" },
-        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday",    "opens": "08:00", "closes": "16:00" }
-      ],
-      "parentOrganization": { "@id": "https://drdantegonzales.com/#organization" } }
-  ]
-}
-</script>
+<link rel="preload" as="image" href="assets/img/photos/hero-smile.webp" imagesrcset="assets/img/photos/hero-smile-520.webp 520w, assets/img/photos/hero-smile.webp 750w" imagesizes="(max-width: 900px) 92vw, 460px" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.classList.add('js');</script>
 </head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
-<body class="bg-white">
+<!-- ============================================================ UTILITY BAR -->
+<div class="utility" id="utility">
+  <div class="shell utility__inner">
+    <ul class="utility__list utility__list--mail">
+      <li>
+        <a href="mailto:info@drdantegonzales.com">
+          <svg class="ico" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="m4 7 8 5.5L20 7"/></svg>
+          info@drdantegonzales.com
+        </a>
+      </li>
+      <li>
+        <a href="mailto:TracyInfo@drdantegonzales.com">
+          <svg class="ico" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="m4 7 8 5.5L20 7"/></svg>
+          TracyInfo@drdantegonzales.com
+        </a>
+      </li>
+    </ul>
 
-<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink-900 focus:px-5 focus:py-3 focus:text-white">Skip to content</a>
-
-<!-- Branded intro. First view of a session only; dismissed by the first
-     scroll, tap or keypress; capped at 1.1s regardless of what is loading. -->
-<div id="preloader" data-preloader aria-hidden="true">
-  <div class="pl-inner">
-    <img src="assets/img/logo.png" alt="" width="387" height="97" class="pl-logo">
-    <div class="pl-bar"><span data-preloader-bar></span></div>
+    <ul class="utility__list utility__list--tel">
+      <li>
+        <a href="tel:925-828-2244">
+          <svg class="ico" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.4a12.5 12.5 0 0 0 6.1 6.1l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2Z"/></svg>
+          <span class="utility__city">Dublin</span> 925-828-2244
+        </a>
+      </li>
+      <li>
+        <a href="tel:209-835-0977">
+          <svg class="ico" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.4a12.5 12.5 0 0 0 6.1 6.1l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2Z"/></svg>
+          <span class="utility__city">Tracy</span> 209-835-0977
+        </a>
+      </li>
+      <li class="utility__sep" aria-hidden="true"></li>
+      <li>
+        <a href="#appointment" class="utility__link">
+          <svg class="ico" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h7A2.5 2.5 0 0 1 16 8.5v7a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 4 15.5v-7Z"/><path d="m16 10.5 4-2.5v8l-4-2.5"/></svg>
+          Online Video Appointment
+        </a>
+      </li>
+      <li><a href="#appointment" class="utility__cta">Request Your Consultation</a></li>
+    </ul>
   </div>
 </div>
 
-<!-- Reading progress. scaleX only, so it costs nothing per frame. -->
-<div class="scroll-progress" data-scroll-progress aria-hidden="true"></div>
-
-
-<!-- ============================= HEADER ============================= -->
-<header data-header class="site-header">
-  <div class="site-header__shell">
-    <div class="site-header__bar">
-    <a href="index.php" class="flex-none">
-      <img src="assets/img/logo.png" alt="Dante Gonzales Orthodontics — home" class="h-10 w-auto sm:h-11" width="387" height="97">
+<!-- ================================================================= HEADER -->
+<header class="header" id="header">
+  <div class="shell header__inner">
+    <a class="header__brand" href="index.php" aria-label="Dante Gonzales Orthodontics — home">
+      <img src="assets/img/logo.png" alt="Dante Gonzales Orthodontics, DMD MSD &amp; Associates, Specialists in Orthodontics" width="387" height="97">
     </a>
 
-    <nav aria-label="Main" class="hidden xl:block">
-      <div data-nav-list class="relative">
-      <ul class="flex items-center gap-1 font-display text-[13.5px] font-semibold text-ink-900">
-        <li><a class="nav-link rounded-full px-3 py-2 text-brand-600" href="index.php" aria-current="page">Home</a></li>
+    <nav class="nav" id="nav" aria-label="Main">
+      <button class="nav__close" type="button" data-nav-close aria-label="Close menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg>
+      </button>
 
-        <li class="group relative">
-          <a class="nav-link flex items-center gap-1 rounded-full px-3 py-2 transition hover:text-brand-600" href="about.php">About
-            <svg class="size-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </a>
-          <ul class="nav-dropdown invisible absolute left-0 top-full w-64 translate-y-1 rounded-2xl bg-white p-2 opacity-0 shadow-lift ring-1 ring-ink-900/5 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="about.php">Meet Our Founder</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="meet-our-orthodontists-in-dublin-ca.php">Meet Our Orthodontists</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="meet-our-orthodontics-team.php">Dublin Orthodontic Team</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="meet-the-tracy-orthodontics-team.php">Tracy Orthodontics Team</a></li>
-          </ul>
+      <ul class="nav__list">
+        <li class="nav__item"><a class="nav__link" href="index.php" aria-current="page">Home</a></li>
+
+        <li class="nav__item nav__item--has-menu">
+          <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-about">
+            About Us <svg class="nav__chev" width="11" height="7" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+          </button>
+          <div class="mega" id="menu-about" data-menu>
+            <div class="mega__inner mega__inner--split">
+              <div class="mega__col">
+                <p class="mega__label">Our practice</p>
+                <ul class="mega__list">
+                  <li><a href="dublin-california-ca-orthodontics-office.php"><span>About Us</span><em>Dublin &amp; Tracy orthodontic offices</em></a></li>
+                  <li><a href="about.php"><span>Meet Our Founder</span><em>Dr. Dante A. Gonzales, DMD, MSD</em></a></li>
+                  <li><a href="meet-our-orthodontists-in-dublin-ca.php"><span>Meet Our Orthodontists</span><em>Board-certified specialist care</em></a></li>
+                </ul>
+              </div>
+              <div class="mega__col">
+                <p class="mega__label">Our teams</p>
+                <ul class="mega__list">
+                  <li><a href="meet-our-orthodontics-team.php"><span>Meet Our Dublin Orthodontic Team</span></a></li>
+                  <li><a href="meet-the-tracy-orthodontics-team.php"><span>Meet Our Tracy Orthodontics Team</span></a></li>
+                </ul>
+              </div>
+              <a class="mega__feature" href="about.php">
+                <img src="assets/img/doctor/dr-dante-gonzales.webp" alt="Dr. Dante A. Gonzales" width="400" height="600" loading="lazy" decoding="async">
+                <span class="mega__feature-body">
+                  <em>Meet Dr. Gonzales</em>
+                  <strong>Over 12,000 smiles transformed since 1998</strong>
+                </span>
+              </a>
+            </div>
+          </div>
         </li>
 
-        <li class="group relative">
-          <a class="nav-link flex items-center gap-1 rounded-full px-3 py-2 transition hover:text-brand-600" href="dublin-california-ca-braces-orthodontics-and-invisalign.php">Treatments
-            <svg class="size-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </a>
-          <ul class="nav-dropdown invisible absolute left-0 top-full w-72 translate-y-1 rounded-2xl bg-white p-2 opacity-0 shadow-lift ring-1 ring-ink-900/5 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="invisalign.php">Invisalign</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="elite-invisalign-and-invisalign-teen-orthodontist.php">Invisalign Teen</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="braces.php">Braces</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="braces-in-dublin-ca.php">Braces in Dublin, CA</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="braces-in-tracy-ca.php">Braces in Tracy, CA</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="accelerated-treatment.php">Accelerated Treatment</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="surgical-orthodontist.php">Surgical Orthodontics</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="sleep-apnea-dentist-in-dublin.php">Sleep Apnea — Dublin</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="sleep-apnea-treatment-tracy.php">Sleep Apnea — Tracy</a></li>
-          </ul>
+        <li class="nav__item nav__item--has-menu">
+          <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-treatments">
+            Braces &amp; Invisalign <svg class="nav__chev" width="11" height="7" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+          </button>
+          <div class="mega" id="menu-treatments" data-menu>
+            <div class="mega__inner mega__inner--split">
+              <div class="mega__col">
+                <p class="mega__label">Straighten your smile</p>
+                <ul class="mega__list">
+                  <li><a href="dublin-california-ca-braces-orthodontics-and-invisalign.php"><span>Braces &amp; Invisalign</span><em>Every treatment we offer</em></a></li>
+                  <li><a href="invisalign.php"><span>Invisalign</span><em>Clear, removable aligners</em></a></li>
+                  <li><a href="braces.php"><span>Braces</span><em>Top of the line brackets</em></a></li>
+                  <li><a href="elite-invisalign-and-invisalign-teen-orthodontist.php"><span>Invisalign Teen</span></a></li>
+                  <li><a href="surgical-orthodontist.php"><span>Surgical Orthodontics</span></a></li>
+                </ul>
+              </div>
+              <div class="mega__col">
+                <p class="mega__label">By location</p>
+                <ul class="mega__list">
+                  <li><a href="braces-in-dublin-ca.php"><span>Braces in Dublin, CA</span></a></li>
+                  <li><a href="braces-in-tracy-ca.php"><span>Braces in Tracy, CA</span></a></li>
+                </ul>
+                <p class="mega__label">Sleep apnea</p>
+                <ul class="mega__list">
+                  <li><a href="sleep-apnea-specialist-dublin-california-ca.php"><span>Sleep Apnea Treatment</span></a></li>
+                  <li><a href="sleep-apnea-dentist-in-dublin.php"><span>Sleep Apnea Dentist in Dublin</span></a></li>
+                  <li><a href="sleep-apnea-treatment-tracy.php"><span>Sleep Apnea Dentist in Tracy</span></a></li>
+                </ul>
+              </div>
+              <a class="mega__feature" href="invisalign.php">
+                <img src="assets/img/photos/braces-care-760.webp" alt="Orthodontic patient having her braces adjusted" width="760" height="507" loading="lazy" decoding="async">
+                <span class="mega__feature-body">
+                  <em>Diamond Invisalign Provider</em>
+                  <strong>Clear aligners in Dublin &amp; Tracy, CA</strong>
+                </span>
+              </a>
+            </div>
+          </div>
         </li>
 
-        <li><a class="nav-link rounded-full px-3 py-2 transition hover:text-brand-600" href="best-dublin-ca-orthodontics-office-and-orthodontist.php">Why Us</a></li>
-        <li><a class="nav-link rounded-full px-3 py-2 transition hover:text-brand-600" href="before-after.php">Before &amp; After</a></li>
-        <li><a class="nav-link rounded-full px-3 py-2 transition hover:text-brand-600" href="blog.php">Blog</a></li>
+        <li class="nav__item nav__item--has-menu">
+          <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-why">
+            Why Dante Gonzales? <svg class="nav__chev" width="11" height="7" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+          </button>
+          <div class="mega" id="menu-why" data-menu>
+            <div class="mega__inner mega__inner--wide">
+              <div class="mega__col">
+                <p class="mega__label">Experience &amp; care</p>
+                <ul class="mega__list mega__list--tight">
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php"><span>Why Dante Gonzales Orthodontics?</span></a></li>
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#extensive-experience"><span>Extensive Experience</span></a></li>
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#advanced-technology"><span>Advanced Technology</span></a></li>
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#gonzales-lifetime"><span>Gonzales Lifetime Guarantee</span></a></li>
+                </ul>
+              </div>
+              <div class="mega__col">
+                <p class="mega__label">Comfort &amp; safety</p>
+                <ul class="mega__list mega__list--tight">
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#sterilization-standards"><span>Hospital Grade Sterilization Standards</span></a></li>
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#oral-hygiene"><span>Oral Hygiene Certificate</span></a></li>
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#same-day-starts"><span>Same Day Starts</span></a></li>
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#same-day-appointments"><span>Same Day Appointments</span></a></li>
+                </ul>
+              </div>
+              <div class="mega__col">
+                <p class="mega__label">Made for families</p>
+                <ul class="mega__list mega__list--tight">
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#family-discounts"><span>Family Discounts</span></a></li>
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#flexible-hours"><span>Flexible Hours</span></a></li>
+                  <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#flexible-payment"><span>Flexible Payment Options</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
 
-        <li class="group relative">
-          <a class="nav-link flex items-center gap-1 rounded-full px-3 py-2 transition hover:text-brand-600" href="dublin-ca-orthodontic-office-contact.php">Contact
-            <svg class="size-3.5 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-          </a>
-          <ul class="nav-dropdown invisible absolute right-0 top-full w-56 translate-y-1 rounded-2xl bg-white p-2 opacity-0 shadow-lift ring-1 ring-ink-900/5 transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="dublin-ca-orthodontic-office-contact.php">Dublin Office</a></li>
-            <li><a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 transition hover:bg-brand-50 hover:text-brand-700" href="tracy-ca-orthodontic-office-contact.php">Tracy Office</a></li>
-          </ul>
+        <li class="nav__item"><a class="nav__link" href="before-after.php">Before &amp; Afters</a></li>
+
+        <li class="nav__item nav__item--has-menu">
+          <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-resources">
+            Resources <svg class="nav__chev" width="11" height="7" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+          </button>
+          <div class="mega" id="menu-resources" data-menu>
+            <div class="mega__inner">
+              <div class="mega__col">
+                <p class="mega__label">Patient resources</p>
+                <ul class="mega__list">
+                  <li><a href="https://drdantegonzales.com/blog.php"><span>Blogs</span><em>News from the practice</em></a></li>
+                  <li><a href="assets/img/pdf/Teledentistry-Consultation-Dr-Gonzales.pdf"><span>Teledentistry Instructions</span><em>PDF guide</em></a></li>
+                  <li><a href="https://drdantegonzales.com/impression-techniques-in-orthodontics.php"><span>Impression Techniques in Orthodontics</span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav__item nav__item--has-menu">
+          <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-contact">
+            Contact <svg class="nav__chev" width="11" height="7" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+          </button>
+          <div class="mega" id="menu-contact" data-menu>
+            <div class="mega__inner">
+              <div class="mega__col">
+                <p class="mega__label">Two offices, one standard of care</p>
+                <ul class="mega__list">
+                  <li><a href="dublin-ca-orthodontic-office-contact.php"><span>Dublin Orthodontic Office</span><em>4532 Dublin Blvd, Dublin, CA 94568</em></a></li>
+                  <li><a href="tracy-ca-orthodontic-office-contact.php"><span>Tracy Orthodontic Office</span><em>1417 N Tracy Blvd, Tracy, CA 95376</em></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
+
+      <div class="nav__drawer-foot">
+        <a class="btn btn--primary btn--block" href="#appointment">Request Consultation</a>
+        <a class="nav__drawer-link" href="tel:925-828-2244">Dublin — 925-828-2244</a>
+        <a class="nav__drawer-link" href="tel:209-835-0977">Tracy — 209-835-0977</a>
+        <a class="nav__drawer-link" href="mailto:info@drdantegonzales.com">info@drdantegonzales.com</a>
+        <a class="nav__drawer-link" href="mailto:TracyInfo@drdantegonzales.com">TracyInfo@drdantegonzales.com</a>
       </div>
     </nav>
 
-    <div class="flex items-center gap-2">
-      <a href="#consultation" class="btn-primary hidden !px-5 !py-2.5 sm:inline-flex">Book a Free Consult</a>
-      <button data-nav-toggle type="button" aria-expanded="false" aria-controls="mobile-nav"
-              class="inline-flex size-11 items-center justify-center rounded-xl ring-1 ring-ink-900/10 transition hover:bg-mist-100 xl:hidden">
-        <span class="sr-only">Toggle navigation</span>
-        <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    <div class="header__actions">
+      <a class="btn btn--primary btn--sm header__cta" href="#appointment">Request Consultation</a>
+      <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
+        <span></span><span></span><span></span>
       </button>
     </div>
-    </div>
-  </div>
-
-  <!-- Mobile panel — a floating card that echoes the desktop pill -->
-  <div id="mobile-nav" data-nav-panel hidden class="nav-panel xl:hidden">
-    <nav aria-label="Mobile" class="nav-panel__card mt-2 max-h-[70vh] space-y-1 overflow-y-auto p-3 font-display text-sm font-semibold text-ink-900">
-      <a class="block rounded-xl px-4 py-3 hover:bg-mist-100" href="index.php">Home</a>
-      <div>
-        <button data-submenu-toggle type="button" aria-expanded="false" class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-ink-900 hover:bg-mist-100">About
-          <svg class="size-4 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div hidden class="space-y-1 pb-2 pl-4">
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="about.php">Meet Our Founder</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="meet-our-orthodontists-in-dublin-ca.php">Meet Our Orthodontists</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="meet-our-orthodontics-team.php">Dublin Orthodontic Team</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="meet-the-tracy-orthodontics-team.php">Tracy Orthodontics Team</a>
-        </div>
-      </div>
-      <div>
-        <button data-submenu-toggle type="button" aria-expanded="false" class="flex w-full items-center justify-between rounded-xl px-4 py-3 text-ink-900 hover:bg-mist-100">Treatments
-          <svg class="size-4 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-        </button>
-        <div hidden class="space-y-1 pb-2 pl-4">
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="invisalign.php">Invisalign</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="elite-invisalign-and-invisalign-teen-orthodontist.php">Invisalign Teen</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="braces.php">Braces</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="braces-in-dublin-ca.php">Braces in Dublin, CA</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="braces-in-tracy-ca.php">Braces in Tracy, CA</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="accelerated-treatment.php">Accelerated Treatment</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="surgical-orthodontist.php">Surgical Orthodontics</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="sleep-apnea-dentist-in-dublin.php">Sleep Apnea — Dublin</a>
-          <a class="block rounded-xl px-4 py-2.5 font-normal text-ink-700 hover:bg-mist-100" href="sleep-apnea-treatment-tracy.php">Sleep Apnea — Tracy</a>
-        </div>
-      </div>
-      <a class="block rounded-xl px-4 py-3 hover:bg-mist-100" href="best-dublin-ca-orthodontics-office-and-orthodontist.php">Why Us</a>
-      <a class="block rounded-xl px-4 py-3 hover:bg-mist-100" href="before-after.php">Before &amp; After</a>
-      <a class="block rounded-xl px-4 py-3 hover:bg-mist-100" href="blog.php">Blog</a>
-      <a class="block rounded-xl px-4 py-3 hover:bg-mist-100" href="dublin-ca-orthodontic-office-contact.php">Contact — Dublin</a>
-      <a class="block rounded-xl px-4 py-3 hover:bg-mist-100" href="tracy-ca-orthodontic-office-contact.php">Contact — Tracy</a>
-      <div class="grid grid-cols-2 gap-2 pt-3">
-        <a class="btn-outline !py-2.5 !text-xs" href="tel:+19258282244">Call Dublin</a>
-        <a class="btn-outline !py-2.5 !text-xs" href="tel:+12098350977">Call Tracy</a>
-      </div>
-      <a class="btn-primary mt-2 w-full" href="#consultation">Book a Free Consult</a>
-    </nav>
   </div>
 </header>
+<div class="nav-scrim" data-nav-close hidden></div>
 
 <main id="main">
 
-<!-- ============================= HERO ============================= -->
-<section class="relative bg-ink-900">
-  <div data-slider class="slider" aria-roledescription="carousel" aria-label="Practice highlights">
+<!-- =================================================================== HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__wash" aria-hidden="true"></div>
+  <div class="shell hero__inner">
 
-    <div class="slide overflow-hidden" role="group" aria-roledescription="slide" aria-label="1 of 5">
-      <img src="assets/img/banner/slide1.jpg" alt="" width="1500" height="1000" fetchpriority="high" data-hero-img class="absolute inset-0 size-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-r from-ink-900/65 via-ink-900/20 to-transparent"></div>
-      <div class="wrap relative flex min-h-screen items-center py-24">
-        <div class="max-w-2xl">
-          <p data-hero-intro class="eyebrow !text-brand-400">Dublin &amp; Tracy, California</p>
-          <h1 data-hero-intro data-anim-text class="t-display mt-6 font-extrabold text-white">
-            A confident smile,<br>backed for life.
-          </h1>
-          <p data-hero-intro class="mt-7 max-w-xl text-lg leading-relaxed text-white/80 sm:text-xl">
-            Board-certified orthodontic care from Dr. Dante Gonzales — 12,000+ smiles transformed
-            across the Tri-Valley since 1998, every one covered by the Gonzales Lifetime Guarantee.
-          </p>
-          <div data-hero-intro class="mt-8 flex flex-wrap gap-3">
-            <a href="#consultation" class="btn-primary">Book Your Free Consultation</a>
-            <a href="invisalign-quiz.php" class="btn-ghost">Take the 30-Second Quiz</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="hero__copy">
+      <p class="eyebrow eyebrow--dot" data-reveal>Orthodontic specialists · Dublin &amp; Tracy, California</p>
 
-    <div class="slide overflow-hidden" role="group" aria-roledescription="slide" aria-label="2 of 5">
-      <img src="assets/img/banner/slide2.jpg" alt="" width="1500" height="1000" decoding="async" class="absolute inset-0 size-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-r from-ink-900/65 via-ink-900/20 to-transparent"></div>
-      <div class="wrap relative flex min-h-screen items-center py-24">
-        <div class="max-w-2xl">
-          <p class="eyebrow !text-brand-400">Budget-friendly braces</p>
-          <p class="t-section mt-5 font-display font-extrabold text-white">Financing built around your budget</p>
-          <p class="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
-            Flexible payment plans, family discounts and insurance help from a coordinator who
-            works your benefits for you — before treatment starts, not after.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#flexible-payment" class="btn-primary">See Payment Options</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      <h1 class="hero__title" id="hero-title" data-reveal data-reveal-delay="1">
+        Beautiful smiles,<br>
+        <em>expertly</em> crafted.
+      </h1>
 
-    <div class="slide overflow-hidden" role="group" aria-roledescription="slide" aria-label="3 of 5">
-      <img src="assets/img/banner/slide3.jpg" alt="" width="1500" height="1001" decoding="async" class="absolute inset-0 size-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-r from-ink-900/65 via-ink-900/20 to-transparent"></div>
-      <div class="wrap relative flex min-h-screen items-center py-24">
-        <div class="max-w-2xl">
-          <p class="eyebrow !text-brand-400">Same-day starts</p>
-          <p class="t-section mt-5 font-display font-extrabold text-white">Leave your first visit already started</p>
-          <p class="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
-            Consultation, records and — if you're ready — braces on the same day.
-            No second appointment, no waiting weeks to begin.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#same-day-starts" class="btn-primary">How Same-Day Works</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide overflow-hidden" role="group" aria-roledescription="slide" aria-label="4 of 5">
-      <img src="assets/img/banner/slide4.jpg" alt="" width="1500" height="1000" decoding="async" class="absolute inset-0 size-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-r from-ink-900/65 via-ink-900/20 to-transparent"></div>
-      <div class="wrap relative flex min-h-screen items-center py-24">
-        <div class="max-w-2xl">
-          <p class="eyebrow !text-brand-400">Hospital-grade sterilization</p>
-          <p class="t-section mt-5 font-display font-extrabold text-white">A Tom Terry Certified practice</p>
-          <p class="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
-            Independently audited infection-control standards in both offices, so the
-            safest choice for your family is also the obvious one.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#sterilization-standards" class="btn-primary">Our Safety Standards</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="slide overflow-hidden" role="group" aria-roledescription="slide" aria-label="5 of 5">
-      <img src="assets/img/banner/banner1.jpg" alt="" width="1500" height="1001" decoding="async" class="absolute inset-0 size-full object-cover">
-      <div class="absolute inset-0 bg-gradient-to-r from-ink-900/65 via-ink-900/20 to-transparent"></div>
-      <div class="wrap relative flex min-h-screen items-center py-24">
-        <div class="max-w-2xl">
-          <p class="eyebrow !text-brand-400">Advanced technology</p>
-          <p class="t-section mt-5 font-display font-extrabold text-white">Digital scans. No goopy impressions.</p>
-          <p class="mt-5 max-w-xl text-lg leading-relaxed text-white/80">
-            Modern digital workflows mean faster appointments, more precise appliances
-            and treatment you can preview before you commit.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-3">
-            <a href="best-dublin-ca-orthodontics-office-and-orthodontist.php#advanced-technology" class="btn-primary">Explore the Technology</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Slider controls -->
-  <div class="pointer-events-none absolute inset-x-0 bottom-6 z-10">
-    <div class="wrap flex items-center justify-between">
-      <div class="pointer-events-auto flex items-center gap-2" role="tablist" aria-label="Choose slide">
-        <button data-slide-dot type="button" class="h-2.5 w-8 rounded-full bg-brand-500 transition-all"><span class="sr-only">Slide 1</span></button>
-        <button data-slide-dot type="button" class="h-2.5 w-2.5 rounded-full bg-white/50 transition-all hover:bg-white/80"><span class="sr-only">Slide 2</span></button>
-        <button data-slide-dot type="button" class="h-2.5 w-2.5 rounded-full bg-white/50 transition-all hover:bg-white/80"><span class="sr-only">Slide 3</span></button>
-        <button data-slide-dot type="button" class="h-2.5 w-2.5 rounded-full bg-white/50 transition-all hover:bg-white/80"><span class="sr-only">Slide 4</span></button>
-        <button data-slide-dot type="button" class="h-2.5 w-2.5 rounded-full bg-white/50 transition-all hover:bg-white/80"><span class="sr-only">Slide 5</span></button>
-      </div>
-      <div class="pointer-events-auto hidden gap-2 sm:flex">
-        <button data-slide-prev type="button" class="inline-flex size-11 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/25 backdrop-blur transition hover:bg-white hover:text-ink-900">
-          <span class="sr-only">Previous slide</span>
-          <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
-        <button data-slide-next type="button" class="inline-flex size-11 items-center justify-center rounded-full bg-white/10 text-white ring-1 ring-white/25 backdrop-blur transition hover:bg-white hover:text-ink-900">
-          <span class="sr-only">Next slide</span>
-          <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================= TRUST BAR ============================= -->
-<section class="surface-warm grain edge-bottom">
-  <div class="wrap grid grid-cols-2 gap-y-10 py-14 sm:py-16 lg:grid-cols-4 lg:gap-y-0" data-anim-group data-anim-stagger="80">
-    <div data-anim="fade-up" class="px-2 text-center lg:border-r lg:border-ink-900/10 lg:px-8 lg:text-left">
-      <p class="stat-figure"><span data-count-to="12000">0</span>+</p>
-      <p class="mt-3 text-sm leading-snug">Smiles transformed since 1998</p>
-    </div>
-    <div data-anim="fade-up" class="px-2 text-center lg:border-r lg:border-ink-900/10 lg:px-8 lg:text-left">
-      <p class="stat-figure">4.9<span class="text-brand-500">★</span></p>
-      <p class="mt-3 text-sm leading-snug">Average rating from 484 reviews</p>
-    </div>
-    <div data-anim="fade-up" class="px-2 text-center lg:border-r lg:border-ink-900/10 lg:px-8 lg:text-left">
-      <p class="stat-figure"><span data-count-to="27">0</span> yrs</p>
-      <p class="mt-3 text-sm leading-snug">Serving the Tri-Valley &amp; Central Valley</p>
-    </div>
-    <div data-anim="fade-up" class="px-2 text-center lg:px-8 lg:text-left">
-      <p class="stat-figure">1&nbsp;in&nbsp;5</p>
-      <p class="mt-3 text-sm leading-snug">Orthodontists are board certified — ours are</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================= MISSION ============================= -->
-<section class="section surface-plain">
-  <div class="wrap grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-    <div data-anim="fade-up">
-      <p class="eyebrow">Our mission</p>
-      <h2 data-anim-text class="t-section-sm mt-5 font-extrabold">
-        Advance orthodontics — and the quality of life in the communities we serve.
-      </h2>
-      <p class="mt-5 text-lg leading-relaxed">
-        Orthodontics is our expertise, but customer service and helping people is our passion.
-        Two offices, one standard of care: top-of-the-line braces and Invisalign, delivered by a
-        team that has been doing this together for decades.
+      <p class="hero__lede" data-reveal data-reveal-delay="2">
+        Board-certified orthodontic care for children, teens and adults — with braces and
+        Invisalign that fit your life. More than <strong>12,000 smiles transformed since 1998</strong>,
+        every one of them backed by the Gonzales Lifetime Guarantee.
       </p>
-      <dl class="mt-10 grid gap-4 sm:grid-cols-2">
-        <div class="rounded-2xl bg-white p-5 ring-1 ring-ink-900/[0.07]">
-          <dt class="font-display font-semibold text-ink-900 before:mb-3 before:block before:h-1 before:w-8 before:rounded-full before:bg-gradient-to-r before:from-brand-400 before:to-brand-600">Board certified</dt>
-          <dd class="mt-1 text-sm">Diplomates of the American Board of Orthodontics — a credential only about one in five orthodontists holds.</dd>
-        </div>
-        <div class="rounded-2xl bg-white p-5 ring-1 ring-ink-900/[0.07]">
-          <dt class="font-display font-semibold text-ink-900 before:mb-3 before:block before:h-1 before:w-8 before:rounded-full before:bg-gradient-to-r before:from-brand-400 before:to-brand-600">Lifetime guarantee</dt>
-          <dd class="mt-1 text-sm">The Gonzales Lifetime Guarantee stands behind your result after your last appointment.</dd>
-        </div>
-        <div class="rounded-2xl bg-white p-5 ring-1 ring-ink-900/[0.07]">
-          <dt class="font-display font-semibold text-ink-900 before:mb-3 before:block before:h-1 before:w-8 before:rounded-full before:bg-gradient-to-r before:from-brand-400 before:to-brand-600">Open six days</dt>
-          <dd class="mt-1 text-sm">More hours than any other orthodontic office in the East Bay, including Saturdays.</dd>
-        </div>
-        <div class="rounded-2xl bg-white p-5 ring-1 ring-ink-900/[0.07]">
-          <dt class="font-display font-semibold text-ink-900 before:mb-3 before:block before:h-1 before:w-8 before:rounded-full before:bg-gradient-to-r before:from-brand-400 before:to-brand-600">Accelerated options</dt>
-          <dd class="mt-1 text-sm">Proven techniques that shorten time in braces without shortcutting the result.</dd>
-        </div>
-      </dl>
+
+      <div class="hero__actions" data-reveal data-reveal-delay="3">
+        <a class="btn btn--primary btn--lg" href="#appointment">
+          Request Your Consultation
+          <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
+        <a class="btn btn--ghost btn--lg" href="invisalign-quiz.php">Take the 30-second quiz</a>
+      </div>
+
+      <ul class="hero__trust" data-reveal data-reveal-delay="4">
+        <li>
+          <svg class="ico ico--check" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4.5 4.5L19 7"/></svg>
+          Board-certified orthodontist
+        </li>
+        <li>
+          <svg class="ico ico--check" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4.5 4.5L19 7"/></svg>
+          Same-day starts available
+        </li>
+        <li>
+          <svg class="ico ico--check" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 13 4.5 4.5L19 7"/></svg>
+          Open 6 days a week
+        </li>
+      </ul>
+
+      <div class="hero__reviews" data-reveal data-reveal-delay="5">
+        <span class="hero__reviews-label">5-star rated on</span>
+        <ul class="review-badges review-badges--sm">
+          <li><img src="assets/img/logos/review1.png" alt="Five-star rated on Google" width="210" height="106" loading="lazy" decoding="async"></li>
+          <li><img src="assets/img/logos/review2.png" alt="Five-star rated on Facebook" width="210" height="106" loading="lazy" decoding="async"></li>
+          <li><img src="assets/img/logos/review3.png" alt="Five-star rated on Yelp" width="210" height="106" loading="lazy" decoding="async"></li>
+          <li><img src="assets/img/logos/review4.png" alt="Five-star rated on Healthgrades" width="210" height="106" loading="lazy" decoding="async"></li>
+        </ul>
+      </div>
     </div>
 
-    <div data-anim="fade-up" data-anim-delay="120">
-      <div class="relative overflow-hidden rounded-3xl bg-brand-50 p-8 shadow-card ring-1 ring-ink-900/5 sm:p-10">
-        <p class="eyebrow">Not sure where to start?</p>
-        <h3 class="mt-3 text-2xl font-bold leading-snug">Find out if you're a candidate for braces or Invisalign.</h3>
-        <p class="mt-3">Thirty seconds, six questions, no email wall. You'll get a straight answer about which treatment fits your case.</p>
-        <a href="invisalign-quiz.php" class="btn-dark mt-6">Take the Quiz</a>
+    <div class="hero__media" data-reveal data-reveal-delay="2">
+      <div class="hero__frame">
+        <picture>
+          <source type="image/webp" srcset="assets/img/photos/hero-smile-520.webp 520w, assets/img/photos/hero-smile.webp 750w" sizes="(max-width: 900px) 92vw, 460px">
+          <img src="assets/img/photos/hero-smile.jpg" alt="Smiling patient of Dante Gonzales Orthodontics laughing against a soft teal background" width="750" height="1000" fetchpriority="high" decoding="async">
+        </picture>
+      </div>
 
-        <div class="mt-8 border-t border-ink-900/10 pt-6">
-          <p class="font-display text-sm font-semibold text-ink-900">Come to us if…</p>
-          <ul class="mt-3 space-y-2 text-sm">
-            <li class="flex gap-2.5"><svg class="mt-0.5 size-4 flex-none text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>You want to learn about braces for yourself or your child</li>
-            <li class="flex gap-2.5"><svg class="mt-0.5 size-4 flex-none text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>You want to know if you're an Invisalign candidate</li>
-            <li class="flex gap-2.5"><svg class="mt-0.5 size-4 flex-none text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>You were referred to Dante Gonzales Orthodontics</li>
-            <li class="flex gap-2.5"><svg class="mt-0.5 size-4 flex-none text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>You'd like a second opinion on a treatment plan</li>
-          </ul>
-        </div>
+      <div class="hero__badge">
+        <img src="assets/img/logo2.png" alt="Diamond Top 1% Invisalign Provider 2020" width="150" height="246" loading="lazy" decoding="async">
+      </div>
+
+      <div class="hero__stat">
+        <span class="hero__stat-num" data-count="12000" data-count-suffix="+">12,000+</span>
+        <span class="hero__stat-label">smiles transformed<br>in the Tri-Valley since 1998</span>
       </div>
     </div>
   </div>
-</section>
 
-<!-- ============================= TREATMENTS ============================= -->
-<section class="section surface-warm grain edge-top edge-bottom">
-  <div class="wrap">
-    <div data-anim="fade-up" class="max-w-3xl">
-      <p class="eyebrow">Treatments</p>
-      <h2 class="t-section mt-5 font-extrabold">Every path to a straight smile, under one roof</h2>
-      <p class="t-lead mt-5">From clear aligners to jaw surgery coordination and airway-focused sleep apnea care.</p>
-    </div>
-
-    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-anim-group data-anim-stagger="70">
-      <a href="invisalign.php" data-anim="fade-up" class="card group">
-        <span class="icon-plate">
-          <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3c4.5 0 7 2.2 7 5.2 0 2.4-1 3.6-1.6 6.3-.5 2.4-1.1 6.5-2.9 6.5-1.5 0-1.4-2.6-2.5-2.6s-1 2.6-2.5 2.6c-1.8 0-2.4-4.1-2.9-6.5C6 11.8 5 10.6 5 8.2 5 5.2 7.5 3 12 3Z"/></svg>
-        </span>
-        <h3 class="mt-6 text-xl font-bold">Invisalign</h3>
-        <p class="mt-2.5 text-[15px] leading-relaxed">Diamond-level provider in Dublin and Tracy. Clear, removable aligners that straighten teeth without anyone noticing.</p>
-        <span class="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-brand-700">Learn more
-          <span class="inline-flex size-6 items-center justify-center rounded-full bg-brand-100 transition duration-300 group-hover:bg-brand-500 group-hover:text-white">
-            <svg class="size-3.5 transition duration-300 group-hover:translate-x-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a href="braces.php" data-anim="fade-up" class="card group">
-        <span class="icon-plate">
-          <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3 12h18M6 9v6m4-6v6m4-6v6m4-6v6"/></svg>
-        </span>
-        <h3 class="mt-6 text-xl font-bold">Braces</h3>
-        <p class="mt-2.5 text-[15px] leading-relaxed">Traditional metal and low-profile ceramic braces — still the most versatile, most predictable way to move teeth.</p>
-        <span class="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-brand-700">Learn more
-          <span class="inline-flex size-6 items-center justify-center rounded-full bg-brand-100 transition duration-300 group-hover:bg-brand-500 group-hover:text-white">
-            <svg class="size-3.5 transition duration-300 group-hover:translate-x-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a href="elite-invisalign-and-invisalign-teen-orthodontist.php" data-anim="fade-up" class="card group">
-        <span class="icon-plate">
-          <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
-        </span>
-        <h3 class="mt-6 text-xl font-bold">Invisalign Teen</h3>
-        <p class="mt-2.5 text-[15px] leading-relaxed">Built for teenage schedules and teenage habits — with compliance indicators and replacement aligners included.</p>
-        <span class="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-brand-700">Learn more
-          <span class="inline-flex size-6 items-center justify-center rounded-full bg-brand-100 transition duration-300 group-hover:bg-brand-500 group-hover:text-white">
-            <svg class="size-3.5 transition duration-300 group-hover:translate-x-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a href="accelerated-treatment.php" data-anim="fade-up" class="card group">
-        <span class="icon-plate">
-          <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M13 2 4.5 13H11l-1 9 8.5-11H12l1-9Z"/></svg>
-        </span>
-        <h3 class="mt-6 text-xl font-bold">Accelerated Treatment</h3>
-        <p class="mt-2.5 text-[15px] leading-relaxed">Techniques that meaningfully shorten time in braces or aligners when your case is a good fit for them.</p>
-        <span class="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-brand-700">Learn more
-          <span class="inline-flex size-6 items-center justify-center rounded-full bg-brand-100 transition duration-300 group-hover:bg-brand-500 group-hover:text-white">
-            <svg class="size-3.5 transition duration-300 group-hover:translate-x-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a href="surgical-orthodontist.php" data-anim="fade-up" class="card group">
-        <span class="icon-plate">
-          <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7s3-3 8-3 8 3 8 3M4 7v4a8 8 0 0 0 16 0V7M8 17s1.5 2 4 2 4-2 4-2"/></svg>
-        </span>
-        <h3 class="mt-6 text-xl font-bold">Surgical Orthodontics</h3>
-        <p class="mt-2.5 text-[15px] leading-relaxed">For skeletal bite problems braces alone can't fix — planned and coordinated with your oral surgeon.</p>
-        <span class="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-brand-700">Learn more
-          <span class="inline-flex size-6 items-center justify-center rounded-full bg-brand-100 transition duration-300 group-hover:bg-brand-500 group-hover:text-white">
-            <svg class="size-3.5 transition duration-300 group-hover:translate-x-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </span>
-        </span>
-      </a>
-
-      <a href="sleep-apnea-dentist-in-dublin.php" data-anim="fade-up" class="card group">
-        <span class="icon-plate">
-          <svg class="size-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
-        </span>
-        <h3 class="mt-6 text-xl font-bold">Sleep Apnea Treatment</h3>
-        <p class="mt-2.5 text-[15px] leading-relaxed">Oral appliance therapy and airway-focused orthodontics for snoring and obstructive sleep apnea.</p>
-        <span class="mt-6 inline-flex items-center gap-2 font-display text-sm font-semibold text-brand-700">Learn more
-          <span class="inline-flex size-6 items-center justify-center rounded-full bg-brand-100 transition duration-300 group-hover:bg-brand-500 group-hover:text-white">
-            <svg class="size-3.5 transition duration-300 group-hover:translate-x-px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </span>
-        </span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============================= WHY US ============================= -->
-<section class="section surface-plain">
-  <div class="wrap">
-    <div data-anim="fade-up" class="max-w-3xl">
-      <p class="eyebrow">Why Dante Gonzales Orthodontics</p>
-      <h2 class="t-section mt-5 font-extrabold">Ten reasons families keep choosing us</h2>
-    </div>
-
-    <ul class="mt-14 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3" data-anim-group data-anim-stagger="50">
-      <li data-anim="fade-up" class="flex gap-4"><span class="mt-0.5 inline-flex size-9 flex-none items-center justify-center rounded-xl bg-brand-500 font-display text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgb(248_159_60_/_.6)]">1</span><div><a class="font-display font-semibold text-ink-900 underline-offset-4 hover:text-brand-600 hover:underline" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#extensive-experience">Extensive experience</a><p class="mt-1 text-sm">27 years and 12,000+ cases in the same two communities.</p></div></li>
-      <li data-anim="fade-up" class="flex gap-4"><span class="mt-0.5 inline-flex size-9 flex-none items-center justify-center rounded-xl bg-brand-500 font-display text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgb(248_159_60_/_.6)]">2</span><div><a class="font-display font-semibold text-ink-900 underline-offset-4 hover:text-brand-600 hover:underline" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#advanced-technology">Advanced technology</a><p class="mt-1 text-sm">Digital scanning and modern appliances, not 1990s workflows.</p></div></li>
-      <li data-anim="fade-up" class="flex gap-4"><span class="mt-0.5 inline-flex size-9 flex-none items-center justify-center rounded-xl bg-brand-500 font-display text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgb(248_159_60_/_.6)]">3</span><div><a class="font-display font-semibold text-ink-900 underline-offset-4 hover:text-brand-600 hover:underline" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#gonzales-lifetime">Gonzales Lifetime Guarantee</a><p class="mt-1 text-sm">Your result is backed after treatment ends.</p></div></li>
-      <li data-anim="fade-up" class="flex gap-4"><span class="mt-0.5 inline-flex size-9 flex-none items-center justify-center rounded-xl bg-brand-500 font-display text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgb(248_159_60_/_.6)]">4</span><div><a class="font-display font-semibold text-ink-900 underline-offset-4 hover:text-brand-600 hover:underline" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#sterilization-standards">Hospital-grade sterilization</a><p class="mt-1 text-sm">Tom Terry Certified infection control in both offices.</p></div></li>
-      <li data-anim="fade-up" class="flex gap-4"><span class="mt-0.5 inline-flex size-9 flex-none items-center justify-center rounded-xl bg-brand-500 font-display text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgb(248_159_60_/_.6)]">5</span><div><a class="font-display font-semibold text-ink-900 underline-offset-4 hover:text-brand-600 hover:underline" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#family-discounts">Family discounts</a><p class="mt-1 text-sm">More than one child in treatment costs less per child.</p></div></li>
-      <li data-anim="fade-up" class="flex gap-4"><span class="mt-0.5 inline-flex size-9 flex-none items-center justify-center rounded-xl bg-brand-500 font-display text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgb(248_159_60_/_.6)]">6</span><div><a class="font-display font-semibold text-ink-900 underline-offset-4 hover:text-brand-600 hover:underline" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#same-day-starts">Same-day starts</a><p class="mt-1 text-sm">Begin treatment at your consultation if you're ready.</p></div></li>
-      <li data-anim="fade-up" class="flex gap-4"><span class="mt-0.5 inline-flex size-9 flex-none items-center justify-center rounded-xl bg-brand-500 font-display text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgb(248_159_60_/_.6)]">7</span><div><a class="font-display font-semibold text-ink-900 underline-offset-4 hover:text-brand-600 hover:underline" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#same-day-appointments">Same-day appointments</a><p class="mt-1 text-sm">Broken bracket? We'll see you the day you call.</p></div></li>
-      <li data-anim="fade-up" class="flex gap-4"><span class="mt-0.5 inline-flex size-9 flex-none items-center justify-center rounded-xl bg-brand-500 font-display text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgb(248_159_60_/_.6)]">8</span><div><a class="font-display font-semibold text-ink-900 underline-offset-4 hover:text-brand-600 hover:underline" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#flexible-hours">Flexible hours</a><p class="mt-1 text-sm">Early mornings, evenings and Saturday appointments.</p></div></li>
-      <li data-anim="fade-up" class="flex gap-4"><span class="mt-0.5 inline-flex size-9 flex-none items-center justify-center rounded-xl bg-brand-500 font-display text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgb(248_159_60_/_.6)]">9</span><div><a class="font-display font-semibold text-ink-900 underline-offset-4 hover:text-brand-600 hover:underline" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#flexible-payment">Flexible payment options</a><p class="mt-1 text-sm">Plans built around your budget, with insurance handled for you.</p></div></li>
-      <li data-anim="fade-up" class="flex gap-4"><span class="mt-0.5 inline-flex size-9 flex-none items-center justify-center rounded-xl bg-brand-500 font-display text-sm font-bold text-white shadow-[0_4px_12px_-4px_rgb(248_159_60_/_.6)]">10</span><div><a class="font-display font-semibold text-ink-900 underline-offset-4 hover:text-brand-600 hover:underline" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#oral-hygiene">Oral hygiene certificate</a><p class="mt-1 text-sm">We coach hygiene through treatment and reward it.</p></div></li>
+  <!-- The five promises carried over from the original homepage banner -->
+  <div class="shell">
+    <ul class="promises" data-rail>
+      <li class="promise" data-reveal data-reveal-delay="1">
+        <a href="https://www.drdantegonzales.com/best-dublin-ca-orthodontics-office-and-orthodontist.php#family-discounts">
+          <span class="promise__n">01</span>
+          <span class="promise__title">Budget friendly braces</span>
+          <span class="promise__text">We can customize a financial plan that will fit with your budget.</span>
+          <span class="promise__more">Learn more<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li class="promise" data-reveal data-reveal-delay="2">
+        <a href="https://www.drdantegonzales.com/best-dublin-ca-orthodontics-office-and-orthodontist.php#sterilization-standards">
+          <span class="promise__n">02</span>
+          <span class="promise__title">Safeguarding your oral health</span>
+          <span class="promise__text">Superior sterilization standards at every visit.</span>
+          <span class="promise__more">Learn more<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li class="promise" data-reveal data-reveal-delay="3">
+        <a href="https://www.drdantegonzales.com/best-dublin-ca-orthodontics-office-and-orthodontist.php#extensive-experience">
+          <span class="promise__n">03</span>
+          <span class="promise__title">Over 12,000 smiles transformed</span>
+          <span class="promise__text">In the Tri-Valley area since 1998.</span>
+          <span class="promise__more">Learn more<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li class="promise" data-reveal data-reveal-delay="4">
+        <a href="https://www.drdantegonzales.com/best-dublin-ca-orthodontics-office-and-orthodontist.php#advanced-technology">
+          <span class="promise__n">04</span>
+          <span class="promise__title">Elevating care</span>
+          <span class="promise__text">Through advanced orthodontic technology.</span>
+          <span class="promise__more">Learn more<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
+        </a>
+      </li>
+      <li class="promise" data-reveal data-reveal-delay="5">
+        <a href="https://www.drdantegonzales.com/best-dublin-ca-orthodontics-office-and-orthodontist.php#gonzales-lifetime">
+          <span class="promise__n">05</span>
+          <span class="promise__title">Your smile</span>
+          <span class="promise__text">Our lifetime guarantee of perfection.</span>
+          <span class="promise__more">Learn more<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></span>
+        </a>
+      </li>
     </ul>
   </div>
 </section>
 
-<!-- ============================= DOCTOR ============================= -->
-<section class="section surface-ink grain text-white">
-  <div class="wrap grid items-center gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
-    <div data-anim="mask" class="portrait relative overflow-hidden">
-      <img src="assets/img/banner/Womanwithabigsmile.jpg" alt="A patient of Dante Gonzales Orthodontics smiling after finishing treatment" width="1600" height="621" loading="lazy" class="w-full object-cover">
-    </div>
-    <div data-anim="fade-up" data-anim-delay="100">
-      <p class="eyebrow !text-brand-400">Meet your orthodontist</p>
-      <h2 class="t-section mt-5 font-extrabold text-white">Dr. Dante Gonzales, DMD, MSD</h2>
-      <p class="mt-5 leading-relaxed text-white/75">
-        “When I talk about braces, I don't just speak from years of training — I wore them myself.
-        I know how it feels, and seeing the confidence in someone's new smile reminds me of how I
-        felt when mine came off.”
+<!-- ================================================================ MISSION -->
+<section class="mission" aria-labelledby="mission-title">
+  <div class="shell shell--narrow mission__inner">
+    <p class="eyebrow" data-reveal>Our mission</p>
+    <blockquote class="mission__quote" data-reveal data-reveal-delay="1">
+      <p id="mission-title">
+        Our mission is to advance the field of orthodontics and improve the quality of life
+        for our patients and the communities in which they live.
       </p>
-      <p class="mt-4 leading-relaxed text-white/75">
-        UCLA. Tufts School of Dental Medicine, Summa Cum Laude. Orthodontic residency and a master's
-        at University of the Pacific, where he later returned as an associate clinical professor.
-        A Diplomate of the American Board of Orthodontics, and the sole orthodontist on the editorial
-        advisory board of Sharecare — the health company founded by Dr. Oz and WebMD's Jeff Arnold.
+    </blockquote>
+    <p class="mission__by" data-reveal data-reveal-delay="2">Dante Gonzales Orthodontics · Dublin &amp; Tracy, CA</p>
+  </div>
+</section>
+
+<!-- =============================================================== PATHWAYS -->
+<section class="section pathways" id="pathways" aria-labelledby="pathways-title">
+  <div class="shell">
+    <div class="section__head">
+      <p class="eyebrow" data-reveal>Where to begin</p>
+      <h2 class="section__title" id="pathways-title" data-reveal data-reveal-delay="1">You are in the right place if&hellip;</h2>
+      <p class="section__lede" data-reveal data-reveal-delay="2">
+        Most people arrive here for one of four reasons. Whichever one sounds like you,
+        the next step is the same — a conversation with our team.
+      </p>
+    </div>
+
+    <ol class="cards cards--4 intents">
+      <li class="intent" data-reveal data-reveal-delay="1">
+        <span class="intent__n">01</span>
+        <p class="intent__text">You want to learn more about braces &amp; orthodontics for yourself or your child</p>
+      </li>
+      <li class="intent" data-reveal data-reveal-delay="2">
+        <span class="intent__n">02</span>
+        <p class="intent__text">You want to find out if you are a candidate for Invisalign</p>
+      </li>
+      <li class="intent" data-reveal data-reveal-delay="3">
+        <span class="intent__n">03</span>
+        <p class="intent__text">You were referred to Dante Gonzales Orthodontics</p>
+      </li>
+      <li class="intent" data-reveal data-reveal-delay="4">
+        <span class="intent__n">04</span>
+        <p class="intent__text">You are interested in a second opinion with a Dublin orthodontist</p>
+      </li>
+    </ol>
+
+    <div class="pathways__cta" data-reveal>
+      <a class="btn btn--primary btn--lg" href="#appointment">
+        Make Appointment
+        <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+      </a>
+      <span class="pathways__note">Same-day appointments available at both offices.</span>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================== QUIZ -->
+<section class="quiz" id="quiz" aria-labelledby="quiz-title">
+  <div class="shell quiz__inner">
+    <div class="quiz__copy">
+      <p class="eyebrow eyebrow--light" data-reveal>30-second quiz</p>
+      <h2 class="quiz__title" id="quiz-title" data-reveal data-reveal-delay="1">
+        Want to know if you’re a candidate for braces or Invisalign?
+      </h2>
+      <p class="quiz__lede" data-reveal data-reveal-delay="2">
+        Take our 30-second quiz now to find out.
       </p>
 
-      <img src="assets/img/dr-signature.png" alt="Signature of Dr. Dante Gonzales" width="241" height="60" loading="lazy" class="mt-6 h-14 w-auto brightness-0 invert">
+      <ol class="quiz__steps" data-reveal data-reveal-delay="3">
+        <li><span>1</span> Answer a few quick questions</li>
+        <li><span>2</span> See whether you’re a candidate</li>
+        <li><span>3</span> Book your complimentary Smile Assessment</li>
+      </ol>
 
-      <div class="mt-8 flex flex-wrap gap-3">
-        <a href="about.php" class="btn-primary">Read His Full Story</a>
-        <a href="meet-our-orthodontists-in-dublin-ca.php" class="btn-ghost">Meet the Orthodontists</a>
+      <div class="quiz__actions" data-reveal data-reveal-delay="4">
+        <a class="btn btn--gold btn--lg" href="invisalign-quiz.php">
+          Take Quiz Now!
+          <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
+        <span class="quiz__meta">Free · No appointment needed</span>
       </div>
+    </div>
 
-      <div class="mt-10 border-t border-white/10 pt-8">
-        <p class="font-display text-xs font-semibold uppercase tracking-[0.16em] text-white/45">Technology we treat with</p>
-        <div class="mt-5 flex flex-wrap items-center gap-x-9 gap-y-5" data-anim-group data-anim-stagger="60">
-        <img src="assets/img/logos/logo1.png" alt="Invisalign" width="224" height="78" loading="lazy" data-anim="fade-up" class="h-8 w-auto opacity-55 brightness-0 invert">
-        <img src="assets/img/logos/logo2.png" alt="Invisalign Teen" width="248" height="78" loading="lazy" data-anim="fade-up" class="h-8 w-auto opacity-55 brightness-0 invert">
-        <img src="assets/img/logos/logo3.png" alt="3M" width="108" height="78" loading="lazy" data-anim="fade-up" class="h-8 w-auto opacity-55 brightness-0 invert">
-        <img src="assets/img/logos/logo4.png" alt="AcceleDent" width="240" height="78" loading="lazy" data-anim="fade-up" class="h-8 w-auto opacity-55 brightness-0 invert">
-        <img src="assets/img/logos/logo5.png" alt="iTero" width="146" height="78" loading="lazy" data-anim="fade-up" class="h-8 w-auto opacity-55 brightness-0 invert">
-        </div>
-      </div>
+    <div class="quiz__media" data-reveal data-reveal-delay="2" data-parallax="12">
+      <picture>
+        <source type="image/webp" srcset="assets/img/photos/family-four-760.webp 760w, assets/img/photos/family-four.webp 1200w" sizes="(max-width: 980px) 92vw, 520px">
+        <img src="assets/img/photos/family-four.jpg" alt="Parents and two children smiling together at home" width="1200" height="801" loading="lazy" decoding="async">
+      </picture>
     </div>
   </div>
 </section>
 
-<!-- ============================= BEFORE & AFTER ============================= -->
-<section class="section surface-plain">
-  <div class="wrap">
-    <div data-anim="fade-up" class="flex flex-wrap items-end justify-between gap-6">
-      <div class="max-w-2xl">
-        <p class="eyebrow">Before &amp; after</p>
-        <h2 class="t-section mt-5 font-extrabold">Real patients, real results</h2>
-        <p class="t-lead mt-5">Every case in our gallery was treated in the Dublin or Tracy office by our own team.</p>
-      </div>
-      <a href="before-after.php" class="btn-outline">View the Full Gallery</a>
-    </div>
-
-    <div class="mt-14 grid gap-6 sm:grid-cols-2">
-      <figure data-anim="mask" class="relative overflow-hidden rounded-3xl shadow-card ring-1 ring-ink-900/5">
-        <span class="beaf-tag left-4">Before</span>
-        <span class="beaf-tag right-4">After</span>
-        <img src="assets/img/beaf/10.jpg" alt="Before and after orthodontic treatment showing corrected crowding of the upper front teeth" width="640" height="342" loading="lazy" class="w-full object-cover">
-        <figcaption class="bg-white p-6 text-[15px]">Crowding corrected with comprehensive braces treatment.</figcaption>
-      </figure>
-      <figure data-anim="mask" data-anim-delay="140" class="relative overflow-hidden rounded-3xl shadow-card ring-1 ring-ink-900/5">
-        <span class="beaf-tag left-4">Before</span>
-        <span class="beaf-tag right-4">After</span>
-        <img src="assets/img/beaf/12.jpg" alt="Before and after orthodontic treatment showing a closed gap between the front teeth" width="640" height="330" loading="lazy" class="w-full object-cover">
-        <figcaption class="bg-white p-6 text-[15px]">Spacing closed and bite aligned with clear aligners.</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ============================= TESTIMONIALS ============================= -->
-<section class="section surface-warm grain edge-top edge-bottom">
-  <div class="wrap">
-    <div data-anim="fade-up" class="max-w-3xl">
-      <p class="eyebrow">Patient reviews</p>
-      <h2 class="t-section mt-5 font-extrabold">Rated 4.9 out of 5 across 484 reviews</h2>
-    </div>
-
-    <div class="mt-14 grid gap-6 lg:grid-cols-3" data-anim-group data-anim-stagger="90">
-      <figure data-anim="fade-up" class="card flex flex-col">
-        <p class="quote-mark" aria-hidden="true">&ldquo;</p>
-        <div class="-mt-3 flex gap-0.5 text-brand-500" aria-label="5 out of 5 stars">
-          <svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
-        </div>
-        <blockquote class="mt-3 grow text-[15px] leading-relaxed">Dr. Gonzales and his staff are truly outstanding. They have an excellent manner with children, while being extremely competent and professional. I would feel comfortable recommending their services to anyone.</blockquote>
-        <figcaption class="mt-6 border-t border-ink-900/10 pt-4 font-display text-sm font-semibold text-ink-900">George C.</figcaption>
-      </figure>
-
-      <figure data-anim="fade-up" class="card flex flex-col">
-        <p class="quote-mark" aria-hidden="true">&ldquo;</p>
-        <div class="-mt-3 flex gap-0.5 text-brand-500" aria-label="5 out of 5 stars">
-          <svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
-        </div>
-        <blockquote class="mt-3 grow text-[15px] leading-relaxed">We are extremely pleased with Dr. Gonzales and his wonderful staff. He and his staff are patient and understanding and they make my son feel completely at ease. They make every visit stress-free and fun for siblings who have to wait in the waiting room too!</blockquote>
-        <figcaption class="mt-6 border-t border-ink-900/10 pt-4 font-display text-sm font-semibold text-ink-900">Betty W.</figcaption>
-      </figure>
-
-      <figure data-anim="fade-up" class="card flex flex-col">
-        <p class="quote-mark" aria-hidden="true">&ldquo;</p>
-        <div class="-mt-3 flex gap-0.5 text-brand-500" aria-label="5 out of 5 stars">
-          <svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg><svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
-        </div>
-        <blockquote class="mt-3 grow text-[15px] leading-relaxed">The Smith family loves this office! I am so thankful my kids get to go to Dr. Gonzales! Thanks for making us feel so special every time we walk in the door.</blockquote>
-        <figcaption class="mt-6 border-t border-ink-900/10 pt-4 font-display text-sm font-semibold text-ink-900">Laurie S.</figcaption>
-      </figure>
-    </div>
-
-    <div class="mt-14 flex flex-wrap items-center justify-center gap-x-14 gap-y-8" data-anim-group data-anim-stagger="60">
-      <img data-anim="fade-up" src="assets/img/logos/review1.png" alt="Google reviews" width="210" height="106" loading="lazy" class="h-11 w-auto opacity-80">
-      <img data-anim="fade-up" src="assets/img/logos/review2.png" alt="Facebook reviews" width="210" height="106" loading="lazy" class="h-11 w-auto opacity-80">
-      <img data-anim="fade-up" src="assets/img/logos/review3.png" alt="Yelp reviews" width="210" height="106" loading="lazy" class="h-11 w-auto opacity-80">
-      <img data-anim="fade-up" src="assets/img/logos/review4.png" alt="Healthgrades reviews" width="210" height="106" loading="lazy" class="h-11 w-auto opacity-80">
-    </div>
-  </div>
-</section>
-
-<!-- ============================= FREE REPORT ============================= -->
-<section class="section surface-plain">
-  <div class="wrap">
-    <div data-anim="fade-up" class="relative grid items-center gap-10 overflow-hidden rounded-[2rem] bg-brand-50 p-8 ring-1 ring-brand-500/20 sm:p-14 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
+<!-- ================================================================ RESULTS -->
+<section class="section results" id="results" aria-labelledby="results-title">
+  <div class="shell">
+    <div class="section__head section__head--split">
       <div>
-        <p class="eyebrow">Free report</p>
-        <h2 class="t-section-sm mt-5 font-extrabold">The top 10 things to know before choosing your orthodontist</h2>
-        <p class="t-lead mt-5">
-          Choosing an orthodontist is a two-year relationship, not a transaction. Dr. Gonzales wrote
-          this report so you can compare any Dublin or Tracy practice — including ours — on the things
-          that actually matter.
-        </p>
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="assets/img/pdf/10-Things-You-Need-to-Know-about-Your-Orthodontist-for-website.pdf" class="btn-dark">Download the Free Report</a>
-          <a href="https://www.amazon.com/Setting-Them-Straight-Spectacular-Orthodontics/dp/1599328305/" rel="noopener" class="btn-outline">Dr. Gonzales's Book on Amazon</a>
-        </div>
+        <p class="eyebrow" data-reveal>Before &amp; Afters</p>
+        <h2 class="section__title" id="results-title" data-reveal data-reveal-delay="1">Transforming Smiles,<br>Changing Lives</h2>
       </div>
-      <div class="flex justify-center">
-        <img src="assets/img/dante-confident-book-new.png" alt="Cover of Setting Them Straight, the book by Dr. Dante Gonzales" width="400" height="520" loading="lazy" data-parallax="18" class="w-full max-w-[280px]">
+      <div class="results__intro" data-reveal data-reveal-delay="2">
+        <p>
+          Dr. Gonzales is a Diamond Invisalign Provider in Dublin and Tracy, CA. Invisalign
+          straightens your teeth using a series of clear, plastic aligners. Our comprehensive
+          dental care services have helped countless patients achieve their dream smiles.
+        </p>
+        <p>
+          Browse our before-and-after photos to see the transformative results we have achieved
+          for our patients. Every smile tells a story of improved confidence and oral health.
+        </p>
+      </div>
+    </div>
+
+    <div class="ba" data-ba>
+      <figure class="ba__stage">
+        <div class="ba__pane ba__pane--after">
+          <img data-ba-after src="assets/img/beaf/case1-after.webp" alt="Patient’s teeth after orthodontic treatment at Dante Gonzales Orthodontics" width="586" height="438" loading="lazy" decoding="async">
+          <span class="ba__tag ba__tag--after">After</span>
+        </div>
+        <div class="ba__pane ba__pane--before" data-ba-clip>
+          <img data-ba-before src="assets/img/beaf/case1-before.webp" alt="Patient’s teeth before orthodontic treatment at Dante Gonzales Orthodontics" width="586" height="438" loading="lazy" decoding="async">
+          <span class="ba__tag ba__tag--before">Before</span>
+        </div>
+        <div class="ba__handle" data-ba-handle aria-hidden="true">
+          <span class="ba__grip">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="m10 8-4 4 4 4M14 8l4 4-4 4"/></svg>
+          </span>
+        </div>
+        <label class="sr-only" for="ba-range">Reveal the before photo</label>
+        <input class="ba__range" id="ba-range" type="range" min="0" max="100" value="50" step="1" data-ba-range aria-valuetext="50% before, 50% after">
+        <figcaption class="ba__caption">Drag the handle — or use the arrow keys — to compare.</figcaption>
+      </figure>
+
+      <div class="ba__side">
+        <p class="ba__side-label">Real patient results</p>
+        <ul class="ba__thumbs" role="tablist" aria-label="Choose a before and after case">
+          <li><button role="tab" type="button" class="ba__thumb is-active" aria-selected="true" data-ba-case="1"><img src="assets/img/beaf/case1-after.webp" alt="Case 1 result" width="586" height="438" loading="lazy" decoding="async"><span>Case 1</span></button></li>
+          <li><button role="tab" type="button" class="ba__thumb" aria-selected="false" data-ba-case="2"><img src="assets/img/beaf/case2-after.webp" alt="Case 2 result" width="586" height="438" loading="lazy" decoding="async"><span>Case 2</span></button></li>
+          <li><button role="tab" type="button" class="ba__thumb" aria-selected="false" data-ba-case="3"><img src="assets/img/beaf/case3-after.webp" alt="Case 3 result" width="586" height="438" loading="lazy" decoding="async"><span>Case 3</span></button></li>
+          <li><button role="tab" type="button" class="ba__thumb" aria-selected="false" data-ba-case="4"><img src="assets/img/beaf/case4-after.webp" alt="Case 4 result" width="586" height="438" loading="lazy" decoding="async"><span>Case 4</span></button></li>
+          <li><button role="tab" type="button" class="ba__thumb" aria-selected="false" data-ba-case="5"><img src="assets/img/beaf/case5-after.webp" alt="Case 5 result" width="586" height="438" loading="lazy" decoding="async"><span>Case 5</span></button></li>
+          <li><button role="tab" type="button" class="ba__thumb" aria-selected="false" data-ba-case="6"><img src="assets/img/beaf/case6-after.webp" alt="Case 6 result" width="586" height="438" loading="lazy" decoding="async"><span>Case 6</span></button></li>
+        </ul>
+        <a class="btn btn--outline" href="https://www.drdantegonzales.com/before-after.php">
+          See More!
+          <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
+
+        <div class="ba__cred">
+          <img src="assets/img/logo2.png" alt="" width="150" height="246" loading="lazy" decoding="async">
+          <p><strong>Diamond Invisalign Provider</strong>Top 1% of Invisalign providers, treating patients in Dublin and Tracy, CA.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================= LOCATIONS + FORM ============================= -->
-<!-- Anchor offset comes from html{scroll-padding-top} alone; a scroll-mt
-     here as well would stack on top of it and overshoot the target. -->
-<section id="consultation" class="section surface-warm grain edge-top">
-  <div class="wrap grid gap-12 lg:grid-cols-2 lg:gap-16">
+<!-- ================================================================ FOUNDER -->
+<section class="section founder" id="founder" aria-labelledby="founder-title">
+  <div class="shell founder__inner">
 
-    <div data-anim="fade-up">
-      <p class="eyebrow">Two offices</p>
-      <h2 class="t-section mt-5 font-extrabold">Visit us in Dublin or Tracy</h2>
-      <p class="t-lead mt-5">Serving Dublin, Pleasanton, San Ramon, Danville, Livermore, Castro Valley, San Leandro, Hayward, Fremont, Tracy, Manteca, Lathrop and Stockton.</p>
+    <aside class="founder__aside" data-reveal>
+      <div class="founder__portrait" data-parallax="10">
+        <picture>
+          <source type="image/webp" srcset="assets/img/doctor/dr-dante-gonzales.webp">
+          <img src="assets/img/doctor/dr-dante-gonzales.png" alt="Dr. Dante A. Gonzales, DMD, MSD, founder of Dante Gonzales Orthodontics" width="400" height="600" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <p class="founder__name">Dr. Dante A. Gonzales</p>
+      <p class="founder__role">DMD, MSD · Board-certified orthodontist</p>
+      <ul class="founder__facts">
+        <li><strong>1998</strong><span>Practising since</span></li>
+        <li><strong>12,000+</strong><span>Smiles transformed</span></li>
+        <li><strong>2</strong><span>Offices — Dublin &amp; Tracy</span></li>
+      </ul>
+      <a class="founder__link" href="about.php">
+        Meet Dr. Gonzales
+        <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+      </a>
+    </aside>
 
-      <div class="mt-8 space-y-5">
-        <article class="rounded-2xl bg-white p-6 shadow-card ring-1 ring-ink-900/5">
-          <h3 class="font-display text-lg font-bold">Dublin Office</h3>
-          <address class="mt-2 not-italic leading-relaxed">4532 Dublin Blvd<br>Dublin, CA 94568</address>
-          <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <a class="inline-flex items-center gap-2 font-display font-semibold text-ink-900 hover:text-brand-600" href="tel:+19258282244">
-              <svg class="size-4 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>925-828-2244</a>
-            <a class="inline-flex items-center gap-2 hover:text-brand-600" href="mailto:info@drdantegonzales.com">info@drdantegonzales.com</a>
-          </div>
-          <dl class="mt-5 grid grid-cols-2 gap-x-6 gap-y-1.5 border-t border-ink-900/10 pt-4 text-sm">
-            <dt>Monday</dt><dd class="text-right text-ink-900">8:30 am – 6:00 pm</dd>
-            <dt>Tuesday</dt><dd class="text-right text-ink-900">7:30 am – 5:30 pm</dd>
-            <dt>Wednesday</dt><dd class="text-right text-ink-900">7:30 am – 5:30 pm</dd>
-            <dt>Thursday</dt><dd class="text-right text-ink-900">8:30 am – 6:00 pm</dd>
-            <dt>Friday</dt><dd class="text-right text-ink-900">8:00 am – 5:00 pm</dd>
-            <dt>Saturday</dt><dd class="text-right text-ink-900">8:15 am – 1:30 pm<span class="block text-xs text-ink-500">by appointment</span></dd>
-            <dt>Sunday</dt><dd class="text-right text-ink-900">Closed</dd>
-          </dl>
-          <a href="dublin-ca-orthodontic-office-contact.php" class="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-brand-600">Dublin office details
-            <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </a>
-        </article>
+    <div class="founder__letter">
+      <p class="eyebrow" data-reveal>A letter from our founder</p>
+      <h2 class="founder__title" id="founder-title" data-reveal data-reveal-delay="1">Dear Friend,</h2>
 
-        <article class="rounded-2xl bg-white p-6 shadow-card ring-1 ring-ink-900/5">
-          <h3 class="font-display text-lg font-bold">Tracy Office</h3>
-          <address class="mt-2 not-italic leading-relaxed">1417 N Tracy Blvd<br>Tracy, CA 95376</address>
-          <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <a class="inline-flex items-center gap-2 font-display font-semibold text-ink-900 hover:text-brand-600" href="tel:+12098350977">
-              <svg class="size-4 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>209-835-0977</a>
-            <a class="inline-flex items-center gap-2 hover:text-brand-600" href="mailto:tracyInfo@drdantegonzales.com">tracyInfo@drdantegonzales.com</a>
-          </div>
-          <dl class="mt-5 grid grid-cols-2 gap-x-6 gap-y-1.5 border-t border-ink-900/10 pt-4 text-sm">
-            <dt>Monday</dt><dd class="text-right text-ink-900">8:30 am – 5:30 pm</dd>
-            <dt>Tuesday</dt><dd class="text-right text-ink-900">8:00 am – 5:00 pm</dd>
-            <dt>Wednesday</dt><dd class="text-right text-ink-900">8:00 am – 5:00 pm</dd>
-            <dt>Thursday</dt><dd class="text-right text-ink-900">8:00 am – 5:00 pm</dd>
-            <dt>Friday</dt><dd class="text-right text-ink-900">8:00 am – 4:00 pm</dd>
-            <dt>Sat / Sun</dt><dd class="text-right text-ink-900">Closed</dd>
-          </dl>
-          <a href="tracy-ca-orthodontic-office-contact.php" class="mt-5 inline-flex items-center gap-1.5 font-display text-sm font-semibold text-brand-600">Tracy office details
-            <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-          </a>
-        </article>
+      <div class="prose" data-reveal data-reveal-delay="2">
+        <p>
+          When I talk about braces, not only do I speak from my years of experience, extensive
+          training, and education, but also with the understanding that I gained from my own time
+          spent in braces. I know firsthand how it feels to wear braces, because I wore them when
+          I was younger. Seeing the confidence in someone’s new smile reminds me of how I felt
+          after I was done with my orthodontic treatment and it’s incredibly rewarding.
+        </p>
+        <p>
+          As the sole orthodontist and dentist on the advisory board of Sharecare.com, a company
+          founded by Dr. Oz and Jeff Arnold (founder of WebMD), I get to help thousands of people
+          get their dental and orthodontic questions answered with accurate information. As a
+          board-certified orthodontist, I have had professional athletes put their trust in me to
+          bring out their greatest smiles. Since 1998, I have transformed over 12,000 smiles, and
+          I can’t wait to show you what a beautiful smile can do for you.
+        </p>
+      </div>
+
+      <blockquote class="pullquote" data-reveal>
+        <p>Orthodontics is our expertise, but customer service and helping people is our passion.</p>
+      </blockquote>
+
+      <div class="prose" data-reveal>
+        <p>
+          With same-day appointments available and the option to receive same-day braces after your
+          initial consultation, you can be on your way to a stunning smile sooner than you think.
+          Every time one of our patients walks out of our office for the last time, they leave with
+          confidence because their smile is backed by the Gonzales Lifetime Guarantee. Not only are
+          we going to transform your smile, but we can get you out of braces faster than ever with
+          our accelerated treatments. We can’t wait to meet you!
+        </p>
+        <p>
+          Come experience the difference at Dante Gonzales Orthodontics. We use only top of the line
+          braces and Invisalign along with the best customer service possible. We serve patients in
+          and around Dublin, Pleasanton, San Ramon, Danville, Livermore, Castro Valley, Tracy,
+          San Leandro, Hayward and Fremont, California (CA), Manteca, Stockton and Lathrop.
+        </p>
+      </div>
+
+      <div class="founder__sign" data-reveal>
+        <p class="founder__signoff">To your new smile,</p>
+        <img src="assets/img/dr-signature.png" alt="Signature of Dr. Gonzales" width="241" height="60" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== REACH -->
+<section class="reach" aria-labelledby="reach-title">
+  <div class="shell reach__inner">
+    <p class="eyebrow eyebrow--light" data-reveal>Dante Gonzales Orthodontics</p>
+    <h2 class="reach__title" id="reach-title" data-reveal data-reveal-delay="1">
+      Join the <span class="reach__num" data-count="12000">12,000</span> smiles transformed
+      with Invisalign &amp; braces
+    </h2>
+    <p class="reach__lede" data-reveal data-reveal-delay="2">Proudly serving families across the Tri-Valley, East Bay and Central Valley.</p>
+    <ul class="reach__areas" data-reveal data-reveal-delay="3">
+      <li>Dublin</li><li>Pleasanton</li><li>San Ramon</li><li>Danville</li><li>Livermore</li>
+      <li>Castro Valley</li><li>Tracy</li><li>San Leandro</li><li>Hayward</li><li>Fremont</li>
+      <li>Manteca</li><li>Lathrop</li><li>Stockton</li><li>Patterson</li>
+    </ul>
+    <p class="reach__state" data-reveal data-reveal-delay="4">California (CA)</p>
+  </div>
+</section>
+
+<!-- =============================================================== BENEFITS -->
+<section class="section benefits" id="benefits" aria-labelledby="benefits-title">
+  <div class="shell">
+    <div class="section__head">
+      <p class="eyebrow" data-reveal>Why families choose us</p>
+      <h2 class="section__title" id="benefits-title" data-reveal data-reveal-delay="1">Care built around real life</h2>
+    </div>
+
+    <ul class="cards cards--3">
+      <li class="benefit" data-reveal data-reveal-delay="1">
+        <span class="benefit__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 3.5a4.2 4.2 0 0 1 4.2 4.2c0 1.6-.8 2.7-1.6 3.8-.8 1.1-1.4 2-1.4 3.4h-2.4c0-1.4-.6-2.3-1.4-3.4-.8-1.1-1.6-2.2-1.6-3.8A4.2 4.2 0 0 1 12 3.5Z"/><path d="M10 17.5h4M10.6 20h2.8"/></svg>
+        </span>
+        <h3 class="benefit__title">Advanced Technology</h3>
+        <p class="benefit__text">
+          By choosing Dante Gonzales Orthodontics for your braces and orthodontic treatment, you are
+          opting for a smile solution that relies on all of the latest advancements in modern
+          orthodontic technology.
+        </p>
+        <a class="link-arrow" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#advanced-technology">
+          Our technology<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
+      </li>
+
+      <li class="benefit" data-reveal data-reveal-delay="2">
+        <span class="benefit__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 3.5 5 6.3v5.1c0 4.2 2.9 7.5 7 9.1 4.1-1.6 7-4.9 7-9.1V6.3L12 3.5Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg>
+        </span>
+        <h3 class="benefit__title">Healthcare Solutions</h3>
+        <p class="benefit__text">
+          When it comes to the health and well-being of our patients, Dante Gonzales Orthodontics,
+          a Tom Terry Certified facility, strives to provide a safe, clean, and protected environment.
+        </p>
+        <a class="link-arrow" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#sterilization-standards">
+          Our safety standards<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
+      </li>
+
+      <li class="benefit" data-reveal data-reveal-delay="3">
+        <span class="benefit__icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.3"/><path d="M12 7.2V12l3.2 2"/></svg>
+        </span>
+        <h3 class="benefit__title">Open 6 Days per Week</h3>
+        <p class="benefit__text">
+          If you’re like most people, you’re busy! That’s why we offer flexible hours for our patients
+          so that you don’t have to schedule your life around your braces or orthodontic treatment.
+          To help serve you better we are open more hours than any other orthodontic office in the East Bay.
+        </p>
+        <a class="link-arrow" href="best-dublin-ca-orthodontics-office-and-orthodontist.php#flexible-hours">
+          See our hours<svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="chips" data-reveal>
+      <li><a href="about.php">Meet Dr. Gonzales</a></li>
+      <li><a href="https://www.drdantegonzales.com/best-dublin-ca-orthodontics-office-and-orthodontist.php#family-discounts">Family Discounts</a></li>
+      <li><a href="https://www.drdantegonzales.com/best-dublin-ca-orthodontics-office-and-orthodontist.php#sterilization-standards">Exceeding Sterilization Standards</a></li>
+      <li><a href="https://www.drdantegonzales.com/best-dublin-ca-orthodontics-office-and-orthodontist.php#flexible-hours">Flexible Hours</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================================ OFFERED -->
+<section class="offered" aria-labelledby="offered-title">
+  <div class="shell">
+    <div class="offered__head">
+      <p class="eyebrow" data-reveal>Proudly offered</p>
+      <h2 class="offered__title" id="offered-title" data-reveal data-reveal-delay="1">
+        At Dante Gonzales Orthodontics in Dublin &amp; Tracy, California (CA)
+      </h2>
+    </div>
+    <ul class="offered__grid" data-reveal data-reveal-delay="2">
+      <li><img src="assets/img/logos/logo1.png" alt="Invisalign — the clear alternative to braces" width="224" height="78" loading="lazy" decoding="async"></li>
+      <li><img src="assets/img/logos/logo2.png" alt="Invisalign Teen" width="248" height="78" loading="lazy" decoding="async"></li>
+      <li><img src="assets/img/logos/logo3.png" alt="3M orthodontic products" width="108" height="78" loading="lazy" decoding="async"></li>
+      <li><img src="assets/img/logos/logo4.png" alt="AcceleDent System" width="240" height="78" loading="lazy" decoding="async"></li>
+      <li><img src="assets/img/logos/logo5.png" alt="iTero digital scanning" width="146" height="78" loading="lazy" decoding="async"></li>
+      <li><img src="assets/img/logos/logo6.png" alt="Propel Orthodontics" width="168" height="78" loading="lazy" decoding="async"></li>
+    </ul>
+  </div>
+</section>
+
+<!-- =========================================================== TESTIMONIALS -->
+<section class="section testimonials" id="testimonials" aria-labelledby="testimonials-title">
+  <div class="shell">
+    <div class="section__head section__head--center">
+      <p class="eyebrow" data-reveal>5-star-rated orthodontist in</p>
+      <h2 class="section__title" id="testimonials-title" data-reveal data-reveal-delay="1">
+        Dublin &amp; Tracy California (CA),<br>for braces &amp; Invisalign
+      </h2>
+    </div>
+
+    <div class="carousel" data-carousel aria-roledescription="carousel" aria-label="Patient reviews">
+      <div class="carousel__viewport" data-carousel-viewport>
+        <ul class="carousel__track" data-carousel-track>
+          <li class="quote" data-slide>
+            <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+            </div>
+            <blockquote class="quote__body">
+              <p>Dr. Gonzales and his staff are truly outstanding. They have an excellent manner with
+              children, while being extremely competent and professional. I would feel comfortable
+              recommending their services to anyone.</p>
+            </blockquote>
+            <p class="quote__by">George C</p>
+          </li>
+
+          <li class="quote" data-slide>
+            <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+            </div>
+            <blockquote class="quote__body">
+              <p>We are extremely pleased with Dr. Gonzales and his wonderful staff. He and his staff are
+              patient and understanding and they make my son feel completely at ease. They make every
+              visit stress-free and fun for siblings who have to wait in the waiting room too!
+              *thumbs up* Thank you!!!</p>
+            </blockquote>
+            <p class="quote__by">Betty W</p>
+          </li>
+
+          <li class="quote" data-slide>
+            <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+            </div>
+            <blockquote class="quote__body quote__body--short">
+              <p>Best orthodontic office in the bay area!!</p>
+            </blockquote>
+            <p class="quote__by">Colleen R</p>
+          </li>
+
+          <li class="quote" data-slide>
+            <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+            </div>
+            <blockquote class="quote__body">
+              <p>The Smith family loves this office! I am so thankful my kids get to go to Dr Gonzales!
+              Thanks for making us feel so special every time we walk in the door.</p>
+            </blockquote>
+            <p class="quote__by">Laurie S</p>
+          </li>
+
+          <li class="quote" data-slide>
+            <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+            </div>
+            <blockquote class="quote__body">
+              <p>Dr. Gonzalez and his team always gave excellent service. Staff is very friendly and always
+              made my daughter feel relaxed. She has a beautiful smile. Thank you!</p>
+            </blockquote>
+            <p class="quote__by">Tammy F</p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="carousel__controls">
+        <button class="carousel__btn" type="button" data-carousel-prev aria-label="Previous review">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H5m6-6-6 6 6 6"/></svg>
+        </button>
+        <div class="carousel__dots" data-carousel-dots role="tablist" aria-label="Select a review"></div>
+        <button class="carousel__btn" type="button" data-carousel-next aria-label="Next review">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </button>
+      </div>
+      <p class="sr-only" aria-live="polite" data-carousel-status></p>
+    </div>
+
+    <ul class="review-badges" data-reveal>
+      <li><img src="assets/img/logos/review1.png" alt="Five-star rated on Google" width="210" height="106" loading="lazy" decoding="async"></li>
+      <li><img src="assets/img/logos/review2.png" alt="Five-star rated on Facebook" width="210" height="106" loading="lazy" decoding="async"></li>
+      <li><img src="assets/img/logos/review3.png" alt="Five-star rated on Yelp" width="210" height="106" loading="lazy" decoding="async"></li>
+      <li><img src="assets/img/logos/review4.png" alt="Five-star rated on Healthgrades" width="210" height="106" loading="lazy" decoding="async"></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================================================================= REPORT -->
+<section class="section report" id="report" aria-labelledby="report-title">
+  <div class="shell report__inner">
+    <div class="report__media" data-reveal>
+      <div class="report__cover" data-parallax="8">
+        <picture>
+          <source type="image/webp" srcset="assets/img/report/top10-cover.webp">
+          <img src="assets/img/report/top10-cover.png" alt="Cover of the free report: Top 10 Things To Know Before Choosing Your Orthodontist" width="236" height="346" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <span class="report__flag">Free report</span>
+    </div>
+
+    <div class="report__copy">
+      <p class="eyebrow" data-reveal>The top 10 things</p>
+      <h2 class="section__title" id="report-title" data-reveal data-reveal-delay="1">
+        You should know before choosing your Dublin or Tracy, CA orthodontist
+      </h2>
+      <p class="section__lede" data-reveal data-reveal-delay="2">
+        We want you to feel confident when you choose your Dublin or Tracy, CA orthodontist.
+        To help you make an informed decision, Dr. Gonzales wrote this free report for you.
+        If you are searching for the most qualified and caring Dublin or Tracy orthodontist for
+        yourself or your loved ones, you are in the right place.
+      </p>
+      <div class="report__actions" data-reveal data-reveal-delay="3">
+        <a class="btn btn--primary btn--lg" href="assets/img/pdf/10-Things-You-Need-to-Know-about-Your-Orthodontist-for-website.pdf">
+          <svg class="btn__arrow btn__arrow--down" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v12m-5-5 5 5 5-5M5 20h14"/></svg>
+          Instantly Download Now
+        </a>
+        <span class="report__meta">PDF · Instant download</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================== BOOK -->
+<section class="section book" id="book" aria-labelledby="book-title">
+  <div class="shell book__inner">
+    <div class="book__copy">
+      <p class="eyebrow" data-reveal>Written by Dr. Gonzales</p>
+      <h2 class="book__title" id="book-title" data-reveal data-reveal-delay="1">
+        Setting Them Straight:
+        <em>The fact-based guide to a spectacular smile through orthodontics</em>
+      </h2>
+      <p class="section__lede" data-reveal data-reveal-delay="2">
+        Dr. Gonzales’s book, <cite>Setting Them Straight: The Fact-Based Guide to a Spectacular Smile
+        through Orthodontics</cite>, dives straight into the world of orthodontics, explaining what
+        these specialists can and can’t do to help solve your problems. In this book, you’ll learn
+        about many things, including:
+      </p>
+      <ul class="ticks" data-reveal data-reveal-delay="3">
+        <li>The difference between a general dentist and an orthodontist</li>
+        <li>The history behind orthodontics</li>
+        <li>Types of appliances used to treat common teeth and jaw issues</li>
+        <li>How orthodontic procedures can treat seemingly unrelated issues, such as sleep apnea</li>
+      </ul>
+      <div class="book__actions" data-reveal data-reveal-delay="4">
+        <a class="btn btn--dark btn--lg" href="https://www.amazon.com/Setting-Them-Straight-Spectacular-Orthodontics/dp/1599328305/ref=sr_1_6?keywords=The+Good+Doctor&amp;qid=1557788073&amp;s=books&amp;&amp;&amp;sr=1-6" target="_blank" rel="noopener">
+          Review It On Amazon
+          <svg class="btn__arrow" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5h5v5M19 5l-8 8M18 14v4.5A1.5 1.5 0 0 1 16.5 20h-11A1.5 1.5 0 0 1 4 18.5v-11A1.5 1.5 0 0 1 5.5 6H10"/></svg>
+        </a>
       </div>
     </div>
 
-    <!-- Appointment form -->
-    <div data-anim="fade-up" data-anim-delay="120">
-      <div class="rounded-3xl bg-white p-7 shadow-lift ring-1 ring-ink-900/5 sm:p-9">
-        <p class="eyebrow">Free consultation</p>
-        <h2 class="mt-3 text-2xl font-bold leading-snug">Request your complimentary Gonzales Smile Assessment</h2>
-        <p class="mt-3 text-sm">No cost, no obligation. We'll confirm your appointment by phone within one business day.</p>
+    <div class="book__media" data-reveal data-reveal-delay="2">
+      <picture>
+        <source type="image/webp" srcset="assets/img/report/book-setting-them-straight.webp">
+        <img src="assets/img/report/book-setting-them-straight.png" alt="Setting Them Straight, a book by Dr. Dante Gonzales" width="800" height="1040" loading="lazy" decoding="async">
+      </picture>
+    </div>
+  </div>
+</section>
 
-        <form action="contact-form1.php" method="post" class="mt-7 space-y-4">
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label for="fname" class="mb-1.5 block font-display text-sm font-semibold text-ink-900">First name</label>
-              <input class="field" id="fname" name="fname" type="text" autocomplete="given-name" required>
-            </div>
-            <div>
-              <label for="lname" class="mb-1.5 block font-display text-sm font-semibold text-ink-900">Last name</label>
-              <input class="field" id="lname" name="lname" type="text" autocomplete="family-name" required>
-            </div>
-          </div>
-
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label for="phone" class="mb-1.5 block font-display text-sm font-semibold text-ink-900">Phone</label>
-              <input class="field" id="phone" name="phone" type="tel" autocomplete="tel" required>
-            </div>
-            <div>
-              <label for="email" class="mb-1.5 block font-display text-sm font-semibold text-ink-900">Email</label>
-              <input class="field" id="email" name="email" type="email" autocomplete="email" required>
-            </div>
-          </div>
-
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label for="age" class="mb-1.5 block font-display text-sm font-semibold text-ink-900">Patient age</label>
-              <input class="field" id="age" name="age" type="number" min="1" max="120" required>
-            </div>
-            <div>
-              <label for="interest" class="mb-1.5 block font-display text-sm font-semibold text-ink-900">I'm interested in</label>
-              <select class="field" id="interest" name="interest" required>
-                <option value="">Select a treatment</option>
-                <option>Invisalign</option>
-                <option>Invisalign Teen</option>
-                <option>Braces</option>
-                <option>Accelerated treatment</option>
-                <option>Surgical orthodontics</option>
-                <option>Sleep apnea treatment</option>
-                <option>Second opinion</option>
-                <option>Not sure yet</option>
-              </select>
-            </div>
-          </div>
-
-          <fieldset>
-            <legend class="mb-2 font-display text-sm font-semibold text-ink-900">Preferred office</legend>
-            <div class="grid grid-cols-2 gap-3">
-              <label class="flex cursor-pointer items-center gap-2.5 rounded-xl px-4 py-3 ring-1 ring-ink-900/10 transition has-checked:bg-brand-50 has-checked:ring-2 has-checked:ring-brand-500">
-                <input type="radio" name="office" value="Dublin" class="accent-brand-600" required>
-                <span class="font-display text-sm font-semibold text-ink-900">Dublin</span>
-              </label>
-              <label class="flex cursor-pointer items-center gap-2.5 rounded-xl px-4 py-3 ring-1 ring-ink-900/10 transition has-checked:bg-brand-50 has-checked:ring-2 has-checked:ring-brand-500">
-                <input type="radio" name="office" value="Tracy" class="accent-brand-600" required>
-                <span class="font-display text-sm font-semibold text-ink-900">Tracy</span>
-              </label>
-            </div>
-          </fieldset>
-
-          <div>
-            <label for="message" class="mb-1.5 block font-display text-sm font-semibold text-ink-900">Anything we should know? <span class="font-normal text-ink-500">(optional)</span></label>
-            <textarea class="field" id="message" name="message" rows="3"></textarea>
-          </div>
-
-          <!-- Anti-spam: honeypot carried over from the existing form -->
-          <input type="text" name="honeypot" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true">
-
-          <button type="submit" class="btn-primary w-full !py-3.5">Request My Free Consultation</button>
-
-          <p class="text-xs leading-relaxed text-ink-500">
-            By submitting this form you agree to be contacted about your appointment.
-            We never sell or share your information. See our
-            <a href="privacy-policy.php" class="underline underline-offset-2 hover:text-brand-600">privacy policy</a>.
-            This site is protected by reCAPTCHA and the Google
-            <a href="https://policies.google.com/privacy" rel="noopener" class="underline underline-offset-2 hover:text-brand-600">Privacy Policy</a> and
-            <a href="https://policies.google.com/terms" rel="noopener" class="underline underline-offset-2 hover:text-brand-600">Terms of Service</a> apply.
-          </p>
-        </form>
+<!-- =========================================================== RIGHT FOR YOU -->
+<section class="section right-for-you" id="right-for-you" aria-labelledby="rfy-title">
+  <div class="shell rfy__inner">
+    <div class="rfy__copy">
+      <p class="eyebrow" data-reveal>Still deciding?</p>
+      <h2 class="section__title" id="rfy-title" data-reveal data-reveal-delay="1">
+        Is Dante Gonzales Orthodontics right for you?
+      </h2>
+      <p class="section__lede" data-reveal data-reveal-delay="2">Answer these questions to find out now.</p>
+      <div data-reveal data-reveal-delay="3">
+        <a class="btn btn--primary btn--lg" href="https://www.drdantegonzales.com/invisalign-quiz.php">
+          Start Here
+          <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
       </div>
     </div>
+
+    <div class="rfy__card" data-reveal data-reveal-delay="2" aria-hidden="true">
+      <div class="rfy__card-head">
+        <span class="rfy__pill">Smile check</span>
+        <span class="rfy__progress"><i style="width:33%"></i></span>
+      </div>
+      <p class="rfy__q">Are you considering braces or Invisalign for yourself or your child?</p>
+      <ul class="rfy__options">
+        <li class="is-picked"><span></span>Yes, I’d like to know my options</li>
+        <li><span></span>I’d like a second opinion</li>
+        <li><span></span>I was referred by my dentist</li>
+      </ul>
+      <span class="rfy__fake-btn">Continue</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================== VISIT -->
+<section class="section visit" id="visit" aria-labelledby="visit-title">
+  <div class="shell">
+    <div class="section__head section__head--split">
+      <div>
+        <p class="eyebrow" data-reveal>Our location</p>
+        <h2 class="section__title" id="visit-title" data-reveal data-reveal-delay="1">Visit us in Dublin or Tracy</h2>
+      </div>
+      <p class="section__lede" data-reveal data-reveal-delay="2">
+        Two orthodontic offices, one standard of care. Choose the office closest to you for
+        directions, contact details and opening hours.
+      </p>
+    </div>
+
+    <div class="visit__panel" data-tabs>
+      <div class="visit__tabs" role="tablist" aria-label="Choose an office">
+        <button role="tab" type="button" id="tab-dublin" class="visit__tab is-active" aria-selected="true" aria-controls="panel-dublin" data-tab="dublin">Dublin office</button>
+        <button role="tab" type="button" id="tab-tracy" class="visit__tab" aria-selected="false" aria-controls="panel-tracy" tabindex="-1" data-tab="tracy">Tracy office</button>
+      </div>
+
+      <div class="visit__body">
+        <!-- Dublin -->
+        <div class="visit__pane" id="panel-dublin" role="tabpanel" aria-labelledby="tab-dublin" data-pane="dublin">
+          <div class="visit__info">
+            <h3 class="visit__office">Dante Gonzales Orthodontics — Dublin</h3>
+            <p class="visit__doc">Dr. Dante A. Gonzales</p>
+            <address class="visit__address">
+              4532 Dublin Blvd<br>
+              Dublin, CA 94568
+            </address>
+            <ul class="visit__contact">
+              <li>
+                <svg class="ico" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.4a12.5 12.5 0 0 0 6.1 6.1l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2Z"/></svg>
+                <a href="tel:925-828-2244">925-828-2244</a>
+              </li>
+              <li>
+                <svg class="ico" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="m4 7 8 5.5L20 7"/></svg>
+                <a href="mailto:info@drdantegonzales.com">info@drdantegonzales.com</a>
+              </li>
+            </ul>
+            <div class="visit__actions">
+              <a class="btn btn--primary btn--sm" href="#appointment">Request an appointment</a>
+              <a class="btn btn--outline btn--sm" href="dublin-ca-orthodontic-office-contact.php">Dublin office details</a>
+            </div>
+          </div>
+
+          <div class="visit__map">
+            <iframe title="Map showing Dante Gonzales Orthodontics of Dublin, 4532 Dublin Blvd, Dublin, CA 94568"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3156.6275334679017!2d-121.88294102443109!3d37.704945572003034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fe94ac1d847ef%3A0xb2b734503247e318!2sDante%20Gonzales%20Orthodontics%20of%20Dublin!5e0!3m2!1sen!2sin!4v1718796614920!5m2!1sen!2sin"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <!-- Tracy -->
+        <div class="visit__pane" id="panel-tracy" role="tabpanel" aria-labelledby="tab-tracy" data-pane="tracy" hidden>
+          <div class="visit__info">
+            <h3 class="visit__office">Dante Gonzales Orthodontics — Tracy</h3>
+            <p class="visit__doc">Dr. Dante A. Gonzales</p>
+            <address class="visit__address">
+              1417 N Tracy Blvd<br>
+              Tracy, CA 95376
+            </address>
+            <ul class="visit__contact">
+              <li>
+                <svg class="ico" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.4a12.5 12.5 0 0 0 6.1 6.1l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.5 5.7a2 2 0 0 1 2-2.2Z"/></svg>
+                <a href="tel:209-835-0977">209-835-0977</a>
+              </li>
+              <li>
+                <svg class="ico" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="m4 7 8 5.5L20 7"/></svg>
+                <a href="mailto:TracyInfo@drdantegonzales.com">TracyInfo@drdantegonzales.com</a>
+              </li>
+            </ul>
+            <div class="visit__actions">
+              <a class="btn btn--primary btn--sm" href="#appointment">Request an appointment</a>
+              <a class="btn btn--outline btn--sm" href="tracy-ca-orthodontic-office-contact.php">Tracy office details</a>
+            </div>
+          </div>
+
+          <div class="visit__map">
+            <iframe title="Map showing Dante Gonzales Orthodontics of Tracy, 1417 N Tracy Blvd, Tracy, CA 95376"
+              data-src="https://www.google.com/maps?q=Dante+Gonzales+Orthodontics,+1417+N+Tracy+Blvd,+Tracy,+CA+95376&amp;output=embed"
+              loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="hours" id="hours">
+        <h3 class="hours__title">Office hours</h3>
+        <ul class="hours__list">
+          <li><span>Monday</span><time>8:30 am – 6:00 pm</time></li>
+          <li><span>Tuesday</span><time>7:30 am – 5:30 pm</time></li>
+          <li><span>Wednesday</span><time>7:30 am – 5:30 pm</time></li>
+          <li><span>Thursday</span><time>8:30 am – 6:00 pm</time></li>
+          <li><span>Friday</span><time>8:00 am – 5:00 pm</time></li>
+          <li><span>Saturday</span><time>8:15 am – 1:30 pm <em>(By appointment only)</em></time></li>
+          <li class="is-closed"><span>Sunday</span><time>Closed</time></li>
+        </ul>
+        <p class="hours__note">Open more hours than any other orthodontic office in the East Bay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ APPOINTMENT -->
+<section class="section appointment" id="appointment" aria-labelledby="appointment-title">
+  <div class="shell appointment__inner">
+    <div class="appointment__copy">
+      <p class="eyebrow" data-reveal>Online appointment</p>
+      <h2 class="section__title" id="appointment-title" data-reveal data-reveal-delay="1">Make an Appointment</h2>
+      <p class="section__lede" data-reveal data-reveal-delay="2">
+        Tell us a little about yourself and choose the office you prefer. Our team will be in touch
+        to arrange your complimentary Gonzales Smile Assessment — same-day appointments are available.
+      </p>
+
+      <ul class="appointment__alt" data-reveal data-reveal-delay="3">
+        <li>
+          <span class="appointment__alt-label">Dublin</span>
+          <a href="tel:925-828-2244">925-828-2244</a>
+          <a class="appointment__alt-mail" href="mailto:info@drdantegonzales.com">info@drdantegonzales.com</a>
+        </li>
+        <li>
+          <span class="appointment__alt-label">Tracy</span>
+          <a href="tel:209-835-0977">209-835-0977</a>
+          <a class="appointment__alt-mail" href="mailto:TracyInfo@drdantegonzales.com">TracyInfo@drdantegonzales.com</a>
+        </li>
+      </ul>
+
+      <p class="appointment__video" data-reveal data-reveal-delay="4">
+        <svg class="ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8.5A2.5 2.5 0 0 1 6.5 6h7A2.5 2.5 0 0 1 16 8.5v7a2.5 2.5 0 0 1-2.5 2.5h-7A2.5 2.5 0 0 1 4 15.5v-7Z"/><path d="m16 10.5 4-2.5v8l-4-2.5"/></svg>
+        <span>Prefer to meet from home? Ask us about an <strong>online video appointment</strong>.</span>
+      </p>
+    </div>
+
+    <!-- Posts to the practice's existing handler, exactly as the current site does.
+         Re-add the reCAPTCHA v3 script and populate #recaptchaResponse before going live. -->
+    <form class="form" action="contact-form1.php" method="post" novalidate data-validate>
+      <div class="form__grid">
+        <div class="field">
+          <label class="field__label" for="fname">First name <span aria-hidden="true">*</span></label>
+          <input class="field__input" type="text" id="fname" name="fname" autocomplete="given-name" required aria-describedby="err-fname">
+          <p class="field__error" id="err-fname" data-error-for="fname"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="lname">Last name <span aria-hidden="true">*</span></label>
+          <input class="field__input" type="text" id="lname" name="lname" autocomplete="family-name" required aria-describedby="err-lname">
+          <p class="field__error" id="err-lname" data-error-for="lname"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="phone">Phone <span aria-hidden="true">*</span></label>
+          <input class="field__input" type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" required aria-describedby="err-phone">
+          <p class="field__error" id="err-phone" data-error-for="phone"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="email">Email <span aria-hidden="true">*</span></label>
+          <input class="field__input" type="email" id="email" name="email" autocomplete="email" required aria-describedby="err-email">
+          <p class="field__error" id="err-email" data-error-for="email"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="age">Age</label>
+          <input class="field__input" type="number" id="age" name="age" min="1" max="120" inputmode="numeric" aria-describedby="err-age">
+          <p class="field__error" id="err-age" data-error-for="age"></p>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="gender">Patient</label>
+          <div class="field__select">
+            <select class="field__input" id="gender" name="gender">
+              <option value="">Please select</option>
+              <option value="1">Male</option>
+              <option value="2">Female</option>
+              <option value="3">Child</option>
+            </select>
+            <svg width="12" height="8" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+          </div>
+        </div>
+
+        <fieldset class="field field--full">
+          <legend class="field__label">Which office do you prefer? <span aria-hidden="true">*</span></legend>
+          <div class="radios" aria-describedby="err-office">
+            <label class="radio">
+              <input type="radio" name="office" value="Dublin" required>
+              <span class="radio__mark" aria-hidden="true"></span>
+              <span class="radio__text"><strong>Dublin</strong><em>4532 Dublin Blvd</em></span>
+            </label>
+            <label class="radio">
+              <input type="radio" name="office" value="Tracy" required>
+              <span class="radio__mark" aria-hidden="true"></span>
+              <span class="radio__text"><strong>Tracy</strong><em>1417 N Tracy Blvd</em></span>
+            </label>
+          </div>
+          <p class="field__error" id="err-office" data-error-for="office"></p>
+        </fieldset>
+
+        <div class="field field--full">
+          <label class="field__label" for="comments">Tell us about your teeth</label>
+          <textarea class="field__input field__input--area" id="comments" name="comments" rows="4" placeholder="Anything you'd like us to know before your visit"></textarea>
+        </div>
+      </div>
+
+      <!-- anti-spam, as on the current site -->
+      <div class="hp" aria-hidden="true">
+        <label for="honeypot">Leave this field empty</label>
+        <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+      </div>
+      <input type="hidden" id="recaptchaResponse" name="recaptcha_response" value="">
+
+      <div class="form__foot">
+        <button class="btn btn--primary btn--lg" type="submit" name="submit">
+          Submit Query
+          <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </button>
+        <p class="form__note">We’ll only use your details to contact you about your appointment.</p>
+      </div>
+      <p class="form__summary" role="alert" data-form-summary hidden></p>
+    </form>
+  </div>
+</section>
+
+<!-- ================================================================== VIDEO -->
+<section class="video" id="video" aria-labelledby="video-title">
+  <div class="shell video__inner">
+    <div class="video__copy">
+      <p class="eyebrow eyebrow--light" data-reveal>Let’s see our intro video</p>
+      <h2 class="video__title" id="video-title" data-reveal data-reveal-delay="1">
+        “If your smile is not becoming to you, then you should be coming to me!”
+      </h2>
+      <p class="video__by" data-reveal data-reveal-delay="2">Dr. Dante A. Gonzales, DMD, MSD</p>
+    </div>
+
+    <div class="video__player" data-reveal data-reveal-delay="2">
+      <div class="video__facade" data-video="y39nqQjOuzs">
+        <picture>
+          <source type="image/webp" srcset="assets/img/video/intro-poster.webp">
+          <img src="assets/img/video/intro-poster.jpg" alt="Dr. Dante Gonzales speaking in the practice introduction video" width="1280" height="720" loading="lazy" decoding="async">
+        </picture>
+        <button class="video__play" type="button" data-video-play aria-label="Play the Dante Gonzales Orthodontics intro video">
+          <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
+        </button>
+        <a class="video__fallback" href="https://www.youtube.com/watch?v=y39nqQjOuzs" target="_blank" rel="noopener">Watch on YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= NEWSLETTER -->
+<section class="newsletter" id="newsletter" aria-labelledby="newsletter-title">
+  <div class="shell shell--narrow newsletter__inner">
+    <p class="eyebrow" data-reveal>Subscribe for updates</p>
+    <h2 class="newsletter__title" id="newsletter-title" data-reveal data-reveal-delay="1">
+      When you are ready to schedule your complimentary Gonzales Smile Assessment
+    </h2>
+    <form class="newsletter__form" action="#" method="post" novalidate data-newsletter data-reveal data-reveal-delay="2">
+      <label class="sr-only" for="news-email">Your email address</label>
+      <input class="field__input" type="email" id="news-email" name="email" placeholder="Enter your e-mail here" autocomplete="email" required>
+      <button class="btn btn--primary" type="submit">
+        Subscribe
+        <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+      </button>
+    </form>
+    <p class="newsletter__status" role="status" data-newsletter-status></p>
   </div>
 </section>
 
 </main>
 
-<!-- ============================= FOOTER CTA ============================= -->
-<section class="relative overflow-hidden bg-ink-950 grain" data-anim="clip">
-  <div class="wrap py-20 text-center sm:py-24 lg:py-28">
-    <p data-anim="fade-up" class="eyebrow !text-brand-400">Ready for your new smile?</p>
-    <h2 data-anim="fade-up" data-anim-delay="60" class="t-section mt-5 font-extrabold text-white">Your confident smile starts with a conversation</h2>
-    <p data-anim="fade-up" data-anim-delay="120" class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-white/70">Book your free Gonzales Smile Assessment today — no cost, no obligation, just honest answers from a board-certified team.</p>
-    <div data-anim="fade-up" data-anim-delay="180" class="mt-8 flex flex-wrap items-center justify-center gap-3">
-      <a href="#consultation" class="btn-primary">Book Your Free Consultation</a>
-      <a href="tel:+19258282244" class="btn-ghost">Call Dublin: 925-828-2244</a>
-    </div>
-  </div>
-</section>
+<!-- ================================================================= FOOTER -->
+<footer class="footer" id="contact">
+  <div class="shell">
+    <div class="footer__top">
+      <div class="footer__col footer__col--about">
+        <img class="footer__logo" src="assets/img/logo-white.png" alt="Dante Gonzales Orthodontics" width="387" height="97" loading="lazy" decoding="async">
+        <p class="footer__about">
+          We want you to feel confident when you choose your Dublin or Tracy, CA orthodontist.
+          To help you make an informed decision, Dr. Gonzales wrote this free report for you.
+        </p>
+        <a class="link-arrow link-arrow--light" href="assets/img/pdf/10-Things-You-Need-to-Know-about-Your-Orthodontist-for-website.pdf">
+          Download the free report
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
+        <ul class="footer__social" aria-label="Social links">
+          <li>
+            <a href="https://www.instagram.com/drdantegonzales/" target="_blank" rel="noopener" aria-label="Dante Gonzales Orthodontics on Instagram">
+              <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.2" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/GonzalesOrtho" target="_blank" rel="noopener" aria-label="Dante Gonzales Orthodontics on Facebook">
+              <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8.5V7a1.5 1.5 0 0 1 1.5-1.5h1.5V3h-2.6A3.9 3.9 0 0 0 11 6.9v1.6H9V11h2v10h3.5V11h2.3l.5-2.5h-2.8Z" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-<!-- ============================= FOOTER ============================= -->
-<footer data-anim="fade-up" class="surface-ink grain text-white/70">
-  <div class="wrap grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] lg:gap-12 lg:py-20"
-       data-anim-group data-anim-stagger="90">
+      <div class="footer__col">
+        <h2 class="footer__heading">Opening Hours</h2>
+        <ul class="footer__hours">
+          <li><span>Mon and Thur</span><time>8.30 am – 6.00 pm</time></li>
+          <li><span>Tues – Wed</span><time>7.30 am – 5.30 pm</time></li>
+          <li><span>Friday</span><time>8.00 am – 4.00 pm</time></li>
+          <li><span>Saturday</span><time>8.30 am – 1.30 pm</time></li>
+          <li><span>Sun</span><time>Closed</time></li>
+        </ul>
+      </div>
 
-    <div data-anim="fade-up">
-      <img src="assets/img/logo.png" alt="Dante Gonzales Orthodontics" width="387" height="97" loading="lazy" class="h-12 w-auto brightness-0 invert">
-      <p class="mt-5 max-w-sm text-sm leading-relaxed">
-        Board-certified orthodontic care in Dublin and Tracy, California. Braces, Invisalign
-        and sleep apnea treatment — 12,000+ smiles transformed since 1998.
-      </p>
-      <div class="mt-6 flex gap-3">
-        <a href="https://www.facebook.com/GonzalesOrtho" rel="noopener" class="inline-flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:-translate-y-0.5 hover:bg-brand-500 hover:text-ink-900">
-          <span class="sr-only">Dante Gonzales Orthodontics on Facebook</span>
-          <svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H8v3h2v7h3v-7h3l1-3h-4v-2c0-.6.4-1 1-1Z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/drdantegonzales/" rel="noopener" class="inline-flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:-translate-y-0.5 hover:bg-brand-500 hover:text-ink-900">
-          <span class="sr-only">Dante Gonzales Orthodontics on Instagram</span>
-          <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
-        </a>
-        <a href="https://www.youtube.com/watch?v=y39nqQjOuzs" rel="noopener" class="inline-flex size-10 items-center justify-center rounded-full bg-white/10 transition hover:-translate-y-0.5 hover:bg-brand-500 hover:text-ink-900">
-          <span class="sr-only">Dante Gonzales Orthodontics on YouTube</span>
-          <svg class="size-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12s0-3.3-.4-4.9a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.3a2.5 2.5 0 0 0-1.8 1.8C2 8.7 2 12 2 12s0 3.3.4 4.9a2.5 2.5 0 0 0 1.8 1.8c1.6.3 7.8.3 7.8.3s6.2 0 7.8-.3a2.5 2.5 0 0 0 1.8-1.8C22 15.3 22 12 22 12ZM10 15V9l5.2 3L10 15Z"/></svg>
-        </a>
+      <div class="footer__col">
+        <h2 class="footer__heading">Quick Links</h2>
+        <ul class="footer__links">
+          <li><a href="index.php">Home</a></li>
+          <li><a href="https://www.drdantegonzales.com/meet-our-orthodontists-in-dublin-ca.php">Meet Our Orthodontists</a></li>
+          <li><a href="dublin-california-ca-braces-orthodontics-and-invisalign.php">Braces &amp; Invisalign</a></li>
+          <li><a href="best-dublin-ca-orthodontics-office-and-orthodontist.php">Why Dante Gonzales Orthodontics?</a></li>
+          <li><a href="before-after.php">Before &amp; Afters</a></li>
+          <li><a href="blog.php">Blogs</a></li>
+          <li><a href="dublin-ca-orthodontic-office-contact.php">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col footer__col--contact">
+        <h2 class="footer__heading">Contact</h2>
+        <ul class="footer__contact">
+          <li>
+            <span class="footer__label">Phone</span>
+            <a href="tel:925-828-2244">Dublin — 925-828-2244</a>
+            <a href="tel:209-835-0977">Tracy — 209-835-0977</a>
+          </li>
+          <li>
+            <span class="footer__label">Email</span>
+            <a href="mailto:info@drdantegonzales.com">info@drdantegonzales.com</a>
+            <a href="mailto:TracyInfo@drdantegonzales.com">TracyInfo@drdantegonzales.com</a>
+          </li>
+        </ul>
+
+        <div class="footer__offices">
+          <div class="footer__office">
+            <h3 class="footer__label">Dublin Office</h3>
+            <address>
+              Dante Gonzales Orthodontics<br>
+              Dr. Dante A. Gonzales<br>
+              4532 Dublin Blvd<br>
+              Dublin, CA 94568
+            </address>
+          </div>
+          <div class="footer__office">
+            <h3 class="footer__label">Tracy Office</h3>
+            <address>
+              Dante Gonzales Orthodontics<br>
+              Dr. Dante A. Gonzales<br>
+              1417 N Tracy Blvd<br>
+              Tracy, CA 95376
+            </address>
+          </div>
+        </div>
       </div>
     </div>
 
-    <nav aria-labelledby="f-treat" data-anim="fade-up">
-      <h2 id="f-treat" class="font-display text-sm font-bold uppercase tracking-wider text-white">Treatments</h2>
-      <ul class="mt-5 space-y-2.5 text-sm">
-        <li><a class="footer-link" href="invisalign.php">Invisalign</a></li>
-        <li><a class="footer-link" href="elite-invisalign-and-invisalign-teen-orthodontist.php">Invisalign Teen</a></li>
-        <li><a class="footer-link" href="braces.php">Braces</a></li>
-        <li><a class="footer-link" href="accelerated-treatment.php">Accelerated Treatment</a></li>
-        <li><a class="footer-link" href="surgical-orthodontist.php">Surgical Orthodontics</a></li>
-        <li><a class="footer-link" href="sleep-apnea-dentist-in-dublin.php">Sleep Apnea Treatment</a></li>
-      </ul>
-    </nav>
+    <ul class="footer__accred" aria-label="Professional memberships and accreditations">
+      <li><a href="https://aaoinfo.org/" target="_blank" rel="noopener"><img src="assets/img/logos/footer1.png" alt="Member, American Association of Orthodontists" width="169" height="101" loading="lazy" decoding="async"></a></li>
+      <li><a href="https://www.ada.org/" target="_blank" rel="noopener"><img src="assets/img/logos/footer2.png" alt="American Dental Association" width="167" height="83" loading="lazy" decoding="async"></a></li>
+      <li><a href="https://www.americanboardortho.com/" target="_blank" rel="noopener"><img src="assets/img/logos/footer3.png" alt="Board certified by the American Board of Orthodontics" width="194" height="136" loading="lazy" decoding="async"></a></li>
+      <li><a href="https://smileschangelives.org/" target="_blank" rel="noopener"><img src="assets/img/logos/footer4.png" alt="Smiles Change Lives" width="194" height="107" loading="lazy" decoding="async"></a></li>
+      <li><a href="https://about.sharecare.com/leadership/" target="_blank" rel="noopener"><img src="assets/img/logos/footer5.png" alt="Sharecare advisory board" width="194" height="55" loading="lazy" decoding="async"></a></li>
+    </ul>
 
-    <nav aria-labelledby="f-practice" data-anim="fade-up">
-      <h2 id="f-practice" class="font-display text-sm font-bold uppercase tracking-wider text-white">Practice</h2>
-      <ul class="mt-5 space-y-2.5 text-sm">
-        <li><a class="footer-link" href="about.php">Meet Dr. Gonzales</a></li>
-        <li><a class="footer-link" href="meet-our-orthodontists-in-dublin-ca.php">Our Orthodontists</a></li>
-        <li><a class="footer-link" href="meet-our-orthodontics-team.php">Dublin Team</a></li>
-        <li><a class="footer-link" href="meet-the-tracy-orthodontics-team.php">Tracy Team</a></li>
-        <li><a class="footer-link" href="before-after.php">Before &amp; After</a></li>
-        <li><a class="footer-link" href="blog.php">Blog</a></li>
-      </ul>
-    </nav>
-
-    <!-- Contact is the conversion column, so the phone numbers are typed
-         up rather than sitting at the same weight as the nav links. -->
-    <div data-anim="fade-up">
-      <h2 class="font-display text-sm font-bold uppercase tracking-wider text-white">Contact</h2>
-      <div class="mt-5 space-y-5 text-sm">
-        <div>
-          <p class="font-display font-semibold text-white">Dublin</p>
-          <address class="mt-1 not-italic leading-relaxed">4532 Dublin Blvd, Dublin, CA 94568</address>
-          <a class="mt-2 inline-flex items-center gap-2 font-display text-base font-semibold text-white transition hover:text-brand-400" href="tel:+19258282244">
-            <svg class="size-4 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>925-828-2244
-          </a>
-        </div>
-        <div>
-          <p class="font-display font-semibold text-white">Tracy</p>
-          <address class="mt-1 not-italic leading-relaxed">1417 N Tracy Blvd, Tracy, CA 95376</address>
-          <a class="mt-2 inline-flex items-center gap-2 font-display text-base font-semibold text-white transition hover:text-brand-400" href="tel:+12098350977">
-            <svg class="size-4 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>209-835-0977
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="border-t border-white/10">
-    <div class="wrap flex flex-col items-center justify-between gap-4 py-6 text-xs sm:flex-row">
-      <p>&copy; <span id="year">2026</span> Dante Gonzales Orthodontics. All rights reserved.</p>
-      <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-        <li><a class="footer-link" href="privacy-policy.php">Privacy Policy</a></li>
-        <li><a class="footer-link" href="terms-of-use.php">Terms of Use</a></li>
-        <li><a class="footer-link" href="sitemap.xml">Sitemap</a></li>
-        <li><a class="footer-link" href="accessibility.php">Accessibility</a></li>
+    <div class="footer__bottom">
+      <p>&copy; 2024 Dante Gonzales Orthodontics</p>
+      <ul class="footer__legal">
+        <li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Site Map</a></li>
+        <li><a href="#">Privacy Policy</a></li>
       </ul>
     </div>
   </div>
 </footer>
 
-<!-- Back to top. Appears only once scrolling back would be a chore, and
-     clears the mobile call bar so it never covers a conversion action. -->
-<button type="button" data-to-top class="to-top inline-flex size-11 items-center justify-center rounded-full bg-ink-900 text-white shadow-lift ring-1 ring-white/10 transition hover:bg-brand-500 hover:text-ink-900">
-  <span class="sr-only">Back to top</span>
-  <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 19V5m-7 7 7-7 7 7"/></svg>
-</button>
+<a class="to-top" href="#main" id="toTop" aria-label="Back to top" hidden>
+  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V5m-6 6 6-6 6 6"/></svg>
+</a>
 
-<!-- Sticky mobile call/book bar -->
-<div class="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-px border-t border-ink-900/10 bg-white sm:hidden">
-  <a href="tel:+19258282244" class="flex items-center justify-center gap-2 py-3.5 font-display text-sm font-semibold text-ink-900">
-    <svg class="size-4 text-brand-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg>Call
-  </a>
-  <a href="#consultation" class="flex items-center justify-center bg-brand-500 py-3.5 font-display text-sm font-semibold text-ink-900">Book Free Consult</a>
-</div>
-<div class="h-14 sm:hidden" aria-hidden="true"></div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.drdantegonzales.com/#website",
+      "url": "https://www.drdantegonzales.com/",
+      "name": "Dante Gonzales Orthodontics",
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.drdantegonzales.com/#dr-gonzales",
+      "name": "Dr. Dante A. Gonzales",
+      "honorificSuffix": "DMD, MSD",
+      "jobTitle": "Orthodontist",
+      "url": "https://www.drdantegonzales.com/about.php",
+      "image": "https://www.drdantegonzales.com/assets/img/doctor/dr-dante-gonzales.png",
+      "sameAs": [
+        "https://www.instagram.com/drdantegonzales/",
+        "https://www.facebook.com/GonzalesOrtho"
+      ]
+    },
+    {
+      "@type": "Dentist",
+      "@id": "https://www.drdantegonzales.com/#dublin",
+      "name": "Dante Gonzales Orthodontics — Dublin",
+      "url": "https://www.drdantegonzales.com/dublin-ca-orthodontic-office-contact.php",
+      "image": "https://www.drdantegonzales.com/assets/img/logo.png",
+      "telephone": "+1-925-828-2244",
+      "email": "info@drdantegonzales.com",
+      "medicalSpecialty": "Orthodontic",
+      "founder": { "@id": "https://www.drdantegonzales.com/#dr-gonzales" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "4532 Dublin Blvd",
+        "addressLocality": "Dublin",
+        "addressRegion": "CA",
+        "postalCode": "94568",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Dublin","Pleasanton","San Ramon","Danville","Livermore","Castro Valley","San Leandro","Hayward","Fremont"],
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Thursday"], "opens": "08:30", "closes": "18:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday"], "opens": "07:30", "closes": "17:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "17:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:15", "closes": "13:30", "description": "By appointment only" }
+      ]
+    },
+    {
+      "@type": "Dentist",
+      "@id": "https://www.drdantegonzales.com/#tracy",
+      "name": "Dante Gonzales Orthodontics — Tracy",
+      "url": "https://www.drdantegonzales.com/tracy-ca-orthodontic-office-contact.php",
+      "image": "https://www.drdantegonzales.com/assets/img/logo.png",
+      "telephone": "+1-209-835-0977",
+      "email": "TracyInfo@drdantegonzales.com",
+      "medicalSpecialty": "Orthodontic",
+      "founder": { "@id": "https://www.drdantegonzales.com/#dr-gonzales" },
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1417 N Tracy Blvd",
+        "addressLocality": "Tracy",
+        "addressRegion": "CA",
+        "postalCode": "95376",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Tracy","Manteca","Lathrop","Stockton","Patterson"],
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Thursday"], "opens": "08:30", "closes": "18:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday"], "opens": "07:30", "closes": "17:30" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "08:00", "closes": "17:00" },
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:15", "closes": "13:30", "description": "By appointment only" }
+      ]
+    }
+  ]
+}
+</script>
 
-<script src="https://www.google.com/recaptcha/api.js?render=6Lfls5kqAAAAAGEBmiJ9vYzBSUhOCR_zpsWOkFMA"></script>
-
-<!-- GSAP is self-hosted rather than pulled from a CDN: one fewer origin to
-     connect to, no third-party outage in the critical path, and it rides
-     the same HTTP/2 connection as the rest of the page. All deferred, so
-     none of it blocks parsing or the first paint.
-
-     Order matters — `defer` preserves it. preloader.js runs last so the
-     listeners in home.js are already attached when it fires `site:ready`. -->
-<script src="assets/js/vendor/gsap.min.js" defer></script>
-<script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
-<script src="assets/js/motion.js" defer></script>
-<script src="assets/js/home.js" defer></script>
-<script src="assets/js/preloader.js" defer></script>
+<script src="js/main.js" defer></script>
 </body>
 </html>
