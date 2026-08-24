@@ -20,7 +20,7 @@
     var ticking = false;
     function update() {
       var y = window.scrollY || window.pageYOffset;
-      header.classList.toggle('is-stuck', y > 8);
+      header.classList.toggle('is-stuck', y > 20);
       if (toTop) {
         var show = y > window.innerHeight * 0.9;
         toTop.hidden = !show;
