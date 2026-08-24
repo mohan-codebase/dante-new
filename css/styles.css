@@ -372,7 +372,7 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
 
 /* --------------------------------------------------------- 6. HEADER & NAV */
 .header {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 90;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   width: 100%;
   padding: 0 clamp(1.25rem, 3.5vw, 3.75rem);
   pointer-events: none;
