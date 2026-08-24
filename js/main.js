@@ -11,6 +11,26 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   var desktopNav   = window.matchMedia('(min-width: 1181px)');
 
+  /* ------------------------------------------------------------ preloader */
+  (function initPreloader() {
+    var preloader = $('#preloader');
+    if (!preloader) return;
+
+    // Trigger smooth progress bar fill
+    window.requestAnimationFrame(function () {
+      preloader.classList.add('is-animating');
+    });
+
+    // Run for 2 seconds on every load / refresh
+    var LOAD_DURATION = 2000;
+    window.setTimeout(function () {
+      preloader.classList.add('is-done');
+      window.setTimeout(function () {
+        if (preloader && preloader.parentNode) preloader.remove();
+      }, 650);
+    }, LOAD_DURATION);
+  })();
+
   /* --------------------------------------------------------------- header */
   (function stickyHeader() {
     var header = $('#header');

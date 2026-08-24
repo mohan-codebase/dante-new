@@ -162,6 +162,70 @@ a { color: inherit; text-decoration: none; }
 }
 .skip-link:focus-visible { transform: translateY(0); }
 
+/* ------------------------------------------------------------- PRELOADER */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #10375c 0%, #0a1f2e 100%);
+  color: #fff;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.preloader.is-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-8px) scale(0.98);
+}
+.preloader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 2rem;
+  text-align: center;
+}
+.preloader__logo {
+  width: clamp(200px, 32vw, 320px);
+  height: auto;
+  animation: preloaderPulse 2s ease-in-out infinite;
+}
+@keyframes preloaderPulse {
+  0%, 100% { opacity: 0.92; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+.preloader__track {
+  width: clamp(160px, 25vw, 220px);
+  height: 3.5px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+.preloader__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  background: linear-gradient(90deg, #f3da67 0%, #189ad6 100%);
+  border-radius: 999px;
+  transition: width 2s cubic-bezier(0.1, 0.85, 0.25, 1);
+}
+.preloader.is-animating .preloader__bar {
+  width: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  .preloader { display: none !important; }
+}
+
 /* generic inline icon (stroked) */
 .ico { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
 svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
