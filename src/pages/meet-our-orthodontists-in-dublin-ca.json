@@ -1,0 +1,26 @@
+{
+  "title": "Top Orthodontists in Dublin: Dante Gonzales",
+  "description": "Meet our expert orthodontists in Dublin. Dante Gonzales and the team provide personalized care to help you achieve a perfect smile.",
+  "canonical": "https://www.drdantegonzales.com/meet-our-orthodontists-in-dublin-ca.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Meet Our Orthodontists",
+          "item": "https://www.drdantegonzales.com/meet-our-orthodontists-in-dublin-ca.html"
+        }
+      ]
+    }
+  ]
+}

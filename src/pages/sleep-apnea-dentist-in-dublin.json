@@ -1,0 +1,26 @@
+{
+  "title": "Sleep Apnea Dentist in Dublin | Dr Dante Gonzales",
+  "description": "Looking for a sleep apnea dentist in Dublin? Dr. Dante Gonzales offers effective oral appliance therapy for better sleep and healthier breathing. Book today.",
+  "canonical": "https://www.drdantegonzales.com/sleep-apnea-dentist-in-dublin.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Sleep Apnea Treatment (Dublin)",
+          "item": "https://www.drdantegonzales.com/sleep-apnea-dentist-in-dublin.html"
+        }
+      ]
+    }
+  ]
+}

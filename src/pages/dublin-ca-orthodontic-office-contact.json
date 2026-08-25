@@ -1,0 +1,26 @@
+{
+  "title": "Contact Dublin Orthodontic Clinic ‒ Dante Gonzales",
+  "description": "Get in touch with Dante Gonzales Orthodontics in Dublin, CA. Contact our orthodontic clinic today to schedule your visit and begin your confident smile journey.",
+  "canonical": "https://www.drdantegonzales.com/dublin-ca-orthodontic-office-contact.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Contact",
+          "item": "https://www.drdantegonzales.com/dublin-ca-orthodontic-office-contact.html"
+        }
+      ]
+    }
+  ]
+}

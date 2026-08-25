@@ -1,0 +1,26 @@
+{
+  "title": "Best Orthodontist for Invisalign & Braces - Dublin & Tracy",
+  "description": "Are you looking for a best orthodontist in Dublin and Tracy for Invisalign and Braces | Dr DanteGonzales is a leading Orthodontist expert in Invisalign & Braces",
+  "canonical": "https://www.drdantegonzales.com/dublin-california-ca-braces-orthodontics-and-invisalign.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Braces & Invisalign",
+          "item": "https://www.drdantegonzales.com/dublin-california-ca-braces-orthodontics-and-invisalign.html"
+        }
+      ]
+    }
+  ]
+}

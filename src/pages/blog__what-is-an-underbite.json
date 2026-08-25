@@ -1,0 +1,26 @@
+{
+  "title": "What Is an Underbite? Dante Gonzales Answers",
+  "description": "What Is an underbite? Dante Gonzales explains how this jaw misalignment affects your health and the best ways to correct it permanently.",
+  "canonical": "https://www.drdantegonzales.com/blog/what-is-an-underbite.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.drdantegonzales.com/blog/what-is-an-underbite.html"
+        }
+      ]
+    }
+  ]
+}

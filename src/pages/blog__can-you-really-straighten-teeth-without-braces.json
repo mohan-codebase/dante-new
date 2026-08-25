@@ -1,0 +1,26 @@
+{
+  "title": "How to Straighten Teeth Without Braces",
+  "description": "Explore alternatives to braces like Invisalign and clear aligners to straighten teeth discreetly and comfortably.",
+  "canonical": "https://www.drdantegonzales.com/blog/can-you-really-straighten-teeth-without-braces.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.drdantegonzales.com/blog/can-you-really-straighten-teeth-without-braces.html"
+        }
+      ]
+    }
+  ]
+}

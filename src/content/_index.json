@@ -1,0 +1,478 @@
+[
+  {
+    "file": "about.php",
+    "slug": "about",
+    "title": "About Dante Gonzales Orthodontics – Dublin & Tracy",
+    "words": 571,
+    "images": 10,
+    "headings": 8
+  },
+  {
+    "file": "accelerated-treatment.php",
+    "slug": "accelerated-treatment",
+    "title": "Get your orthodontics treatment with the best orthodontist",
+    "words": 264,
+    "images": 10,
+    "headings": 9
+  },
+  {
+    "file": "before-after.php",
+    "slug": "before-after",
+    "title": "Smile Before & After Photos | Invasalign : Dante Gonzales",
+    "words": 454,
+    "images": 15,
+    "headings": 12
+  },
+  {
+    "file": "best-dublin-ca-orthodontics-office-and-orthodontist.php",
+    "slug": "best-dublin-ca-orthodontics-office-and-orthodontist",
+    "title": "5- Star Rated Dublin Orthodontist: Dante Gonzales",
+    "words": 1433,
+    "images": 9,
+    "headings": 20
+  },
+  {
+    "file": "blog.php",
+    "slug": "blog",
+    "title": "Orthodontics Informational Blogs| Dante Gonzales",
+    "words": 3036,
+    "images": 0,
+    "headings": 50
+  },
+  {
+    "file": "blog1.php",
+    "skipped": "empty or error response"
+  },
+  {
+    "file": "blog2.php",
+    "skipped": "empty or error response"
+  },
+  {
+    "file": "blog__braces-create-small-gap-between-front-teeth-is-it-normal.php",
+    "slug": "blog/braces-create-small-gap-between-front-teeth-is-it-normal",
+    "title": "Do Braces Create Gaps Between Front Teeth?",
+    "words": 1656,
+    "images": 3,
+    "headings": 17
+  },
+  {
+    "file": "blog__braces-vs-invisalign.php",
+    "slug": "blog/braces-vs-invisalign",
+    "title": "Braces vs Invisalign: Which Is Right for You?",
+    "words": 774,
+    "images": 3,
+    "headings": 7
+  },
+  {
+    "file": "blog__can-braces-fix-an-overbite-permanently.php",
+    "slug": "blog/can-braces-fix-an-overbite-permanently",
+    "title": "Do Braces Fix Overbite? Treatment Options Explained",
+    "words": 1272,
+    "images": 4,
+    "headings": 12
+  },
+  {
+    "file": "blog__can-invisalign-fix-protruding-front-teeth.php",
+    "slug": "blog/can-invisalign-fix-protruding-front-teeth",
+    "title": "Can Invisalign Fix Gaps Between Front Teeth?",
+    "words": 1253,
+    "images": 3,
+    "headings": 12
+  },
+  {
+    "file": "blog__can-orthodontic-treatment-help-sleep-apnea.php",
+    "slug": "blog/can-orthodontic-treatment-help-sleep-apnea",
+    "title": "Can Orthodontic Treatment Help Sleep Apnea? What You Need to Know?",
+    "words": 1190,
+    "images": 1,
+    "headings": 14
+  },
+  {
+    "file": "blog__can-tmj-dysfuntion-cause-ear-pain.php",
+    "slug": "blog/can-tmj-dysfuntion-cause-ear-pain",
+    "title": "TMJ Ear Pain Relief with Dante Gonzales, Best Orthodontist",
+    "words": 2625,
+    "images": 4,
+    "headings": 23
+  },
+  {
+    "file": "blog__can-you-chew-gum-with-invisalign-without-affecting-your-treatment.php",
+    "slug": "blog/can-you-chew-gum-with-invisalign-without-affecting-your-treatment",
+    "title": "Can You Chew Gum With Invisalign? What to Know",
+    "words": 1422,
+    "images": 3,
+    "headings": 10
+  },
+  {
+    "file": "blog__can-you-chew-gum-with-invisalign.php",
+    "slug": "blog/can-you-chew-gum-with-invisalign",
+    "title": "Can You Chew Gum With Invisalign? What Every Patient Should Know",
+    "words": 1582,
+    "images": 4,
+    "headings": 22
+  },
+  {
+    "file": "blog__can-you-drink-with-invisalign.php",
+    "slug": "blog/can-you-drink-with-invisalign",
+    "title": "Can You Drink With Invisalign? What Drinks Are Okay With Invisalign?",
+    "words": 954,
+    "images": 3,
+    "headings": 9
+  },
+  {
+    "file": "blog__can-you-eat-with-invisalign.php",
+    "slug": "blog/can-you-eat-with-invisalign",
+    "title": "Can You Eat With Invisalign? Foods, Rules & Expert Tips",
+    "words": 1207,
+    "images": 3,
+    "headings": 18
+  },
+  {
+    "file": "blog__can-you-get-braces-with-missing-teeth-heres-what-orthodontists-say.php",
+    "slug": "blog/can-you-get-braces-with-missing-teeth-heres-what-orthodontists-say",
+    "title": "Can You Get Braces with Missing Teeth? Here’s What Orthodontists Say",
+    "words": 1190,
+    "images": 3,
+    "headings": 15
+  },
+  {
+    "file": "blog__can-you-really-straighten-teeth-without-braces.php",
+    "slug": "blog/can-you-really-straighten-teeth-without-braces",
+    "title": "How to Straighten Teeth Without Braces",
+    "words": 1781,
+    "images": 3,
+    "headings": 21
+  },
+  {
+    "file": "blog__crowded-teeth-before-and-after.php",
+    "slug": "blog/crowded-teeth-before-and-after",
+    "title": "Crowded Teeth Before and After: Real Smile Results",
+    "words": 812,
+    "images": 3,
+    "headings": 7
+  },
+  {
+    "file": "blog__do-braces-hurt-how-long-the-pain-lasts-and-how-to-cope.php",
+    "slug": "blog/do-braces-hurt-how-long-the-pain-lasts-and-how-to-cope",
+    "title": "Do Braces or Invisalign Hurt More? Find Out",
+    "words": 1578,
+    "images": 1,
+    "headings": 29
+  },
+  {
+    "file": "blog__do-braces-or-invisalign-hurt-what-to-expect-during-your-first-week.php",
+    "slug": "blog/do-braces-or-invisalign-hurt-what-to-expect-during-your-first-week",
+    "title": "What Is an Underbite? Causes, Symptoms & Treatment",
+    "words": 2340,
+    "images": 2,
+    "headings": 23
+  },
+  {
+    "file": "blog__does-invisalign-hurt-more-than-braces.php",
+    "slug": "blog/does-invisalign-hurt-more-than-braces",
+    "title": "Does Invisalign Hurt More Than Braces? Pain Comparison Explained",
+    "words": 1175,
+    "images": 2,
+    "headings": 9
+  },
+  {
+    "file": "blog__does-invisalign-hurt.php",
+    "slug": "blog/does-invisalign-hurt",
+    "title": "Does Invisalign Hurt? Truth About Pain, Pressure & Comfort",
+    "words": 1148,
+    "images": 2,
+    "headings": 13
+  },
+  {
+    "file": "blog__how-braces-can-correct-crooked-teeth-a-complete-guide.php",
+    "slug": "blog/how-braces-can-correct-crooked-teeth-a-complete-guide",
+    "title": "How Braces Can Correct Crooked Teeth: A Complete Guide",
+    "words": 1924,
+    "images": 4,
+    "headings": 17
+  },
+  {
+    "file": "blog__how-braces-can-lead-to-white-marks-and-what-you-can-do-about-it.php",
+    "slug": "blog/how-braces-can-lead-to-white-marks-and-what-you-can-do-about-it",
+    "title": "How Braces Can Lead to White Marks and What You Can Do About It - Dr. Dante Gonzales Orthodontics",
+    "words": 1278,
+    "images": 3,
+    "headings": 16
+  },
+  {
+    "file": "blog__how-to-brush-teeth-with-braces.php",
+    "slug": "blog/how-to-brush-teeth-with-braces",
+    "title": "How to Brush Teeth with Braces by Dante Gonzales Dental Care",
+    "words": 1559,
+    "images": 3,
+    "headings": 19
+  },
+  {
+    "file": "blog__how-to-clean-invisalign-properly.php",
+    "slug": "blog/how-to-clean-invisalign-properly",
+    "title": "How to Clean Invisalign Properly Without Damaging Your Aligners",
+    "words": 1673,
+    "images": 3,
+    "headings": 24
+  },
+  {
+    "file": "blog__how-to-fix-a-gap-between-teeth-treatment-options-compared.php",
+    "slug": "blog/how-to-fix-a-gap-between-teeth-treatment-options-compared",
+    "title": "How to Fix a Gap Between Teeth? Treatment Options Compared",
+    "words": 1357,
+    "images": 4,
+    "headings": 11
+  },
+  {
+    "file": "blog__invisalign-vs-braces-choosing-the-right-option-for-your-smile.php",
+    "slug": "blog/invisalign-vs-braces-choosing-the-right-option-for-your-smile",
+    "title": "Invisalign vs Braces: Which Is Better for Your Smile?",
+    "words": 1804,
+    "images": 1,
+    "headings": 27
+  },
+  {
+    "file": "blog__jaw-pain-on-one-side.php",
+    "slug": "blog/jaw-pain-on-one-side",
+    "title": "Jaw Pain on One Side: Causes, Symptoms & When to Seek Help",
+    "words": 1959,
+    "images": 3,
+    "headings": 21
+  },
+  {
+    "file": "blog__overbite-vs-underbite.php",
+    "slug": "blog/overbite-vs-underbite",
+    "title": "Overbite vs Underbite: Key Differences Explained",
+    "words": 1002,
+    "images": 3,
+    "headings": 13
+  },
+  {
+    "file": "blog__the-best-solutions-on-how-to-fix-crowded-teeth-effectively.php",
+    "slug": "blog/the-best-solutions-on-how-to-fix-crowded-teeth-effectively",
+    "title": "How to Fix Crowded Teeth: Best Treatment Options",
+    "words": 1668,
+    "images": 3,
+    "headings": 12
+  },
+  {
+    "file": "blog__the-best-techniques-to-floss-teeth-with-braces-effectively.php",
+    "slug": "blog/the-best-techniques-to-floss-teeth-with-braces-effectively",
+    "title": "The Best Techniques to Floss Teeth with Braces Effectively",
+    "words": 1711,
+    "images": 2,
+    "headings": 22
+  },
+  {
+    "file": "blog__what-causes-crowded-teeth-and-how-dentists-fix-them.php",
+    "slug": "blog/what-causes-crowded-teeth-and-how-dentists-fix-them",
+    "title": "What Causes Crowded Teeth and How Dentists Fix Them? - Dr. Dante Gonzales Orthodontics",
+    "words": 2301,
+    "images": 5,
+    "headings": 23
+  },
+  {
+    "file": "blog__what-is-a-deep-bite.php",
+    "slug": "blog/what-is-a-deep-bite",
+    "title": "What Is a Deep Bite? Causes, Symptoms & Treatment",
+    "words": 1244,
+    "images": 4,
+    "headings": 9
+  },
+  {
+    "file": "blog__what-is-an-underbite.php",
+    "slug": "blog/what-is-an-underbite",
+    "title": "What Is an Underbite? Dante Gonzales Answers",
+    "words": 1084,
+    "images": 5,
+    "headings": 12
+  },
+  {
+    "file": "blog__what-is-malocclusion-of-teeth.php",
+    "slug": "blog/what-is-malocclusion-of-teeth",
+    "title": "Malocclusion of Teeth: Types, Symptoms & Treatment Guide",
+    "words": 1888,
+    "images": 4,
+    "headings": 14
+  },
+  {
+    "file": "blog__what-is-sleep-apnea-caused-by.php",
+    "slug": "blog/what-is-sleep-apnea-caused-by",
+    "title": "What Is Sleep Apnea Caused By? 7 Common Reasons You Should Know",
+    "words": 1232,
+    "images": 2,
+    "headings": 13
+  },
+  {
+    "file": "blog__what-is-teeth-protrusion.php",
+    "slug": "blog/what-is-teeth-protrusion",
+    "title": "Teeth Protrusion: Causes, Risks & When to See a Dentist",
+    "words": 1200,
+    "images": 4,
+    "headings": 13
+  },
+  {
+    "file": "blogs.php",
+    "skipped": "empty or error response"
+  },
+  {
+    "file": "braces-in-dublin-ca.php",
+    "slug": "braces-in-dublin-ca",
+    "title": "Braces in Dublin CA | Dr Dante Gonzales Orthodontics",
+    "words": 2280,
+    "images": 19,
+    "headings": 26
+  },
+  {
+    "file": "braces-in-tracy-ca.php",
+    "slug": "braces-in-tracy-ca",
+    "title": "Braces in Tracy CA | Adult & Teen Braces – Dr Dante Gonzales",
+    "words": 2081,
+    "images": 20,
+    "headings": 26
+  },
+  {
+    "file": "braces.php",
+    "slug": "braces",
+    "title": "Traditional metal braces & ceramic braces in Dublin & Tracy",
+    "words": 496,
+    "images": 12,
+    "headings": 13
+  },
+  {
+    "file": "dublin-ca-orthodontic-office-contact.php",
+    "slug": "dublin-ca-orthodontic-office-contact",
+    "title": "Contact Dublin Orthodontic Clinic ‒ Dante Gonzales",
+    "words": 104,
+    "images": 0,
+    "headings": 6
+  },
+  {
+    "file": "dublin-california-ca-braces-orthodontics-and-invisalign.php",
+    "slug": "dublin-california-ca-braces-orthodontics-and-invisalign",
+    "title": "Best Orthodontist for Invisalign & Braces - Dublin & Tracy",
+    "words": 387,
+    "images": 14,
+    "headings": 8
+  },
+  {
+    "file": "dublin-california-ca-orthodontics-office.php",
+    "slug": "dublin-california-ca-orthodontics-office",
+    "title": "Orthodontics Office in Dublin CA | Dante Gonzales",
+    "words": 400,
+    "images": 12,
+    "headings": 8
+  },
+  {
+    "file": "elite-invisalign-and-invisalign-teen-orthodontist.php",
+    "slug": "elite-invisalign-and-invisalign-teen-orthodontist",
+    "title": "Best Invisalign provider in Dublin & Tracy-Dr.Dante Gonzales",
+    "words": 1643,
+    "images": 12,
+    "headings": 28
+  },
+  {
+    "file": "impression-techniques-in-orthodontics.php",
+    "slug": "impression-techniques-in-orthodontics",
+    "title": "Dental Care: Advanced Impression Tech with Dante Gonzales",
+    "words": 303,
+    "images": 0,
+    "headings": 5
+  },
+  {
+    "file": "index.php",
+    "slug": "index",
+    "title": "Orthodontic Clinic in Dublin & Tracy ‒ Dante Gonzales",
+    "words": 1180,
+    "images": 18,
+    "headings": 30
+  },
+  {
+    "file": "invisalign-quiz.php",
+    "slug": "invisalign-quiz",
+    "title": "Invisalign Quiz | Dante Gonzales Orthodontics",
+    "words": 80,
+    "images": 6,
+    "headings": 2
+  },
+  {
+    "file": "invisalign.php",
+    "slug": "invisalign",
+    "title": "Best Invisalign provider in Dublin & Tracy-Dr.Dante Gonzales",
+    "words": 1647,
+    "images": 13,
+    "headings": 34
+  },
+  {
+    "file": "meet-our-orthodontics-team.php",
+    "slug": "meet-our-orthodontics-team",
+    "title": "Meet Our Dublin Orthodontics Team | Dante Gonzales",
+    "words": 727,
+    "images": 22,
+    "headings": 21
+  },
+  {
+    "file": "meet-our-orthodontists-in-dublin-ca.php",
+    "slug": "meet-our-orthodontists-in-dublin-ca",
+    "title": "Top Orthodontists in Dublin: Dante Gonzales",
+    "words": 717,
+    "images": 11,
+    "headings": 12
+  },
+  {
+    "file": "meet-the-tracy-orthodontics-team.php",
+    "slug": "meet-the-tracy-orthodontics-team",
+    "title": "Meet the Tracy, CA Orthodontics Team: Dante Gonzales",
+    "words": 436,
+    "images": 14,
+    "headings": 13
+  },
+  {
+    "file": "sleep-apnea-dentist-in-dublin.php",
+    "slug": "sleep-apnea-dentist-in-dublin",
+    "title": "Sleep Apnea Dentist in Dublin | Dr Dante Gonzales",
+    "words": 1115,
+    "images": 12,
+    "headings": 15
+  },
+  {
+    "file": "sleep-apnea-specialist-dublin-california-ca.php",
+    "slug": "sleep-apnea-specialist-dublin-california-ca",
+    "title": "Best sleep apnea treatment near Dublin & Tracy",
+    "words": 516,
+    "images": 9,
+    "headings": 12
+  },
+  {
+    "file": "sleep-apnea-treatment-tracy.php",
+    "slug": "sleep-apnea-treatment-tracy",
+    "title": "Sleep Apnea Treatment Tracy CA | Dante Gonzales",
+    "words": 1108,
+    "images": 12,
+    "headings": 15
+  },
+  {
+    "file": "surgical-orthodontics.php",
+    "slug": "surgical-orthodontics",
+    "title": "Best Surgical orthodontics for Jaw Alignment in Dublin & Tracy",
+    "words": 355,
+    "images": 9,
+    "headings": 8
+  },
+  {
+    "file": "surgical-orthodontist.php",
+    "slug": "surgical-orthodontist",
+    "title": "Expert Surgical Orthodontist | Dante Gonzales",
+    "words": 1015,
+    "images": 12,
+    "headings": 15
+  },
+  {
+    "file": "tracy-ca-orthodontic-office-contact.php",
+    "slug": "tracy-ca-orthodontic-office-contact",
+    "title": "Contact Tracy CA Orthodontic – Dr. Gonzales",
+    "words": 96,
+    "images": 0,
+    "headings": 6
+  }
+]

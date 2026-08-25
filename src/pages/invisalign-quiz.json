@@ -1,0 +1,26 @@
+{
+  "title": "Invisalign Quiz | Dante Gonzales Orthodontics",
+  "description": "Take our Invisalign quiz to find the best clear aligner plan for your smile. Answer a few quick questions and start your journey today.",
+  "canonical": "https://www.drdantegonzales.com/invisalign-quiz.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Invisalign Quiz",
+          "item": "https://www.drdantegonzales.com/invisalign-quiz.html"
+        }
+      ]
+    }
+  ]
+}

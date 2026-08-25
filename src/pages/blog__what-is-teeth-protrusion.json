@@ -1,0 +1,26 @@
+{
+  "title": "Teeth Protrusion: Causes, Risks & When to See a Dentist",
+  "description": "Do your teeth stick out? Understand the causes of teeth protrusion, associated risks, and when to seek professional dental care.",
+  "canonical": "https://www.drdantegonzales.com/blog/what-is-teeth-protrusion.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.drdantegonzales.com/blog/what-is-teeth-protrusion.html"
+        }
+      ]
+    }
+  ]
+}

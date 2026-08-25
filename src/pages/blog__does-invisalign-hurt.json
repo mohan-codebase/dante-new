@@ -1,0 +1,26 @@
+{
+  "title": "Does Invisalign Hurt? Truth About Pain, Pressure & Comfort",
+  "description": "Does Invisalign hurt? Learn the truth about pain, pressure, and comfort during your clear aligner treatment at Dante Gonzales Orthodontics.",
+  "canonical": "https://www.drdantegonzales.com/blog/does-invisalign-hurt.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.drdantegonzales.com/blog/does-invisalign-hurt.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "title": "How to Clean Invisalign Properly Without Damaging Your Aligners",
+  "description": "Keep your smile sparkling and your treatment on track with the ultimate guide to Invisalign hygiene. Learn how to clean aligners properly without causing damage.",
+  "canonical": "https://www.drdantegonzales.com/blog/how-to-clean-invisalign-properly.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.drdantegonzales.com/blog/how-to-clean-invisalign-properly.html"
+        }
+      ]
+    }
+  ]
+}

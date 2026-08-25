@@ -1,0 +1,26 @@
+{
+  "title": "Can You Eat With Invisalign? Foods, Rules & Expert Tips",
+  "description": "Wondering if you can eat with Invisalign? Learn the essential rules, foods to avoid, and expert tips to keep your treatment on track and your smile beautiful.",
+  "canonical": "https://www.drdantegonzales.com/blog/can-you-eat-with-invisalign.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.drdantegonzales.com/blog/can-you-eat-with-invisalign.html"
+        }
+      ]
+    }
+  ]
+}

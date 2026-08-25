@@ -1,0 +1,26 @@
+{
+  "title": "The Best Techniques to Floss Teeth with Braces Effectively",
+  "description": "Learn the best techniques and tools for flossing teeth with braces effectively. Discover why oral hygiene is critical and how to use floss threaders and water flossers.",
+  "canonical": "https://www.drdantegonzales.com/blog/the-best-techniques-to-floss-teeth-with-braces-effectively.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.drdantegonzales.com/blog/the-best-techniques-to-floss-teeth-with-braces-effectively.html"
+        }
+      ]
+    }
+  ]
+}

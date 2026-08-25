@@ -1,0 +1,26 @@
+{
+  "title": "Can Invisalign Fix Gaps Between Front Teeth?",
+  "description": "Can Invisalign fix the gap between front teeth? Learn how clear aligners close spaces, who it works for, and when Invisalign is the right choice.",
+  "canonical": "https://www.drdantegonzales.com/blog/can-invisalign-fix-protruding-front-teeth.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.drdantegonzales.com/blog/can-invisalign-fix-protruding-front-teeth.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "title": "Braces in Tracy CA | Adult & Teen Braces – Dr Dante Gonzales",
+  "description": "Looking for braces in Tracy CA? We offer braces for adults and teens with personalized care and modern treatment options. Book your consultation today!",
+  "canonical": "https://www.drdantegonzales.com/braces-in-tracy-ca.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Braces in Tracy CA",
+          "item": "https://www.drdantegonzales.com/braces-in-tracy-ca.html"
+        }
+      ]
+    }
+  ]
+}

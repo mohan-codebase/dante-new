@@ -1,0 +1,26 @@
+{
+  "title": "Braces in Dublin CA | Dr Dante Gonzales Orthodontics",
+  "description": "Get expert braces in Dublin CA for kids, teens, and adults. Metal and clear options with personalized care. Book your consultation today.",
+  "canonical": "https://www.drdantegonzales.com/braces-in-dublin-ca.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Braces in Dublin CA",
+          "item": "https://www.drdantegonzales.com/braces-in-dublin-ca.html"
+        }
+      ]
+    }
+  ]
+}
