@@ -104,6 +104,8 @@
   --header-float: clamp(.5rem, 1.3vw, .9rem);   /* the gap the floating bar keeps from the viewport */
   /* scrolled, the bar pulls in to the page container instead of the viewport */
   --header-inset-scrolled: 3%;
+  /* the bar's inner gutter; also the left edge the hero copy lines up on */
+  --nav-pad: clamp(1rem, 2.6vw, 2.5rem);
   --nav-lift: 0 18px 44px -26px rgba(20, 35, 46, .45), 0 2px 8px -4px rgba(20, 35, 46, .1);
   --nav-lift-scrolled: 0 24px 54px -28px rgba(20, 35, 46, .5), 0 3px 12px -5px rgba(20, 35, 46, .14);
 }
@@ -457,7 +459,6 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   transition: padding .45s var(--e-nav);
 
   --flyout-h: 0px;                       /* set by JS from the open panel */
-  --nav-pad: clamp(1rem, 2.6vw, 2.5rem);
   /* Apple's bar gets away with 80% because it is dark over anything. A light
      bar carrying small body text needs to sit higher to stay legible. */
   --nav-glass: rgba(255, 255, 255, .92);
@@ -499,9 +500,11 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   border-bottom-color: transparent;
 }
 
-/* Over-banner variant: no surface at all at the top — the light logo, links
-   and CTA sit directly on the photography. The bar only materialises as the
-   standard white card once scrolled or opened. */
+/* Over-banner variant: no surface at all at the top — the logo, links and CTA
+   sit directly on the photography. The banner is a bright near-white frame, so
+   this variant carries the same ink as the rest of the site rather than the
+   white-on-dark treatment a dimmed photograph would need. The bar only
+   materialises as the standard white card once scrolled or opened. */
 .header--over-banner .header__bar {
   background: transparent;
   border-color: transparent;
@@ -509,26 +512,26 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   backdrop-filter: none;
   box-shadow: none;
 }
-.header--over-banner .header__logo--dark { display: none; }
-.header--over-banner .header__logo--light { display: block; }
+.header--over-banner .header__logo--dark { display: block; }
+.header--over-banner .header__logo--light { display: none; }
 .header--over-banner .nav__link {
-  color: #ffffff;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, .45);
+  color: var(--ink-2);
+  text-shadow: none;
 }
 .header--over-banner .nav__link:hover,
 .header--over-banner .nav__link[aria-current="page"],
 .header--over-banner .nav__item.is-open > .nav__link {
-  color: var(--brand-300, #eed79b);
-  text-shadow: 0 1px 6px rgba(0, 0, 0, .6);
+  color: var(--ink);
+  text-shadow: none;
 }
 .header--over-banner .nav__chev {
-  opacity: .85;
-  color: #ffffff;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .45));
+  opacity: .45;
+  color: inherit;
+  filter: none;
 }
 .header--over-banner .burger span {
-  background-color: #ffffff;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .5);
+  background-color: var(--ink);
+  box-shadow: none;
 }
 
 /* When scrolled, flyout open, or mobile sheet open: smooth transition to frosted bar */
@@ -888,16 +891,22 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
 .hero__still img {
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center;
+  /* Biased left: the copy sits on the near-white window side of the frame, and
+     a centred crop would slide the family's dark hair under it on narrow
+     viewports. At 22% the bright half stays put from phone to desktop. */
+  object-position: 22% center;
+  filter: saturate(1.06) contrast(1.03);
 }
 
 /* banner copy ---------------------------------------------------------------
    The standing block over the photograph. */
 .hero__scrim {
   position: absolute; inset: 0; z-index: 2;
-  background:
-    linear-gradient(100deg, rgba(8, 20, 30, .82) 0%, rgba(8, 20, 30, .55) 42%, rgba(8, 20, 30, .12) 72%),
-    linear-gradient(0deg, rgba(8, 20, 30, .55) 0%, rgba(8, 20, 30, 0) 42%);
+  /* No darkening anywhere: this half of the photograph is already a near-white
+     window (luminance ~247), so the copy is set in ink instead of white. The
+     wash is white and invisible against that — it exists only so a darker
+     banner swapped in later cannot strand the type. */
+  background: linear-gradient(100deg, rgba(255, 255, 255, .5) 0%, rgba(255, 255, 255, .26) 38%, rgba(255, 255, 255, 0) 62%);
 }
 
 .hero__overlay {
@@ -905,20 +914,28 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   display: flex; align-items: center;
   padding-block: calc(var(--header-h) + var(--header-float) + 2rem) 8rem;
 }
-.hero__content { width: 100%; color: #fff; }
+/* The copy lines up with the wordmark in the bar rather than with the page
+   container, so the headline and the logo share a left edge. */
+.hero__content {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: max(var(--gutter), calc(var(--header-float) + var(--nav-pad)));
+  color: var(--ink);
+}
 
 .hero__eyebrow {
   display: inline-flex; align-items: center; gap: .55rem;
   margin: 0 0 var(--s-4);
   padding: .38rem .95rem;
-  border: 1px solid rgba(255, 255, 255, .3);
+  border: 1px solid rgba(20, 35, 46, .18);
   border-radius: var(--r-pill);
-  background: rgba(255, 255, 255, .1);
+  background: rgba(255, 255, 255, .55);
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   font-size: var(--fs-label); font-weight: 700;
   letter-spacing: var(--ls-label); text-transform: uppercase;
-  color: rgba(255, 255, 255, .92);
+  color: var(--ink-2);
 }
 
 .hero__headline {
@@ -930,8 +947,7 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   line-height: var(--lh-tight);
   letter-spacing: -.01em;
   text-wrap: balance;
-  color: #fff;
-  text-shadow: 0 2px 24px rgba(6, 16, 24, .45);
+  color: var(--ink);
 }
 
 .hero__sub {
@@ -939,29 +955,39 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   margin: var(--s-5) 0 0;
   font-size: var(--fs-lede);
   line-height: 1.62;
-  color: rgba(255, 255, 255, .84);
+  color: var(--ink-2);
 }
 
 .hero__cta {
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4);
   margin-top: var(--s-7);
 }
+/* the default hairline border disappears against the near-white banner */
+.hero__cta .btn--ghost {
+  --btn-bd: rgba(20, 35, 46, .22);
+  background: rgba(255, 255, 255, .5);
+}
+.hero__cta .btn--ghost:hover { background: var(--sun-50); }
 
 .hero__facts {
   display: flex; flex-wrap: wrap;
   gap: var(--s-4) clamp(1.5rem, 4vw, 3.25rem);
-  margin: var(--s-8) 0 0;
-  padding-top: var(--s-5);
-  border-top: 1px solid rgba(255, 255, 255, .2);
+  margin: var(--s-9) 0 0;
 }
 .hero__facts li { display: grid; gap: .15rem; }
 .hero__facts strong {
   font-family: var(--font-display);
   font-size: clamp(1.35rem, 1.1rem + 1vw, 1.9rem);
   font-weight: 600;
-  color: var(--sun-300);
+  /* the pale logo yellow vanishes on white; this is the warm end of the same
+     family, and clears 5:1 on the banner */
+  color: var(--sand-700);
 }
-.hero__facts span { font-size: var(--fs-xs); color: rgba(255, 255, 255, .72); }
+.hero__facts span {
+  font-size: var(--fs-xs);
+  /* ink-3 only reaches 3.7:1 on the banner, short of 4.5:1 at this size */
+  color: var(--ink-2);
+}
 
 @media (max-width: 700px) {
   .hero__overlay { padding-block: calc(var(--header-h) + var(--header-float) + 1.5rem) 6.5rem; }
