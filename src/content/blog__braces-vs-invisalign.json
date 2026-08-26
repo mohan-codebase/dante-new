@@ -39,7 +39,7 @@
     },
     {
       "type": "img",
-      "src": "../assets/img/banner/slide3.jpg",
+      "src": "../assets/hero/braces-vs-invisalign.jpg",
       "alt": "Are braces faster than Invisalign",
       "title": null
     },
@@ -77,7 +77,7 @@
     },
     {
       "type": "img",
-      "src": "../assets/img/blogs/blog-img-3.png",
+      "src": "../assets/blog/shared/orthodontic-illustration-02.png",
       "alt": "Are braces faster than Invisalign",
       "title": null
     },
@@ -139,7 +139,7 @@
     },
     {
       "type": "img",
-      "src": "../assets/img/blogs/blog-img-4.png",
+      "src": "../assets/blog/shared/orthodontic-illustration-03.png",
       "alt": "Are braces faster than Invisalign",
       "title": null
     },

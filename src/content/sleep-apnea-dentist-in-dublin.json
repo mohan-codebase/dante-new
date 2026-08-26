@@ -71,7 +71,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/logo2.png",
+      "src": "assets/brand/logo-mark.png",
       "alt": "Logo",
       "title": null
     },
@@ -141,7 +141,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/dublin/img3.jpg",
+      "src": "assets/locations/dublin/sleep-apnea-dublin-01.jpg",
       "alt": "Thumb",
       "title": null
     },
@@ -245,7 +245,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/dublin/img4.jpg",
+      "src": "assets/locations/dublin/sleep-apnea-dublin-02.jpg",
       "alt": "Thumb",
       "title": null
     },
@@ -311,7 +311,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -325,7 +325,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -339,7 +339,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -353,7 +353,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -367,31 +367,31 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review1.png",
+      "src": "assets/ui/review-badge-google.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review2.png",
+      "src": "assets/ui/review-badge-facebook.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review3.png",
+      "src": "assets/ui/review-badge-facebook-reviews.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review4.png",
+      "src": "assets/ui/review-badge-healthgrades.png",
       "alt": "",
       "title": null
     },

@@ -78,7 +78,7 @@ function reviewsSection(blocks, start, slug) {
 
   const cards = items.map((it, n) => `        <li class="quote" data-reveal data-reveal-delay="${(n % 3) + 1}">
           <div class="quote__stars" aria-label="Five out of five stars">
-            <img src="assets/img/star.png" alt="" width="96" height="18" loading="lazy" decoding="async">
+            <img src="assets/ui/star-rating.png" alt="" width="96" height="18" loading="lazy" decoding="async">
           </div>
           <blockquote class="quote__body"><p>${esc(it.quote.text)}</p></blockquote>
           <p class="quote__by">${esc(it.name.text)}</p>

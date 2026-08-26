@@ -53,7 +53,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/logo2.png",
+      "src": "assets/brand/logo-mark.png",
       "alt": "Logo",
       "title": null
     },
@@ -99,7 +99,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/ca/img2.png",
+      "src": "assets/locations/tracy/braces-tracy-01.png",
       "alt": "Thumb",
       "title": null
     },
@@ -169,7 +169,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/ca/img3.jpg",
+      "src": "assets/locations/tracy/braces-tracy-02.jpg",
       "alt": "Thumb",
       "title": null
     },
@@ -209,13 +209,13 @@
     },
     {
       "type": "img",
-      "src": "assets/img/ca/img4.jpg",
+      "src": "assets/locations/tracy/braces-tracy-03.jpg",
       "alt": "Thumb",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/ca/img5.jpg",
+      "src": "assets/locations/tracy/braces-tracy-04.jpg",
       "alt": "Thumb",
       "title": null
     },
@@ -265,19 +265,19 @@
     },
     {
       "type": "img",
-      "src": "assets/img/ca/img6.jpg",
+      "src": "assets/locations/tracy/braces-tracy-05.jpg",
       "alt": "Thumb",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/beaf/10.jpg",
+      "src": "assets/cases/gallery-03-before-after.jpg",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/beaf/12.jpg",
+      "src": "assets/cases/gallery-04-before-after.jpg",
       "alt": "",
       "title": null
     },
@@ -317,7 +317,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/ca/img7.jpg",
+      "src": "assets/locations/tracy/braces-tracy-06.jpg",
       "alt": "Thumb",
       "title": null
     },
@@ -405,13 +405,13 @@
     },
     {
       "type": "img",
-      "src": "assets/img/ca/img8.jpg",
+      "src": "assets/locations/tracy/braces-tracy-07.jpg",
       "alt": "Thumb",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/ca/img9.jpg",
+      "src": "assets/locations/tracy/braces-tracy-08.jpg",
       "alt": "Thumb",
       "title": null
     },
@@ -562,7 +562,7 @@
       "text": "Learn More",
       "links": [
         {
-          "href": "assets/img/pdf/Invisalign-Free-Report.pdf",
+          "href": "assets/docs/invisalign-free-report.pdf",
           "text": "Learn More"
         }
       ]
@@ -585,7 +585,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -599,7 +599,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -613,7 +613,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -627,7 +627,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -641,31 +641,31 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review1.png",
+      "src": "assets/ui/review-badge-google.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review2.png",
+      "src": "assets/ui/review-badge-facebook.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review3.png",
+      "src": "assets/ui/review-badge-facebook-reviews.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review4.png",
+      "src": "assets/ui/review-badge-healthgrades.png",
       "alt": "",
       "title": null
     },

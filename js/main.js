@@ -460,8 +460,10 @@
     thumbs.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var n = btn.getAttribute('data-ba-case');
-        before.src = 'assets/img/beaf/case' + n + '-before.webp';
-        after.src  = 'assets/img/beaf/case' + n + '-after.webp';
+        // files are zero-padded: assets/cases/case-01-before.webp
+        var pad = String(n).length < 2 ? '0' + n : String(n);
+        before.src = 'assets/cases/case-' + pad + '-before.webp';
+        after.src  = 'assets/cases/case-' + pad + '-after.webp';
         before.alt = 'Patient ' + n + '’s teeth before orthodontic treatment at Dante Gonzales Orthodontics';
         after.alt  = 'Patient ' + n + '’s teeth after orthodontic treatment at Dante Gonzales Orthodontics';
         thumbs.forEach(function (b) {

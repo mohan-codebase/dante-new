@@ -12,7 +12,7 @@
     "ogImage": null
   },
   "jsonLd": [
-    "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"Organization\",\n      \"@id\": \"https://www.drdantegonzales.com/#organization\",\n      \"name\": \"Dante Gonzales Orthodontics\",\n      \"url\": \"https://www.drdantegonzales.com/\",\n      \"logo\": \"https://www.drdantegonzales.com/assets/img/logo.png\",\n      \"sameAs\": [\n        \"https://www.facebook.com/GonzalesOrtho\",\n        \"https://www.instagram.com/drdantegonzales/\"\n      ]\n    },\n    {\n      \"@type\": \"WebSite\",\n      \"@id\": \"https://www.drdantegonzales.com/#website\",\n      \"url\": \"https://www.drdantegonzales.com/\",\n      \"name\": \"Dante Gonzales Orthodontics\",\n      \"publisher\": {\n        \"@id\": \"https://www.drdantegonzales.com/#organization\"\n      }\n    },\n    {\n      \"@type\": \"Person\",\n      \"@id\": \"https://www.drdantegonzales.com/#doctor\",\n      \"name\": \"Dr. Dante Gonzales\",\n      \"jobTitle\": \"Orthodontist\",\n      \"url\": \"https://www.drdantegonzales.com/\",\n      \"worksFor\": [\n        {\n          \"@id\": \"https://www.drdantegonzales.com/#tracy\"\n        },\n        {\n          \"@id\": \"https://www.drdantegonzales.com/#dublin\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"Dentist\",\n      \"@id\": \"https://www.drdantegonzales.com/#tracy\",\n      \"name\": \"Dante Gonzales Orthodontics - Tracy\",\n      \"url\": \"https://www.drdantegonzales.com/\",\n      \"telephone\": \"+1-209-835-0977\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"1417 N Tracy Blvd\",\n        \"addressLocality\": \"Tracy\",\n        \"addressRegion\": \"CA\",\n        \"postalCode\": \"95376\",\n        \"addressCountry\": \"US\"\n      },\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": \"4.9\",\n        \"reviewCount\": \"484\"\n      },\n      \"openingHoursSpecification\": [\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Monday\",\n          \"opens\": \"08:30\",\n          \"closes\": \"18:00\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Tuesday\",\n          \"opens\": \"08:00\",\n          \"closes\": \"17:30\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Wednesday\",\n          \"opens\": \"08:30\",\n          \"closes\": \"17:30\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Thursday\",\n          \"opens\": \"08:00\",\n          \"closes\": \"17:30\"\n        }\n      ],\n      \"parentOrganization\": {\n        \"@id\": \"https://www.drdantegonzales.com/#organization\"\n      }\n    },\n    {\n      \"@type\": \"Dentist\",\n      \"@id\": \"https://www.drdantegonzales.com/#dublin\",\n      \"name\": \"Dante Gonzales Orthodontics - Dublin\",\n      \"url\": \"https://www.drdantegonzales.com/\",\n      \"telephone\": \"+1-925-828-2244\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"4532 Dublin Blvd\",\n        \"addressLocality\": \"Dublin\",\n        \"addressRegion\": \"CA\",\n        \"postalCode\": \"94568\",\n        \"addressCountry\": \"US\"\n      },\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": \"4.9\",\n        \"reviewCount\": \"484\"\n      },\n      \"openingHoursSpecification\": [\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Monday\",\n          \"opens\": \"08:30\",\n          \"closes\": \"18:00\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Tuesday\",\n          \"opens\": \"08:00\",\n          \"closes\": \"17:30\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Wednesday\",\n          \"opens\": \"08:00\",\n          \"closes\": \"17:30\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Thursday\",\n          \"opens\": \"08:30\",\n          \"closes\": \"18:00\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Friday\",\n          \"opens\": \"08:00\",\n          \"closes\": \"16:00\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Saturday\",\n          \"opens\": \"08:30\",\n          \"closes\": \"13:30\"\n        }\n      ],\n      \"parentOrganization\": {\n        \"@id\": \"https://www.drdantegonzales.com/#organization\"\n      }\n    }\n  ]\n}"
+    "{\n  \"@context\": \"https://schema.org\",\n  \"@graph\": [\n    {\n      \"@type\": \"Organization\",\n      \"@id\": \"https://www.drdantegonzales.com/#organization\",\n      \"name\": \"Dante Gonzales Orthodontics\",\n      \"url\": \"https://www.drdantegonzales.com/\",\n      \"logo\": \"https://www.drdantegonzales.com/assets/brand/logo.png\",\n      \"sameAs\": [\n        \"https://www.facebook.com/GonzalesOrtho\",\n        \"https://www.instagram.com/drdantegonzales/\"\n      ]\n    },\n    {\n      \"@type\": \"WebSite\",\n      \"@id\": \"https://www.drdantegonzales.com/#website\",\n      \"url\": \"https://www.drdantegonzales.com/\",\n      \"name\": \"Dante Gonzales Orthodontics\",\n      \"publisher\": {\n        \"@id\": \"https://www.drdantegonzales.com/#organization\"\n      }\n    },\n    {\n      \"@type\": \"Person\",\n      \"@id\": \"https://www.drdantegonzales.com/#doctor\",\n      \"name\": \"Dr. Dante Gonzales\",\n      \"jobTitle\": \"Orthodontist\",\n      \"url\": \"https://www.drdantegonzales.com/\",\n      \"worksFor\": [\n        {\n          \"@id\": \"https://www.drdantegonzales.com/#tracy\"\n        },\n        {\n          \"@id\": \"https://www.drdantegonzales.com/#dublin\"\n        }\n      ]\n    },\n    {\n      \"@type\": \"Dentist\",\n      \"@id\": \"https://www.drdantegonzales.com/#tracy\",\n      \"name\": \"Dante Gonzales Orthodontics - Tracy\",\n      \"url\": \"https://www.drdantegonzales.com/\",\n      \"telephone\": \"+1-209-835-0977\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"1417 N Tracy Blvd\",\n        \"addressLocality\": \"Tracy\",\n        \"addressRegion\": \"CA\",\n        \"postalCode\": \"95376\",\n        \"addressCountry\": \"US\"\n      },\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": \"4.9\",\n        \"reviewCount\": \"484\"\n      },\n      \"openingHoursSpecification\": [\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Monday\",\n          \"opens\": \"08:30\",\n          \"closes\": \"18:00\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Tuesday\",\n          \"opens\": \"08:00\",\n          \"closes\": \"17:30\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Wednesday\",\n          \"opens\": \"08:30\",\n          \"closes\": \"17:30\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Thursday\",\n          \"opens\": \"08:00\",\n          \"closes\": \"17:30\"\n        }\n      ],\n      \"parentOrganization\": {\n        \"@id\": \"https://www.drdantegonzales.com/#organization\"\n      }\n    },\n    {\n      \"@type\": \"Dentist\",\n      \"@id\": \"https://www.drdantegonzales.com/#dublin\",\n      \"name\": \"Dante Gonzales Orthodontics - Dublin\",\n      \"url\": \"https://www.drdantegonzales.com/\",\n      \"telephone\": \"+1-925-828-2244\",\n      \"address\": {\n        \"@type\": \"PostalAddress\",\n        \"streetAddress\": \"4532 Dublin Blvd\",\n        \"addressLocality\": \"Dublin\",\n        \"addressRegion\": \"CA\",\n        \"postalCode\": \"94568\",\n        \"addressCountry\": \"US\"\n      },\n      \"aggregateRating\": {\n        \"@type\": \"AggregateRating\",\n        \"ratingValue\": \"4.9\",\n        \"reviewCount\": \"484\"\n      },\n      \"openingHoursSpecification\": [\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Monday\",\n          \"opens\": \"08:30\",\n          \"closes\": \"18:00\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Tuesday\",\n          \"opens\": \"08:00\",\n          \"closes\": \"17:30\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Wednesday\",\n          \"opens\": \"08:00\",\n          \"closes\": \"17:30\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Thursday\",\n          \"opens\": \"08:30\",\n          \"closes\": \"18:00\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Friday\",\n          \"opens\": \"08:00\",\n          \"closes\": \"16:00\"\n        },\n        {\n          \"@type\": \"OpeningHoursSpecification\",\n          \"dayOfWeek\": \"Saturday\",\n          \"opens\": \"08:30\",\n          \"closes\": \"13:30\"\n        }\n      ],\n      \"parentOrganization\": {\n        \"@id\": \"https://www.drdantegonzales.com/#organization\"\n      }\n    }\n  ]\n}"
   ],
   "blocks": [
     {
@@ -127,7 +127,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/logo2.png",
+      "src": "assets/brand/logo-mark.png",
       "alt": "Logo",
       "title": null
     },
@@ -163,7 +163,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/top10.png",
+      "src": "assets/_archive/img/top10.png",
       "alt": "top10_book",
       "title": null
     },
@@ -172,7 +172,7 @@
       "text": "Instantly Download Now",
       "links": [
         {
-          "href": "assets/img/pdf/10-Things-You-Need-to-Know-about-Your-Orthodontist-for-website.pdf",
+          "href": "assets/docs/top-10-things-to-know-about-your-orthodontist.pdf",
           "text": "Instantly Download Now"
         }
       ]
@@ -289,7 +289,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/dante-confident-book-new.png",
+      "src": "assets/_archive/img/dante-confident-book-new.png",
       "alt": "",
       "title": null
     },
@@ -349,13 +349,13 @@
     },
     {
       "type": "img",
-      "src": "assets/img/beaf/10.jpg",
+      "src": "assets/cases/gallery-03-before-after.jpg",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/beaf/12.jpg",
+      "src": "assets/cases/gallery-04-before-after.jpg",
       "alt": "",
       "title": null
     },
@@ -383,25 +383,25 @@
     },
     {
       "type": "img",
-      "src": "assets/img/meet-our.png",
+      "src": "assets/_archive/img/meet-our.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/meet-our3.png",
+      "src": "assets/_archive/img/meet-our3.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/meet-our2.png",
+      "src": "assets/_archive/img/meet-our2.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/meet-our1.png",
+      "src": "assets/_archive/img/meet-our1.png",
       "alt": "",
       "title": null
     },
@@ -455,7 +455,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -469,7 +469,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -483,7 +483,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -497,7 +497,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -511,31 +511,31 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review1.png",
+      "src": "assets/ui/review-badge-google.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review2.png",
+      "src": "assets/ui/review-badge-facebook.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review3.png",
+      "src": "assets/ui/review-badge-facebook-reviews.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review4.png",
+      "src": "assets/ui/review-badge-healthgrades.png",
       "alt": "",
       "title": null
     },
