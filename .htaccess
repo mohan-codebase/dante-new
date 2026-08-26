@@ -1,0 +1,264 @@
+# =============================================================================
+# Dante Gonzales Orthodontics — static rebuild
+#
+# The old site was PHP; this one is static HTML. Every legacy page keeps its
+# exact path — including the /blog/ subdirectory — so the whole migration is an
+# extension change:
+#
+#     /invisalign.php                ->  /invisalign.html
+#     /blog/braces-vs-invisalign.php ->  /blog/braces-vs-invisalign.html
+#
+# One rule covers all 62 legacy URLs. Nothing here rewrites silently — every
+# legacy URL answers with a 301 so the ranking history follows it.
+# =============================================================================
+
+ErrorDocument 404 /404.html
+
+# Serve index.html for a bare directory request.
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # ---------------------------------------------------------------- host ----
+  # REVIEW THIS BLOCK BEFORE DEPLOY.
+  # Today both hosts answer 200 with no redirect between them, so every page is
+  # indexable at two addresses. The canonical tags — on the live site and in
+  # this build — say "www", so non-www folds into www. If you would rather
+  # standardise on the bare domain, swap this block for the reverse and re-run
+  # tools/build.js after changing the canonical host in src/pages/*.json.
+  RewriteCond %{HTTP_HOST} ^drdantegonzales\.com$ [NC]
+  RewriteRule ^(.*)$ https://www.drdantegonzales.com/$1 [R=301,L]
+
+  # Force HTTPS.
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+
+  # ---------------------------------------------------- moved image assets ----
+  # The asset tree was reorganised (assets/img/<mixed> -> assets/<purpose>/) and
+  # every file renamed to a descriptive slug. Each old path answers with a 301
+  # so image-search results, hotlinks and cached pages follow the file instead
+  # of 404ing. Archived files are deliberately absent: nothing references them.
+  RewriteRule ^assets/img/Can\ Invisalign\ Fix\ Protruding\ Front\ Teeth\.jpg$ /assets/blog/can-invisalign-fix-protruding-front-teeth/01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/Crowded\ Teeth\ Before\ and\ After\.jpg$ /assets/blog/crowded-teeth-before-and-after/01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/Overbite\ vs\ Underbite\.jpg$ /assets/blog/overbite-vs-underbite/01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/about/inv1\.png$ /assets/locations/dublin/braces-invisalign-01.png [R=301,L,NE]
+  RewriteRule ^assets/img/about/inv2\.png$ /assets/locations/dublin/braces-invisalign-02.png [R=301,L,NE]
+  RewriteRule ^assets/img/about/inv3\.png$ /assets/locations/dublin/braces-invisalign-03.png [R=301,L,NE]
+  RewriteRule ^assets/img/about/inv4\.png$ /assets/locations/dublin/braces-invisalign-04.png [R=301,L,NE]
+  RewriteRule ^assets/img/about/inv5\.png$ /assets/locations/dublin/braces-invisalign-05.png [R=301,L,NE]
+  RewriteRule ^assets/img/about/inv6\.png$ /assets/locations/dublin/office-01.png [R=301,L,NE]
+  RewriteRule ^assets/img/about/inv7\.png$ /assets/locations/dublin/office-02.png [R=301,L,NE]
+  RewriteRule ^assets/img/about/inv8\.png$ /assets/locations/dublin/office-03.png [R=301,L,NE]
+  RewriteRule ^assets/img/banner/banner\-1\-by\-dante\.avif$ /assets/hero/home-family-kitchen.avif [R=301,L,NE]
+  RewriteRule ^assets/img/banner/slide3\.jpg$ /assets/hero/braces-vs-invisalign.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/banner/slide5\.jpg$ /assets/hero/surgical-orthodontics.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/10\.jpg$ /assets/cases/gallery-03-before-after.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/12\.jpg$ /assets/cases/gallery-04-before-after.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/3\.jpg$ /assets/cases/gallery-01-after.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/4\.jpg$ /assets/cases/gallery-01-before.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/7\.jpg$ /assets/cases/gallery-02-after.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/8\.jpg$ /assets/cases/gallery-02-before.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case1\-after\.webp$ /assets/cases/case-01-after.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case1\-before\.webp$ /assets/cases/case-01-before.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case2\-after\.webp$ /assets/cases/case-02-after.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case2\-before\.webp$ /assets/cases/case-02-before.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case3\-after\.webp$ /assets/cases/case-03-after.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case3\-before\.webp$ /assets/cases/case-03-before.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case4\-after\.webp$ /assets/cases/case-04-after.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case4\-before\.webp$ /assets/cases/case-04-before.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case5\-after\.webp$ /assets/cases/case-05-after.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case5\-before\.webp$ /assets/cases/case-05-before.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case6\-after\.webp$ /assets/cases/case-06-after.webp [R=301,L,NE]
+  RewriteRule ^assets/img/beaf/case6\-before\.webp$ /assets/cases/case-06-before.webp [R=301,L,NE]
+  RewriteRule ^assets/img/blog\-images/img1\.jpg$ /assets/blog/shared/orthodontic-illustration-01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/aligner1\.png$ /assets/blog/how-to-clean-invisalign-properly/01.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/aligner2\.png$ /assets/blog/how-to-clean-invisalign-properly/02.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/aligner3\.png$ /assets/blog/how-to-clean-invisalign-properly/03.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/apnea1\.jpg$ /assets/blog/what-is-sleep-apnea-caused-by/01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/apnea2\.jpg$ /assets/blog/what-is-sleep-apnea-caused-by/02.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/b\-1\.jpeg$ /assets/blog/how-to-fix-a-gap-between-teeth-treatment-options-compared/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/b\-2\.jpg$ /assets/blog/how-to-fix-a-gap-between-teeth-treatment-options-compared/02.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/b\-3\.jpg$ /assets/blog/how-to-fix-a-gap-between-teeth-treatment-options-compared/03.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/b\-4\.jpg$ /assets/blog/how-to-fix-a-gap-between-teeth-treatment-options-compared/04.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/bb\-1\.jpeg$ /assets/blog/how-braces-can-correct-crooked-teeth-a-complete-guide/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/bb\-2\.jpeg$ /assets/blog/how-braces-can-correct-crooked-teeth-a-complete-guide/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/bb\-3\.jpeg$ /assets/blog/how-braces-can-correct-crooked-teeth-a-complete-guide/03.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/bbb\-1\.jpeg$ /assets/blog/how-braces-can-lead-to-white-marks-and-what-you-can-do-about-it/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/bbb\-2\.jpeg$ /assets/blog/how-braces-can-lead-to-white-marks-and-what-you-can-do-about-it/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/bbb\-3\.jpeg$ /assets/blog/how-braces-can-lead-to-white-marks-and-what-you-can-do-about-it/03.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/blog\-img\-3\.png$ /assets/blog/shared/orthodontic-illustration-02.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/blog\-img\-4\.png$ /assets/blog/shared/orthodontic-illustration-03.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/blog\-img1\.jpeg$ /assets/blog/do-braces-or-invisalign-hurt-what-to-expect-during-your-first-week/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/blog\-img2\.jpeg$ /assets/blog/do-braces-or-invisalign-hurt-what-to-expect-during-your-first-week/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/blog14\-1\.png$ /assets/blog/the-best-solutions-on-how-to-fix-crowded-teeth-effectively/03.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/braces\-blog1\.jpg$ /assets/blog/can-you-get-braces-with-missing-teeth-heres-what-orthodontists-say/01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/braces\-blog2\.jpg$ /assets/blog/can-you-get-braces-with-missing-teeth-heres-what-orthodontists-say/02.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/braces\-blog3\.jpg$ /assets/blog/can-you-get-braces-with-missing-teeth-heres-what-orthodontists-say/03.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/brush1\.jpg$ /assets/blog/how-to-brush-teeth-with-braces/01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/brush2\.jpg$ /assets/blog/how-to-brush-teeth-with-braces/02.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/brush3\.jpg$ /assets/blog/how-to-brush-teeth-with-braces/03.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/chew\-img1\.png$ /assets/blog/can-you-chew-gum-with-invisalign/01.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/chew\-img2\.png$ /assets/blog/can-you-chew-gum-with-invisalign/02.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/chew\-img3\.png$ /assets/blog/can-you-chew-gum-with-invisalign/03.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/chew\-img4\.png$ /assets/blog/can-you-chew-gum-with-invisalign/04.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/chew1\.jpeg$ /assets/blog/can-you-chew-gum-with-invisalign-without-affecting-your-treatment/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/chew2\.jpeg$ /assets/blog/can-you-chew-gum-with-invisalign-without-affecting-your-treatment/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/crowded1\.jpeg$ /assets/blog/the-best-solutions-on-how-to-fix-crowded-teeth-effectively/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/crowded2\.jpeg$ /assets/blog/the-best-solutions-on-how-to-fix-crowded-teeth-effectively/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/deep\-bite1\.png$ /assets/blog/what-is-a-deep-bite/01.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/deep\-bite2\.png$ /assets/blog/shared/orthodontic-illustration-04.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/deep\-bite3\.png$ /assets/blog/shared/orthodontic-illustration-05.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/dent\-1\.jpeg$ /assets/blog/what-causes-crowded-teeth-and-how-dentists-fix-them/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/dent\-2\.jpeg$ /assets/blog/what-causes-crowded-teeth-and-how-dentists-fix-them/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/dent\-3\.jpeg$ /assets/blog/what-causes-crowded-teeth-and-how-dentists-fix-them/03.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/dent\-4\.jpeg$ /assets/blog/what-causes-crowded-teeth-and-how-dentists-fix-them/04.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/dent\-5\.jpeg$ /assets/blog/what-causes-crowded-teeth-and-how-dentists-fix-them/05.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/drink1\.png$ /assets/blog/can-you-drink-with-invisalign/01.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/drink2\.png$ /assets/blog/can-you-drink-with-invisalign/02.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/drink3\.png$ /assets/blog/can-you-drink-with-invisalign/03.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/floss1\.jpeg$ /assets/blog/the-best-techniques-to-floss-teeth-with-braces-effectively/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/floss2\.jpeg$ /assets/blog/the-best-techniques-to-floss-teeth-with-braces-effectively/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/hurt1\.jpeg$ /assets/blog/does-invisalign-hurt/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/hurt1\.jpg$ /assets/blog/does-invisalign-hurt-more-than-braces/01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/hurt2\.jpeg$ /assets/blog/does-invisalign-hurt/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/hurt2\.jpg$ /assets/blog/does-invisalign-hurt-more-than-braces/02.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/imgg1\.jpeg$ /assets/blog/can-you-really-straighten-teeth-without-braces/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/imgg2\.jpeg$ /assets/blog/can-you-really-straighten-teeth-without-braces/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/imgg3\.jpeg$ /assets/blog/can-you-really-straighten-teeth-without-braces/03.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/jaw\.jpeg$ /assets/blog/jaw-pain-on-one-side/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/jaw2\.jpeg$ /assets/blog/jaw-pain-on-one-side/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/jaw3\.jpeg$ /assets/blog/jaw-pain-on-one-side/03.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/maloccl1\.jpeg$ /assets/blog/what-is-malocclusion-of-teeth/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/maloccl2\.jpeg$ /assets/blog/what-is-malocclusion-of-teeth/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/maloccl3\.jpeg$ /assets/blog/what-is-malocclusion-of-teeth/03.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/maloccl4\.jpeg$ /assets/blog/what-is-malocclusion-of-teeth/04.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/protrusion1\.jpeg$ /assets/blog/what-is-teeth-protrusion/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/protrusion2\.jpeg$ /assets/blog/what-is-teeth-protrusion/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/protrusion3\.jpeg$ /assets/blog/what-is-teeth-protrusion/03.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/protrusion4\.jpeg$ /assets/blog/what-is-teeth-protrusion/04.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/sleep1\.jpg$ /assets/blog/can-orthodontic-treatment-help-sleep-apnea/01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/teeth\-boy\.png$ /assets/blog/can-braces-fix-an-overbite-permanently/02.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/teeth\-boy2\.png$ /assets/blog/can-braces-fix-an-overbite-permanently/03.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/teeth\-doctor\.png$ /assets/blog/can-braces-fix-an-overbite-permanently/01.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/tip1\.png$ /assets/blog/can-you-eat-with-invisalign/01.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/tip2\.png$ /assets/blog/can-you-eat-with-invisalign/02.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/tip3\.png$ /assets/blog/can-you-eat-with-invisalign/03.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/tmj\.jpeg$ /assets/blog/can-tmj-dysfuntion-cause-ear-pain/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/tmj2\.jpeg$ /assets/blog/can-tmj-dysfuntion-cause-ear-pain/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/underbite1\.png$ /assets/blog/what-is-an-underbite/01.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/underbite2\.png$ /assets/blog/what-is-an-underbite/02.png [R=301,L,NE]
+  RewriteRule ^assets/img/blogs/underbite3\.png$ /assets/blog/shared/orthodontic-illustration-06.png [R=301,L,NE]
+  RewriteRule ^assets/img/ca/img2\.png$ /assets/locations/tracy/braces-tracy-01.png [R=301,L,NE]
+  RewriteRule ^assets/img/ca/img3\.jpg$ /assets/locations/tracy/braces-tracy-02.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/ca/img4\.jpg$ /assets/locations/tracy/braces-tracy-03.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/ca/img5\.jpg$ /assets/locations/tracy/braces-tracy-04.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/ca/img6\.jpg$ /assets/locations/tracy/braces-tracy-05.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/ca/img7\.jpg$ /assets/locations/tracy/braces-tracy-06.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/ca/img8\.jpg$ /assets/locations/tracy/braces-tracy-07.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/ca/img9\.jpg$ /assets/locations/tracy/braces-tracy-08.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/clarity\-braces\.jpg$ /assets/treatments/clarity-braces.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/clear\-braces\.jpg$ /assets/treatments/clear-braces.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/doctor\-img\.png$ /assets/team/associate-orthodontist.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr\-dante\-gonzales\.png$ /assets/team/dr-dante-gonzales.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr\-dante\-gonzales\.webp$ /assets/team/dr-dante-gonzales.webp [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr10\.png$ /assets/team/team-photo-05.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr11\.png$ /assets/team/team-photo-06.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr15\.png$ /assets/team/team-photo-07.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr18\.png$ /assets/team/tracy-team-photo-01.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr20\.png$ /assets/team/team-photo-08.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr21\.png$ /assets/team/team-photo-09.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr22\.png$ /assets/team/team-photo-10.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr23\.png$ /assets/team/team-photo-11.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr24\.png$ /assets/team/team-photo-12.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr25\.png$ /assets/team/team-photo-13.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr26\.png$ /assets/team/tracy-team-photo-02.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr3\.png$ /assets/team/team-photo-01.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr4\.png$ /assets/team/team-photo-02.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr6\.png$ /assets/team/team-photo-03.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/dr7\.png$ /assets/team/team-photo-04.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/newdr1\.png$ /assets/team/tracy-team-photo-03.png [R=301,L,NE]
+  RewriteRule ^assets/img/doctor/newdr2\.png$ /assets/team/tracy-team-photo-04.png [R=301,L,NE]
+  RewriteRule ^assets/img/dr\-signature\.png$ /assets/brand/dr-gonzales-signature.png [R=301,L,NE]
+  RewriteRule ^assets/img/drdante\.png$ /assets/ui/review-badge-google-wide.png [R=301,L,NE]
+  RewriteRule ^assets/img/dublin\-ca/img10\.jpg$ /assets/locations/dublin/braces-dublin-08.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/dublin\-ca/img11\.jpg$ /assets/locations/dublin/braces-dublin-09.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/dublin\-ca/img3\.jpg$ /assets/locations/dublin/braces-dublin-01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/dublin\-ca/img4\.jpg$ /assets/locations/dublin/braces-dublin-02.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/dublin\-ca/img5\.jpg$ /assets/locations/dublin/braces-dublin-03.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/dublin\-ca/img6\.jpg$ /assets/locations/dublin/braces-dublin-04.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/dublin\-ca/img7\.jpg$ /assets/locations/dublin/braces-dublin-05.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/dublin\-ca/img8\.jpg$ /assets/locations/dublin/braces-dublin-06.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/dublin\-ca/img9\.jpg$ /assets/locations/dublin/braces-dublin-07.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/dublin/img3\.jpg$ /assets/locations/dublin/sleep-apnea-dublin-01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/dublin/img4\.jpg$ /assets/locations/dublin/sleep-apnea-dublin-02.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/elite1\.png$ /assets/treatments/invisalign-elite-provider-01.png [R=301,L,NE]
+  RewriteRule ^assets/img/elite2\.png$ /assets/treatments/invisalign-elite-provider-02.png [R=301,L,NE]
+  RewriteRule ^assets/img/elite3\.png$ /assets/treatments/invisalign-elite-provider-03.png [R=301,L,NE]
+  RewriteRule ^assets/img/family\.jpg$ /assets/team/gonzales-family.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/favicon\.png$ /assets/brand/favicon.png [R=301,L,NE]
+  RewriteRule ^assets/img/form/radio1\.png$ /assets/ui/quiz-option-01.png [R=301,L,NE]
+  RewriteRule ^assets/img/form/radio2\.png$ /assets/ui/quiz-option-02.png [R=301,L,NE]
+  RewriteRule ^assets/img/form/radio3\.png$ /assets/ui/quiz-option-03.png [R=301,L,NE]
+  RewriteRule ^assets/img/form/radio4\.png$ /assets/ui/quiz-option-04.png [R=301,L,NE]
+  RewriteRule ^assets/img/form/radio5\.png$ /assets/ui/quiz-option-05.png [R=301,L,NE]
+  RewriteRule ^assets/img/form/radio6\.png$ /assets/ui/quiz-option-06.png [R=301,L,NE]
+  RewriteRule ^assets/img/logo\-white\.png$ /assets/brand/logo-white.png [R=301,L,NE]
+  RewriteRule ^assets/img/logo\.png$ /assets/brand/logo.png [R=301,L,NE]
+  RewriteRule ^assets/img/logo2\.png$ /assets/brand/logo-mark.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/footer1\.png$ /assets/ui/accreditation-aao.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/footer2\.png$ /assets/ui/accreditation-ada.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/footer3\.png$ /assets/ui/accreditation-abo.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/footer4\.png$ /assets/ui/accreditation-smiles-change-lives.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/footer5\.png$ /assets/ui/accreditation-sharecare.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/logo1\.png$ /assets/ui/partner-invisalign.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/logo2\.png$ /assets/ui/partner-invisalign-teen.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/logo3\.png$ /assets/ui/partner-3m.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/logo4\.png$ /assets/ui/partner-acceledent.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/logo5\.png$ /assets/ui/partner-itero.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/logo6\.png$ /assets/ui/partner-propel.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/review1\.png$ /assets/ui/review-badge-google.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/review2\.png$ /assets/ui/review-badge-facebook.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/review3\.png$ /assets/ui/review-badge-facebook-reviews.png [R=301,L,NE]
+  RewriteRule ^assets/img/logos/review4\.png$ /assets/ui/review-badge-healthgrades.png [R=301,L,NE]
+  RewriteRule ^assets/img/metal\-braces\.jpg$ /assets/treatments/metal-braces.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/new\-blog\-img1\.jpeg$ /assets/blog/braces-create-small-gap-between-front-teeth-is-it-normal/01.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/new\-blog\-img2\.jpeg$ /assets/blog/braces-create-small-gap-between-front-teeth-is-it-normal/02.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/new\-blog\-img3\.jpeg$ /assets/blog/braces-create-small-gap-between-front-teeth-is-it-normal/03.jpeg [R=301,L,NE]
+  RewriteRule ^assets/img/pdf/10\-Things\-You\-Need\-to\-Know\-about\-Your\-Orthodontist\-for\-website\.pdf$ /assets/docs/top-10-things-to-know-about-your-orthodontist.pdf [R=301,L,NE]
+  RewriteRule ^assets/img/pdf/Braces_Report\-Dr\-Gonzales\.pdf$ /assets/docs/braces-report-dr-gonzales.pdf [R=301,L,NE]
+  RewriteRule ^assets/img/pdf/Invisalign\-Free\-Report\.pdf$ /assets/docs/invisalign-free-report.pdf [R=301,L,NE]
+  RewriteRule ^assets/img/pdf/Teledentistry\-Consultation\-Dr\-Gonzales\.pdf$ /assets/docs/teledentistry-consultation-dr-gonzales.pdf [R=301,L,NE]
+  RewriteRule ^assets/img/photos/braces\-care\-760\.webp$ /assets/photos/braces-care-760.webp [R=301,L,NE]
+  RewriteRule ^assets/img/photos/family\-four\-760\.webp$ /assets/photos/family-four-760.webp [R=301,L,NE]
+  RewriteRule ^assets/img/photos/family\-four\.jpg$ /assets/photos/family-four.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/photos/family\-four\.webp$ /assets/photos/family-four.webp [R=301,L,NE]
+  RewriteRule ^assets/img/photos/hero\-smile\.jpg$ /assets/photos/hero-smile.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/report/book\-setting\-them\-straight\.png$ /assets/photos/book-setting-them-straight.png [R=301,L,NE]
+  RewriteRule ^assets/img/report/book\-setting\-them\-straight\.webp$ /assets/photos/book-setting-them-straight.webp [R=301,L,NE]
+  RewriteRule ^assets/img/report/top10\-cover\.png$ /assets/photos/report-top10-cover.png [R=301,L,NE]
+  RewriteRule ^assets/img/report/top10\-cover\.webp$ /assets/photos/report-top10-cover.webp [R=301,L,NE]
+  RewriteRule ^assets/img/star\.png$ /assets/ui/star-rating.png [R=301,L,NE]
+  RewriteRule ^assets/img/straight\-teeth\-faster\-with\-propel\-orthodontics\.jpg$ /assets/treatments/propel-accelerated-orthodontics.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/surgical/img4\.jpg$ /assets/treatments/surgical-orthodontics-01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/tracy/img3\.jpg$ /assets/locations/tracy/sleep-apnea-tracy-01.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/tracy/img4\.jpg$ /assets/locations/tracy/sleep-apnea-tracy-02.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/video/intro\-poster\.jpg$ /assets/video/intro-poster.jpg [R=301,L,NE]
+  RewriteRule ^assets/img/video/intro\-poster\.webp$ /assets/video/intro-poster.webp [R=301,L,NE]
+
+  # --------------------------------------------------------------- pages ----
+  # The homepage was reachable at both / and /index.php.
+  RewriteRule ^index\.php$ / [R=301,L]
+
+  # These three were listed in the old sitemap but were already broken in
+  # production: blogs.php returned a database error, blog1.php and blog2.php
+  # returned zero bytes. Send them to the real blog index rather than a 404.
+  RewriteRule ^(blogs|blog1|blog2)\.php$ /blog.html [R=301,L]
+
+  # Every other legacy page: same slug, new extension. The condition means a
+  # .php URL with no matching .html falls through to the 404 instead of
+  # redirecting into one.
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+)\.php$ /$1.html [R=301,L]
+</IfModule>

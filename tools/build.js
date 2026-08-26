@@ -19,7 +19,7 @@ const tail = read(path.join(PARTIALS, 'tail.html'));
 
 const DEFAULTS = {
   ogType: 'website',
-  ogImage: 'https://www.drdantegonzales.com/assets/img/photos/hero-smile.jpg',
+  ogImage: 'https://www.drdantegonzales.com/assets/photos/hero-smile.jpg',
   ogImageAlt: 'Patient of Dante Gonzales Orthodontics laughing with a confident smile',
   preload: '',
   jsonLd: [],

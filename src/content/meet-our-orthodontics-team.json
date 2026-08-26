@@ -41,7 +41,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr3.png",
+      "src": "assets/team/team-photo-01.png",
       "alt": "",
       "title": null
     },
@@ -59,7 +59,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr4.png",
+      "src": "assets/team/team-photo-02.png",
       "alt": "",
       "title": null
     },
@@ -77,7 +77,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr6.png",
+      "src": "assets/team/team-photo-03.png",
       "alt": "",
       "title": null
     },
@@ -95,7 +95,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr7.png",
+      "src": "assets/team/team-photo-04.png",
       "alt": "",
       "title": null
     },
@@ -113,7 +113,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr10.png",
+      "src": "assets/team/team-photo-05.png",
       "alt": "",
       "title": null
     },
@@ -131,7 +131,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr11.png",
+      "src": "assets/team/team-photo-06.png",
       "alt": "",
       "title": null
     },
@@ -149,7 +149,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr15.png",
+      "src": "assets/team/team-photo-07.png",
       "alt": "",
       "title": null
     },
@@ -167,7 +167,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr20.png",
+      "src": "assets/team/team-photo-08.png",
       "alt": "",
       "title": null
     },
@@ -185,7 +185,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr21.png",
+      "src": "assets/team/team-photo-09.png",
       "alt": "",
       "title": null
     },
@@ -203,7 +203,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr22.png",
+      "src": "assets/team/team-photo-10.png",
       "alt": "",
       "title": null
     },
@@ -221,7 +221,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr23.png",
+      "src": "assets/team/team-photo-11.png",
       "alt": "",
       "title": null
     },
@@ -239,7 +239,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr24.png",
+      "src": "assets/team/team-photo-12.png",
       "alt": "",
       "title": null
     },
@@ -257,7 +257,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr25.png",
+      "src": "assets/team/team-photo-13.png",
       "alt": "",
       "title": null
     },
@@ -291,7 +291,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -305,7 +305,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -319,7 +319,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -333,7 +333,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -347,31 +347,31 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review1.png",
+      "src": "assets/ui/review-badge-google.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review2.png",
+      "src": "assets/ui/review-badge-facebook.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review3.png",
+      "src": "assets/ui/review-badge-facebook-reviews.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review4.png",
+      "src": "assets/ui/review-badge-healthgrades.png",
       "alt": "",
       "title": null
     }

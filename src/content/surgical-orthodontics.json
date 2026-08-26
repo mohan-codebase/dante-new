@@ -119,7 +119,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -133,7 +133,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -147,7 +147,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -161,7 +161,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -175,31 +175,31 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review1.png",
+      "src": "assets/ui/review-badge-google.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review2.png",
+      "src": "assets/ui/review-badge-facebook.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review3.png",
+      "src": "assets/ui/review-badge-facebook-reviews.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review4.png",
+      "src": "assets/ui/review-badge-healthgrades.png",
       "alt": "",
       "title": null
     }

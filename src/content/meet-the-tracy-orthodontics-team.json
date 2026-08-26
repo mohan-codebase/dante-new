@@ -41,7 +41,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr18.png",
+      "src": "assets/team/tracy-team-photo-01.png",
       "alt": "",
       "title": null
     },
@@ -59,7 +59,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr7.png",
+      "src": "assets/team/team-photo-04.png",
       "alt": "",
       "title": null
     },
@@ -77,7 +77,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/dr26.png",
+      "src": "assets/team/tracy-team-photo-02.png",
       "alt": "",
       "title": null
     },
@@ -95,7 +95,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/newdr1.png",
+      "src": "assets/team/tracy-team-photo-03.png",
       "alt": "",
       "title": null
     },
@@ -113,7 +113,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/doctor/newdr2.png",
+      "src": "assets/team/tracy-team-photo-04.png",
       "alt": "",
       "title": null
     },
@@ -147,7 +147,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -161,7 +161,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -175,7 +175,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -189,7 +189,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -203,31 +203,31 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review1.png",
+      "src": "assets/ui/review-badge-google.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review2.png",
+      "src": "assets/ui/review-badge-facebook.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review3.png",
+      "src": "assets/ui/review-badge-facebook-reviews.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review4.png",
+      "src": "assets/ui/review-badge-healthgrades.png",
       "alt": "",
       "title": null
     }

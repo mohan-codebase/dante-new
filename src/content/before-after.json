@@ -33,13 +33,13 @@
     },
     {
       "type": "img",
-      "src": "assets/img/beaf/10.jpg",
+      "src": "assets/cases/gallery-03-before-after.jpg",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/beaf/12.jpg",
+      "src": "assets/cases/gallery-04-before-after.jpg",
       "alt": "",
       "title": null
     },
@@ -85,25 +85,25 @@
     },
     {
       "type": "img",
-      "src": "assets/img/beaf/3.jpg",
+      "src": "assets/cases/gallery-01-after.jpg",
       "alt": "After",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/beaf/4.jpg",
+      "src": "assets/cases/gallery-01-before.jpg",
       "alt": "Before",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/beaf/7.jpg",
+      "src": "assets/cases/gallery-02-after.jpg",
       "alt": "After",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/beaf/8.jpg",
+      "src": "assets/cases/gallery-02-before.jpg",
       "alt": "Before",
       "title": null
     },
@@ -125,7 +125,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -139,7 +139,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -153,7 +153,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -167,7 +167,7 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
@@ -181,31 +181,31 @@
     },
     {
       "type": "img",
-      "src": "assets/img/star.png",
+      "src": "assets/ui/star-rating.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review1.png",
+      "src": "assets/ui/review-badge-google.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review2.png",
+      "src": "assets/ui/review-badge-facebook.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review3.png",
+      "src": "assets/ui/review-badge-facebook-reviews.png",
       "alt": "",
       "title": null
     },
     {
       "type": "img",
-      "src": "assets/img/logos/review4.png",
+      "src": "assets/ui/review-badge-healthgrades.png",
       "alt": "",
       "title": null
     },
