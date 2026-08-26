@@ -26,7 +26,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/img/banner/slide1.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/banner/banner-1-by-dante.avif" fetchpriority="high">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="css/styles.css">
 <style>
@@ -237,41 +237,37 @@
 <main id="main">
 
 <!-- =================================================================== HERO -->
-<section class="hero hero--full" aria-label="Practice highlights">
-  <div class="hero__slider" data-hero-slider aria-hidden="true">
-    <div class="hero__slide is-active">
-      <img src="assets/img/banner/slide1.jpg" alt="Dante Gonzales Orthodontics patients smiling" class="hero__slider-img" fetchpriority="high" decoding="async">
-    </div>
-    <div class="hero__slide">
-      <img src="assets/img/banner/slide2.jpg" alt="Orthodontic braces patient" class="hero__slider-img" loading="lazy" decoding="async">
-    </div>
-    <div class="hero__slide">
-      <img src="assets/img/banner/slide3.jpg" alt="Diamond Invisalign patient smile" class="hero__slider-img" loading="lazy" decoding="async">
-    </div>
-    <div class="hero__slide">
-      <img src="assets/img/banner/slide4.jpg" alt="Orthodontic care for teens and adults" class="hero__slider-img" loading="lazy" decoding="async">
-    </div>
-    <div class="hero__slide">
-      <img src="assets/img/banner/slide5.jpg" alt="Family orthodontic treatment" class="hero__slider-img" loading="lazy" decoding="async">
+<section class="hero hero--full" aria-labelledby="hero-headline">
+  <div class="hero__still" aria-hidden="true">
+    <img src="assets/img/banner/banner-1-by-dante.avif" alt="" width="1672" height="941" fetchpriority="high" decoding="async">
+  </div>
+
+  <div class="hero__scrim" aria-hidden="true"></div>
+
+  <!-- The banner's standing copy, held over the photograph. -->
+  <div class="hero__overlay">
+    <div class="shell hero__content">
+      <p class="hero__eyebrow">Dublin &amp; Tracy, California</p>
+      <h1 class="hero__headline" id="hero-headline">A smile you'll be glad to show off</h1>
+      <p class="hero__sub">
+        Board-certified orthodontics from Dr. Dante Gonzales — braces, Invisalign and
+        surgical care for children, teens and adults, in two Tri-Valley offices.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary btn--lg" href="#appointment">Request a free consultation</a>
+        <a class="btn--ghost-light" href="before-after.html">
+          See before &amp; afters
+          <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </a>
+      </div>
+      <ul class="hero__facts">
+        <li><strong>12,000+</strong><span>smiles transformed</span></li>
+        <li><strong>Since 1998</strong><span>serving the Tri-Valley</span></li>
+        <li><strong>Two offices</strong><span>Dublin &amp; Tracy</span></li>
+      </ul>
     </div>
   </div>
 
-  <!-- Slider Controls & Indicators -->
-  <div class="hero__controls" aria-label="Hero slider pagination">
-    <button class="hero__nav-btn hero__nav-btn--prev" type="button" aria-label="Previous slide" data-hero-prev>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-    </button>
-    <div class="hero__dots" data-hero-dots>
-      <button class="hero__dot is-active" type="button" aria-label="Go to slide 1" data-slide-index="0"></button>
-      <button class="hero__dot" type="button" aria-label="Go to slide 2" data-slide-index="1"></button>
-      <button class="hero__dot" type="button" aria-label="Go to slide 3" data-slide-index="2"></button>
-      <button class="hero__dot" type="button" aria-label="Go to slide 4" data-slide-index="3"></button>
-      <button class="hero__dot" type="button" aria-label="Go to slide 5" data-slide-index="4"></button>
-    </div>
-    <button class="hero__nav-btn hero__nav-btn--next" type="button" aria-label="Next slide" data-hero-next>
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-    </button>
-  </div>
 </section>
 
 <!-- The five promises carried over from the original homepage banner -->
@@ -1143,16 +1139,17 @@
 </main>
 
 <!-- ================================================================= FOOTER -->
+<div class="footer-bed">
 <footer class="footer" id="contact">
   <div class="shell">
     <div class="footer__top">
       <div class="footer__col footer__col--about">
-        <img class="footer__logo" src="assets/img/logo-white.png" alt="Dante Gonzales Orthodontics" width="387" height="97" loading="lazy" decoding="async">
+        <img class="footer__logo" src="assets/img/logo.png" alt="Dante Gonzales Orthodontics" width="387" height="97" loading="lazy" decoding="async">
         <p class="footer__about">
           We want you to feel confident when you choose your Dublin or Tracy, CA orthodontist.
           To help you make an informed decision, Dr. Gonzales wrote this free report for you.
         </p>
-        <a class="link-arrow link-arrow--light" href="assets/img/pdf/10-Things-You-Need-to-Know-about-Your-Orthodontist-for-website.pdf">
+        <a class="link-arrow" href="assets/img/pdf/10-Things-You-Need-to-Know-about-Your-Orthodontist-for-website.pdf">
           Download the free report
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
         </a>
@@ -1250,6 +1247,7 @@
     </div>
   </div>
 </footer>
+</div><!-- /.footer-bed -->
 
 <a class="to-top" href="#main" id="toTop" aria-label="Back to top" hidden>
   <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V5m-6 6 6-6 6 6"/></svg>
