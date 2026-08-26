@@ -136,19 +136,76 @@
       }
     }
 
+    /* ---- hover intent (desktop, real pointers only) ----
+       Pointing at an item opens it after a short beat, so brushing past the
+       bar on the way somewhere else never flashes a panel. Once one panel is
+       open, moving along the bar swaps instantly -- the curtain is already
+       down, so a second delay would just feel sticky. Leaving keeps the panel
+       up for a grace period, which is what lets the mouse cut a diagonal from
+       the link to the far side of the panel. */
+    var hoverPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    var HOVER_OPEN_DELAY  = 90;
+    var HOVER_CLOSE_DELAY = 220;
+    var hoverTimer = null;
+
+    function hoverNav() { return desktopNav.matches && hoverPointer.matches; }
+    function clearHoverTimer() {
+      if (hoverTimer) { window.clearTimeout(hoverTimer); hoverTimer = null; }
+    }
+
     items.forEach(function (item) {
       var toggle = $('.nav__toggle', item);
       if (!toggle) return;
       toggle.addEventListener('click', function (e) {
         e.preventDefault();
-        toggleItem(item);
+        clearHoverTimer();
+        // with hover driving the bar, a click on the item hover just opened
+        // would collapse it and the pointer would immediately re-open it, so
+        // the click only ever opens.
+        toggleItem(item, hoverNav() ? true : undefined);
       });
+
+      // the panel is a child of the item, so moving down into it never leaves
+      item.addEventListener('mouseenter', function () {
+        if (!hoverNav()) return;
+        clearHoverTimer();
+        if (item.classList.contains('is-open')) return;
+        var delay = openItem() ? 0 : HOVER_OPEN_DELAY;
+        if (!delay) { toggleItem(item, true); return; }
+        hoverTimer = window.setTimeout(function () {
+          hoverTimer = null;
+          toggleItem(item, true);
+        }, delay);
+      });
+
+      item.addEventListener('mouseleave', function () {
+        if (!hoverNav()) return;
+        clearHoverTimer();
+        hoverTimer = window.setTimeout(function () {
+          hoverTimer = null;
+          closeAll();
+        }, HOVER_CLOSE_DELAY);
+      });
+    });
+
+    // leaving the bar entirely gets the same grace period, so a pointer that
+    // clips the edge of the header on its way back in keeps the panel up
+    header.addEventListener('mouseleave', function () {
+      if (!hoverNav()) return;
+      clearHoverTimer();
+      hoverTimer = window.setTimeout(function () {
+        hoverTimer = null;
+        closeAll();
+      }, HOVER_CLOSE_DELAY);
+    });
+    header.addEventListener('mouseenter', function () {
+      if (hoverNav()) clearHoverTimer();
     });
 
     // a flyout is part of the bar, so a click anywhere else dismisses it
     document.addEventListener('click', function (e) {
       if (!desktopNav.matches) return;
-      if (!header.contains(e.target)) closeAll();
+      if (!header.contains(e.target)) { clearHoverTimer(); closeAll(); }
     });
 
     /* ---- mobile sheet ---- */
@@ -193,6 +250,7 @@
 
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
+      clearHoverTimer();
       if (!desktopNav.matches && nav.classList.contains('is-open')) { closeSheet(); return; }
       var open = openItem();
       if (open) {
@@ -242,6 +300,7 @@
     });
 
     desktopNav.addEventListener('change', function () {
+      clearHoverTimer();
       closeAll();
       header.style.setProperty('--flyout-h', '0px');
       header.classList.remove('is-flyout-open');
