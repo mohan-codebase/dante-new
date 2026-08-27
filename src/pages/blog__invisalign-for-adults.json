@@ -1,0 +1,32 @@
+{
+  "title": "Invisalign for Adults: Benefits, Cost, and What to Expect \u2013 Dante Gonzales Orthodontics",
+  "description": "Discover why adult Invisalign is more popular than ever: discrete aesthetics, comfort, and flexible schedules.",
+  "canonical": "https://www.drdantegonzales.com/blog/invisalign-for-adults.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.drdantegonzales.com/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Invisalign for Adults: Benefits, Cost, and What to Expect",
+          "item": "https://www.drdantegonzales.com/blog/invisalign-for-adults.html"
+        }
+      ]
+    }
+  ]
+}

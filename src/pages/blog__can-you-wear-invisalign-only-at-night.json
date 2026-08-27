@@ -1,0 +1,32 @@
+{
+  "title": "Can You Wear Invisalign Only at Night? Here Is What You Need to Know \u2013 Dante Gonzales Orthodontics",
+  "description": "Can you wear Invisalign only at night and still get results? Orthodontists explain why 20-22 hours of daily wear is essential.",
+  "canonical": "https://www.drdantegonzales.com/blog/can-you-wear-invisalign-only-at-night.html",
+  "ogType": "article",
+  "jsonLd": [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.drdantegonzales.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.drdantegonzales.com/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Can You Wear Invisalign Only at Night? Here Is What You Need to Know",
+          "item": "https://www.drdantegonzales.com/blog/can-you-wear-invisalign-only-at-night.html"
+        }
+      ]
+    }
+  ]
+}
