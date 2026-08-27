@@ -573,6 +573,25 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   color: var(--ink);
   text-shadow: none;
 }
+
+/* A dark banner slide underneath. The slider publishes the active slide's tone
+   here, so the bar flips to the light wordmark and white links for as long as
+   that slide is showing — but only while the bar is still transparent; once it
+   frosts on scroll or opens a flyout, the rules above take it back to ink. */
+.header--over-banner.is-banner-dark:not(.is-scrolled):not(.is-flyout-open):not(.is-nav-open) .header__logo--dark { display: none; }
+.header--over-banner.is-banner-dark:not(.is-scrolled):not(.is-flyout-open):not(.is-nav-open) .header__logo--light { display: block; }
+.header--over-banner.is-banner-dark:not(.is-scrolled):not(.is-flyout-open):not(.is-nav-open) .nav__link {
+  color: rgba(255, 255, 255, .86);
+  text-shadow: 0 1px 12px rgba(9, 18, 26, .5);
+}
+.header--over-banner.is-banner-dark:not(.is-scrolled):not(.is-flyout-open):not(.is-nav-open) .nav__link:hover,
+.header--over-banner.is-banner-dark:not(.is-scrolled):not(.is-flyout-open):not(.is-nav-open) .nav__link[aria-current="page"] {
+  color: var(--ink-inv);
+}
+.header--over-banner.is-banner-dark:not(.is-scrolled):not(.is-flyout-open):not(.is-nav-open) .burger span {
+  background-color: var(--ink-inv);
+  box-shadow: 0 1px 8px rgba(9, 18, 26, .45);
+}
 .header--over-banner.is-scrolled .nav__chev,
 .header--over-banner.is-flyout-open .nav__chev,
 .header--over-banner.is-nav-open .nav__chev {
@@ -659,11 +678,8 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
 .nav__item.is-open > .nav__link { color: var(--ink); }
 
 .nav__chev {
-  flex: none;
-  opacity: .45;
-  transition: transform .3s var(--e-nav), opacity .2s var(--e-out);
+  display: none !important;
 }
-.nav__item.is-open .nav__chev { transform: rotate(180deg); opacity: .8; }
 
 /* flyout panels ------------------------------------------------------------
    Every panel is clipped to the same --flyout-h as the curtain, so switching
@@ -891,11 +907,33 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
 .hero__still img {
   width: 100%; height: 100%;
   object-fit: cover;
-  /* Biased left: the copy sits on the near-white window side of the frame, and
-     a centred crop would slide the family's dark hair under it on narrow
-     viewports. At 22% the bright half stays put from phone to desktop. */
-  object-position: 22% center;
+  /* Biased left: the copy sits on the near-white side of the frame, and a
+     centred crop would slide the subject's dark hair under it. 22% suits a
+     wide photograph whose subject is right of centre; a slide overrides it
+     with --still-x when its own framing wants something else. */
+  object-position: var(--still-x, 22%) center;
   filter: saturate(1.06) contrast(1.03);
+}
+/* A phone crops a landscape photograph hard enough that a left-biased window
+   can land entirely on the empty side — a banner with no picture in it. A slide
+   whose subject sits far from the copy opts out with data-crop="subject": on a
+   phone its crop pulls back toward the subject (tune with --still-x-sm) and the
+   wash turns from a side-lit gradient into a veil over the whole frame, since
+   the copy no longer has an empty corner to sit in. Slides framed loosely
+   enough to survive the default crop are left alone — the veil would only
+   wash out a picture that was already readable. */
+@media (max-width: 700px) {
+  .hero__slide[data-crop="subject"] .hero__still img {
+    object-position: var(--still-x-sm, 60%) center;
+  }
+  .hero__slide[data-crop="subject"]:not([data-tone="dark"]) .hero__scrim {
+    background: linear-gradient(180deg, rgba(255, 255, 255, .93) 0%, rgba(255, 255, 255, .82) 44%,
+                                        rgba(255, 255, 255, .66) 64%, rgba(255, 255, 255, .86) 100%);
+  }
+  .hero__slide[data-crop="subject"][data-tone="dark"] .hero__scrim {
+    background: linear-gradient(180deg, rgba(9, 18, 26, .86) 0%, rgba(9, 18, 26, .68) 44%,
+                                        rgba(9, 18, 26, .5) 64%, rgba(9, 18, 26, .78) 100%);
+  }
 }
 
 /* banner copy ---------------------------------------------------------------
@@ -969,31 +1007,193 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
 }
 .hero__cta .btn--ghost:hover { background: var(--sun-50); }
 
-.hero__facts {
-  display: flex; flex-wrap: wrap;
-  gap: var(--s-4) clamp(1.5rem, 4vw, 3.25rem);
-  margin: var(--s-9) 0 0;
+
+/* rotating banner -----------------------------------------------------------
+   Every slide is the full hero box, stacked on the same spot; turning the
+   banner is a crossfade rather than a slide, so nothing about the layout —
+   the header over it, the foot under it — moves as it turns. The foot is
+   outside the stage: the controls and the practice's facts stand still while
+   the photographs change behind them. */
+.hero--banner { --banner-interval: 7000ms; }
+
+.hero__stage { position: absolute; inset: 0; z-index: 0; }
+
+.hero__slide {
+  position: absolute; inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  /* the visibility flip is deferred to the end of the fade going out, and
+     immediate coming in, so a slide on its way out cannot catch a click */
+  transition: opacity var(--t-slow) var(--e-soft), visibility 0s linear var(--t-slow);
 }
-.hero__facts li { display: grid; gap: .15rem; }
-.hero__facts strong {
+.hero__slide.is-active {
+  z-index: 1;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--t-slow) var(--e-soft), visibility 0s;
+}
+
+/* a slow settle on the photograph, run once per turn rather than looped */
+@keyframes banner-drift {
+  from { transform: scale(1.075); }
+  to   { transform: scale(1); }
+}
+.hero__slide.is-active .hero__still img {
+  animation: banner-drift 9s var(--e-soft) forwards;
+}
+
+/* the copy arrives a beat behind the photograph, line by line */
+@keyframes banner-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero--banner .hero__eyebrow,
+.hero--banner .hero__headline,
+.hero--banner .hero__sub,
+.hero--banner .hero__cta { opacity: 0; }
+.hero__slide.is-active .hero__eyebrow  { animation: banner-rise .62s var(--e-out) .10s both; }
+.hero__slide.is-active .hero__headline { animation: banner-rise .62s var(--e-out) .18s both; }
+.hero__slide.is-active .hero__sub      { animation: banner-rise .62s var(--e-out) .28s both; }
+.hero__slide.is-active .hero__cta      { animation: banner-rise .62s var(--e-out) .38s both; }
+
+/* the non-headline slides carry the same weight as the h1 on slide 1 */
+p.hero__headline {
+  max-width: 15ch;
+  margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 1.1rem + 1vw, 1.9rem);
-  font-weight: 600;
-  /* the pale logo yellow vanishes on white; this is the warm end of the same
-     family, and clears 5:1 on the banner */
-  color: var(--sand-700);
+  font-size: var(--fs-display);
+  font-weight: 500;
+  line-height: var(--lh-tight);
+  letter-spacing: -.01em;
+  text-wrap: balance;
+  color: var(--ink);
 }
-.hero__facts span {
-  font-size: var(--fs-xs);
-  /* ink-3 only reaches 3.7:1 on the banner, short of 4.5:1 at this size */
-  color: var(--ink-2);
+
+/* dark-toned slides ---------------------------------------------------------
+   Set data-tone="dark" on a slide whose photograph is dark where the copy
+   sits. The wash turns to ink, the copy to white, and JS carries the same
+   tone up to the header so the nav does not strand on it. */
+.hero__slide[data-tone="dark"] .hero__scrim {
+  background: linear-gradient(100deg, rgba(9, 18, 26, .78) 0%, rgba(9, 18, 26, .52) 40%, rgba(9, 18, 26, .08) 72%);
+}
+.hero__slide[data-tone="dark"] .hero__content { color: rgba(255, 255, 255, .88); }
+.hero__slide[data-tone="dark"] .hero__headline { color: var(--ink-inv); }
+.hero__slide[data-tone="dark"] .hero__sub { color: rgba(255, 255, 255, .84); }
+.hero__slide[data-tone="dark"] .hero__eyebrow {
+  color: var(--ink-inv);
+  background: rgba(255, 255, 255, .13);
+  border-color: rgba(255, 255, 255, .34);
+}
+.hero__slide[data-tone="dark"] .hero__cta .btn--ghost {
+  --btn-bd: rgba(255, 255, 255, .5);
+  --btn-fg: var(--ink-inv);
+  background: rgba(255, 255, 255, .1);
+}
+.hero__slide[data-tone="dark"] .hero__cta .btn--ghost:hover {
+  --btn-bd: rgba(255, 255, 255, .8);
+  background: rgba(255, 255, 255, .2);
+}
+
+/* banner foot ---------------------------------------------------------------
+   The controls, held to the copy's left edge. */
+.hero__foot {
+  position: absolute; z-index: 4;
+  left: 0; right: 0; bottom: clamp(1.25rem, 3vh, 2.5rem);
+  padding-inline: max(var(--gutter), calc(var(--header-float) + var(--nav-pad)));
+  pointer-events: none;
+}
+.hero__foot-inner {
+  display: grid; justify-items: start;
+}
+/* room under the copy for the control row the foot holds */
+.hero--banner .hero__overlay { padding-block: calc(var(--header-h) + var(--header-float) + 2rem) 9rem; }
+
+.hero__controls {
+  display: flex; align-items: center; gap: .5rem;
+  pointer-events: auto;
+}
+
+.hero__arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px;
+  padding: 0;
+  border: 1px solid rgba(20, 35, 46, .18);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, .55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background var(--t-fast) var(--e-out), border-color var(--t-fast) var(--e-out),
+              transform var(--t-fast) var(--e-out);
+}
+.hero__arrow svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.hero__arrow:hover { background: var(--sun-50); border-color: var(--sun-600); transform: translateY(-2px); }
+.hero__arrow--play { margin-left: .35rem; }
+.hero__icon-play { display: none; }
+.hero--banner.is-stopped .hero__icon-pause { display: none; }
+.hero--banner.is-stopped .hero__icon-play  { display: block; }
+
+.hero__dots { display: flex; align-items: center; gap: .4rem; margin-inline: .35rem; }
+.hero__dot {
+  position: relative;
+  width: 9px; height: 9px;
+  padding: 0;
+  border: 0; border-radius: var(--r-pill);
+  background: rgba(20, 35, 46, .26);
+  overflow: hidden;
+  cursor: pointer;
+  transition: width var(--t-mid) var(--e-out), background var(--t-fast) var(--e-out);
+}
+.hero__dot:hover { background: rgba(20, 35, 46, .45); }
+.hero__dot.is-active { width: 46px; background: rgba(20, 35, 46, .2); }
+/* the active dot doubles as the timer: the fill runs the length of one turn */
+@keyframes banner-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.hero__dot.is-active::after {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: var(--ink);
+  transform-origin: left center;
+  animation: banner-fill var(--banner-interval) linear forwards;
+}
+.hero--banner.is-paused .hero__dot.is-active::after { animation-play-state: paused; }
+/* no timer running — reduced motion, a single slide, or no JS: show it filled */
+.hero--banner.is-static .hero__dot.is-active::after { animation: none; transform: scaleX(1); }
+
+/* the foot inverts along with the slide under it */
+.hero--banner[data-active-tone="dark"] .hero__arrow {
+  border-color: rgba(255, 255, 255, .38);
+  background: rgba(255, 255, 255, .14);
+  color: var(--ink-inv);
+}
+.hero--banner[data-active-tone="dark"] .hero__arrow:hover {
+  border-color: rgba(255, 255, 255, .75);
+  background: rgba(255, 255, 255, .26);
+}
+.hero--banner[data-active-tone="dark"] .hero__dot { background: rgba(255, 255, 255, .34); }
+.hero--banner[data-active-tone="dark"] .hero__dot.is-active { background: rgba(255, 255, 255, .26); }
+.hero--banner[data-active-tone="dark"] .hero__dot.is-active::after { background: var(--ink-inv); }
+
+@media (max-width: 700px) {
+  .hero__foot { bottom: 1.15rem; }
+  .hero--banner .hero__overlay { padding-block: calc(var(--header-h) + var(--header-float) + 1.5rem) 7.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__slide { transition: opacity .01ms linear, visibility 0s; }
+  .hero__slide.is-active .hero__still img { animation: none; }
+  .hero--banner .hero__eyebrow,
+  .hero--banner .hero__headline,
+  .hero--banner .hero__sub,
+  .hero--banner .hero__cta { opacity: 1; animation: none; }
+  .hero__dot.is-active::after { animation: none; transform: scaleX(1); }
 }
 
 @media (max-width: 700px) {
   .hero__overlay { padding-block: calc(var(--header-h) + var(--header-float) + 1.5rem) 6.5rem; }
   .hero__headline { max-width: 18ch; }
   .hero__cta .btn, .hero__cta .btn--ghost-light { width: 100%; justify-content: center; }
-  .hero__facts { gap: var(--s-4) var(--s-6); }
 }
 
 .btn--ghost-light {
@@ -1238,7 +1438,7 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   aspect-ratio: 3 / 2;
 }
 .ba__pane { position: absolute; inset: 0; }
-.ba__pane img { width: 100%; height: 100%; object-fit: cover; }
+.ba__pane img { width: 100%; height: 100%; object-fit: cover; -webkit-user-drag: none; user-drag: none; }
 /* the before pane stays full size and is clipped, so the photo never squashes */
 .ba__pane--before {
   clip-path: inset(0 calc(100% - var(--ba-pos, 50%)) 0 0);
@@ -2210,6 +2410,10 @@ html:not(.js) .visit__tabs { display: none; }
 html:not(.js) .visit__pane[hidden] { display: grid !important; }
 html:not(.js) .visit__pane + .visit__pane { border-top: 1px solid var(--line); }
 html:not(.js) .visit__map iframe[data-src] { display: none; }
+
+/* Without JS the banner holds on slide 1: the controls would have nothing to
+   drive, and the remaining slides are stacked behind it with no way through. */
+html:not(.js) .hero__foot .hero__controls { display: none; }
 
 html:not(.js) .carousel__track { flex-wrap: wrap; }
 html:not(.js) .carousel__controls { display: none; }

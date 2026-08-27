@@ -67,7 +67,7 @@
 
         <li class="nav__item nav__item--has-menu">
           <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-about">
-            About Us <svg class="nav__chev" width="11" height="7" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+            About Us
           </button>
           <div class="mega" id="menu-about" data-menu>
             <div class="mega__inner mega__inner--split">
@@ -99,7 +99,7 @@
 
         <li class="nav__item nav__item--has-menu">
           <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-treatments">
-            Braces &amp; Invisalign <svg class="nav__chev" width="11" height="7" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+            Braces &amp; Invisalign
           </button>
           <div class="mega" id="menu-treatments" data-menu>
             <div class="mega__inner mega__inner--split">
@@ -139,7 +139,7 @@
 
         <li class="nav__item nav__item--has-menu">
           <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-why">
-            Why Dante Gonzales? <svg class="nav__chev" width="11" height="7" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+            Why Dante Gonzales?
           </button>
           <div class="mega" id="menu-why" data-menu>
             <div class="mega__inner mega__inner--wide">
@@ -177,7 +177,7 @@
 
         <li class="nav__item nav__item--has-menu">
           <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-resources">
-            Resources <svg class="nav__chev" width="11" height="7" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+            Resources
           </button>
           <div class="mega" id="menu-resources" data-menu>
             <div class="mega__inner">
@@ -195,7 +195,7 @@
 
         <li class="nav__item nav__item--has-menu">
           <button class="nav__link nav__toggle" type="button" aria-expanded="false" aria-controls="menu-contact">
-            Contact <svg class="nav__chev" width="11" height="7" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5"/></svg>
+            Contact
           </button>
           <div class="mega" id="menu-contact" data-menu>
             <div class="mega__inner">
@@ -237,34 +237,132 @@
 <main id="main">
 
 <!-- =================================================================== HERO -->
-<section class="hero hero--full" aria-labelledby="hero-headline">
-  <div class="hero__still" aria-hidden="true">
-    <img src="assets/hero/home-family-kitchen.avif" alt="" width="1672" height="941" fetchpriority="high" decoding="async">
+<!-- Rotating banner. Every <article data-banner-slide> is one complete banner:
+     its own photograph, eyebrow, headline, copy and buttons. The dots, the
+     "n of m" label and the timer are all derived from however many slides are
+     in this markup, so adding or removing one needs no CSS or JS change.
+
+     TO SWAP IN A PHOTOGRAPH
+       1. Replace the <img> inside that slide's .hero__still (keep width/height
+          truthful — they hold the layout while the file loads).
+       2. Set data-tone on the <article> to match the half of the frame the
+          copy sits on:
+            data-tone="light"  bright there  -> ink copy, dark nav   (default)
+            data-tone="dark"   dark there    -> white copy, white nav
+       3. Slide 1's image is the LCP: it keeps fetchpriority="high" and is
+          preloaded in <head>. Slides 2+ stay loading="lazy".
+     Until then all four slides share the current kitchen photograph. -->
+<section class="hero hero--full hero--banner" id="banner"
+         aria-roledescription="carousel" aria-label="Dante Gonzales Orthodontics"
+         data-banner data-banner-interval="7000">
+
+  <div class="hero__stage">
+
+    <!-- slide 1 — the practice ............................................. -->
+    <article class="hero__slide is-active" data-banner-slide data-tone="light"
+             role="group" aria-roledescription="slide">
+      <div class="hero__still" aria-hidden="true">
+        <img src="assets/hero/home-family-kitchen.avif" alt="" width="1672" height="941"
+             fetchpriority="high" decoding="async">
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__overlay">
+        <div class="shell hero__content">
+          <p class="hero__eyebrow">Dublin &amp; Tracy, California</p>
+          <h1 class="hero__headline" id="hero-headline">A smile you'll be glad to show off</h1>
+          <p class="hero__sub">
+            Board-certified orthodontics from Dr. Dante Gonzales — braces, Invisalign and
+            surgical care for children, teens and adults, in two Tri-Valley offices.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="#appointment">Request a free consultation</a>
+            <a class="btn btn--ghost btn--lg" href="before-after.html">
+              See before &amp; afters
+              <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- slide 2 — Invisalign ............................................... -->
+    <article class="hero__slide" data-banner-slide data-tone="light"
+             role="group" aria-roledescription="slide" data-crop="subject" style="--still-x-sm: 62%">
+      <div class="hero__still" aria-hidden="true">
+        <img src="assets/hero/banner-img-2.avif" alt="" width="1536" height="1024"
+             loading="lazy" decoding="async">
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__overlay">
+        <div class="shell hero__content">
+          <p class="hero__eyebrow">Elite Invisalign provider</p>
+          <p class="hero__headline">Straighten up without the metal</p>
+          <p class="hero__sub">
+            Clear, removable aligners for adults and teens — from one of the top
+            1% of Invisalign providers in North America. Eat what you like, brush
+            like normal, and watch the plan unfold from day one.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="invisalign.html">Explore Invisalign</a>
+            <a class="btn btn--ghost btn--lg" href="invisalign-quiz.html">
+              Take the 2-minute quiz
+              <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- slide 3 — braces ................................................... -->
+    <article class="hero__slide" data-banner-slide data-tone="light"
+             role="group" aria-roledescription="slide" data-crop="subject" style="--still-x-sm: 66%">
+      <div class="hero__still" aria-hidden="true">
+        <img src="assets/hero/banner-img-4.avif" alt="" width="1536" height="1024"
+             loading="lazy" decoding="async">
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hero__overlay">
+        <div class="shell hero__content">
+          <p class="hero__eyebrow">Braces for every age</p>
+          <p class="hero__headline">Clear, metal or self&#8209;ligating</p>
+          <p class="hero__sub">
+            Seven-year-olds through grandparents. We fit the appliance to the bite
+            and the life around it, then build a payment plan that fits the month
+            it has to live in.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="braces.html">See braces options</a>
+            <a class="btn btn--ghost btn--lg" href="best-dublin-ca-orthodontics-office-and-orthodontist.html#flexible-payment">
+              Payment plans
+              <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
   </div>
 
-  <div class="hero__scrim" aria-hidden="true"></div>
-
-  <!-- The banner's standing copy, held over the photograph. -->
-  <div class="hero__overlay">
-    <div class="shell hero__content">
-      <p class="hero__eyebrow">Dublin &amp; Tracy, California</p>
-      <h1 class="hero__headline" id="hero-headline">A smile you'll be glad to show off</h1>
-      <p class="hero__sub">
-        Board-certified orthodontics from Dr. Dante Gonzales — braces, Invisalign and
-        surgical care for children, teens and adults, in two Tri-Valley offices.
-      </p>
-      <div class="hero__cta">
-        <a class="btn btn--primary btn--lg" href="#appointment">Request a free consultation</a>
-        <a class="btn btn--ghost btn--lg" href="before-after.html">
-          See before &amp; afters
-          <svg width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
-        </a>
+  <!-- The standing foot: the banner's controls, on the copy's left edge so they
+       stay on the bright half of whatever photograph is behind them. They do not
+       change as the slides turn. -->
+  <div class="hero__foot">
+    <div class="hero__foot-inner">
+      <div class="hero__controls">
+        <button class="hero__arrow" type="button" data-banner-prev aria-label="Previous banner">
+          <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H5m6 6-6-6 6-6"/></svg>
+        </button>
+        <div class="hero__dots" role="tablist" aria-label="Choose a banner" data-banner-dots></div>
+        <button class="hero__arrow" type="button" data-banner-next aria-label="Next banner">
+          <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </button>
+        <button class="hero__arrow hero__arrow--play" type="button" data-banner-toggle
+                aria-label="Pause the banner" aria-pressed="false">
+          <svg class="hero__icon-pause" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
+          <svg class="hero__icon-play" width="15" height="15" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor" stroke="none"/></svg>
+        </button>
+        <p class="sr-only" aria-live="polite" data-banner-status></p>
       </div>
-      <ul class="hero__facts">
-        <li><strong>12,000+</strong><span>smiles transformed</span></li>
-        <li><strong>Since 1998</strong><span>serving the Tri-Valley</span></li>
-        <li><strong>Two offices</strong><span>Dublin &amp; Tracy</span></li>
-      </ul>
     </div>
   </div>
 
@@ -433,11 +531,11 @@
     <div class="ba" data-ba>
       <figure class="ba__stage">
         <div class="ba__pane ba__pane--after">
-          <img data-ba-after src="assets/cases/case-01-after.webp" alt="Patient’s teeth after orthodontic treatment at Dante Gonzales Orthodontics" width="586" height="438" loading="lazy" decoding="async">
+          <img data-ba-after src="assets/cases/case-01-after.webp" alt="Patient’s teeth after orthodontic treatment at Dante Gonzales Orthodontics" width="586" height="438" loading="lazy" decoding="async" draggable="false">
           <span class="ba__tag ba__tag--after">After</span>
         </div>
         <div class="ba__pane ba__pane--before" data-ba-clip>
-          <img data-ba-before src="assets/cases/case-01-before.webp" alt="Patient’s teeth before orthodontic treatment at Dante Gonzales Orthodontics" width="586" height="438" loading="lazy" decoding="async">
+          <img data-ba-before src="assets/cases/case-01-before.webp" alt="Patient’s teeth before orthodontic treatment at Dante Gonzales Orthodontics" width="586" height="438" loading="lazy" decoding="async" draggable="false">
           <span class="ba__tag ba__tag--before">Before</span>
         </div>
         <div class="ba__handle" data-ba-handle aria-hidden="true">
