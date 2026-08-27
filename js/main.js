@@ -443,19 +443,37 @@
     }
 
     var dragging = false;
+
+    // The panes are <img>, which Chrome and Firefox will happily start a native
+    // drag-and-drop on: that fires pointercancel a few pixels into the gesture
+    // and the handle freezes mid-drag. Refuse the drag outright.
+    stage.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+    function endDrag(e) {
+      dragging = false;
+      if (e && stage.hasPointerCapture && stage.hasPointerCapture(e.pointerId)) {
+        stage.releasePointerCapture(e.pointerId);
+      }
+    }
+
     stage.addEventListener('pointerdown', function (e) {
+      // Mouse: left button only. A right-click would otherwise start a drag that
+      // never ends -- contextmenu eats the pointerup -- leaving the handle glued
+      // to the cursor. Touch and pen always report button 0.
+      if (e.button !== 0) return;
+      e.preventDefault();                 // also suppresses the native image drag
       dragging = true;
-      stage.setPointerCapture(e.pointerId);
+      try { stage.setPointerCapture(e.pointerId); } catch (err) { /* pointer already gone */ }
       pointerPos(e.clientX);
     });
     stage.addEventListener('pointermove', function (e) { if (dragging) pointerPos(e.clientX); });
-    ['pointerup', 'pointercancel'].forEach(function (evt) {
-      stage.addEventListener(evt, function (e) {
-        if (dragging && evt === 'pointerup') pointerPos(e.clientX);   // land exactly where released
-        dragging = false;
-        if (stage.hasPointerCapture && stage.hasPointerCapture(e.pointerId)) stage.releasePointerCapture(e.pointerId);
-      });
+    stage.addEventListener('pointerup', function (e) {
+      if (dragging) pointerPos(e.clientX);   // land exactly where released
+      endDrag(e);
     });
+    stage.addEventListener('pointercancel', endDrag);
+    // If capture is lost some other way (alt-tab, a native gesture), stop dragging.
+    stage.addEventListener('lostpointercapture', endDrag);
 
     thumbs.forEach(function (btn) {
       btn.addEventListener('click', function () {
@@ -485,6 +503,176 @@
     });
 
     setPos(50);
+  })();
+
+  /* ------------------------------------------------------- rotating banner */
+  /* The homepage hero holds several banners on the same spot and crossfades
+     between them. Everything is read off the markup — the dots, the "n of m"
+     announcement and the slide count all come from however many
+     [data-banner-slide] elements are present — so a banner is added or removed
+     in index.html alone. Each slide declares the tone of its photograph
+     (data-tone); the active one is published onto the section, and onto the
+     header, so the copy and the nav over it stay legible either way. */
+  (function banner() {
+    var root = $('[data-banner]');
+    if (!root) return;
+
+    var slides = $$('[data-banner-slide]', root);
+    if (!slides.length) return;
+
+    var header = $('#header');
+    var prev   = $('[data-banner-prev]', root);
+    var next   = $('[data-banner-next]', root);
+    var toggle = $('[data-banner-toggle]', root);
+    var dotsEl = $('[data-banner-dots]', root);
+    var status = $('[data-banner-status]', root);
+
+    var interval = parseInt(root.getAttribute('data-banner-interval'), 10) || 7000;
+    root.style.setProperty('--banner-interval', interval + 'ms');
+
+    var index = Math.max(0, slides.indexOf($('[data-banner-slide].is-active', root)));
+    var dots  = [];
+    var timer = null;
+    // paused by the visitor, as opposed to by a hover or a hidden tab: only
+    // this one survives the pointer leaving the banner
+    var stopped = false;
+    // a single banner, or a visitor who asked for less motion, gets no timer
+    var canRotate = slides.length > 1 && !reduceMotion.matches;
+
+    slides.forEach(function (slide, i) {
+      slide.setAttribute('aria-label', (i + 1) + ' of ' + slides.length);
+    });
+
+    if (dotsEl && slides.length > 1) {
+      slides.forEach(function (slide, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'hero__dot';
+        b.setAttribute('role', 'tab');
+        var label = $('.hero__headline', slide);
+        b.setAttribute('aria-label', label ? label.textContent.trim() : 'Banner ' + (i + 1));
+        b.addEventListener('click', function () { go(i, true); });
+        dotsEl.appendChild(b);
+        dots.push(b);
+      });
+    }
+
+    // one slide, or no autoplay: the dot's timer fill has nothing to count
+    if (!canRotate) root.classList.add('is-static');
+    if (slides.length < 2) {
+      if (prev) prev.hidden = true;
+      if (next) next.hidden = true;
+      if (toggle) toggle.hidden = true;
+      if (dotsEl) dotsEl.hidden = true;
+    } else if (toggle && !canRotate) {
+      toggle.hidden = true;
+    }
+
+    function apply() {
+      slides.forEach(function (slide, i) {
+        var on = i === index;
+        slide.classList.toggle('is-active', on);
+        slide.setAttribute('aria-hidden', String(!on));
+        // visibility:hidden already drops the off slides out of the tab order;
+        // this keeps them out during the fade, while both are still visible
+        $$('a, button', slide).forEach(function (el) { el.tabIndex = on ? 0 : -1; });
+      });
+
+      dots.forEach(function (d, i) {
+        var on = i === index;
+        d.classList.toggle('is-active', on);
+        d.setAttribute('aria-selected', String(on));
+        d.tabIndex = on ? 0 : -1;
+      });
+
+      var tone = slides[index].getAttribute('data-tone') === 'dark' ? 'dark' : 'light';
+      root.setAttribute('data-active-tone', tone);
+      if (header) header.classList.toggle('is-banner-dark', tone === 'dark');
+
+      if (status) status.textContent = 'Banner ' + (index + 1) + ' of ' + slides.length;
+    }
+
+    function go(n, byHand) {
+      index = (n + slides.length) % slides.length;
+      apply();
+      if (byHand) {
+        // a deliberate move restarts the clock rather than leaving the next
+        // turn to land a fraction of a second later
+        stopped = false;
+        root.classList.remove('is-paused');
+        if (toggle) toggle.setAttribute('aria-pressed', 'false');
+        play();
+      }
+    }
+
+    // The active dot doubles as the timer's read-out, so whenever the clock is
+    // restarted its fill has to start over with it — a paused fill resumes
+    // where it stopped, but a fresh interval does not.
+    function restartFill() {
+      var d = dots[index];
+      if (!d) return;
+      d.classList.remove('is-active');
+      void d.offsetWidth;
+      d.classList.add('is-active');
+    }
+
+    function play() {
+      pause();
+      if (!canRotate || stopped) return;
+      timer = window.setInterval(function () { go(index + 1); }, interval);
+      root.classList.remove('is-paused');
+      restartFill();
+    }
+    function pause() {
+      if (timer) { window.clearInterval(timer); timer = null; }
+      if (canRotate) root.classList.add('is-paused');
+    }
+
+    if (prev) prev.addEventListener('click', function () { go(index - 1, true); });
+    if (next) next.addEventListener('click', function () { go(index + 1, true); });
+
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        stopped = !stopped;
+        toggle.setAttribute('aria-pressed', String(stopped));
+        toggle.setAttribute('aria-label', stopped ? 'Play the banner' : 'Pause the banner');
+        // is-stopped drives the icon, is-paused only holds the timer's fill:
+        // a momentary hold should not make the button claim it was pressed
+        root.classList.toggle('is-stopped', stopped);
+        stopped ? pause() : play();
+      });
+    }
+
+    // Hovering is NOT a pause here: the banner fills the viewport, so the
+    // pointer rests over it most of the time and a hover-pause would leave it
+    // stuck on slide one. Only the foot holds off — so a pointer travelling to
+    // the dots does not have them move first — along with keyboard focus, a
+    // hidden tab, and the explicit pause button.
+    var foot = $('.hero__foot', root);
+    if (foot) {
+      foot.addEventListener('mouseenter', pause);
+      foot.addEventListener('mouseleave', play);
+    }
+    root.addEventListener('focusin', pause);
+    root.addEventListener('focusout', function (e) {
+      if (!root.contains(e.relatedTarget)) play();
+    });
+    root.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); go(index - 1, true); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1, true); }
+    });
+    document.addEventListener('visibilitychange', function () {
+      document.hidden ? pause() : play();
+    });
+    reduceMotion.addEventListener('change', function () {
+      canRotate = slides.length > 1 && !reduceMotion.matches;
+      root.classList.toggle('is-static', !canRotate);
+      if (toggle) toggle.hidden = !canRotate;
+      canRotate ? play() : pause();
+    });
+
+    apply();
+    play();
   })();
 
   /* ------------------------------------------------------ testimonial carousel */
