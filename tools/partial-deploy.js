@@ -24,6 +24,9 @@ const PUBLISH = [
   'braces.html',
   'about.html',
   'dublin-ca-orthodontic-office-contact.html',
+  'tracy-ca-orthodontic-office-contact.html',
+  'before-after.html',
+  'blog.html',
 ];
 
 const published = new Set(PUBLISH);
@@ -136,6 +139,7 @@ DirectoryIndex index.html index.php
 // its existing URL, so nothing drops out of the index mid-migration.
 const liveXml = fs.readFileSync(path.join(__dirname, '..', 'sitemap.xml'), 'utf8');
 const legacy = JSON.parse(fs.readFileSync(path.join(__dirname, 'legacy-urls.json'), 'utf8'));
+const publishedSlugs = new Set(PUBLISH.map((p) => p.replace(/\.html$/, '')));
 
 const rows = [];
 for (const p of PUBLISH) {
@@ -143,6 +147,8 @@ for (const p of PUBLISH) {
   rows.push(`  <url>\n    <loc>${loc}</loc>\n    <priority>${p === 'index.html' ? '1.00' : '0.80'}</priority>\n  </url>`);
 }
 for (const u of legacy) {
+  const slug = u.replace(/\.php$/, '');
+  if (publishedSlugs.has(slug)) continue;
   rows.push(`  <url>\n    <loc>${HOST}/${u}</loc>\n    <priority>0.64</priority>\n  </url>`);
 }
 write('sitemap.xml',
@@ -153,4 +159,4 @@ console.log(`\nbundle: dist-partial/`);
 console.log(`  pages          : ${PUBLISH.length}`);
 console.log(`  assets copied  : ${copied}`);
 console.log(`  links sent to .php : ${totalRewrites} across ${allRewritten.size} distinct targets`);
-console.log(`  sitemap URLs   : ${rows.length}  (${PUBLISH.length} new .html + ${legacy.length} still on .php)`);
+console.log(`  sitemap URLs   : ${rows.length}  (${PUBLISH.length} new .html + ${rows.length - PUBLISH.length} still on .php)`);
