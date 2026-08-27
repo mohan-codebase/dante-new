@@ -27,6 +27,39 @@ const PUBLISH = [
   'tracy-ca-orthodontic-office-contact.html',
   'before-after.html',
   'blog.html',
+  'blog/braces-create-small-gap-between-front-teeth-is-it-normal.html',
+  'blog/braces-vs-invisalign.html',
+  'blog/can-braces-fix-an-overbite-permanently.html',
+  'blog/can-invisalign-fix-protruding-front-teeth.html',
+  'blog/can-orthodontic-treatment-help-sleep-apnea.html',
+  'blog/can-tmj-dysfuntion-cause-ear-pain.html',
+  'blog/can-you-chew-gum-with-invisalign-without-affecting-your-treatment.html',
+  'blog/can-you-chew-gum-with-invisalign.html',
+  'blog/can-you-drink-with-invisalign.html',
+  'blog/can-you-eat-with-invisalign.html',
+  'blog/can-you-get-braces-with-missing-teeth-heres-what-orthodontists-say.html',
+  'blog/can-you-really-straighten-teeth-without-braces.html',
+  'blog/crowded-teeth-before-and-after.html',
+  'blog/do-braces-hurt-how-long-the-pain-lasts-and-how-to-cope.html',
+  'blog/do-braces-or-invisalign-hurt-what-to-expect-during-your-first-week.html',
+  'blog/does-invisalign-hurt-more-than-braces.html',
+  'blog/does-invisalign-hurt.html',
+  'blog/how-braces-can-correct-crooked-teeth-a-complete-guide.html',
+  'blog/how-braces-can-lead-to-white-marks-and-what-you-can-do-about-it.html',
+  'blog/how-to-brush-teeth-with-braces.html',
+  'blog/how-to-clean-invisalign-properly.html',
+  'blog/how-to-fix-a-gap-between-teeth-treatment-options-compared.html',
+  'blog/invisalign-vs-braces-choosing-the-right-option-for-your-smile.html',
+  'blog/jaw-pain-on-one-side.html',
+  'blog/overbite-vs-underbite.html',
+  'blog/the-best-solutions-on-how-to-fix-crowded-teeth-effectively.html',
+  'blog/the-best-techniques-to-floss-teeth-with-braces-effectively.html',
+  'blog/what-causes-crowded-teeth-and-how-dentists-fix-them.html',
+  'blog/what-is-a-deep-bite.html',
+  'blog/what-is-an-underbite.html',
+  'blog/what-is-malocclusion-of-teeth.html',
+  'blog/what-is-sleep-apnea-caused-by.html',
+  'blog/what-is-teeth-protrusion.html',
 ];
 
 const published = new Set(PUBLISH);
@@ -43,14 +76,16 @@ const write = (rel, data) => {
 // legacy .php that is still serving it.
 const SKIP = /^(https?:|\/\/|#|mailto:|tel:|data:)/;
 
-function relink(html) {
+function relink(html, page) {
+  const pageDir = path.dirname(page);
   const rewritten = new Set();
   const out = html.replace(/\b(href|src)="([^"]+)"/g, (m, attr, url) => {
     if (SKIP.test(url)) return m;
     const [pathPart, hash = ''] = url.split(/(#.*)$/);
     if (!pathPart.endsWith('.html')) return m;
-    if (published.has(pathPart)) return m;
-    rewritten.add(pathPart);
+    const resolved = path.normalize(path.join(pageDir, pathPart));
+    if (published.has(resolved)) return m;
+    rewritten.add(resolved);
     return `${attr}="${pathPart.replace(/\.html$/, '.php')}${hash}"`;
   });
   return { out, rewritten };
@@ -64,15 +99,18 @@ let totalRewrites = 0;
 const allRewritten = new Set();
 
 for (const page of PUBLISH) {
-  const { out, rewritten } = relink(read(page));
+  const pageDir = path.dirname(page);
+  const { out, rewritten } = relink(read(page), page);
   rewritten.forEach((r) => allRewritten.add(r));
 
   // collect every non-page asset this file needs, including the responsive
   // variants that only ever appear inside a srcset
   const want = (url) => {
     if (SKIP.test(url)) return;
-    const p = url.split('#')[0].split('?')[0];
-    if (p && !p.endsWith('.html') && !p.endsWith('.php')) assets.add(p);
+    const cleanUrl = url.split('#')[0].split('?')[0];
+    if (!cleanUrl || cleanUrl.endsWith('.html') || cleanUrl.endsWith('.php')) return;
+    const p = path.normalize(path.join(pageDir, cleanUrl));
+    assets.add(p);
   };
   for (const [, , url] of out.matchAll(/\b(href|src)="([^"]+)"/g)) want(url);
   for (const [, set] of out.matchAll(/\bsrcset="([^"]+)"/g)) {
