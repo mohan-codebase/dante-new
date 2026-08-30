@@ -1,52 +1,77 @@
-# Dante Gonzales Orthodontics — homepage
+# Dante Gonzales Orthodontics — website
 
-A ground-up redesign of the drdantegonzales.com homepage, built as static
-HTML, CSS and vanilla JavaScript. No framework, no build step: open
-`index.html` (or serve the folder) and it runs.
+A static rebuild of drdantegonzales.com: plain HTML, CSS and vanilla
+JavaScript. No framework, no build step. What is in the repo is what ships —
+edit the files directly and serve the folder.
+
+## Layout
 
 ```
-index.html          the whole homepage
-css/styles.css      design tokens + every component
-js/main.js          nav, reveal, counters, before/after, carousel, tabs, forms, video
-assets/brand/       logo, favicon, signature
-assets/hero/        page banner photography
-assets/team/        Dr. Gonzales and staff portraits
-assets/cases/       before-and-after cases
-assets/treatments/  braces, Invisalign, surgical, accelerated
-assets/locations/   Dublin and Tracy page imagery
-assets/blog/        per-post imagery, one folder per slug
-assets/photos/      general photography, report + book art
-assets/ui/          badges, partner logos, quiz options
-assets/video/       video posters
-assets/docs/        downloadable PDFs
-assets/_archive/    kept but unreferenced by any page
-legacy/             the previous Tailwind build, kept for reference
+index.html                 homepage
+*.html                      25 more top-level pages (about, invisalign, braces, …)
+blog/*.html                 49 blog posts
+css/styles.css              design tokens + every component
+js/main.js                  nav, reveal, counters, before/after, carousel, tabs, forms, video
+404.html                    error page (wired via .htaccess)
+
+.htaccess                   legacy .php -> .html 301s, HTTPS + host canonicalisation
+sitemap.xml                 published URLs
+robots.txt
+
+assets/brand/               logo, favicon
+assets/hero/                page banner photography
+assets/team/                Dr. Gonzales and staff portraits
+assets/cases/               before-and-after cases
+assets/treatments/          braces, Invisalign, surgical, accelerated
+assets/locations/           Dublin and Tracy page imagery
+assets/blog/                per-post imagery, one folder per slug
+assets/photos/              general photography, report + book art
+assets/ui/                  badges, partner logos, quiz options
+assets/video/               video posters
+assets/docs/                downloadable PDFs
+
+page-status-tracker.csv     migration / deploy checklist (.xlsx is the same data)
 ```
 
-## Content
+## Working locally
 
-Every section of the original homepage is represented: utility bar, full
-navigation, mission, 30-second quiz, the free Top-10 report, patient-intent
-cards, both offices with hours and maps, the "right for you" prompt, the
-*Setting Them Straight* book, the 12,000-smiles service area, the Dear Friend
-founder letter, before-and-afters, the "proudly offered" brands, all five
-patient testimonials, the appointment form, the three core benefits, the intro
-video, the newsletter sign-up and the complete footer.
+Serve the repo root over HTTP — **not** `file://`, and not a subfolder:
+
+```
+python3 -m http.server 8899
+# then open http://localhost:8899/
+```
+
+`css/styles.css` and `js/main.js` are linked with paths relative to the site
+root (`css/styles.css`, or `../css/styles.css` from `blog/`), so the page must
+be served from this directory to resolve them. Opening an `.html` file directly
+from disk will render it unstyled.
+
+Edit any `.html` file, `css/styles.css` or `js/main.js` and refresh
+(hard-refresh — `Cmd/Ctrl+Shift+R` — after CSS changes, the browser caches the
+stylesheet).
+
+The site-wide header, footer and `<head>` are duplicated into every page. To
+change the nav or footer, edit it across all files (find-and-replace).
 
 ## Notes for deployment
 
-* **Appointment form** posts to `contact-form1.php`, the same endpoint the
-  current site uses. Re-add the reCAPTCHA v3 script and populate the hidden
-  `#recaptchaResponse` field before going live.
+* **Appointment form** (`index.html`) posts to `contact-form1.php`, the same
+  endpoint the old site uses. Re-add the reCAPTCHA v3 script and populate the
+  hidden `#recaptchaResponse` field before going live.
 * **Newsletter form** validates in the browser and shows an inline
   confirmation; wire it to your list provider to actually capture addresses.
-* **Office hours** appear twice, exactly as on the current site: the detailed
-  set in “Visit us in Dublin or Tracy”, and the summary set in the footer.
-  They disagree on Friday and Saturday — worth reconciling with the practice.
-* **Images** are served as WebP with JPEG/PNG fallbacks. Sources live beside
-  the derivatives in `assets/photos/`.
+* **Office hours** appear twice, as on the old site: the detailed set in
+  "Visit us in Dublin or Tracy" and the summary set in the footer. They
+  disagree on Friday and Saturday — reconcile with the practice.
+* **Host canonicalisation** (www vs non-www) — review the top block of
+  `.htaccess` before deploy. Both hosts currently answer 200; the canonical
+  tags say `www`.
+* **`sitemap.xml`** currently lists 58 URLs; the 16 newest blog posts are not
+  in it yet.
+* **Images** are served as WebP/AVIF with JPEG/PNG fallbacks where available.
 
 ## Browser support
 
 Evergreen Chrome, Safari, Firefox and Edge. Respects
-`prefers-reduced-motion`; the page is fully readable with JavaScript disabled.
+`prefers-reduced-motion`; the page is readable with JavaScript disabled.
