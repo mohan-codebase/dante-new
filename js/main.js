@@ -157,12 +157,23 @@
       var toggle = $('.nav__toggle', item);
       if (!toggle) return;
       toggle.addEventListener('click', function (e) {
+        // Desktop pointer users get a real link: it goes to the section's
+        // landing page, and the menu is already there on hover / focus.
+        if (hoverNav()) return;
+        // Mobile sheet and no-hover devices: the link can't take you anywhere
+        // useful on its own, so it expands the submenu in place instead --
+        // that is the only route to the sub-pages here.
         e.preventDefault();
         clearHoverTimer();
-        // with hover driving the bar, a click on the item hover just opened
-        // would collapse it and the pointer would immediately re-open it, so
-        // the click only ever opens.
-        toggleItem(item, hoverNav() ? true : undefined);
+        toggleItem(item);
+      });
+
+      // Keyboard: focusing the link on desktop opens its menu, so the links
+      // inside can be tabbed to. Enter still follows the link.
+      toggle.addEventListener('focus', function () {
+        if (!hoverNav()) return;
+        clearHoverTimer();
+        if (!item.classList.contains('is-open')) toggleItem(item, true);
       });
 
       // the panel is a child of the item, so moving down into it never leaves
@@ -243,6 +254,9 @@
 
     // close the sheet after following a link out of it
     $$('a', nav).forEach(function (a) {
+      // the parent links only expand a submenu on mobile -- they must not
+      // collapse the whole sheet
+      if (a.classList.contains('nav__toggle')) return;
       a.addEventListener('click', function () {
         if (!desktopNav.matches && nav.classList.contains('is-open')) closeSheet();
       });

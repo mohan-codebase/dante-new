@@ -8,8 +8,10 @@
 #     /invisalign.php                ->  /invisalign.html
 #     /blog/braces-vs-invisalign.php ->  /blog/braces-vs-invisalign.html
 #
-# One rule covers all 62 legacy URLs. Nothing here rewrites silently — every
-# legacy URL answers with a 301 so the ranking history follows it.
+# One rule covers most legacy URLs; 14 pages that were also given shorter
+# slugs get an explicit 301 each (see "renamed pages" below). Nothing here
+# rewrites silently — every legacy URL answers with a 301 so the ranking
+# history follows it.
 # =============================================================================
 
 ErrorDocument 404 /404.html
@@ -255,6 +257,26 @@ DirectoryIndex index.html
   # production: blogs.php returned a database error, blog1.php and blog2.php
   # returned zero bytes. Send them to the real blog index rather than a 404.
   RewriteRule ^(blogs|blog1|blog2)\.php$ /blog.html [R=301,L]
+
+  # ------------------------------------------------------ renamed pages ----
+  # 14 pages were given short slugs that match their nav label. Each old slug
+  # -- the legacy .php and the interim long .html -- 301s to the new file.
+  # These must sit ahead of the generic .php->.html rule below, whose -f test
+  # would otherwise drop them into the 404 (the old .html no longer exists).
+  RewriteRule ^about\.(php|html)$ /meet-our-founder.html [R=301,L,NE]
+  RewriteRule ^dublin-california-ca-orthodontics-office\.(php|html)$ /about-us.html [R=301,L,NE]
+  RewriteRule ^dublin-california-ca-braces-orthodontics-and-invisalign\.(php|html)$ /braces-and-invisalign.html [R=301,L,NE]
+  RewriteRule ^elite-invisalign-and-invisalign-teen-orthodontist\.(php|html)$ /invisalign-teen.html [R=301,L,NE]
+  RewriteRule ^best-dublin-ca-orthodontics-office-and-orthodontist\.(php|html)$ /why-dante-gonzales.html [R=301,L,NE]
+  RewriteRule ^sleep-apnea-specialist-dublin-california-ca\.(php|html)$ /sleep-apnea-treatment.html [R=301,L,NE]
+  RewriteRule ^sleep-apnea-dentist-in-dublin\.(php|html)$ /sleep-apnea-dublin.html [R=301,L,NE]
+  RewriteRule ^sleep-apnea-treatment-tracy\.(php|html)$ /sleep-apnea-tracy.html [R=301,L,NE]
+  RewriteRule ^meet-our-orthodontists-in-dublin-ca\.(php|html)$ /meet-our-orthodontists.html [R=301,L,NE]
+  RewriteRule ^meet-our-orthodontics-team\.(php|html)$ /meet-our-dublin-team.html [R=301,L,NE]
+  RewriteRule ^meet-the-tracy-orthodontics-team\.(php|html)$ /meet-our-tracy-team.html [R=301,L,NE]
+  RewriteRule ^dublin-ca-orthodontic-office-contact\.(php|html)$ /contact-dublin.html [R=301,L,NE]
+  RewriteRule ^tracy-ca-orthodontic-office-contact\.(php|html)$ /contact-tracy.html [R=301,L,NE]
+  RewriteRule ^impression-techniques-in-orthodontics\.(php|html)$ /impression-techniques.html [R=301,L,NE]
 
   # Every other legacy page: same slug, new extension. The condition means a
   # .php URL with no matching .html falls through to the 404 instead of
