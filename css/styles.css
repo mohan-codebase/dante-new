@@ -101,13 +101,12 @@
   --t-slow:  .7s;
 
   --header-h: 56px;   /* constant: the bar never resizes on scroll */
-  --header-float: clamp(.5rem, 1.3vw, .9rem);   /* the gap the floating bar keeps from the viewport */
-  /* scrolled, the bar pulls in to the page container instead of the viewport */
-  --header-inset-scrolled: 3%;
+  --header-float: 0px;   /* full-width sticky navigation, no floating viewport gap */
+  --header-inset-scrolled: 0px;
   /* the bar's inner gutter; also the left edge the hero copy lines up on */
   --nav-pad: clamp(1rem, 2.6vw, 2.5rem);
-  --nav-lift: 0 18px 44px -26px rgba(20, 35, 46, .45), 0 2px 8px -4px rgba(20, 35, 46, .1);
-  --nav-lift-scrolled: 0 24px 54px -28px rgba(20, 35, 46, .5), 0 3px 12px -5px rgba(20, 35, 46, .14);
+  --nav-lift: 0 4px 20px -6px rgba(20, 35, 46, .08);
+  --nav-lift-scrolled: 0 4px 24px -6px rgba(20, 35, 46, .12);
 }
 
 /* -------------------------------------------------------------- 2. RESET/BASE */
@@ -453,15 +452,11 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
 
 .header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: var(--header-float) var(--header-float) 0;
-  /* the bar's width is this gutter's inverse, so animating the padding is what
-     pulls the whole card — curtain and flyouts included — in on scroll */
-  transition: padding .45s var(--e-nav);
+  padding: 0;
+  transition: background .3s var(--e-out), box-shadow .3s var(--e-out);
 
   --flyout-h: 0px;                       /* set by JS from the open panel */
-  /* Apple's bar gets away with 80% because it is dark over anything. A light
-     bar carrying small body text needs to sit higher to stay legible. */
-  --nav-glass: rgba(255, 255, 255, .92);
+  --nav-glass: rgba(255, 255, 255, .96);
   --nav-blur: saturate(180%) blur(20px);
   --nav-hairline: rgba(20, 35, 46, .09);
   --e-nav: cubic-bezier(.32, .08, .24, 1);   /* Apple's flyout curve */
@@ -472,31 +467,23 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   background: var(--nav-glass);
   -webkit-backdrop-filter: var(--nav-blur);
   backdrop-filter: var(--nav-blur);
-  border: 1px solid var(--nav-hairline);
-  border-radius: var(--r-lg);
+  border-bottom: 1px solid var(--nav-hairline);
   box-shadow: var(--nav-lift);
   transition: background .3s var(--e-out), border-color .3s var(--e-out),
-              box-shadow .3s var(--e-out), border-radius .3s var(--e-nav);
+              box-shadow .3s var(--e-out);
 }
-/* Scrolled: the bar contracts to the page container and settles a little
-   further from the top edge, so it reads as a card that detached from it. */
 .header.is-scrolled {
-  padding-top: calc(var(--header-float) * 1.5);
-  /* whichever is widest: the resting gutter, the gutter that centres the bar
-     on --w-wide, or a proportional inset on narrower screens */
-  padding-inline: max(var(--header-float), calc((100% - var(--w-wide)) / 2), var(--header-inset-scrolled));
+  padding: 0;
 }
 .header__inner { transition: height .45s var(--e-nav); }
 .header__logo { transition: width .45s var(--e-nav); }
 @media (min-width: 1181px) {
-  .header.is-scrolled { --header-h: 50px; }
-  .header.is-scrolled .header__logo { width: clamp(118px, 9.4vw, 136px); }
+  .header.is-scrolled { --header-h: 56px; }
   .header.is-scrolled .header__bar { box-shadow: var(--nav-lift-scrolled); }
 }
 
 /* while a flyout is open the bar and the curtain below it are one surface */
 .header.is-flyout-open .header__bar {
-  border-bottom-left-radius: 0; border-bottom-right-radius: 0;
   border-bottom-color: transparent;
 }
 
@@ -507,7 +494,7 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
    materialises as the standard white card once scrolled or opened. */
 .header--over-banner .header__bar {
   background: transparent;
-  border-color: transparent;
+  border-bottom-color: transparent;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
   box-shadow: none;
@@ -643,10 +630,8 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   background: var(--nav-glass);
   -webkit-backdrop-filter: var(--nav-blur);
   backdrop-filter: var(--nav-blur);
-  border: 1px solid var(--nav-hairline);
-  border-top: 0;
-  border-radius: 0 0 var(--r-lg) var(--r-lg);
-  box-shadow: var(--nav-lift);
+  border-bottom: 1px solid var(--nav-hairline);
+  box-shadow: 0 12px 32px rgba(20, 35, 46, .1);
   transition: height .34s var(--e-nav), visibility .34s;
 }
 .header.is-flyout-open .nav__curtain { visibility: visible; }
@@ -2946,72 +2931,7 @@ input[type="submit"], input[type="button"], input[type="checkbox"], input[type="
   cursor: pointer;
 }
 
-/* The custom pointer is opt-in: main.js adds .has-cursor only on a fine,
-   hovering pointer with motion allowed. The native arrow stays visible — the
-   ring and glow below trail it as an accent rather than replacing it. */
 
-.cursor-dot, .cursor-ring {
-  position: fixed; top: 0; left: 0;
-  z-index: 100001;   /* above the preloader */
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity var(--t-mid) var(--e-out);
-  will-change: transform;
-}
-html.has-cursor .cursor-dot,
-html.has-cursor .cursor-ring { opacity: 1; }
-html.has-cursor .cursor-dot.is-off,
-html.has-cursor .cursor-ring.is-off { opacity: 0; }
-
-/* the visible circle lives on the pseudo-element, so state changes can scale
-   it without fighting the per-frame translate on the host node */
-.cursor-dot::before, .cursor-ring::before {
-  content: ""; display: block; border-radius: 50%;
-  transition: transform var(--t-mid) var(--e-soft),
-              background-color var(--t-mid) var(--e-out),
-              border-color var(--t-mid) var(--e-out);
-}
-/* a soft spotlight sitting under the arrow, not a dot competing with it */
-.cursor-dot::before {
-  width: 22px; height: 22px; margin: -11px 0 0 -11px;
-  background: radial-gradient(circle, rgba(24, 154, 214, .3), rgba(24, 154, 214, 0) 70%);
-}
-.cursor-ring::before {
-  width: 36px; height: 36px; margin: -18px 0 0 -18px;
-  border: 1.5px solid rgba(24, 154, 214, .5);
-}
-
-/* over something clickable */
-.cursor-ring.is-hot::before {
-  transform: scale(1.5);
-  border-color: var(--brand-500);
-  background: rgba(24, 154, 214, .1);
-}
-.cursor-dot.is-hot::before { transform: scale(1.35); }
-
-/* held down */
-.cursor-ring.is-down::before { transform: scale(.8); background: rgba(24, 154, 214, .2); }
-.cursor-dot.is-down::before  { transform: scale(.7); }
-
-/* the ripple left behind by a click */
-.cursor-pulse {
-  position: fixed; z-index: 100000;
-  width: 20px; height: 20px; margin: -10px 0 0 -10px;
-  border: 1.5px solid var(--brand-500);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: cursor-pulse .6s var(--e-out) forwards;
-}
-@keyframes cursor-pulse {
-  from { transform: scale(.35); opacity: .8; }
-  to   { transform: scale(3.4); opacity: 0; }
-}
-
-/* main.js also drops .has-cursor if the preference flips mid-session, which
-   restores the native pointer along with these rules. */
-@media (prefers-reduced-motion: reduce) {
-  .cursor-dot, .cursor-ring, .cursor-pulse { display: none; }
-}
 
 /* ==========================================================================
    CONTACT PAGE REDESIGN
@@ -4058,19 +3978,15 @@ html.has-cursor .cursor-ring.is-off { opacity: 0; }
   display: block;
   flex: none;
   aspect-ratio: 1 / 1;
-  /* the tint has to stay readable all the way down, or the frame appears to
-     end early against the white caption and the row reads as ragged */
+  overflow: hidden;
   background: linear-gradient(168deg, var(--brand-100) 0%, var(--brand-50) 100%);
   border-bottom: 1px solid var(--line-soft);
 }
 .portrait__photo {
-  /* pinned to the frame's aspect-ratio box — a bare height:100% resolves to
-     auto here and lets a tall source (e.g. 545x768) stretch the frame past
-     square, so the row of cards comes out ragged */
   position: absolute; inset: 0;
   width: 100%; height: 100%;
-  object-fit: contain;
-  object-position: bottom center;
+  object-fit: cover;
+  object-position: center 15%;
   transition: transform var(--t-slow) var(--e-soft);
 }
 .portrait:hover .portrait__photo { transform: scale(1.04); }
