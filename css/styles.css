@@ -2784,7 +2784,7 @@ html:not(.js) .carousel__controls { display: none; }
   background:
     radial-gradient(135% 130% at 78% -25%, var(--brand-600) 0%, var(--brand-800) 42%, var(--brand-900) 74%, #0b2740 100%);
 }
-.page-hero--article .page-hero__inner { max-width: 46rem; }
+.page-hero--article .page-hero__inner { max-width: 44rem; }
 
 /* grain film + inner hairline */
 .page-hero--article::after {
@@ -2862,6 +2862,131 @@ html:not(.js) .carousel__controls { display: none; }
 .page-hero--article .crumbs ol { color: rgba(255, 255, 255, .62); }
 .page-hero--article .crumbs a { border-bottom-color: transparent; }
 .page-hero--article .crumbs a:hover { border-bottom-color: rgba(255, 255, 255, .6); }
+
+/* ------------------------------------------------- blog article body -- */
+/* The interior-page section system (ivory bands, huge vertical rhythm,
+   two-column split rows, oversized H2s) reads as a marketing page. Inside
+   <main class="article"> it collapses to a single editorial column: one
+   measure, article rhythm, headings flush left, images as inline figures. */
+.article { --measure: 44rem; }
+
+.article .section { padding-block: 0; background: none; }
+.article .section .shell,
+.article .section .shell--narrow { max-width: var(--measure); }
+
+/* the page-hero is the first <section>; the intro content block follows it */
+.article .page-hero + .section { padding-top: clamp(2.5rem, 1.7rem + 2.6vw, 4rem); }
+.article .page-hero + .section ~ .section { padding-top: clamp(2.25rem, 1.6rem + 1.8vw, 3.25rem); }
+.article .section:last-child { padding-bottom: clamp(3.5rem, 2.6rem + 4vw, 6rem); }
+
+/* headings */
+.article .section__head { max-width: none; margin-bottom: var(--s-4); }
+.article .section__title {
+  font-size: clamp(1.5rem, 1.24rem + 1vw, 1.95rem);
+  line-height: 1.28;
+  letter-spacing: -.01em;
+  text-wrap: pretty;
+}
+.article .split__copy > .section__title { margin-bottom: var(--s-4); }
+
+/* split rows -> stacked inline figure */
+.article .split { display: block; }
+.article .split__media { margin-top: var(--s-6); }
+.article .split__media img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--r-md);
+  border: 1px solid var(--line);
+  box-shadow: 0 1px 2px rgba(20, 35, 46, .05), 0 16px 34px -22px rgba(20, 35, 46, .28);
+}
+
+/* prose */
+.article .prose { font-size: 1.075rem; line-height: 1.75; color: var(--ink-2); }
+.article .prose p { margin-top: 1.15em; }
+.article .prose p:first-child { margin-top: 0; }
+.article .prose > h3,
+.article .prose > h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.3;
+  margin-top: 1.9em;
+  margin-bottom: .3em;
+  font-weight: 600;
+}
+.article .prose > h3 { font-size: 1.34rem; }
+.article .prose > h4 { font-size: 1.12rem; }
+.article .prose a {
+  color: var(--brand-700);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+.article .prose a:hover { color: var(--brand-800); }
+.article .prose strong { color: var(--ink); font-weight: 600; }
+
+/* lead paragraph — the intro block sits right after the hero */
+.article .page-hero + .section .prose > p:first-child {
+  font-size: 1.24rem;
+  line-height: 1.62;
+  color: var(--ink);
+}
+
+/* lists */
+.article .ticks { margin-top: 1.4rem; gap: .7rem; }
+
+/* tables */
+.article .table-scroll { margin: 1.9rem 0 .4rem; }
+.article .compare { min-width: 32rem; font-size: var(--fs-sm); }
+
+/* trailing sections (You May Like / FAQ) get a divider from the article */
+.article .section:has(.cta-row),
+.article .section:has(.faq) {
+  margin-top: clamp(2.75rem, 2rem + 2.5vw, 4rem);
+  border-top: 1px solid var(--line);
+}
+
+/* You May Like list + "read more" tail */
+.article .section:has(.cta-row) .prose { margin-top: var(--s-6); }
+.article .section:has(.cta-row) .prose > h3,
+.article .section:has(.cta-row) .prose > h4 {
+  margin: var(--s-7) 0 0;
+  font-size: var(--fs-xs);
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.article .section:has(.cta-row) .prose > h3:first-child,
+.article .section:has(.cta-row) .prose > h4:first-child { margin-top: 0; }
+.article .section:has(.cta-row) .ticks + .prose { margin-top: 0; }
+.article .ticks a { color: var(--brand-700); }
+.article .ticks a:hover { color: var(--brand-800); text-decoration: underline; text-underline-offset: 2px; }
+
+/* related-reading link instead of a marketing CTA pill */
+.article .cta-row { margin-top: var(--s-3); }
+.article .cta-row .btn {
+  padding: 0;
+  min-height: 0;
+  background: none;
+  border: 0;
+  box-shadow: none;
+  color: var(--brand-700);
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+.article .cta-row .btn::after { content: " \2192"; }
+.article .cta-row .btn:hover { color: var(--brand-800); background: none; transform: none; }
+
+/* FAQ tighter type */
+.article .faq { margin-top: var(--s-3); }
+.article .faq__q { font-size: 1rem; }
+
+@media (max-width: 560px) {
+  .article .prose { font-size: 1.02rem; }
+  .article .page-hero + .section .prose > p:first-child { font-size: 1.12rem; }
+}
 
 /* ----------------------------------------------------------- breadcrumbs -- */
 .crumbs ol {
