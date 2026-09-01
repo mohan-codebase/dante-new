@@ -2730,19 +2730,48 @@ html:not(.js) .carousel__controls { display: none; }
   position: relative;
   max-width: var(--w-wide);
   margin: calc(var(--header-h) + clamp(.75rem, .4rem + 1.2vw, 1.5rem)) auto 0;
-  padding: clamp(2.25rem, 1.5rem + 2.6vw, 3.5rem) 0;
   border-radius: var(--r-lg);
   background: linear-gradient(158deg, var(--brand-900) 0%, var(--brand-800) 55%, var(--brand-700) 100%);
   color: var(--ink-inv);
   box-shadow: var(--sh-lg);
   overflow: hidden;
 }
+/* copy column owns the vertical rhythm so the photo can bleed to the edges */
+.page-hero__inner { padding-block: clamp(2.25rem, 1.5rem + 2.6vw, 3.5rem); }
+
+/* photo panel */
+.page-hero__media { position: relative; }
+.page-hero__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+@media (min-width: 940px) {
+  .page-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 38%);
+    align-items: center;
+    min-height: 24rem;
+  }
+  .page-hero__inner { grid-column: 1; }
+  .page-hero__media { grid-column: 2; align-self: stretch; }
+  /* absolute so the photo fills the column instead of dictating its height */
+  .page-hero__media img { position: absolute; inset: 0; object-position: center 28%; }
+  /* soften the seam between copy and photo */
+  .page-hero__media::before {
+    content: "";
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, var(--brand-800) 0%, rgba(20, 77, 124, .45) 22%, transparent 55%);
+    pointer-events: none;
+  }
+}
+@media (max-width: 939px) {
+  .page-hero__media { aspect-ratio: 16 / 9; }
+  .page-hero__media img { border-radius: 0; }
+}
 @media (min-width: 1500px) { .page-hero { margin-inline: auto; } }
 @media (max-width: 1480px) { .page-hero { margin-inline: var(--gutter); } }
 
 .page-hero__wash {
-  position: absolute; inset: 0;
-  background: radial-gradient(52% 68% at 88% 6%, rgba(255, 255, 255, .13), transparent 72%);
+  position: absolute; inset: 0; z-index: 0;
+  background: radial-gradient(58% 75% at 12% 0%, rgba(255, 255, 255, .12), transparent 70%);
   pointer-events: none;
 }
 
@@ -2789,7 +2818,7 @@ html:not(.js) .carousel__controls { display: none; }
    7rem), the hero needs enough bottom padding that the card overlaps empty
    space rather than the hero actions. Applies on every page with this
    pairing so the hero layout stays consistent site-wide. */
-.page-hero:has(+ .stat-band) { padding-bottom: clamp(7.5rem, 5rem + 8vw, 11rem); }
+.page-hero:has(+ .stat-band) .page-hero__inner { padding-bottom: clamp(7.5rem, 5rem + 8vw, 11rem); }
 .page-hero .btn--ghost { color: var(--ink-inv); border-color: rgba(255, 255, 255, .42); }
 .page-hero .btn--ghost:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .78); }
 
@@ -4158,7 +4187,10 @@ input[type="submit"], input[type="button"], input[type="checkbox"], input[type="
 
 /* -------------------------------------------------------------- 1. hero -- */
 .page-hero__inner--wide { max-width: var(--w-page); }
-.page-hero--about { padding-bottom: clamp(5.5rem, 3.5rem + 7vw, 9.5rem); }
+/* about-us runs its own two-column layout inside .page-hero__inner, so it
+   opts out of the base split grid entirely */
+.page-hero--about { display: block; padding-bottom: clamp(5.5rem, 3.5rem + 7vw, 9.5rem); }
+.page-hero--about .page-hero__inner { padding-block: 0; }
 .page-hero--about .page-hero__lede { max-width: 46ch; }
 /* half the width means the display size has to come down a step, or the
    headline runs to four lines and pushes the buttons off the fold */
