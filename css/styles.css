@@ -2863,6 +2863,10 @@ html:not(.js) .carousel__controls { display: none; }
   position: relative;
   max-width: var(--article-measure, 44rem);
   margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 /* thin gold hairline centred under the byline, tying the band together */
 .page-hero--article .page-hero__inner::after {
@@ -2874,9 +2878,10 @@ html:not(.js) .carousel__controls { display: none; }
 }
 
 .page-hero__back {
-  display: inline-flex; align-items: center; gap: .4rem;
+  display: flex; align-items: center; gap: .4rem;
   font-size: var(--fs-sm); font-weight: 600;
   color: var(--ink-3);
+  width: fit-content;
 }
 .page-hero__back::before { content: "\2190"; }
 .page-hero__back:hover { color: var(--brand-700); }
@@ -4042,6 +4047,7 @@ input[type="submit"], input[type="button"], input[type="checkbox"], input[type="
 }
 .featured-post__meta {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--s-4);
   font-size: var(--fs-xs);
@@ -4113,10 +4119,9 @@ input[type="submit"], input[type="button"], input[type="checkbox"], input[type="
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(4px);
-  color: var(--brand-900);
-  box-shadow: var(--sh-xs);
+  background: var(--brand-800);
+  color: #fff;
+  box-shadow: 0 6px 16px -8px rgba(16, 55, 92, .8);
   width: fit-content;
 }
 .post-card__body {
@@ -4128,25 +4133,35 @@ input[type="submit"], input[type="button"], input[type="checkbox"], input[type="
 }
 .post-card__title {
   font-family: var(--font-display);
-  font-size: 1.12rem;
+  font-size: 1.18rem;
   font-weight: 600;
   color: var(--ink);
-  line-height: 1.35;
+  line-height: 1.32;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   transition: color var(--t-fast) var(--e-out);
 }
 .post-card:hover .post-card__title {
   color: var(--brand-700);
 }
 .post-card__excerpt {
-  flex: 1;
-  font-size: var(--fs-xs);
+  flex: none;
+  font-size: var(--fs-sm);
   color: var(--ink-2);
   line-height: 1.6;
   margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .post-card__foot {
   display: flex;
+  flex-wrap: nowrap;
+  gap: var(--s-3);
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
@@ -4154,28 +4169,32 @@ input[type="submit"], input[type="button"], input[type="checkbox"], input[type="
   border-top: 1px solid var(--line-soft);
 }
 .post-card__meta {
-  font-size: var(--fs-2xs);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
   color: var(--ink-3);
   margin: 0;
   padding: 0;
   border: 0;
+  min-width: 0;
 }
 .post-card__cta {
-  font-size: var(--fs-xs);
-  font-weight: 700;
-  color: var(--brand-600);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  transition: transform var(--t-fast) var(--e-out);
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 2rem; height: 2rem;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: .95rem;
+  color: var(--brand-700);
+  transition: background-color var(--t-fast) var(--e-out), color var(--t-fast) var(--e-out),
+              border-color var(--t-fast) var(--e-out);
 }
 .post-card:hover .post-card__cta {
-  text-decoration: none;
-  transform: translateX(3px);
-  color: var(--brand-800);
+  background: var(--brand-700);
+  border-color: var(--brand-700);
+  color: #fff;
 }
 
 /* ==========================================================================
