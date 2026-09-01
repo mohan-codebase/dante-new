@@ -2724,56 +2724,119 @@ html:not(.js) .carousel__controls { display: none; }
 .section--alt { background: var(--ivory); }
 
 /* ------------------------------------------------------------- page hero -- */
+/* Interior-page hero. A deep brand field with a spotlight, a fine grain film,
+   concentric hairline rings cropped off the right edge, a gold rule above the
+   headline and a gold hairline along the bottom edge. */
 .page-hero {
   position: relative;
-  /* floats as a rounded card, inset from the viewport and tucked below the
-     floating header bar -- edges line up with the header card */
+  isolation: isolate;
   margin: calc(var(--header-h) + var(--header-float) * 2 + clamp(.4rem, 1vw, .8rem))
           var(--header-float) 0;
-  padding-block: clamp(2.75rem, 1.8rem + 5vw, 5.5rem);
+  padding-block: clamp(3.25rem, 2rem + 6vw, 6.75rem);
   border-radius: var(--r-lg);
-  background: linear-gradient(170deg, var(--brand-900) 0%, var(--brand-700) 62%, var(--brand-600) 100%);
+  background:
+    radial-gradient(80% 115% at 80% -12%, #2f86c4 0%, transparent 56%),
+    linear-gradient(158deg, #0c2942 0%, var(--brand-900) 32%, var(--brand-800) 66%, #16628e 100%);
   color: var(--ink-inv);
   box-shadow: var(--sh-lg);
   overflow: hidden;
 }
-.page-hero__wash {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(60% 80% at 88% 12%, rgba(255, 255, 255, .16), transparent 70%),
-    radial-gradient(45% 60% at 8% 92%, rgba(255, 255, 255, .10), transparent 70%);
+
+/* true concentric hairlines, cropped off the right edge */
+.page-hero::before {
+  content: "";
+  position: absolute; z-index: 1;
+  right: -15rem; top: 50%; translate: 0 -50%;
+  width: 42rem; aspect-ratio: 1;
+  border-radius: 50%;
+  background: repeating-radial-gradient(circle at center,
+    rgba(255, 255, 255, .13) 0 1px,
+    transparent 1px 4.5rem);
+  -webkit-mask-image: radial-gradient(circle at center, #000 50%, transparent 76%);
+          mask-image: radial-gradient(circle at center, #000 50%, transparent 76%);
   pointer-events: none;
 }
-.page-hero__inner { position: relative; max-width: var(--w-narrow); }
-.page-hero__title {
-  margin-top: var(--s-4);
-  font-family: var(--font-display);
-  font-size: var(--fs-display);
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -.015em;
+
+/* gold hairline along the bottom edge */
+.page-hero::after {
+  content: "";
+  position: absolute; inset: auto 0 0 0; z-index: 3;
+  height: 1px;
+  background: linear-gradient(90deg, transparent,
+              rgba(236, 217, 183, .62) 22%, rgba(236, 217, 183, .62) 78%, transparent);
+  pointer-events: none;
 }
+
+/* spotlight wash + grain */
+.page-hero__wash {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(56% 68% at 86% 8%, rgba(255, 255, 255, .15), transparent 70%),
+    radial-gradient(44% 58% at 5% 97%, rgba(255, 255, 255, .09), transparent 70%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.16'/%3E%3C/svg%3E");
+  background-size: auto, auto, 150px 150px;
+  pointer-events: none;
+}
+
+.page-hero__inner { position: relative; z-index: 2; max-width: min(46rem, 100%); }
+
+.page-hero__title {
+  margin-top: var(--s-5);
+  font-family: var(--font-display);
+  font-size: clamp(2.35rem, 1.45rem + 3.5vw, 4.1rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -.02em;
+  max-width: 17ch;
+  text-wrap: balance;
+}
+/* gold rule standing in for an eyebrow */
+.page-hero__title::before {
+  content: "";
+  display: block;
+  width: 3.25rem; height: 2px;
+  margin-bottom: clamp(1.1rem, .8rem + 1vw, 1.75rem);
+  background: var(--sand-200);
+}
+.page-hero__title em { font-style: italic; color: var(--sand-200); }
+
 .page-hero__meta {
   margin-top: var(--s-4);
   font-size: var(--fs-xs);
-  letter-spacing: .04em;
+  letter-spacing: .12em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, .72);
+  color: rgba(255, 255, 255, .58);
 }
 .page-hero__lede {
   margin-top: var(--s-5);
+  max-width: 52ch;
   font-size: var(--fs-lede);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, .88);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, .82);
 }
 .page-hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-4); margin-top: var(--s-7); }
+
+/* breadcrumb, restyled for the darker field */
+.page-hero .crumbs ol { letter-spacing: .12em; color: rgba(255, 255, 255, .55); }
+.page-hero .crumbs a { border-bottom-color: transparent; }
+.page-hero .crumbs a:hover { color: #fff; border-bottom-color: rgba(255, 255, 255, .5); }
+.page-hero .crumbs [aria-current="page"] { color: var(--sand-200); }
+
 /* When a stat-band card tucks up under the hero (negative margin-top, up to
    7rem), the hero needs enough bottom padding that the card overlaps empty
    space rather than the hero actions. Applies on every page with this
    pairing so the hero layout stays consistent site-wide. */
 .page-hero:has(+ .stat-band) { padding-bottom: clamp(8.5rem, 5.5rem + 9vw, 13rem); }
-.page-hero .btn--ghost { color: var(--ink-inv); border-color: rgba(255, 255, 255, .45); }
-.page-hero .btn--ghost:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .75); }
+.page-hero .btn--primary { box-shadow: 0 12px 32px -14px rgba(237, 203, 74, .75); }
+.page-hero .btn--ghost { color: var(--ink-inv); border-color: rgba(255, 255, 255, .42); }
+.page-hero .btn--ghost:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .78); }
+
+/* about-us already carries its own eyebrow, so it skips the gold rule */
+.page-hero--about .page-hero__title::before { display: none; }
+
+@media (max-width: 700px) {
+  .page-hero::before { right: -20rem; width: 30rem; }
+}
 
 /* ============================================================ BLOG ARTICLE ==
    A dedicated editorial layout for <main class="article">: a light hero, a
@@ -2808,6 +2871,7 @@ html:not(.js) .carousel__controls { display: none; }
   opacity: .5;
   mix-blend-mode: multiply;
 }
+.page-hero--article::after { content: none; }
 .page-hero--article .page-hero__wash,
 .page-hero--article .page-hero__glow { display: none; }
 .page-hero--article .page-hero__inner {
