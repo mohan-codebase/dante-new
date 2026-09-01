@@ -2783,21 +2783,45 @@ html:not(.js) .carousel__controls { display: none; }
    ========================================================================== */
 
 /* ---------------------------------------------------------------- hero ----- */
+/* A tinted editorial band. The lead image is pulled up so it emerges from the
+   colour into the white reading area below. */
 .page-hero--article {
+  position: relative;
+  isolation: isolate;
   margin: var(--header-h) 0 0;
-  padding: clamp(2.25rem, 1.4rem + 3vw, 3.75rem) 0 0;
-  background: var(--paper);
+  padding: clamp(2.75rem, 1.8rem + 3.5vw, 4.5rem) 0
+           clamp(5.5rem, 3.5rem + 8vw, 10rem);
+  background:
+    radial-gradient(55% 60% at 85% -5%, rgba(26, 128, 192, .12), transparent 70%),
+    linear-gradient(182deg, #e9f1fa 0%, #f1f6fc 34%, var(--paper) 72%);
   color: var(--ink);
   border-radius: 0;
   box-shadow: none;
   overflow: visible;
-  border-bottom: 1px solid var(--line-soft);
+}
+/* faint grain */
+.page-hero--article::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  opacity: .5;
+  mix-blend-mode: multiply;
 }
 .page-hero--article .page-hero__wash,
 .page-hero--article .page-hero__glow { display: none; }
 .page-hero--article .page-hero__inner {
+  position: relative;
   max-width: var(--article-measure, 44rem);
   margin-inline: auto;
+}
+/* thin gold hairline centred under the byline, tying the band together */
+.page-hero--article .page-hero__inner::after {
+  content: "";
+  display: block;
+  width: 3.5rem; height: 2px;
+  margin-top: var(--s-6);
+  background: var(--sand-500);
 }
 
 .page-hero__back {
@@ -2809,28 +2833,32 @@ html:not(.js) .carousel__controls { display: none; }
 .page-hero__back:hover { color: var(--brand-700); }
 
 .page-hero--article .page-hero__kicker {
-  display: inline-flex;
+  display: inline-flex; align-items: center; gap: .5rem;
   margin-top: var(--s-6);
-  padding: .34rem .8rem;
-  border: 1px solid var(--line);
+  padding: .4rem .95rem;
   border-radius: var(--r-pill);
   font-size: var(--fs-xs);
-  font-weight: 600;
-  letter-spacing: .06em;
+  font-weight: 700;
+  letter-spacing: .09em;
   text-transform: uppercase;
-  color: var(--sand-700);
-  background: var(--sand-100);
+  color: #fff;
+  background: var(--brand-700);
+  box-shadow: 0 6px 16px -8px rgba(23, 103, 157, .5);
+}
+.page-hero--article .page-hero__kicker::before {
+  content: ""; width: .4rem; height: .4rem; border-radius: 50%;
+  background: var(--sand-300);
 }
 .page-hero--article .page-hero__kicker-rule { display: none; }
 
 .page-hero--article .page-hero__title {
-  margin-top: var(--s-4);
-  font-size: clamp(1.9rem, 1.15rem + 2.7vw, 3.05rem);
+  margin-top: var(--s-5);
+  font-size: clamp(2rem, 1.15rem + 3vw, 3.35rem);
   font-weight: 500;
-  line-height: 1.16;
-  letter-spacing: -.014em;
+  line-height: 1.14;
+  letter-spacing: -.016em;
   color: var(--ink);
-  max-width: 30ch;
+  max-width: 28ch;
   text-wrap: balance;
 }
 
@@ -2840,6 +2868,15 @@ html:not(.js) .carousel__controls { display: none; }
   font-size: var(--fs-sm);
   color: var(--ink-3);
 }
+.page-hero--article .page-hero__byline::before {
+  content: "";
+  width: 2.1rem; height: 2.1rem;
+  margin-right: .7rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--brand-50) url("../assets/team/dr-dante-gonzales.webp") center 15% / cover;
+  box-shadow: 0 0 0 1px var(--line), 0 2px 6px -2px rgba(20, 35, 46, .25);
+}
 .page-hero--article .page-hero__byline span:not(:first-child)::before {
   content: "\00B7"; margin: 0 .5rem; opacity: .55;
 }
@@ -2848,17 +2885,20 @@ html:not(.js) .carousel__controls { display: none; }
 .page-hero--article .page-hero__actions,
 .page-hero--article .crumbs { display: none; }
 
-/* the lead image sits directly under the hero, a touch wider than the prose */
+/* the lead image — pulled up so its top third sits on the tinted band */
 .article__figure {
+  position: relative;
+  z-index: 2;
   max-width: clamp(44rem, 40rem + 12vw, 56rem);
-  margin: clamp(1.75rem, 1rem + 3vw, 2.75rem) auto 0;
+  margin: clamp(-4.5rem, -3rem - 4vw, -7rem) auto 0;
   padding-inline: var(--gutter);
 }
 .article__figure img {
   width: 100%;
   height: auto;
   border-radius: var(--r-lg);
-  box-shadow: 0 2px 6px rgba(20, 35, 46, .06), 0 26px 50px -28px rgba(20, 35, 46, .34);
+  border: 6px solid var(--paper);
+  box-shadow: 0 2px 6px rgba(20, 35, 46, .06), 0 30px 60px -30px rgba(20, 35, 46, .4);
 }
 
 /* -------------------------------------------------------- reading layout --- */
