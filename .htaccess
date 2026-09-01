@@ -278,6 +278,10 @@ DirectoryIndex index.html
   RewriteRule ^tracy-ca-orthodontic-office-contact\.(php|html)$ /contact-tracy.html [R=301,L,NE]
   RewriteRule ^impression-techniques-in-orthodontics\.(php|html)$ /impression-techniques.html [R=301,L,NE]
 
+  # Two blog posts were given clearer slugs ("...-an-overbite" / "...-an-underbite").
+  RewriteRule ^blog/can-invisalign-fix-overbite\.(php|html)$ /blog/can-invisalign-fix-an-overbite.html [R=301,L,NE]
+  RewriteRule ^blog/can-invisalign-fix-underbite\.(php|html)$ /blog/can-invisalign-fix-an-underbite.html [R=301,L,NE]
+
   # Every other legacy page: same slug, new extension. The condition means a
   # .php URL with no matching .html falls through to the 404 instead of
   # redirecting into one.
