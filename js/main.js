@@ -944,4 +944,86 @@
     });
   })();
 
+  /* --------------------------------------------------- blog article rails */
+  (function articleRails() {
+    var body = $('.article-body');
+    if (!body) return;
+
+    /* ---- table of contents ---- */
+    var toc = $('.article-toc');
+    var heads = $$('h2.section__title', body).filter(function (h) { return h.id; });
+    if (toc && heads.length >= 2) {
+      var ol = document.createElement('ol');
+      heads.forEach(function (h) {
+        var li = document.createElement('li');
+        var a = document.createElement('a');
+        a.href = '#' + h.id;
+        a.textContent = h.textContent.trim();
+        li.appendChild(a);
+        ol.appendChild(li);
+      });
+      toc.appendChild(ol);
+
+      var links = $$('a', ol);
+      var byId = {};
+      links.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+
+      var spy = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          links.forEach(function (a) { a.classList.remove('is-active'); });
+          var a = byId[e.target.id];
+          if (a) a.classList.add('is-active');
+        });
+      }, { rootMargin: '-15% 0px -70% 0px' });
+      heads.forEach(function (h) { spy.observe(h); });
+    } else if (toc) {
+      toc.remove();
+    }
+
+    /* ---- share links ---- */
+    var share = $('.article-share');
+    if (share) {
+      var canonical = $('link[rel="canonical"]');
+      var url = canonical ? canonical.href : window.location.href;
+      var title = (document.querySelector('h1') || {}).textContent || document.title;
+      var u = encodeURIComponent(url);
+      var t = encodeURIComponent(title.trim());
+      var targets = [
+        ['X', 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u,
+          '<path d="M17.5 2h2.8l-6.1 7 7.2 9.6h-5.6l-4.4-5.8L6 18.6H3.2l6.5-7.5L2.8 2h5.8l4 5.3L17.5 2Zm-1 15h1.5L7.6 3.6H6L16.5 17Z"/>'],
+        ['LinkedIn', 'https://www.linkedin.com/sharing/share-offsite/?url=' + u,
+          '<path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0ZM.24 8.02h4.48V24H.24V8.02ZM8.34 8.02h4.3v2.18h.06c.6-1.14 2.06-2.34 4.24-2.34 4.54 0 5.38 2.98 5.38 6.86V24h-4.48v-6.4c0-1.52-.03-3.48-2.12-3.48-2.12 0-2.44 1.66-2.44 3.37V24H8.34V8.02Z"/>'],
+        ['WhatsApp', 'https://api.whatsapp.com/send?text=' + t + '%20' + u,
+          '<path d="M12 2a9.94 9.94 0 0 0-8.5 15.16L2 22l4.96-1.46A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-2.94.86.87-2.87-.2-.31A8.2 8.2 0 1 1 12 20.2Zm4.5-6.13c-.25-.12-1.46-.72-1.69-.8-.22-.09-.39-.13-.55.12-.16.25-.63.8-.77.96-.14.16-.28.18-.53.06a6.72 6.72 0 0 1-3.3-2.9c-.25-.42.25-.4.7-1.3.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.41-.55-.42h-.47a.9.9 0 0 0-.65.3c-.22.25-.86.84-.86 2.05s.88 2.38 1 2.54c.13.17 1.74 2.66 4.22 3.73 1.57.68 2.19.74 2.98.62.48-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/>'],
+        ['Copy link', '#copy',
+          '<path d="M8.5 12a3.5 3.5 0 0 1 3.5-3.5h3a3.5 3.5 0 1 1 0 7h-1a1 1 0 1 1 0-2h1a1.5 1.5 0 0 0 0-3h-3A1.5 1.5 0 0 0 10.5 12a1 1 0 1 1-2 0Zm7-4a1 1 0 0 0 0 2h1a1.5 1.5 0 0 1 0 3h-3a1.5 1.5 0 0 1-1.5-1.5 1 1 0 1 0-2 0A3.5 3.5 0 0 0 12.5 17h3a3.5 3.5 0 1 0 0-7h-1a1 1 0 0 0-1-1Z"/>']
+      ];
+
+      var label = document.createElement('span');
+      label.className = 'article-share__label';
+      label.textContent = 'Share article';
+      share.appendChild(label);
+
+      targets.forEach(function (row) {
+        var a = document.createElement('a');
+        a.setAttribute('aria-label', 'Share on ' + row[0]);
+        a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true">' + row[2] + '</svg>';
+        if (row[1] === '#copy') {
+          a.href = url;
+          a.addEventListener('click', function (e) {
+            e.preventDefault();
+            if (navigator.clipboard) navigator.clipboard.writeText(url);
+            a.setAttribute('aria-label', 'Link copied');
+          });
+        } else {
+          a.href = row[1];
+          a.target = '_blank';
+          a.rel = 'noopener';
+        }
+        share.appendChild(a);
+      });
+    }
+  })();
+
 })();
