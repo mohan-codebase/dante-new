@@ -34,7 +34,7 @@
   .preloader {
     position: fixed; inset: 0; z-index: 99999;
     display: flex; align-items: center; justify-content: center;
-    background: radial-gradient(circle at center, #10375c 0%, #0a1f2e 100%);
+    background: radial-gradient(58% 52% at 50% 40%, rgba(26,128,192,.12), transparent 72%), linear-gradient(186deg, #e8f1fb 0%, #f1f6fc 40%, #faf7f0 100%);
   }
 </style>
 <script>document.documentElement.classList.add('js');</script>
@@ -45,7 +45,7 @@
 <!-- ========================================================== PRELOADER -->
 <div class="preloader" id="preloader" aria-hidden="true">
   <div class="preloader__inner">
-    <img class="preloader__logo" src="assets/brand/logo-white.png" alt="Dante Gonzales Orthodontics" width="387" height="97">
+    <img class="preloader__logo" src="assets/brand/logo.png" alt="Dante Gonzales Orthodontics" width="387" height="97">
     <div class="preloader__track">
       <div class="preloader__bar"></div>
     </div>
@@ -239,7 +239,7 @@
 <main id="main">
 
 <!-- ============================================================== PAGE HERO -->
-<section class="page-hero" aria-labelledby="page-title">
+<section class="page-hero page-hero--index" aria-labelledby="page-title">
   <div class="page-hero__wash" aria-hidden="true"></div>
   <div class="shell page-hero__inner">
     <nav class="crumbs" aria-label="Breadcrumb">
@@ -248,11 +248,17 @@
         <li aria-current="page">Blog</li>
       </ol>
     </nav>
+    <p class="page-hero__kicker" data-reveal>Orthodontic Journal</p>
     <h1 class="page-hero__title" id="page-title" data-reveal>Blogs</h1>
-    <p class="page-hero__meta" data-reveal data-reveal-delay="1">drdanteblogs Aug 19, 2026</p>
     <p class="page-hero__lede" data-reveal data-reveal-delay="1">
       Explore our orthodontics blog for real insights on braces, Invisalign, and dental health in Dublin &amp; Tracy. Stay informed and inspired with expert content.
     </p>
+
+    <ul class="page-hero__facts" data-reveal data-reveal-delay="1">
+      <li><strong>49</strong> articles</li>
+      <li>Braces, Invisalign &amp; sleep apnea</li>
+      <li>Dublin &amp; Tracy, CA</li>
+    </ul>
 
     <div class="page-hero__actions" data-reveal data-reveal-delay="2">
       <a class="btn btn--primary btn--lg" href="index.html#appointment">Request Consultation</a>
@@ -260,42 +266,13 @@
     </div>
   </div>
     <div class="page-hero__media" aria-hidden="true">
-      <img src="assets/photos/hero-smile.jpg" alt="Patient of Dante Gonzales Orthodontics smiling" loading="eager" decoding="async">
+      <img src="assets/photos/family-four.webp" alt="Family smiling together at home" width="1200" height="800" loading="eager" decoding="async">
     </div>
 </section>
 
 <!-- ============================================================ BLOG POSTS -->
 <section class="section" aria-label="Orthodontic blog articles">
   <div class="shell">
-    <!-- Featured Lead Article -->
-    <article class="featured-post" data-reveal>
-      <div class="featured-post__content">
-        <span class="featured-post__tag">
-          <svg width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Featured Guide • Braces &amp; Costs
-        </span>
-        <h2 class="featured-post__title">
-          <a href="404.html">How Much Do Braces Cost in 2026? Full Price Breakdown and Payment Options</a>
-        </h2>
-        <p class="featured-post__excerpt">
-          Whether you're researching orthodontic treatment for a child, considering adult treatment for yourself, or simply trying to plan your family's budget for the year ahead, one question comes up first: how much do braces cost?
-        </p>
-        <div class="featured-post__meta">
-          <span>By <strong>drdanteblogs</strong></span>
-          <span>•</span>
-          <span>Aug 19, 2026</span>
-          <span>•</span>
-          <span>Comprehensive Guide</span>
-        </div>
-        <div style="margin-top: var(--s-3);">
-          <a class="btn btn--primary" href="blog/how-much-do-braces-cost.html">Read Full Guide &rarr;</a>
-        </div>
-      </div>
-      <div class="featured-post__visual" style="padding: 0; overflow: hidden;">
-        <img src="assets/photos/braces-care-760.webp" alt="How Much Do Braces Cost in 2026?" width="760" height="480" loading="lazy" decoding="async" style="width: 100%; height: 100%; object-fit: cover;">
-      </div>
-    </article>
-
     <!-- Curated Post Grid -->
     <ul class="cards cards--3 post-grid">
         <li class="post-card" data-reveal data-reveal-delay="1">
@@ -1131,24 +1108,6 @@
           </a>
         </li>
     </ul>
-  </div>
-</section>
-
-<!-- ============================================================= CTA BANNER -->
-<section class="section" aria-label="Schedule your consultation">
-  <div class="shell">
-    <div class="cta-banner" data-reveal>
-      <div class="cta-banner__wash" aria-hidden="true"></div>
-      <div class="cta-banner__inner">
-        <span class="badge-chip badge-chip--gold">Expert Orthodontic Care</span>
-        <h2 class="cta-banner__title">Ready to Take the Next Step Toward Your Dream Smile?</h2>
-        <p class="cta-banner__lede">Schedule your complimentary Gonzales Smile Assessment or take our quick virtual smile quiz today.</p>
-        <div class="cta-banner__actions">
-          <a class="btn btn--primary btn--lg" href="index.html#appointment">Request Consultation</a>
-          <a class="btn btn--ghost btn--lg" href="invisalign-quiz.html">Take the 30-Second Quiz</a>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
