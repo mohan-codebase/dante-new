@@ -2835,6 +2835,9 @@ html:not(.js) .carousel__controls { display: none; }
 .page-hero--article {
   position: relative;
   isolation: isolate;
+  /* opt out of the split copy/photo grid: the article hero is full-bleed and
+     centred, with no .page-hero__media panel */
+  display: block;
   max-width: none;
   margin: var(--header-h) 0 0;
   padding: clamp(2.75rem, 1.8rem + 3.5vw, 4.5rem) 0
