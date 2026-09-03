@@ -258,6 +258,12 @@ DirectoryIndex index.html
   # returned zero bytes. Send them to the real blog index rather than a 404.
   RewriteRule ^(blogs|blog1|blog2)\.php$ /blog.html [R=301,L]
 
+  # An unfinished SEO stub that never made it into the old sitemap but is
+  # linked from the old blog index and marked "index, follow", so it may hold
+  # ranking history. It has no counterpart in this build; send it to the
+  # closest topic rather than letting the generic rule below 404 it.
+  RewriteRule ^dealing-with-wisdom-teeth\.(php|html)$ /blog/what-causes-crowded-teeth-and-how-dentists-fix-them.html [R=301,L,NE]
+
   # ------------------------------------------------------ renamed pages ----
   # 14 pages were given short slugs that match their nav label. Each old slug
   # -- the legacy .php and the interim long .html -- 301s to the new file.

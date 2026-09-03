@@ -45,10 +45,8 @@
 <!-- ========================================================== PRELOADER -->
 <div class="preloader" id="preloader" aria-hidden="true">
   <div class="preloader__inner">
+    <img class="preloader__mark" src="assets/brand/preloader-smile.svg" alt="" width="128" height="62">
     <img class="preloader__logo" src="assets/brand/logo.png" alt="Dante Gonzales Orthodontics" width="387" height="97">
-    <div class="preloader__track">
-      <div class="preloader__bar"></div>
-    </div>
   </div>
 </div>
 
@@ -247,67 +245,19 @@
     </nav>
     <h1 class="page-hero__title" id="page-title" data-reveal>Smile Transformation Gallery</h1>
     <p class="page-hero__lede" data-reveal data-reveal-delay="1">
-      Witness life-changing smile transformations crafted by Dr. Dante Gonzales — Top 1% Diamond Plus Invisalign® Provider and Board-Certified Orthodontist in Dublin and Tracy, CA.
+      Witness life-changing smile transformations crafted by Dr. Dante Gonzales — Diamond Invisalign® Provider and Board-Certified Orthodontist in Dublin and Tracy, CA.
     </p>
 
-    <!-- Trust Indicator Bar -->
-    <div class="hero-trust-bar" data-reveal data-reveal-delay="2">
-      <div class="hero-trust-bar__item">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        <span>5.0 Star Rated (350+ Patient Reviews)</span>
-      </div>
-      <div class="hero-trust-bar__divider" aria-hidden="true"></div>
-      <div class="hero-trust-bar__item">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span>12,000+ Smiles Perfected Since 1998</span>
-      </div>
-      <div class="hero-trust-bar__divider" aria-hidden="true"></div>
-      <div class="hero-trust-bar__item">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
-        <span>Board-Certified ABO Diplomate</span>
-      </div>
-    </div>
-
-    <div class="page-hero__actions" data-reveal data-reveal-delay="3">
+    <div class="page-hero__actions" data-reveal data-reveal-delay="2">
       <a class="btn btn--primary btn--lg" href="contact-dublin.html">Request Free Consultation</a>
       <a class="btn btn--ghost btn--lg" href="#interactive-slider">Explore Interactive Slider</a>
-      <a class="btn btn--ghost btn--lg" href="tel:925-828-2244">Call Dublin (925) 828-2244</a>
     </div>
   </div>
-    <div class="page-hero__media" aria-hidden="true">
-      <img src="assets/cases/gallery-01-after.jpg" alt="Smile transformation result" loading="eager" decoding="async">
+    <div class="page-hero__media page-hero__media--portrait" aria-hidden="true">
+      <img src="assets/photos/hero-smile.jpg" alt="A patient smiling after orthodontic treatment at Dante Gonzales Orthodontics" width="750" height="1000" loading="eager" decoding="async">
     </div>
 </section>
 
-<!-- ================================================================ STAT BAND -->
-<section class="stat-band" aria-label="Practice achievements and metrics">
-  <div class="shell">
-    <div class="stat-band__card" data-reveal>
-      <ul class="stat-band__grid">
-        <li>
-          <span class="stat-band__num">12,000+</span>
-          <span class="stat-band__label">Smiles Transformed in Dublin &amp; Tracy</span>
-        </li>
-        <li>
-          <span class="stat-band__num">25+</span>
-          <span class="stat-band__label">Years of Orthodontic Specialization</span>
-        </li>
-        <li>
-          <span class="stat-band__num">Top 1%</span>
-          <span class="stat-band__label">Global Diamond Invisalign Provider</span>
-        </li>
-        <li>
-          <span class="stat-band__num">2</span>
-          <span class="stat-band__label">Modern Bay Area Practice Locations</span>
-        </li>
-        <li>
-          <span class="stat-band__num">100%</span>
-          <span class="stat-band__label">Gonzales Lifetime Smile Guarantee</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-</section>
 
 <!-- ============================================ INTERACTIVE BEFORE & AFTER SLIDER -->
 <section class="section" id="interactive-slider" aria-labelledby="slider-heading">
@@ -316,7 +266,7 @@
       <p class="eyebrow" data-reveal>Clinical Comparison Studio</p>
       <h2 class="section__title" id="slider-heading" data-reveal data-reveal-delay="1">Interactive Before &amp; After Smile Viewer</h2>
       <p class="section__lede" data-reveal data-reveal-delay="2">
-        Drag the slider handle to reveal precision orthodontic transformations, or select any patient case study to explore diagnosis, treatment appliance, and clinical results.
+        Drag the slider handle to compare a patient&rsquo;s smile before and after treatment, or pick another case from the thumbnails.
       </p>
     </div>
 
@@ -346,40 +296,6 @@
 
       <!-- Case Selection Thumbs & Dynamic Case Breakdown -->
       <div class="ba__side">
-        <!-- Dynamic Case Info Card -->
-        <article class="ba-case-panel" id="ba-case-info" data-ba-info>
-          <div class="ba-case-panel__header">
-            <span class="ba-case-panel__badge" id="ba-case-badge">Diamond Invisalign</span>
-            <span class="ba-case-panel__duration" id="ba-case-duration">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>14 Months Treatment</span>
-            </span>
-          </div>
-          <h3 class="ba-case-panel__title" id="ba-case-title">Anterior Crowding &amp; Upper Arch Expansion</h3>
-          <p class="ba-case-panel__desc" id="ba-case-desc">
-            Severe anterior misalignment and collapsed arch shape corrected gently without permanent tooth extractions, delivering broad smile aesthetics and optimal chewing function.
-          </p>
-          <div class="ba-case-panel__specs">
-            <div>
-              <span class="ba-case-panel__spec-label">Patient Diagnosis</span>
-              <p class="ba-case-panel__spec-val" id="ba-case-diag">Class I Severe Crowding</p>
-            </div>
-            <div>
-              <span class="ba-case-panel__spec-label">Appliance Type</span>
-              <p class="ba-case-panel__spec-val" id="ba-case-appliance">Invisalign® SmartTrack</p>
-            </div>
-          </div>
-          <div class="ba-case-panel__wins" id="ba-case-wins">
-            <div class="ba-case-panel__win-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Non-extraction arch widening &amp; alignment</span>
-            </div>
-            <div class="ba-case-panel__win-item">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Harmonious symmetrical smile arc restored</span>
-            </div>
-          </div>
-        </article>
 
         <!-- Case Thumbs Grid -->
         <div>
@@ -429,7 +345,7 @@
           <img src="assets/ui/accreditation-abo.png" alt="Board Certified Orthodontist" width="92" height="65" loading="lazy" decoding="async">
           <p>
             <strong>Board-Certified Orthodontic Care</strong>
-            Only 1 in 3 orthodontists achieves Diplomate status by the American Board of Orthodontics. Experience clinical mastery in Dublin and Tracy.
+            Dr. Gonzales is a board-certified Diplomate of the American Board of Orthodontics, practising in Dublin and Tracy.
           </p>
         </div>
       </div>
@@ -441,207 +357,65 @@
 <section class="section section--alt" id="case-gallery" aria-labelledby="gallery-heading">
   <div class="shell">
     <div class="section__head section__head--center">
-      <p class="eyebrow" data-reveal>Case Study Library</p>
-      <h2 class="section__title" id="gallery-heading" data-reveal data-reveal-delay="1">Real Patients, Remarkable Results</h2>
+      <p class="eyebrow" data-reveal>Before &amp; After</p>
+      <h2 class="section__title" id="gallery-heading" data-reveal data-reveal-delay="1">Real patients, real results</h2>
       <p class="section__lede" data-reveal data-reveal-delay="2">
-        Browse orthodontic transformations by treatment type. See how Dr. Dante Gonzales solves complex misalignment, overbites, spacing, and crossbites with clinical precision.
+        Six smiles transformed at our Dublin and Tracy offices. Each photograph shows the same patient before and after treatment with Dr. Dante Gonzales.
       </p>
-
-      <!-- Category Filter Pills -->
-      <div class="gallery-filters" data-reveal data-reveal-delay="3" role="toolbar" aria-label="Filter case studies by category">
-        <button type="button" class="gallery-filter-btn is-active" data-filter="all">All Cases (6)</button>
-        <button type="button" class="gallery-filter-btn" data-filter="invisalign">Invisalign® Clear Aligners</button>
-        <button type="button" class="gallery-filter-btn" data-filter="braces">Precision Braces</button>
-        <button type="button" class="gallery-filter-btn" data-filter="bites">Overbites &amp; Crossbites</button>
-        <button type="button" class="gallery-filter-btn" data-filter="teen">Teen Orthodontics</button>
-        <button type="button" class="gallery-filter-btn" data-filter="adult">Adult Smile Makeovers</button>
-      </div>
     </div>
 
     <div class="cases-grid" id="cases-grid-container" data-reveal data-reveal-delay="2">
-      <!-- Case Card 1 -->
-      <article class="case-card--enhanced" data-category="invisalign adult teen">
-        <div class="case-card__split-visual">
-          <div class="case-card__pill-row">
-            <span class="case-card__tag-pill case-card__tag-pill--before">Before</span>
-            <span class="case-card__tag-pill case-card__tag-pill--after">After</span>
-          </div>
-          <img src="assets/cases/gallery-01-before.jpg" alt="Severe anterior crowding before orthodontic treatment" width="640" height="289" loading="lazy" decoding="async">
+      <article class="case-card--enhanced">
+        <div class="case-card__split-visual case-card__split-visual--composite">
+          <img src="assets/cases/gallery-01-before.jpg" alt="Patient 1 before and after orthodontic treatment at Dante Gonzales Orthodontics" width="640" height="289" loading="lazy" decoding="async">
         </div>
         <div class="case-card__body">
-          <div class="case-card__meta">
-            <span class="badge-chip">Diamond Invisalign</span>
-            <span class="case-card__location">Dublin Clinic • 14 Mos</span>
-          </div>
-          <h3 class="case-card__title">Crowding &amp; Anterior Alignment</h3>
-          <p class="case-card__desc">
-            Complete realignment of heavily crowded incisors, establishing balanced arch form and long-term periodontal health.
-          </p>
-          <ul class="case-card__highlights">
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>100% Non-extraction expansion</span>
-            </li>
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Improved oral hygiene access &amp; gum line</span>
-            </li>
-          </ul>
+          <h3 class="case-card__title">Patient 1</h3>
         </div>
       </article>
 
-      <!-- Case Card 2 -->
-      <article class="case-card--enhanced" data-category="braces bites adult">
-        <div class="case-card__split-visual">
-          <div class="case-card__pill-row">
-            <span class="case-card__tag-pill case-card__tag-pill--before">Before</span>
-            <span class="case-card__tag-pill case-card__tag-pill--after">After</span>
-          </div>
-          <img src="assets/cases/gallery-01-after.jpg" alt="Posterior crossbite corrected with advanced braces" width="640" height="288" loading="lazy" decoding="async">
+      <article class="case-card--enhanced">
+        <div class="case-card__split-visual case-card__split-visual--composite">
+          <img src="assets/cases/gallery-01-after.jpg" alt="Patient 2 before and after orthodontic treatment at Dante Gonzales Orthodontics" width="640" height="288" loading="lazy" decoding="async">
         </div>
         <div class="case-card__body">
-          <div class="case-card__meta">
-            <span class="badge-chip badge-chip--gold">Advanced Braces</span>
-            <span class="case-card__location">Tracy Clinic • 16 Mos</span>
-          </div>
-          <h3 class="case-card__title">Arch Widening &amp; Crossbite Resolution</h3>
-          <p class="case-card__desc">
-            Maxillary arch expansion and precision bracket mechanics resolved posterior crossbite, preventing uneven tooth wear.
-          </p>
-          <ul class="case-card__highlights">
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Eliminated unilateral crossbite strain</span>
-            </li>
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Restored balanced bilateral chewing function</span>
-            </li>
-          </ul>
+          <h3 class="case-card__title">Patient 2</h3>
         </div>
       </article>
 
-      <!-- Case Card 3 -->
-      <article class="case-card--enhanced" data-category="invisalign bites adult">
-        <div class="case-card__split-visual">
-          <div class="case-card__pill-row">
-            <span class="case-card__tag-pill case-card__tag-pill--before">Before</span>
-            <span class="case-card__tag-pill case-card__tag-pill--after">After</span>
-          </div>
-          <img src="assets/cases/gallery-02-before.jpg" alt="Severe deep overbite before treatment" width="640" height="289" loading="lazy" decoding="async">
+      <article class="case-card--enhanced">
+        <div class="case-card__split-visual case-card__split-visual--composite">
+          <img src="assets/cases/gallery-02-before.jpg" alt="Patient 3 before and after orthodontic treatment at Dante Gonzales Orthodontics" width="640" height="289" loading="lazy" decoding="async">
         </div>
         <div class="case-card__body">
-          <div class="case-card__meta">
-            <span class="badge-chip">Diamond Invisalign</span>
-            <span class="case-card__location">Dublin Clinic • 15 Mos</span>
-          </div>
-          <h3 class="case-card__title">Deep Overbite &amp; Bite Opening</h3>
-          <p class="case-card__desc">
-            Non-surgical bite leveling and incisor intrusion to protect lower teeth from palatal impingement and create a radiant smile line.
-          </p>
-          <ul class="case-card__highlights">
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Overbite reduced from 90% to normal 20%</span>
-            </li>
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Relieved TMJ tension and facial muscle strain</span>
-            </li>
-          </ul>
+          <h3 class="case-card__title">Patient 3</h3>
         </div>
       </article>
 
-      <!-- Case Card 4 -->
-      <article class="case-card--enhanced" data-category="invisalign teen">
-        <div class="case-card__split-visual">
-          <div class="case-card__pill-row">
-            <span class="case-card__tag-pill case-card__tag-pill--before">Before</span>
-            <span class="case-card__tag-pill case-card__tag-pill--after">After</span>
-          </div>
-          <img src="assets/cases/gallery-02-after.jpg" alt="Teen crowding and blocked canine alignment result" width="640" height="283" loading="lazy" decoding="async">
+      <article class="case-card--enhanced">
+        <div class="case-card__split-visual case-card__split-visual--composite">
+          <img src="assets/cases/gallery-02-after.jpg" alt="Patient 4 before and after orthodontic treatment at Dante Gonzales Orthodontics" width="640" height="283" loading="lazy" decoding="async">
         </div>
         <div class="case-card__body">
-          <div class="case-card__meta">
-            <span class="badge-chip">Invisalign Teen</span>
-            <span class="case-card__location">Tracy Clinic • 13 Mos</span>
-          </div>
-          <h3 class="case-card__title">High Canine &amp; Severe Crowding</h3>
-          <p class="case-card__desc">
-            High blocked-out canine teeth guided down into the dental arch smoothly using discreet Invisalign clear aligners with compliance indicators.
-          </p>
-          <ul class="case-card__highlights">
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Preserved all premolars without extractions</span>
-            </li>
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Unrestricted sports &amp; musical instrument play</span>
-            </li>
-          </ul>
+          <h3 class="case-card__title">Patient 4</h3>
         </div>
       </article>
 
-      <!-- Case Card 5 -->
-      <article class="case-card--enhanced" data-category="invisalign adult teen">
-        <div class="case-card__split-visual">
-          <div class="case-card__pill-row">
-            <span class="case-card__tag-pill case-card__tag-pill--before">Before</span>
-            <span class="case-card__tag-pill case-card__tag-pill--after">After</span>
-          </div>
-          <img src="assets/cases/gallery-03-before-after.jpg" alt="Diastema and gap closure transformation" width="640" height="342" loading="lazy" decoding="async">
+      <article class="case-card--enhanced">
+        <div class="case-card__split-visual case-card__split-visual--composite">
+          <img src="assets/cases/gallery-03-before-after.jpg" alt="Patient 5 before and after orthodontic treatment at Dante Gonzales Orthodontics" width="640" height="342" loading="lazy" decoding="async">
         </div>
         <div class="case-card__body">
-          <div class="case-card__meta">
-            <span class="badge-chip">Diamond Invisalign</span>
-            <span class="case-card__location">Dublin Clinic • 9 Mos</span>
-          </div>
-          <h3 class="case-card__title">Diastema &amp; Anterior Spacing Closure</h3>
-          <p class="case-card__desc">
-            Rapid, aesthetic closure of prominent front teeth gaps and root uprighting, delivering a solid contact point and symmetric smile.
-          </p>
-          <ul class="case-card__highlights">
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Completed in under 9 months</span>
-            </li>
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Custom lingual bonded retainer for retention</span>
-            </li>
-          </ul>
+          <h3 class="case-card__title">Patient 5</h3>
         </div>
       </article>
 
-      <!-- Case Card 6 -->
-      <article class="case-card--enhanced" data-category="braces adult bites">
-        <div class="case-card__split-visual">
-          <div class="case-card__pill-row">
-            <span class="case-card__tag-pill case-card__tag-pill--before">Before</span>
-            <span class="case-card__tag-pill case-card__tag-pill--after">After</span>
-          </div>
-          <img src="assets/cases/gallery-04-before-after.jpg" alt="Comprehensive adult smile makeover before and after" width="640" height="330" loading="lazy" decoding="async">
+      <article class="case-card--enhanced">
+        <div class="case-card__split-visual case-card__split-visual--composite">
+          <img src="assets/cases/gallery-04-before-after.jpg" alt="Patient 6 before and after orthodontic treatment at Dante Gonzales Orthodontics" width="640" height="330" loading="lazy" decoding="async">
         </div>
         <div class="case-card__body">
-          <div class="case-card__meta">
-            <span class="badge-chip badge-chip--gold">Adult Orthodontics</span>
-            <span class="case-card__location">Tracy Clinic • 18 Mos</span>
-          </div>
-          <h3 class="case-card__title">Comprehensive Adult Smile Makeover</h3>
-          <p class="case-card__desc">
-            Full dental arch remodeling, leveling the occlusal plane and closing multi-quadrant spaces for a lifelong, youthful smile aesthetic.
-          </p>
-          <ul class="case-card__highlights">
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Enhanced facial profile &amp; lip support</span>
-            </li>
-            <li class="case-card__highlight-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Comprehensive occlusion &amp; bite protection</span>
-            </li>
-          </ul>
+          <h3 class="case-card__title">Patient 6</h3>
         </div>
       </article>
     </div>
@@ -745,9 +519,9 @@
         <div class="tech-card__icon-box" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="6 2 18 2 22 8 12 22 2 8 6 2"/><line x1="2" y1="8" x2="22" y2="8"/></svg>
         </div>
-        <h3 class="tech-card__title">Diamond Plus Invisalign®</h3>
+        <h3 class="tech-card__title">Diamond Invisalign®</h3>
         <p class="tech-card__body">
-          Ranked in the top 1% of Invisalign providers globally, Dr. Gonzales treats complex cases with aligners that other doctors refer out for surgery.
+          As a Diamond Invisalign Provider, Dr. Gonzales treats complex cases with aligners that other doctors refer out for surgery.
         </p>
       </div>
 
@@ -755,7 +529,7 @@
         <div class="tech-card__icon-box" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
-        <h3 class="tech-card__title">Damon™ Low-Friction Braces</h3>
+        <h3 class="tech-card__title">Self-Ligating Braces</h3>
         <p class="tech-card__body">
           Self-ligating brackets slide smoothly with gentle biological forces, requiring fewer adjustments and zero elastic ties that trap plaque.
         </p>
@@ -767,7 +541,7 @@
         </div>
         <h3 class="tech-card__title">Accelerated Orthodontics</h3>
         <p class="tech-card__body">
-          Safe micro-stimulation techniques that stimulate gentle bone remodeling, helping shorten overall treatment duration by up to 30-50%.
+          Safe micro-stimulation techniques that stimulate gentle bone remodeling, helping shorten overall treatment duration.
         </p>
       </div>
     </div>
@@ -845,97 +619,97 @@
       <h2 class="section__title" id="reviews-title" data-reveal data-reveal-delay="1">5-star-rated orthodontists in Dublin &amp; Tracy</h2>
       <p class="section__lede" data-reveal data-reveal-delay="2">More than 12,000 smiles transformed by our board-certified orthodontists &mdash; serving Dublin, Tracy, Pleasanton, San Ramon, Danville, Livermore and the East Bay.</p>
     </div>
-    <ul class="cards cards--3">
-      <li class="quote" data-reveal data-reveal-delay="1">
-        <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-        </div>
-        <blockquote class="quote__body"><p>Dr. Gonzales and his staff are truly outstanding. They have an excellent manner with children, while being extremely competent and professional. I would feel comfortable recommending their services to anyone.</p></blockquote>
-        <p class="quote__by">
-          <span class="quote__avatar" aria-hidden="true">GC</span>
-          <span class="quote__meta"><span class="quote__name">George C.</span><span class="quote__loc">Dublin patient</span></span>
-        </p>
-      </li>
+    <div class="carousel" data-carousel>
+      <div class="carousel__viewport">
+        <ul class="carousel__track" data-carousel-track>
+          <li class="quote" data-slide>
+            <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+            </div>
+            <blockquote class="quote__body"><p>Dr. Gonzales and his staff are truly outstanding. They have an excellent manner with children, while being extremely competent and professional. I would feel comfortable recommending their services to anyone.</p></blockquote>
+            <p class="quote__by">
+              <span class="quote__avatar" aria-hidden="true">GC</span>
+              <span class="quote__meta"><span class="quote__name">George C.</span></span>
+            </p>
+          </li>
 
-      <li class="quote" data-reveal data-reveal-delay="2">
-        <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-        </div>
-        <blockquote class="quote__body"><p>We are extremely pleased with Dr. Gonzales and his wonderful staff. He is patient and understanding and made my son feel completely at ease. They make every visit stress-free and fun for siblings too! Thank you!</p></blockquote>
-        <p class="quote__by">
-          <span class="quote__avatar" aria-hidden="true">BW</span>
-          <span class="quote__meta"><span class="quote__name">Betty W.</span><span class="quote__loc">Tracy patient</span></span>
-        </p>
-      </li>
+          <li class="quote" data-slide>
+            <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+            </div>
+            <blockquote class="quote__body"><p>We are extremely pleased with Dr. Gonzales and his wonderful staff. He and his staff are patient and understanding and they make my son feel completely at ease. They make every visit stress-free and fun for siblings who have to wait in the waiting room too! *thumbs up* Thank you!!!</p></blockquote>
+            <p class="quote__by">
+              <span class="quote__avatar" aria-hidden="true">BW</span>
+              <span class="quote__meta"><span class="quote__name">Betty W.</span></span>
+            </p>
+          </li>
 
-      <li class="quote" data-reveal data-reveal-delay="3">
-        <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-        </div>
-        <blockquote class="quote__body"><p>Best orthodontic office in the Bay Area!! My Invisalign treatment was so smooth, fast, and comfortable. My smile turned out even better than I dreamed.</p></blockquote>
-        <p class="quote__by">
-          <span class="quote__avatar" aria-hidden="true">CR</span>
-          <span class="quote__meta"><span class="quote__name">Colleen R.</span><span class="quote__loc">Dublin patient</span></span>
-        </p>
-      </li>
+          <li class="quote" data-slide>
+            <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+            </div>
+            <blockquote class="quote__body"><p>Best orthodontic office in the bay area!!</p></blockquote>
+            <p class="quote__by">
+              <span class="quote__avatar" aria-hidden="true">CR</span>
+              <span class="quote__meta"><span class="quote__name">Colleen R.</span></span>
+            </p>
+          </li>
 
-      <li class="quote" data-reveal data-reveal-delay="1">
-        <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-        </div>
-        <blockquote class="quote__body"><p>The Smith family loves this office! I am so thankful my kids get to go to Dr Gonzales! Thanks for making us feel so special every time we walk in the door.</p></blockquote>
-        <p class="quote__by">
-          <span class="quote__avatar" aria-hidden="true">LS</span>
-          <span class="quote__meta"><span class="quote__name">Laurie S.</span><span class="quote__loc">Tracy patient</span></span>
-        </p>
-      </li>
+          <li class="quote" data-slide>
+            <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+            </div>
+            <blockquote class="quote__body"><p>The Smith family loves this office! I am so thankful my kids get to go to Dr Gonzales! Thanks for making us feel so special every time we walk in the door.</p></blockquote>
+            <p class="quote__by">
+              <span class="quote__avatar" aria-hidden="true">LS</span>
+              <span class="quote__meta"><span class="quote__name">Laurie S.</span></span>
+            </p>
+          </li>
 
-      <li class="quote" data-reveal data-reveal-delay="2">
-        <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-        </div>
-        <blockquote class="quote__body"><p>Dr. Gonzales and his team always gave excellent service. Staff is very friendly and always made my daughter feel relaxed. She has a beautiful smile now. Highly recommend!</p></blockquote>
-        <p class="quote__by">
-          <span class="quote__avatar" aria-hidden="true">TF</span>
-          <span class="quote__meta"><span class="quote__name">Tammy F.</span><span class="quote__loc">Dublin patient</span></span>
-        </p>
-      </li>
+          <li class="quote" data-slide>
+            <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
+            </div>
+            <blockquote class="quote__body"><p>Dr. Gonzales and his team always gave excellent service. Staff is very friendly and always made my daughter feel relaxed. She has a beautiful smile. Thank you!</p></blockquote>
+            <p class="quote__by">
+              <span class="quote__avatar" aria-hidden="true">TF</span>
+              <span class="quote__meta"><span class="quote__name">Tammy F.</span></span>
+            </p>
+          </li>
 
-      <li class="quote" data-reveal data-reveal-delay="3">
-        <div class="quote__stars" role="img" aria-label="Rated 5 out of 5">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3Z"/></svg>
-        </div>
-        <blockquote class="quote__body"><p>As an adult getting braces, I was nervous, but Dr. Gonzales and the staff made me feel totally supported. My deep bite was fixed and my confidence has skyrocketed!</p></blockquote>
-        <p class="quote__by">
-          <span class="quote__avatar" aria-hidden="true">MT</span>
-          <span class="quote__meta"><span class="quote__name">Marcus T.</span><span class="quote__loc">Adult orthodontic patient</span></span>
-        </p>
-      </li>
-    </ul>
+        </ul>
+      </div>
+      <div class="carousel__controls">
+        <button class="carousel__btn" type="button" data-carousel-prev aria-label="Previous reviews">
+          <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H5m6 6-6-6 6-6"/></svg>
+        </button>
+        <div class="carousel__dots" role="tablist" aria-label="Choose a review" data-carousel-dots></div>
+        <button class="carousel__btn" type="button" data-carousel-next aria-label="Next reviews">
+          <svg width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+        </button>
+      </div>
+      <p class="sr-only" role="status" aria-live="polite" data-carousel-status></p>
+    </div>
     <ul class="review-badges" aria-label="Review platforms" data-reveal data-reveal-delay="2">
       <li><img src="assets/ui/review-badge-google.png" alt="Five-star rated on Google" width="120" height="44" loading="lazy" decoding="async"></li>
       <li><img src="assets/ui/review-badge-facebook.png" alt="Five-star rated on Facebook" width="120" height="44" loading="lazy" decoding="async"></li>
@@ -970,7 +744,7 @@
         <summary class="faq__q">Can Invisalign® fix severe crowding, overbites, and crossbites as well as braces?</summary>
         <div class="faq__a">
           <p>
-            Yes! As a <strong>Top 1% Diamond Plus Invisalign Provider</strong>, Dr. Dante Gonzales specializes in treating complex orthodontic conditions using clear aligners — including severe crowding, deep overbites, crossbites, and open bites — often without needing teeth extractions or jaw surgery.
+            Yes! As a <strong>Diamond Invisalign Provider</strong>, Dr. Dante Gonzales specializes in treating complex orthodontic conditions using clear aligners — including severe crowding, deep overbites, crossbites, and open bites — often without needing teeth extractions or jaw surgery.
           </p>
         </div>
       </details>
@@ -1166,7 +940,7 @@
       <p>&copy; 2024 Dante Gonzales Orthodontics</p>
       <ul class="footer__legal">
         <li><a href="#">Terms of Use</a></li>
-        <li><a href="#">Site Map</a></li>
+        <li><a href="sitemap.xml">Site Map</a></li>
         <li><a href="#">Privacy Policy</a></li>
       </ul>
     </div>
@@ -1294,141 +1068,6 @@
 
 <script src="js/main.js" defer></script>
 
-<!-- Gallery Filter & Interactive Case Info Data -->
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  // Case Data Registry for Interactive Slider
-  var caseData = {
-    "1": {
-      badge: "Diamond Invisalign",
-      duration: "14 Months Treatment",
-      title: "Anterior Crowding & Upper Arch Expansion",
-      desc: "Severe anterior misalignment and collapsed arch shape corrected gently without permanent tooth extractions, delivering broad smile aesthetics and optimal chewing function.",
-      diag: "Class I Severe Crowding",
-      appliance: "Invisalign® SmartTrack",
-      wins: [
-        "Non-extraction arch widening & alignment",
-        "Harmonious symmetrical smile arc restored"
-      ]
-    },
-    "2": {
-      badge: "Advanced Braces",
-      duration: "16 Months Treatment",
-      title: "Arch Widening & Posterior Crossbite Correction",
-      desc: "Maxillary transverse deficiency and posterior crossbite resolved, establishing ideal bilateral contact and relieving unilateral joint pressure.",
-      diag: "Posterior Crossbite & Constriction",
-      appliance: "Damon™ Low-Friction Braces",
-      wins: [
-        "Eliminated crossbite and lateral jaw shifting",
-        "Created wide, radiant Hollywood smile display"
-      ]
-    },
-    "3": {
-      badge: "Diamond Invisalign",
-      duration: "15 Months Treatment",
-      title: "Deep Overbite & Incisor Leveling",
-      desc: "Severe deep bite causing palatal impingement opened cleanly using clear aligners, preserving tooth structure and facial aesthetics.",
-      diag: "Class II Deep Overbite (90%)",
-      appliance: "Invisalign® with Precision Bite Ramps",
-      wins: [
-        "Overbite reduced to ideal 20% vertical overlap",
-        "Protected lower front teeth from premature wear"
-      ]
-    },
-    "4": {
-      badge: "Invisalign Teen",
-      duration: "13 Months Treatment",
-      title: "Severe Crowding & Blocked-Out Canine",
-      desc: "High blocked canine guided smoothly into the dental arch without premolar extractions, improving smile confidence for high school years.",
-      diag: "Ectopic Maxillary Canine",
-      appliance: "Invisalign® Teen with Mandibular Advancement",
-      wins: [
-        "Preserved 100% natural dentition",
-        "Zero food restrictions during school sports"
-      ]
-    },
-    "5": {
-      badge: "Diamond Invisalign",
-      duration: "9 Months Treatment",
-      title: "Diastema & Anterior Spacing Closure",
-      desc: "Midline gap and lateral incisor spacing closed seamlessly with micro-attachments, providing immediate cosmetic enhancement and gum symmetry.",
-      diag: "Maxillary Midline Diastema",
-      appliance: "Invisalign® Clear Aligners",
-      wins: [
-        "Rapid aesthetic closure in under 9 months",
-        "Custom permanent bonded retainer retention"
-      ]
-    },
-    "6": {
-      badge: "Adult Orthodontics",
-      duration: "18 Months Treatment",
-      title: "Comprehensive Adult Bite & Smile Makeover",
-      desc: "Multi-quadrant realignment leveling the smile plane, resolving long-standing chewing imbalances and rejuvenating facial profile support.",
-      diag: "Class I Malocclusion & Spacing",
-      appliance: "Advanced Ceramic Clear Brackets",
-      wins: [
-        "Restored full functional chewing balance",
-        "Enhanced youthful lip and facial profile contours"
-      ]
-    }
-  };
-
-  var casePanel = document.getElementById('ba-case-info');
-  var badgeEl = document.getElementById('ba-case-badge');
-  var durationEl = document.getElementById('ba-case-duration');
-  var titleEl = document.getElementById('ba-case-title');
-  var descEl = document.getElementById('ba-case-desc');
-  var diagEl = document.getElementById('ba-case-diag');
-  var applianceEl = document.getElementById('ba-case-appliance');
-  var winsEl = document.getElementById('ba-case-wins');
-
-  var thumbs = document.querySelectorAll('[data-ba-case]');
-  thumbs.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var caseNum = btn.getAttribute('data-ba-case');
-      var data = caseData[caseNum];
-      if (!data || !casePanel) return;
-
-      if (badgeEl) badgeEl.textContent = data.badge;
-      if (durationEl) {
-        durationEl.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span>' + data.duration + '</span>';
-      }
-      if (titleEl) titleEl.textContent = data.title;
-      if (descEl) descEl.textContent = data.desc;
-      if (diagEl) diagEl.textContent = data.diag;
-      if (applianceEl) applianceEl.textContent = data.appliance;
-
-      if (winsEl && data.wins) {
-        winsEl.innerHTML = data.wins.map(function (win) {
-          return '<div class="ba-case-panel__win-item"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>' + win + '</span></div>';
-        }).join('');
-      }
-    });
-  });
-
-  // Gallery Filter Buttons
-  var filterButtons = document.querySelectorAll('.gallery-filter-btn');
-  var caseCards = document.querySelectorAll('.case-card--enhanced');
-
-  filterButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      filterButtons.forEach(function (b) { b.classList.remove('is-active'); });
-      btn.classList.add('is-active');
-
-      var filter = btn.getAttribute('data-filter');
-      caseCards.forEach(function (card) {
-        var categories = card.getAttribute('data-category') || '';
-        if (filter === 'all' || categories.indexOf(filter) !== -1) {
-          card.style.display = 'flex';
-          card.style.opacity = '1';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
-  });
-});
-</script>
 
 </body>
 </html>

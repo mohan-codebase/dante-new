@@ -16,11 +16,11 @@
     var preloader = $('#preloader');
     if (!preloader) return;
 
-    // The logo reveal and the hairline fill are pure CSS animations, timed to
-    // finish just before LOAD_DURATION — nothing to trigger from here.
+    // The smile arch and the wordmark wipe are pure CSS — nothing to trigger
+    // from here.
 
-    // Run for 2 seconds on every load / refresh
-    var LOAD_DURATION = 2000;
+    // One full pass of the arch: teeth in, straighten, archwire through.
+    var LOAD_DURATION = 2800;
     window.setTimeout(function () {
       preloader.classList.add('is-done');
       window.setTimeout(function () {
@@ -317,6 +317,70 @@
       header.style.setProperty('--flyout-h', '0px');
       header.classList.remove('is-flyout-open');
       if (desktopNav.matches && nav.classList.contains('is-open')) closeSheet();
+    });
+  })();
+
+  /* ------------------------------------------------ consultation pop-up */
+  (function consultationModal() {
+    var triggers = $$('.header__cta');
+    if (!triggers.length) return;
+
+    var lastFocused = null;
+    var modal = document.createElement('section');
+    modal.className = 'consultation-modal';
+    modal.setAttribute('aria-hidden', 'true');
+    modal.innerHTML =
+      '<div class="consultation-modal__backdrop" data-modal-close></div>' +
+      '<div class="consultation-modal__panel" role="dialog" aria-modal="true" aria-labelledby="consultation-modal-title">' +
+        '<button class="consultation-modal__close" type="button" aria-label="Close consultation form" data-modal-close>&times;</button>' +
+        '<p class="eyebrow">Your new smile starts here</p>' +
+        '<h2 id="consultation-modal-title">Request a complimentary consultation</h2>' +
+        '<p class="consultation-modal__intro">Share your details and our team will be in touch to find a time that works for you.</p>' +
+        '<form class="form consultation-modal__form" action="contact-form1.php" method="post" novalidate data-validate>' +
+          '<div class="form__grid">' +
+            '<div class="field"><label class="field__label" for="modal-fname">First name <span aria-hidden="true">*</span></label><input class="field__input" type="text" id="modal-fname" name="fname" autocomplete="given-name" required aria-describedby="modal-err-fname"><p class="field__error" id="modal-err-fname" data-error-for="fname"></p></div>' +
+            '<div class="field"><label class="field__label" for="modal-lname">Last name <span aria-hidden="true">*</span></label><input class="field__input" type="text" id="modal-lname" name="lname" autocomplete="family-name" required aria-describedby="modal-err-lname"><p class="field__error" id="modal-err-lname" data-error-for="lname"></p></div>' +
+            '<div class="field"><label class="field__label" for="modal-phone">Phone <span aria-hidden="true">*</span></label><input class="field__input" type="tel" id="modal-phone" name="phone" autocomplete="tel" inputmode="tel" required aria-describedby="modal-err-phone"><p class="field__error" id="modal-err-phone" data-error-for="phone"></p></div>' +
+            '<div class="field"><label class="field__label" for="modal-email">Email <span aria-hidden="true">*</span></label><input class="field__input" type="email" id="modal-email" name="email" autocomplete="email" required aria-describedby="modal-err-email"><p class="field__error" id="modal-err-email" data-error-for="email"></p></div>' +
+            '<fieldset class="field field--full"><legend class="field__label">Preferred office <span aria-hidden="true">*</span></legend><div class="radios" aria-describedby="modal-err-office"><label class="radio"><input type="radio" name="office" value="Dublin" required><span class="radio__mark" aria-hidden="true"></span><span class="radio__text"><strong>Dublin</strong><em>4532 Dublin Blvd</em></span></label><label class="radio"><input type="radio" name="office" value="Tracy" required><span class="radio__mark" aria-hidden="true"></span><span class="radio__text"><strong>Tracy</strong><em>1417 N Tracy Blvd</em></span></label></div><p class="field__error" id="modal-err-office" data-error-for="office"></p></fieldset>' +
+          '</div>' +
+          '<input type="hidden" name="recaptcha_response" value="">' +
+          '<div class="form__foot"><button class="btn btn--primary btn--lg" type="submit" name="submit">Request consultation</button><p class="form__note">Your information stays private and is only used to contact you.</p></div><p class="form__summary" role="alert" data-form-summary hidden></p>' +
+        '</form>' +
+      '</div>';
+    document.body.appendChild(modal);
+
+    // Blog pages are one directory deeper than the form handler.
+    var form = $('[data-validate]', modal);
+    if (form && /\/blog\//.test(window.location.pathname)) form.action = '../contact-form1.php';
+
+    function close() {
+      if (!modal.classList.contains('is-open')) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('is-modal-open');
+      if (lastFocused) lastFocused.focus();
+    }
+    function open(trigger) {
+      lastFocused = trigger;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('is-modal-open');
+      window.setTimeout(function () { var first = $('input', modal); if (first) first.focus(); }, 30);
+    }
+
+    triggers.forEach(function (trigger) {
+      trigger.addEventListener('click', function (e) { e.preventDefault(); open(trigger); });
+    });
+    $$('[data-modal-close]', modal).forEach(function (button) { button.addEventListener('click', close); });
+    document.addEventListener('keydown', function (e) {
+      if (!modal.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { e.preventDefault(); close(); return; }
+      if (e.key !== 'Tab') return;
+      var focusable = $$('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])', modal);
+      var first = focusable[0], last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     });
   })();
 
@@ -824,12 +888,6 @@
 
   /* ------------------------------------------------------ appointment form */
   (function appointmentForm() {
-    var form = $('[data-validate]');
-    if (!form) return;
-
-    var summary = $('[data-form-summary]', form);
-    var attempted = false;
-
     var rules = {
       fname:  { label: 'first name', test: function (v) { return v.trim().length > 1; }, msg: 'Please enter your first name.' },
       lname:  { label: 'last name',  test: function (v) { return v.trim().length > 1; }, msg: 'Please enter your last name.' },
@@ -839,64 +897,69 @@
       office: { label: 'office',     radio: true, msg: 'Please choose the office you prefer.' }
     };
 
-    function fieldWrap(el) { return el.closest('.field'); }
+    $$('[data-validate]').forEach(function (form) {
+      var summary = $('[data-form-summary]', form);
+      var attempted = false;
 
-    function showError(name, message) {
-      var out = $('[data-error-for="' + name + '"]', form);
-      var input = form.elements[name];
-      var el = input && input.length ? input[0] : input;
-      if (out) out.textContent = message || '';
-      var wrap = el && fieldWrap(el);
-      if (wrap) wrap.classList.toggle('has-error', Boolean(message));
-      if (el && el.setAttribute && !rules[name].radio) el.setAttribute('aria-invalid', message ? 'true' : 'false');
-    }
+      function fieldWrap(el) { return el.closest('.field'); }
 
-    function validateField(name) {
-      var rule = rules[name];
-      if (!rule) return true;
-      var input = form.elements[name];
-      var ok;
-      if (rule.radio) {
-        ok = Array.prototype.some.call(input, function (r) { return r.checked; });
-      } else {
-        var value = input.value || '';
-        ok = rule.optional && value.trim() === '' ? true : rule.test(value);
+      function showError(name, message) {
+        var out = $('[data-error-for="' + name + '"]', form);
+        var input = form.elements[name];
+        var el = input && input.length ? input[0] : input;
+        if (out) out.textContent = message || '';
+        var wrap = el && fieldWrap(el);
+        if (wrap) wrap.classList.toggle('has-error', Boolean(message));
+        if (el && el.setAttribute && !rules[name].radio) el.setAttribute('aria-invalid', message ? 'true' : 'false');
       }
-      showError(name, ok ? '' : rule.msg);
-      return ok;
-    }
 
-    Object.keys(rules).forEach(function (name) {
-      var input = form.elements[name];
-      if (!input) return;
-      var list = input.length ? Array.prototype.slice.call(input) : [input];
-      list.forEach(function (el) {
-        el.addEventListener('blur', function () { if (attempted) validateField(name); });
-        el.addEventListener('change', function () { if (attempted) validateField(name); });
-        el.addEventListener('input', function () {
-          if (attempted && fieldWrap(el) && fieldWrap(el).classList.contains('has-error')) validateField(name);
+      function validateField(name) {
+        var rule = rules[name];
+        if (!rule) return true;
+        var input = form.elements[name];
+        var ok;
+        if (rule.radio) {
+          ok = Array.prototype.some.call(input, function (r) { return r.checked; });
+        } else {
+          var value = input.value || '';
+          ok = rule.optional && value.trim() === '' ? true : rule.test(value);
+        }
+        showError(name, ok ? '' : rule.msg);
+        return ok;
+      }
+
+      Object.keys(rules).forEach(function (name) {
+        var input = form.elements[name];
+        if (!input) return;
+        var list = input.length ? Array.prototype.slice.call(input) : [input];
+        list.forEach(function (el) {
+          el.addEventListener('blur', function () { if (attempted) validateField(name); });
+          el.addEventListener('change', function () { if (attempted) validateField(name); });
+          el.addEventListener('input', function () {
+            if (attempted && fieldWrap(el) && fieldWrap(el).classList.contains('has-error')) validateField(name);
+          });
         });
       });
-    });
 
-    form.addEventListener('submit', function (e) {
-      attempted = true;
-      var invalid = Object.keys(rules).filter(function (name) { return !validateField(name); });
+      form.addEventListener('submit', function (e) {
+        attempted = true;
+        var invalid = Object.keys(rules).filter(function (name) { return !validateField(name); });
 
-      if (invalid.length) {
-        e.preventDefault();
-        if (summary) {
-          summary.hidden = false;
-          summary.textContent = invalid.length === 1
-            ? 'Please check the ' + rules[invalid[0]].label + ' field and try again.'
-            : 'Please complete the ' + invalid.length + ' highlighted fields and try again.';
+        if (invalid.length) {
+          e.preventDefault();
+          if (summary) {
+            summary.hidden = false;
+            summary.textContent = invalid.length === 1
+              ? 'Please check the ' + rules[invalid[0]].label + ' field and try again.'
+              : 'Please complete the ' + invalid.length + ' highlighted fields and try again.';
+          }
+          var first = form.elements[invalid[0]];
+          var el = first && first.length ? first[0] : first;
+          if (el && el.focus) el.focus();
+          return;
         }
-        var first = form.elements[invalid[0]];
-        var el = first && first.length ? first[0] : first;
-        if (el && el.focus) el.focus();
-        return;
-      }
-      if (summary) { summary.hidden = true; summary.textContent = ''; }
+        if (summary) { summary.hidden = true; summary.textContent = ''; }
+      });
     });
   })();
 
