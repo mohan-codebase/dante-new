@@ -1214,4 +1214,22 @@
     });
   })();
 
+  /* -------------------------------------------------- founder letter toggle */
+  (function initFounderLetterToggle() {
+    var toggleBtn = $('#founderReadMore');
+    var collapseEl = $('[data-founder-collapse]');
+    if (!toggleBtn || !collapseEl) return;
+
+    toggleBtn.addEventListener('click', function () {
+      var isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      var nextState = !isExpanded;
+      toggleBtn.setAttribute('aria-expanded', String(nextState));
+      collapseEl.classList.toggle('is-expanded', nextState);
+      var label = $('span', toggleBtn);
+      if (label) {
+        label.textContent = nextState ? 'Read Less' : 'Read More';
+      }
+    });
+  })();
+
 })();

@@ -1927,6 +1927,43 @@ p.hero__headline {
 .founder__signoff { font-family: var(--font-display); font-size: 1.35rem; font-style: italic; color: var(--ink-2); }
 .founder__sign img { width: 190px; margin-top: .5rem; opacity: .9; }
 
+/* Read more toggle for mobile view */
+.founder__toggle-wrap { display: none; }
+@media (max-width: 767px) {
+  .founder__letter-collapsible {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s var(--e-soft), opacity 0.3s var(--e-out);
+    opacity: 0;
+    overflow: hidden;
+  }
+  .founder__letter-collapsible > * {
+    min-height: 0;
+  }
+  .founder__letter-collapsible.is-expanded {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    margin-top: var(--s-5);
+  }
+  .founder__toggle-wrap {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: var(--s-5);
+  }
+  .founder__toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+  .founder__toggle-btn svg {
+    transition: transform var(--t-fast) var(--e-out);
+  }
+  .founder__toggle-btn[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+  }
+}
+
 /* ---------------------------------------------------------------- 14. REACH */
 .reach {
   position: relative;
