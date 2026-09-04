@@ -2316,10 +2316,17 @@ p.hero__headline {
   border: 1px solid var(--line);
   border-radius: var(--r-md);
   font-size: var(--fs-sm); color: var(--ink-2);
+  cursor: pointer;
+  transition: all var(--t-fast) var(--e-out);
+}
+.rfy__options li:hover {
+  border-color: var(--brand-300);
+  background: var(--brand-50);
 }
 .rfy__options li span {
   width: 17px; height: 17px; flex: none;
   border: 1.6px solid var(--line); border-radius: 50%;
+  transition: all var(--t-fast) var(--e-out);
 }
 .rfy__options .is-picked { border-color: var(--brand-500); background: var(--brand-50); color: var(--ink); font-weight: 600; }
 .rfy__options .is-picked span { border-color: var(--brand-600); box-shadow: inset 0 0 0 3.5px #fff, inset 0 0 0 9px var(--brand-600); }
@@ -2329,6 +2336,13 @@ p.hero__headline {
   border-radius: var(--r-pill);
   background: var(--sun-400);
   color: var(--ink); font-size: var(--fs-sm); font-weight: 600; text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--t-fast) var(--e-out), transform var(--t-fast) var(--e-out);
+}
+.rfy__fake-btn:hover {
+  background: var(--sun-500);
+  transform: translateY(-1px);
 }
 
 /* ---------------------------------------------------------------- 21. VISIT */

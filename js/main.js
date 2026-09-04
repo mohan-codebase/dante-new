@@ -1183,4 +1183,35 @@
     });
   })();
 
+  /* ----------------------------------------------------- right for you card */
+  (function initRfyCard() {
+    var card = $('#rfyCard');
+    if (!card) return;
+
+    var options = $$('.rfy__options li', card);
+    var continueBtn = $('#rfyContinue', card);
+
+    options.forEach(function (item) {
+      function select() {
+        options.forEach(function (opt) {
+          opt.classList.remove('is-picked');
+          opt.setAttribute('aria-checked', 'false');
+        });
+        item.classList.add('is-picked');
+        item.setAttribute('aria-checked', 'true');
+      }
+
+      item.addEventListener('click', function () {
+        select();
+      });
+
+      item.addEventListener('keydown', function (e) {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          select();
+        }
+      });
+    });
+  })();
+
 })();
