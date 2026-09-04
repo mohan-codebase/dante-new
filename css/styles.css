@@ -1657,10 +1657,35 @@ p.hero__headline {
 }
 .intent__text { font-size: 1.02rem; font-weight: 500; line-height: 1.5; color: var(--ink); }
 
+/* Mobile carousel for pathways intents cards */
+@media (max-width: 699px) {
+  .pathways .cards.intents {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding-inline: max(1rem, calc((100vw - 320px) / 2));
+    gap: 1rem;
+    padding-inline: 1rem;
+    margin-inline: -1rem;
+    padding-bottom: 1.25rem;
+    scrollbar-width: none;
+  }
+  .pathways .cards.intents::-webkit-scrollbar {
+    display: none;
+  }
+  .pathways .cards.intents .intent {
+    flex: 0 0 85%;
+    max-width: 320px;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+  }
+}
+
 .pathways__cta {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
   gap: var(--s-4) var(--s-5);
-  margin-top: clamp(2.5rem, 1.8rem + 2vw, 3.5rem);
+  margin-top: clamp(2rem, 1.8rem + 2vw, 3.5rem);
   text-align: center;
 }
 .pathways__note { font-size: var(--fs-sm); color: var(--ink-3); }
