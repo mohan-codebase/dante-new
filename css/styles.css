@@ -1080,15 +1080,15 @@ body.is-modal-open { overflow: hidden; }
   .mega__list a { padding: .35rem 0; }
   .mega__list span { font-size: .9375rem; }
 
+  /* the foot holds the consultation button only — the phone/email list that
+     used to sit under it was removed, so the deep bottom padding and the
+     button's trailing margin went with it */
   .nav__drawer-foot {
-    display: grid; gap: .55rem;
+    display: grid;
     margin: var(--s-6) var(--nav-pad) 0;
-    padding: var(--s-5) 0 var(--s-9);
+    padding: var(--s-5) 0 var(--s-6);
     border-top: 1px solid var(--line-soft);
   }
-  .nav__drawer-link { font-size: var(--fs-sm); color: var(--ink-2); }
-  .nav__drawer-link:hover { color: var(--brand-700); }
-  .nav__drawer-foot .btn { margin-bottom: var(--s-3); }
 }
 
 @media (min-width: 1181px) { .nav__drawer-foot { display: none; } }
@@ -6581,3 +6581,106 @@ p.cred-group { margin-top: var(--s-6); }
   transition: gap var(--t-fast) var(--e-out);
 }
 .also__card:hover .also__go { gap: .8rem; }
+
+
+/* ==========================================================================
+   CUSTOM CURSOR
+   A halo around the native cursor, which stays visible throughout. A warm
+   bloom lags far behind the pointer and a brand-blue ring eases in just
+   behind it. The ring responds to what is underneath by changing its own
+   size and colour only — it never draws a border around the element, so
+   buttons and cards keep exactly the hover treatment their own CSS gives
+   them and nothing gains an outline it was not designed with.
+
+   Every layer is centred on its own point with translate(-50%, -50%) inside
+   the transform the script writes, so size can change without any margin
+   bookkeeping and the press scale composes into the same transform.
+
+   Injected by js/main.js, and only activated on a device with a real pointer
+   that has not asked for reduced motion — touch, keyboard and reduced-motion
+   users keep the native cursor and the module never runs.
+   ========================================================================== */
+
+.cursor { display: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor {
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 100000;
+    pointer-events: none;
+    display: block;
+    opacity: 0;
+    transition: opacity var(--t-mid) var(--e-out);
+  }
+  .cursor.is-awake { opacity: 1; }
+
+  /* The native cursor stays visible and keeps all of its own semantics — the
+     arrow, the hand over a link, the caret in a field. These layers ride
+     around it as a halo rather than replacing it, so nothing is lost if the
+     script fails and there is never a moment with no pointer on screen.
+     (.has-cursor is still set on <html> as a "module is live" hook.) */
+
+  .cursor__glow,
+  .cursor__ring {
+    position: absolute;
+    top: 0; left: 0;
+    border-radius: 50%;
+    will-change: transform;
+  }
+
+  /* --- the lagging warm bloom -------------------------------------------- */
+  .cursor__glow {
+    width: 240px; height: 240px;
+    background: radial-gradient(closest-side,
+                rgba(26, 128, 192, .13) 0%,
+                rgba(243, 218, 103, .09) 45%,
+                transparent 72%);
+    transition: opacity var(--t-mid) var(--e-out);
+  }
+
+  /* --- the ring, which also does the snapping ---------------------------- */
+  .cursor__ring {
+    width: 34px; height: 34px;
+    border: 1.5px solid rgba(26, 128, 192, .55);
+    background: transparent;
+    transition:
+      width         var(--t-mid) var(--e-soft),
+      height        var(--t-mid) var(--e-soft),
+      border-radius var(--t-mid) var(--e-soft),
+      border-color  var(--t-fast) var(--e-out),
+      background-color var(--t-fast) var(--e-out),
+      box-shadow    var(--t-fast) var(--e-out);
+  }
+
+  /* --- over any interactive target --------------------------------------- */
+  /* opens a little and warms to gold — feedback that sits around the arrow,
+     not around the button */
+  .cursor.is-hot .cursor__ring {
+    width: 50px; height: 50px;
+    border-color: rgba(192, 143, 61, .75);
+    background: rgba(26, 128, 192, .07);
+  }
+
+  /* --- over a photo or a portrait medallion ------------------------------ */
+  /* A real lens rather than a tinted disc: the backdrop filter lifts whatever
+     is underneath, and the white border is carried by a dark outer hairline
+     so the ring stays visible over a pale photo as well as a dark one. */
+  .cursor.is-media .cursor__ring {
+    width: 76px; height: 76px;
+    border-color: rgba(255, 255, 255, .9);
+    background: transparent;
+    box-shadow: 0 0 0 1px rgba(16, 55, 92, .2),
+                0 12px 30px -16px rgba(16, 55, 92, .5);
+    -webkit-backdrop-filter: saturate(1.3) contrast(1.04) brightness(1.03);
+            backdrop-filter: saturate(1.3) contrast(1.04) brightness(1.03);
+  }
+
+  /* --- on a dark ground, invert so the ring stays visible ---------------- */
+  .cursor.is-dark .cursor__ring { border-color: rgba(255, 255, 255, .7); }
+}
+
+/* a pointer device that has asked for less motion gets the native cursor alone */
+@media (prefers-reduced-motion: reduce) {
+  .cursor { display: none !important; }
+}

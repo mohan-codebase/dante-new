@@ -1,3 +1,29 @@
+
+/* ------------------------------------------------------- smooth scrolling */
+/* Lenis is pulled from a CDN, and only index.html loads it today. Guard on the
+   library actually being there: as a bare top-level `new Lenis(...)` this threw
+   on line 1 of every other page, which aborted the whole file and left the
+   preloader on screen forever. Wrapped in a function so nothing is declared at
+   top level either — a page that includes main.js twice re-runs this harmlessly
+   instead of dying on a duplicate `const`. */
+(function initSmoothScroll() {
+  'use strict';
+  if (typeof window.Lenis !== 'function') return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var lenis = new window.Lenis({
+    duration: 1.2,
+    smoothWheel: true,
+    smoothTouch: false
+  });
+
+  (function raf(time) {
+    lenis.raf(time);
+    window.requestAnimationFrame(raf);
+  })();
+})();
+
+
 /* =============================================================================
    Dante Gonzales Orthodontics — homepage behaviour
    Vanilla ES2019. Every module is optional: if its markup is absent it exits.
@@ -1289,5 +1315,133 @@
     });
   })();
 
-})();
+  /* --------------------------------------------------------------- cursor */
+  /* A halo around the native cursor, which stays visible and keeps all of its
+     own semantics. Two layers chase the pointer at two speeds: a warm bloom
+     well behind it, and a ring just behind it. The ring never wraps or
+     outlines the element under the pointer — it only ever grows, tints, or
+     opens into a lens, so nothing on the page gains a border on hover.
 
+     Only ever runs on a real pointer that has not asked for reduced motion.
+     Everything is delegated off document, so markup added later — a flyout,
+     a carousel slide — is picked up without re-binding. */
+  (function initCursor() {
+    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+    if (!finePointer.matches || reduceMotion.matches) return;
+
+    // anything clickable: the ring opens a little and warms to gold
+    var HOT = 'a[href], button, summary, label[for], [role="button"], ' +
+              'input[type="submit"], input[type="button"], .burger';
+    // imagery: the ring opens into a soft lens
+    var MEDIA = 'img, picture, .team-plate__frame, .crew__medallion, .article__figure';
+    // grounds dark enough that a blue ring disappears into them
+    var DARK = '.footer, .footer-bed';
+
+    var root = document.createElement('div');
+    root.className = 'cursor';
+    root.setAttribute('aria-hidden', 'true');
+    root.innerHTML = '<div class="cursor__glow"></div>' +
+                     '<div class="cursor__ring"></div>';
+    document.body.appendChild(root);
+    document.documentElement.classList.add('has-cursor');
+
+    var glow = root.querySelector('.cursor__glow');
+    var ring = root.querySelector('.cursor__ring');
+
+    var px = window.innerWidth / 2,  py = window.innerHeight / 2;  // pointer
+    var gx = px, gy = py;                                          // glow
+    var rx = px, ry = py;                                          // ring
+    var down  = false;
+    var awake = false;
+    var raf   = null;
+
+    function place(el, x, y, scale) {
+      el.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0) ' +
+                           'translate(-50%,-50%) scale(' + scale + ')';
+    }
+
+    function evaluate(target) {
+      if (!target || target.nodeType !== 1) return;
+
+      var hot = !!target.closest(HOT);
+      root.classList.toggle('is-hot', hot);
+      // a photo inside a link is a link first
+      root.classList.toggle('is-media', !hot && !!target.closest(MEDIA));
+      root.classList.toggle('is-dark', !!target.closest(DARK));
+    }
+
+    function frame() {
+      rx += (px - rx) * 0.18;
+      ry += (py - ry) * 0.18;
+      gx += (px - gx) * 0.07;
+      gy += (py - gy) * 0.07;
+
+      place(glow, gx, gy, 1);
+      place(ring, rx, ry, down ? 0.86 : 1);
+
+      raf = window.requestAnimationFrame(frame);
+    }
+
+    function wake() {
+      if (awake) return;
+      awake = true;
+      root.classList.add('is-awake');
+      if (raf === null) raf = window.requestAnimationFrame(frame);
+    }
+
+    function sleep() {
+      if (!awake) return;
+      awake = false;
+      down = false;
+      root.classList.remove('is-awake');
+      if (raf !== null) { window.cancelAnimationFrame(raf); raf = null; }
+    }
+
+    document.addEventListener('pointermove', function (e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      var first = !awake;
+      px = e.clientX;
+      py = e.clientY;
+      if (first) { rx = gx = px; ry = gy = py; }   // no swoop in from the corner
+      wake();
+      evaluate(e.target);
+    }, { passive: true });
+
+    document.addEventListener('pointerdown', function () { down = true; },  { passive: true });
+    document.addEventListener('pointerup',   function () { down = false; }, { passive: true });
+    window.addEventListener('blur', sleep);
+
+    // Scrolling moves the page under a stationary pointer without firing a
+    // single move event, so the ring would keep whatever state it had — a
+    // media lens still open over the paragraph that scrolled into its place.
+    // Re-read what is actually under the pointer instead, once per frame.
+    var scrollQueued = false;
+    window.addEventListener('scroll', function () {
+      if (!awake || scrollQueued) return;
+      scrollQueued = true;
+      window.requestAnimationFrame(function () {
+        scrollQueued = false;
+        evaluate(document.elementFromPoint(px, py));
+      });
+    }, { passive: true });
+
+    // relatedTarget is null when the pointer leaves the document entirely —
+    // out of the window, or into an iframe, where no move events reach us
+    document.addEventListener('mouseout', function (e) {
+      if (!e.relatedTarget) sleep();
+    });
+
+    // a plugged-in mouse becoming a touchscreen (or vice versa) mid-session
+    if (finePointer.addEventListener) {
+      finePointer.addEventListener('change', function (e) {
+        if (!e.matches) {
+          sleep();
+          document.documentElement.classList.remove('has-cursor');
+        } else {
+          document.documentElement.classList.add('has-cursor');
+        }
+      });
+    }
+  })();
+
+})();
