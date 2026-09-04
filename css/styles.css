@@ -1570,19 +1570,41 @@ p.hero__headline {
 .promise a:hover .promise__more, .promise a:focus-visible .promise__more { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 1040px) {
+  .section--promises {
+    padding-top: 1.75rem;
+    padding-bottom: 1.75rem;
+  }
   .promises {
-    display: flex; overflow-x: auto;
+    display: flex;
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     margin-inline: calc(var(--gutter) * -1);
     padding-inline: var(--gutter);
+    gap: 0;
   }
   .promises::-webkit-scrollbar { display: none; }
-  .promise { flex: 0 0 min(260px, 74vw); scroll-snap-align: start; border-right: 1px solid var(--line); }
-  .promise a { padding-inline: var(--s-4); }
-  .promise:first-child a { padding-left: 0; }
-  .promise__more { opacity: 1; transform: none; }
+  .promise {
+    flex: 0 0 clamp(240px, 72vw, 300px);
+    scroll-snap-align: start;
+    border-right: 1px solid var(--line);
+    padding-inline: 1.25rem;
+  }
+  .promise:first-child {
+    padding-left: 0;
+  }
+  .promise:last-child {
+    border-right: 0;
+  }
+  .promise a {
+    padding: 0.5rem 0.5rem 0.5rem 0;
+  }
+  .promise__more {
+    opacity: 1;
+    transform: none;
+    margin-top: 0.5rem;
+  }
 }
 
 /* --------------------------------------------------------------- 9. MISSION */
