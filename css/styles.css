@@ -1569,41 +1569,113 @@ p.hero__headline {
 }
 .promise a:hover .promise__more, .promise a:focus-visible .promise__more { opacity: 1; transform: translateY(0); }
 
+.promises__dots { display: none; }
+
 @media (max-width: 1040px) {
   .section--promises {
-    padding-top: 1.75rem;
-    padding-bottom: 1.75rem;
+    padding-top: 2rem;
+    padding-bottom: 2.25rem;
+    background: var(--ivory);
+    overflow: hidden;
   }
-  .promises {
+  .section--promises .promises {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    gap: 0.85rem;
     margin-inline: calc(var(--gutter) * -1);
     padding-inline: var(--gutter);
-    gap: 0;
+    scroll-padding-inline: var(--gutter);
+    padding-top: 0.25rem;
+    padding-bottom: 0.75rem;
+    border-top: none;
   }
-  .promises::-webkit-scrollbar { display: none; }
-  .promise {
-    flex: 0 0 clamp(240px, 72vw, 300px);
+  .section--promises .promises::-webkit-scrollbar { display: none; }
+  .section--promises .promise,
+  .section--promises .promise:first-child,
+  .section--promises .promise:last-child {
+    flex: 0 0 clamp(250px, 78vw, 300px);
+    max-width: 300px;
     scroll-snap-align: start;
-    border-right: 1px solid var(--line);
-    padding-inline: 1.25rem;
+    scroll-snap-stop: normal;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--sh-sm);
+    padding: 0;
+    transition: transform var(--t-mid) var(--e-out), box-shadow var(--t-mid) var(--e-out), border-color var(--t-mid) var(--e-out);
   }
-  .promise:first-child {
-    padding-left: 0;
+  .section--promises .promise a,
+  .section--promises .promise:first-child a,
+  .section--promises .promise:not(:first-child) a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.35rem 1.25rem;
+    gap: 0.35rem;
+    text-decoration: none;
+    transform: none;
   }
-  .promise:last-child {
-    border-right: 0;
+  .section--promises .promise:hover {
+    box-shadow: var(--sh-md);
+    border-color: var(--brand-200);
   }
-  .promise a {
-    padding: 0.5rem 0.5rem 0.5rem 0;
+  .section--promises .promise__n {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--sand-600);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.02em;
   }
-  .promise__more {
+  .section--promises .promise__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+  .section--promises .promise__text {
+    font-size: 0.88rem;
+    color: var(--ink-2);
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-top: 0.2rem;
+  }
+  .section--promises .promise__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--brand-700);
+    margin-top: 0.85rem;
     opacity: 1;
     transform: none;
-    margin-top: 0.5rem;
+  }
+  .promises__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.15rem;
+  }
+  .promises__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--r-pill);
+    background: var(--sand-200);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all var(--t-mid) var(--e-out);
+  }
+  .promises__dot.is-active {
+    width: 24px;
+    background: var(--brand-700);
   }
 }
 
@@ -6205,3 +6277,307 @@ p.cred-group { margin-top: var(--s-6); }
 }
 
 
+
+/* ==========================================================================
+   TEAM PAGE — DUBLIN
+   A premium editorial treatment for the staff roster. Built as its own
+   namespace (.team-*, .crew-*, .also-*) rather than by reworking .roster, so
+   meet-our-tracy-team.html keeps the layout it has today until it is migrated
+   deliberately.
+
+   The governing constraint is the photography: the legacy staff cut-outs are
+   transparent PNGs as small as 150px wide, next to two new ones at 1066px.
+   Nothing here scales a portrait past ~136px, and every portrait is set in a
+   circular medallion so the low-resolution sources read as deliberate emblems
+   instead of soft photographs.
+   ========================================================================== */
+
+/* ---------------------------------------------------------- centred hero -- */
+/* The shared .page-hero is a two-column copy/photo grid. This page has no
+   portrait worth a half-width column (the only banner is 1024x349, which
+   crops to mush in a tall slot), so the hero runs centred and the banner is
+   given its own full-width plate below at its native ratio. */
+.page-hero--center { text-align: center; }
+.page-hero--center .page-hero__inner { padding-block: clamp(2.75rem, 1.8rem + 3.2vw, 4.5rem); }
+.page-hero--center .page-hero__inner > * { max-width: min(46rem, 100%); margin-inline: auto; }
+.page-hero--center .page-hero__actions { justify-content: center; }
+.page-hero--center .crumbs ol { justify-content: center; }
+@media (min-width: 940px) {
+  .page-hero--center { display: block; min-height: 0; }
+}
+
+/* the hero lede on this page carries the practice's own welcome line, so it is
+   set a touch larger and in the display face */
+.page-hero__lede--display {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.05rem + 1.05vw, 1.85rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.42;
+  color: var(--brand-800);
+}
+
+/* ------------------------------------------------------------ team plate -- */
+/* The group banner, framed rather than cropped: native 1024x349 ratio, a warm
+   hairline, and a soft vignette so the JPEG's edges dissolve into the page. */
+.team-plate { position: relative; padding-top: clamp(2.5rem, 1.8rem + 2.4vw, 4rem); }
+.team-plate__frame {
+  position: relative;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--sh-lg);
+  background: var(--brand-50);
+}
+.team-plate__frame::after {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .6),
+              inset 0 0 0 2px rgba(192, 143, 61, .18);
+  pointer-events: none;
+}
+.team-plate__frame img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1024 / 349;
+  /* the banner is a full-width lockup: logo left, the whole team across the
+     frame. Any crop loses people, so it is always shown at its native ratio. */
+  object-fit: contain;
+  background: var(--paper);
+}
+
+/* ----------------------------------------------------------- stat band ---- */
+/* .stat-band already exists in the system but had no page using it. Give it the
+   spacing it needs when it tucks under the plate rather than under a hero. */
+.stat-band--plate { padding-bottom: 0; }
+.stat-band--plate .stat-band__card {
+  margin-top: clamp(-4.5rem, -5vw, -2.25rem);
+  border: 1px solid var(--line-soft);
+}
+
+/* ------------------------------------------------------------ principles -- */
+/* The practice's own three-sentence statement of how the team works, set as
+   three cards so it scans instead of running as one long paragraph. */
+.principles {
+  display: grid;
+  gap: clamp(1rem, 1.5vw, 1.5rem);
+  list-style: none; margin: 0; padding: 0;
+}
+@media (min-width: 860px) { .principles { grid-template-columns: repeat(3, 1fr); } }
+.principle {
+  position: relative;
+  padding: clamp(1.6rem, 1.1rem + 1.4vw, 2.25rem);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-xs);
+}
+.principle__num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 1.4rem + .6vw, 2rem);
+  font-weight: 500; line-height: 1;
+  color: var(--sand-500);
+}
+.principle__num::after {
+  content: "";
+  display: block;
+  width: 2.25rem; height: 1px;
+  margin-top: .85rem;
+  background: linear-gradient(90deg, var(--sand-500), transparent);
+}
+.principle__title {
+  margin-top: var(--s-4);
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 600; line-height: 1.2;
+  color: var(--brand-900);
+}
+.principle__body {
+  margin-top: .6rem;
+  font-size: var(--fs-sm);
+  line-height: 1.72;
+  color: var(--ink-2);
+}
+
+/* ----------------------------------------------------------------- crew --- */
+.crew {
+  display: grid;
+  gap: clamp(1rem, 1.4vw, 1.5rem);
+  list-style: none; margin: 0; padding: 0;
+}
+@media (min-width: 760px)  { .crew { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1120px) { .crew { grid-template-columns: repeat(3, 1fr); } }
+
+.crew__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.65rem, 1.15rem + 1.5vw, 2.35rem);
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper) 58%, var(--ivory) 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  box-shadow: var(--sh-xs);
+  overflow: hidden;
+  transition: transform var(--t-mid) var(--e-out),
+              box-shadow var(--t-mid) var(--e-out),
+              border-color var(--t-mid) var(--e-out);
+}
+/* a gold rule that draws across the card top on hover */
+.crew__item::before {
+  content: "";
+  position: absolute; inset-inline: 0; top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sun-400), var(--sand-500) 58%, transparent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--t-slow) var(--e-soft);
+}
+.crew__item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sh-lg);
+  border-color: var(--brand-100);
+}
+.crew__item:hover::before { transform: scaleX(1); }
+
+.crew__medallion {
+  position: relative;
+  width: clamp(108px, 11vw, 136px);
+  aspect-ratio: 1;
+  margin-bottom: clamp(1.1rem, 1.4vw, 1.5rem);
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(74% 74% at 50% 20%, #fff 0%, var(--brand-50) 44%, var(--brand-100) 100%);
+  /* double ring: a cool inner hairline, a paper gap, a warm outer hairline */
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .85),
+    0 0 0 1px var(--brand-100),
+    0 0 0 6px var(--paper),
+    0 0 0 7px var(--sand-200),
+    0 18px 32px -20px rgba(20, 35, 46, .5);
+}
+.crew__photo {
+  width: 100%; height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: bottom center;
+}
+
+.crew__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1.15rem + .55vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -.01em;
+  color: var(--brand-900);
+}
+.crew__role {
+  margin-top: .5rem;
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--sand-700);
+}
+.crew__rule {
+  width: 100%; height: 1px;
+  margin: clamp(1rem, 1.3vw, 1.3rem) 0 0;
+  border: 0;
+  background: linear-gradient(90deg, var(--line), transparent 70%);
+}
+.crew__bio {
+  margin-top: clamp(.9rem, 1.2vw, 1.15rem);
+  font-size: var(--fs-sm);
+  line-height: 1.72;
+  color: var(--ink-2);
+}
+/* pushed to the foot so cards with short and long bios still align */
+.crew__since {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: .5rem;
+  margin-top: clamp(1.15rem, 1.5vw, 1.6rem);
+  padding: .38rem .8rem;
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--brand-800);
+  background: var(--brand-50);
+  border: 1px solid var(--brand-100);
+  border-radius: var(--r-pill);
+}
+.crew__since::before {
+  content: "";
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--sun-500);
+}
+/* the pill is the last child; auto margin drops it to the card foot so cards
+   with a two-line bio and a nine-line bio still align along the bottom */
+.crew__item > .crew__since { margin-top: auto; }
+.crew__bio:has(+ .crew__since) { margin-bottom: clamp(1.15rem, 1.5vw, 1.6rem); }
+
+/* ------------------------------------------------------------- also meet -- */
+/* Bridge to the two doctor pages, which patients look for from here. */
+.also { display: grid; gap: clamp(1rem, 1.5vw, 1.5rem); list-style: none; margin: 0; padding: 0; }
+@media (min-width: 800px) { .also { grid-template-columns: repeat(2, 1fr); } }
+.also__card {
+  display: grid;
+  grid-template-columns: clamp(76px, 9vw, 104px) 1fr;
+  align-items: center;
+  gap: clamp(1rem, 1.8vw, 1.5rem);
+  padding: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-xs);
+  text-decoration: none;
+  transition: transform var(--t-mid) var(--e-out),
+              box-shadow var(--t-mid) var(--e-out),
+              border-color var(--t-mid) var(--e-out);
+}
+.also__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--sh-md);
+  border-color: var(--brand-100);
+}
+.also__photo {
+  width: 100%; aspect-ratio: 1;
+  border-radius: 50%;
+  /* full-frame portraits, not cut-outs: crop to the face rather than letting
+     `contain` shrink a 2:3 photo into a strip the circle then clips */
+  object-fit: cover;
+  object-position: center 16%;
+  background: radial-gradient(70% 70% at 50% 22%, #fff, var(--brand-50) 55%, var(--brand-100));
+  box-shadow: 0 0 0 1px var(--brand-100), 0 0 0 5px var(--paper), 0 0 0 6px var(--sand-200);
+}
+/* the card is an <a>, so its inner text nodes are spans — give them blocks */
+.also__body { display: block; }
+.also__label {
+  display: block;
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.also__name {
+  display: block;
+  margin-top: .3rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 1.15rem + .5vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--brand-900);
+}
+.also__meta { display: block; margin-top: .35rem; font-size: var(--fs-sm); color: var(--ink-2); }
+.also__go {
+  display: inline-flex; align-items: center; gap: .45rem;
+  margin-top: .7rem;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--brand-700);
+  transition: gap var(--t-fast) var(--e-out);
+}
+.also__card:hover .also__go { gap: .8rem; }
