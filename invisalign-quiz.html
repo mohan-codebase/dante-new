@@ -36,6 +36,592 @@
     display: flex; align-items: center; justify-content: center;
     background: radial-gradient(58% 52% at 50% 40%, rgba(26,128,192,.12), transparent 72%), linear-gradient(186deg, #e8f1fb 0%, #f1f6fc 40%, #faf7f0 100%);
   }
+
+  /* --- Invisalign Quiz Specific Styles --- */
+  .hero-trust-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--s-3) var(--s-5);
+    margin-top: var(--s-6);
+    padding: 0;
+    list-style: none;
+  }
+  .hero-trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--ink-2);
+  }
+  .hero-trust-item svg {
+    color: var(--brand-600);
+    flex-shrink: 0;
+  }
+
+  .quiz-section {
+    position: relative;
+    padding-block: clamp(3rem, 2rem + 4vw, 5.5rem);
+    background: linear-gradient(180deg, #f8fbfe 0%, #fbfdfa 50%, #ffffff 100%);
+  }
+  .quiz-container {
+    max-width: 880px;
+    margin-inline: auto;
+    width: 100%;
+  }
+  .quiz-card {
+    background: #ffffff;
+    border-radius: var(--r-xl, 28px);
+    border: 1px solid var(--line-soft, #e9e5dd);
+    box-shadow: 0 20px 48px -16px rgba(16, 55, 92, 0.12), 0 3px 12px rgba(20, 35, 46, 0.04);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  /* Header / Progress bar */
+  .quiz-card__header {
+    padding: clamp(1.25rem, 1rem + 1.2vw, 2rem) clamp(1.25rem, 1.2rem + 2vw, 2.75rem);
+    background: linear-gradient(180deg, #fafcff 0%, #ffffff 100%);
+    border-bottom: 1px solid var(--line-soft, #ece7dd);
+  }
+  .quiz-card__topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+  }
+  .quiz-step-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.28rem 0.85rem;
+    background: var(--brand-50, #eff6fc);
+    color: var(--brand-800, #144d7c);
+    border: 1px solid var(--brand-200, #a9d3ee);
+    border-radius: var(--r-pill);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .quiz-time-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--fs-xs);
+    color: var(--ink-3);
+    font-weight: 600;
+  }
+  .quiz-progress-track {
+    width: 100%;
+    height: 8px;
+    background: var(--mist, #f0ede6);
+    border-radius: var(--r-pill);
+    overflow: hidden;
+  }
+  .quiz-progress-bar {
+    height: 100%;
+    width: 25%;
+    background: linear-gradient(90deg, var(--brand-600, #1a80c0) 0%, var(--brand-500, #189ad6) 70%, var(--sun-500, #edcb4a) 100%);
+    border-radius: var(--r-pill);
+    transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Body & Steps */
+  .quiz-card__body {
+    padding: clamp(1.5rem, 1.2rem + 2vw, 3rem) clamp(1.25rem, 1.2rem + 2vw, 2.75rem);
+  }
+  .quiz-step {
+    display: none;
+    animation: quizFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .quiz-step.quiz-step--active {
+    display: block;
+  }
+  @keyframes quizFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .quiz-step__head {
+    margin-bottom: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+    text-align: left;
+  }
+  .quiz-step__eyebrow {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    letter-spacing: var(--ls-label, 0.16em);
+    text-transform: uppercase;
+    color: var(--brand-700, #17679d);
+    margin-bottom: 0.4rem;
+  }
+  .quiz-step__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 1.3rem + 1.2vw, 2.15rem);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0;
+  }
+  .quiz-step__lede {
+    margin-top: 0.5rem;
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+
+  /* Options Grids */
+  .quiz-grid {
+    display: grid;
+    gap: clamp(0.75rem, 0.6rem + 0.6vw, 1.25rem);
+    margin-bottom: clamp(1.5rem, 1.2rem + 1vw, 2.25rem);
+  }
+  .quiz-grid--3 {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .quiz-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  .quiz-grid--2 {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 600px) {
+    .quiz-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .quiz-grid--4 {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 540px) {
+    .quiz-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .quiz-grid--visual {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 480px) {
+    .quiz-grid--visual { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 760px) {
+    .quiz-grid--visual { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* Interactive Option Card */
+  .quiz-card-opt {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: clamp(1.1rem, 0.9rem + 0.5vw, 1.4rem);
+    border: 2px solid var(--line, #e2e8f0);
+    border-radius: var(--r-md, 16px);
+    background: #ffffff;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    user-select: none;
+  }
+  .quiz-card-opt input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .quiz-card-opt:hover {
+    border-color: var(--brand-300, #7dbde5);
+    background: #fafcfe;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -6px rgba(23, 103, 157, 0.14);
+  }
+  .quiz-card-opt:focus-within {
+    outline: 2px solid var(--focus, #17679d);
+    outline-offset: 3px;
+  }
+  .quiz-card-opt.is-selected {
+    border-color: var(--brand-600, #1a80c0);
+    background: #f1f8fe;
+    box-shadow: 0 10px 24px -6px rgba(24, 154, 214, 0.22);
+  }
+
+  /* Card Checkmark Indicator */
+  .quiz-check-indicator {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--line, #cbd5e1);
+    display: grid;
+    place-items: center;
+    background: #ffffff;
+    color: transparent;
+    transition: all 0.2s ease;
+  }
+  .quiz-card-opt.is-selected .quiz-check-indicator {
+    border-color: var(--brand-600, #1a80c0);
+    background: var(--brand-600, #1a80c0);
+    color: #ffffff;
+    transform: scale(1.08);
+  }
+
+  /* Card Content */
+  .quiz-opt-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--r-pill);
+    background: var(--mist, #f4f0e9);
+    color: var(--sand-700, #8a6329);
+    font-size: var(--fs-2xs);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.65rem;
+    max-width: fit-content;
+  }
+  .quiz-card-opt.is-selected .quiz-opt-badge {
+    background: var(--brand-100, #dceaf7);
+    color: var(--brand-800, #144d7c);
+  }
+  .quiz-opt-title {
+    font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 0.4rem 0;
+    line-height: 1.35;
+    padding-right: 1.75rem; /* room for checkmark */
+  }
+  .quiz-opt-desc {
+    font-size: var(--fs-xs);
+    color: var(--ink-2);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Visual Photo Cards */
+  .quiz-card-opt--visual {
+    padding: 0.9rem;
+    align-items: center;
+    text-align: center;
+  }
+  .quiz-card-opt--visual .quiz-check-indicator {
+    top: 0.6rem;
+    right: 0.6rem;
+    z-index: 2;
+  }
+  .quiz-visual-frame {
+    width: 100%;
+    aspect-ratio: 350 / 155;
+    border-radius: var(--r-sm, 10px);
+    overflow: hidden;
+    background: #fbfbfc;
+    border: 1px solid var(--line-soft, #f0ece4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+  }
+  .quiz-visual-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+  }
+  .quiz-card-opt--visual:hover .quiz-visual-frame img {
+    transform: scale(1.03);
+  }
+  .quiz-visual-title {
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.35;
+  }
+
+  /* Navigation buttons */
+  .quiz-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: clamp(1rem, 0.8rem + 0.8vw, 1.5rem);
+    border-top: 1px solid var(--line-soft, #f0ece4);
+  }
+  .quiz-nav__right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+  }
+  .quiz-nav--form { margin-top: 1.5rem; }
+  .quiz-nav__note--error {
+    color: #b23c2c;
+    font-weight: 700;
+  }
+
+  /* Step 5: Result & Booking Form */
+  .quiz-result-hero {
+    background: linear-gradient(135deg, #eef7fc 0%, #fefcf7 60%, #f9f4ea 100%);
+    border: 1px solid var(--brand-200, #a9d3ee);
+    border-radius: var(--r-lg, 20px);
+    padding: clamp(1.25rem, 1rem + 1.2vw, 2rem);
+    margin-bottom: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  }
+  .quiz-result-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  .quiz-result-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #10b981;
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .quiz-result-match {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: var(--r-pill);
+    background: #ecfdf5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+    font-size: var(--fs-2xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .quiz-result-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 1.2rem + 1vw, 1.85rem);
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--ink);
+    margin: 0.25rem 0 0 0;
+  }
+  .quiz-result-quote {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(23, 103, 157, 0.12);
+  }
+  .quiz-result-quote img {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: var(--sh-sm);
+    flex-shrink: 0;
+  }
+  .quiz-result-quote p {
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .quiz-result-quote strong {
+    color: var(--ink);
+    display: block;
+    margin-top: 0.35rem;
+    font-size: var(--fs-xs);
+  }
+
+  /* Summary Chips */
+  .quiz-chips-wrap {
+    margin-top: 1.25rem;
+  }
+  .quiz-chips-label {
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    margin-bottom: 0.5rem;
+  }
+  .quiz-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .quiz-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.85rem;
+    background: #ffffff;
+    border: 1px solid var(--brand-200, #a9d3ee);
+    border-radius: var(--r-pill);
+    font-size: var(--fs-xs);
+    color: var(--ink-2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  }
+  .quiz-chip__label {
+    color: var(--ink-3);
+  }
+  .quiz-chip__val {
+    color: var(--brand-800, #144d7c);
+    font-weight: 700;
+  }
+
+  /* Form inside quiz */
+  .quiz-form-wrap {
+    text-align: left;
+  }
+  .quiz-form-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 1.15rem + 0.8vw, 1.65rem);
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.5rem 0;
+  }
+  .quiz-form-lede {
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+    margin: 0 0 1.5rem 0;
+    line-height: 1.55;
+  }
+
+  /* Supporting Value Section */
+  .quiz-steps-section {
+    padding-block: clamp(3rem, 2rem + 3.5vw, 5rem);
+    background: var(--paper, #ffffff);
+    border-top: 1px solid var(--line-soft, #f0ece4);
+  }
+  .quiz-hiw-grid {
+    display: grid;
+    gap: clamp(1.25rem, 1rem + 1.2vw, 2rem);
+    grid-template-columns: 1fr;
+    margin-top: clamp(1.75rem, 1.2rem + 1.5vw, 3rem);
+  }
+  @media (min-width: 768px) {
+    .quiz-hiw-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  .quiz-hiw-card {
+    position: relative;
+    padding: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+    background: var(--ivory, #fcfaf6);
+    border: 1px solid var(--line-soft, #f0ece4);
+    border-radius: var(--r-lg, 20px);
+    text-align: left;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .quiz-hiw-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sh-md);
+  }
+  .quiz-why-icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--brand-50, #eff6fc);
+    color: var(--brand-700, #17679d);
+    margin: 0 0 1rem 0;
+  }
+  .quiz-hiw-num {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--brand-700, #17679d);
+    color: #ffffff;
+    font-weight: 800;
+    font-size: var(--fs-sm);
+    margin-bottom: 1.25rem;
+  }
+  .quiz-hiw-card h3 {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0 0 0.5rem 0;
+  }
+  .quiz-hiw-card p {
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* FAQ Accordion */
+  .quiz-faq-section {
+    padding-block: clamp(3rem, 2rem + 3vw, 5rem);
+    background: var(--mist, #f4f0e9);
+  }
+  .quiz-faq-list {
+    max-width: 820px;
+    margin: clamp(1.75rem, 1.2rem + 1.5vw, 2.75rem) auto 0;
+    display: grid;
+    gap: 1rem;
+  }
+  .quiz-faq-item {
+    background: #ffffff;
+    border-radius: var(--r-md, 16px);
+    border: 1px solid var(--line-soft, #ece7dd);
+    overflow: hidden;
+    box-shadow: var(--sh-xs);
+    transition: border-color 0.2s ease;
+  }
+  .quiz-faq-item[open] {
+    border-color: var(--brand-300, #7dbde5);
+  }
+  .quiz-faq-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    font-size: var(--fs-body);
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+  .quiz-faq-summary::-webkit-details-marker { display: none; }
+  .quiz-faq-summary svg {
+    flex-shrink: 0;
+    color: var(--brand-600, #1a80c0);
+    transition: transform 0.25s ease;
+  }
+  .quiz-faq-item[open] .quiz-faq-summary svg {
+    transform: rotate(180deg);
+  }
+  .quiz-faq-content {
+    padding: 0 1.5rem 1.35rem 1.5rem;
+    font-size: var(--fs-sm);
+    color: var(--ink-2);
+    line-height: 1.65;
+  }
+  .quiz-faq-content p { margin: 0; }
+  .quiz-faq-content p + p { margin-top: 0.75rem; }
+
+  /* Non-JS Fallback */
+  html:not(.js) .quiz-step {
+    display: block !important;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+  html:not(.js) .quiz-card__header,
+  html:not(.js) .quiz-nav,
+  html:not(.js) .quiz-result-hero {
+    display: none !important;
+  }
 </style>
 <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -210,7 +796,7 @@
       </ul>
 
       <div class="nav__drawer-foot">
-        <a class="btn btn--primary btn--block" href="#appointment">Request Consultation</a>
+        <a class="btn btn--primary btn--block" href="index.html#appointment">Request Consultation</a>
         <a class="nav__drawer-link" href="tel:925-828-2244">Dublin — 925-828-2244</a>
         <a class="nav__drawer-link" href="tel:209-835-0977">Tracy — 209-835-0977</a>
         <a class="nav__drawer-link" href="mailto:info@drdantegonzales.com">info@drdantegonzales.com</a>
@@ -219,7 +805,7 @@
     </nav>
 
     <div class="header__actions">
-      <a class="btn btn--primary btn--sm header__cta" href="#appointment">Request Consultation</a>
+      <a class="btn btn--primary btn--sm header__cta" href="index.html#appointment">Request Consultation</a>
       <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -243,41 +829,552 @@
     <nav class="crumbs" aria-label="Breadcrumb">
       <ol>
         <li><a href="index.html">Home</a></li>
+        <li><a href="invisalign.html">Invisalign</a></li>
         <li aria-current="page">Invisalign Quiz</li>
       </ol>
     </nav>
-    <h1 class="page-hero__title" id="page-title" data-reveal>Invisalign Quiz</h1>
-    <p class="page-hero__lede" data-reveal data-reveal-delay="1">Take Our 30-Second Invisalign Smile Assessment To Find Out!</p>
-    <div class="page-hero__actions" data-reveal data-reveal-delay="2">
-      <a class="btn btn--primary btn--lg" href="index.html#appointment">Request Consultation</a>
-      <a class="btn btn--ghost btn--lg" href="invisalign-quiz.html">Take the 30-second quiz</a>
+    <p class="eyebrow" data-reveal>Diamond Invisalign Provider &bull; Dublin &amp; Tracy, CA</p>
+    <h1 class="page-hero__title" id="page-title" data-reveal data-reveal-delay="1">Invisalign Smile Assessment Quiz</h1>
+    <p class="page-hero__lede" data-reveal data-reveal-delay="2">
+      Want to know if you’re a candidate for Invisalign? Take our 30-second assessment to see if clear aligners fit your smile goals, and receive customized clinical guidance from Dr. Dante Gonzales.
+    </p>
+    <div class="page-hero__actions" data-reveal data-reveal-delay="3">
+      <a class="btn btn--primary btn--lg" href="#quiz-app">Start 30-Second Quiz</a>
+      <a class="btn btn--ghost btn--lg" href="index.html#appointment">Request Consultation</a>
     </div>
+    <ul class="hero-trust-list" data-reveal data-reveal-delay="4">
+      <li class="hero-trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span>100% Free &bull; No Obligation</span>
+      </li>
+      <li class="hero-trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span>Instant Clinical Guidance</span>
+      </li>
+      <li class="hero-trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span>12,000+ Smiles Transformed</span>
+      </li>
+    </ul>
   </div>
-    <div class="page-hero__media" aria-hidden="true">
-      <img src="assets/photos/braces-care-760.webp" alt="Orthodontic patient having her braces adjusted" loading="eager" decoding="async">
-    </div>
+  <div class="page-hero__media" aria-hidden="true">
+    <img src="assets/treatments/invisalign-elite-provider-01.png" alt="Smiling orthodontic patient holding a clear Invisalign aligner" loading="eager" decoding="async">
+  </div>
 </section>
 
-<section class="section" aria-labelledby="sec-0">
-  <div class="shell shell--narrow">
-    <div class="section__head">
-      <h2 class="section__title" id="sec-0" data-reveal>Want to know if you’re a candidate for Invisalign?</h2>
+<!-- ============================================================== QUIZ APP -->
+<section class="section quiz-section" id="quiz-app" aria-label="Invisalign candidacy quiz">
+  <div class="shell">
+    <div class="quiz-container">
+      <div class="quiz-card" data-reveal>
+
+        <!-- Quiz Top Bar / Progress Tracker -->
+        <div class="quiz-card__header">
+          <div class="quiz-card__topline">
+            <span class="quiz-step-badge" id="quizStepBadge">
+              Question <span id="quizCurrentStep">1</span> of 4
+            </span>
+            <span class="quiz-time-tag">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Takes ~30 seconds
+            </span>
+          </div>
+          <div class="quiz-progress-track">
+            <div class="quiz-progress-bar" id="quizProgressBar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+          </div>
+        </div>
+
+        <!-- Quiz Card Body -->
+        <div class="quiz-card__body">
+          <form class="form" id="invisalignQuizForm" action="contact-form1.php" method="post" novalidate data-validate>
+
+            <!-- Hidden Inputs passed with form -->
+            <input type="hidden" id="hidden_quiz_age" name="quiz_age" value="">
+            <input type="hidden" id="hidden_quiz_previous" name="quiz_previous_braces" value="">
+            <input type="hidden" id="hidden_quiz_concern" name="quiz_concern" value="">
+            <input type="hidden" id="hidden_quiz_teeth" name="quiz_teeth_match" value="">
+            <input type="hidden" id="hidden_quiz_summary" name="quiz_summary" value="">
+            <input type="hidden" id="recaptchaResponse" name="recaptcha_response" value="">
+
+            <!-- Honeypot anti-spam -->
+            <div class="hp" aria-hidden="true">
+              <label for="honeypot">Leave this field blank</label>
+              <input type="text" id="honeypot" name="honeypot" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- STEP 1: Age Group -->
+            <div class="quiz-step quiz-step--active" data-step="1">
+              <div class="quiz-step__head">
+                <p class="quiz-step__eyebrow">Step 1 of 4 &bull; Patient Age</p>
+                <h2 class="quiz-step__title" tabindex="-1" id="quiz-main-heading">How old are you or the person you are inquiring about?</h2>
+                <p class="quiz-step__lede">Invisalign provides specialized aligners engineered for distinct dental developmental stages.</p>
+              </div>
+
+              <div class="quiz-grid quiz-grid--3" role="radiogroup" aria-labelledby="quiz-main-heading">
+                <label class="quiz-card-opt">
+                  <input type="radio" name="invisalign" value="Invisalign First (6 - 12)">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span class="quiz-opt-badge">Invisalign First</span>
+                  <span class="quiz-opt-title">6 &ndash; 12 Years</span>
+                  <p class="quiz-opt-desc">Phase-1 treatment designed for growing jaws, expanding arches, and mixed dentition.</p>
+                </label>
+
+                <label class="quiz-card-opt">
+                  <input type="radio" name="invisalign" value="Invisalign Teen (13 - 19)">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span class="quiz-opt-badge">Invisalign Teen</span>
+                  <span class="quiz-opt-title">13 &ndash; 19 Years</span>
+                  <p class="quiz-opt-desc">Discreet aligners with wear-time compliance indicators and room for emerging adult teeth.</p>
+                </label>
+
+                <label class="quiz-card-opt">
+                  <input type="radio" name="invisalign" value="Above 19">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span class="quiz-opt-badge">Adult Care</span>
+                  <span class="quiz-opt-title">Above 19 Years</span>
+                  <p class="quiz-opt-desc">Nearly invisible, removable clear aligners tailored for busy professionals and lifestyle flexibility.</p>
+                </label>
+              </div>
+
+              <div class="quiz-nav">
+                <span class="quiz-time-tag">Click an option to continue</span>
+                <div class="quiz-nav__right">
+                  <button type="button" class="btn btn--primary" data-quiz-next>
+                    Continue
+                    <svg class="btn__arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 2: Previous Braces / Aligners -->
+            <div class="quiz-step" data-step="2" hidden>
+              <div class="quiz-step__head">
+                <p class="quiz-step__eyebrow">Step 2 of 4 &bull; Treatment History</p>
+                <h2 class="quiz-step__title" tabindex="-1">Have you ever worn braces or an invisible aligner?</h2>
+                <p class="quiz-step__lede">Whether you are starting completely fresh or refreshing past orthodontic work, Dr. Gonzales can help.</p>
+              </div>
+
+              <div class="quiz-grid quiz-grid--2" role="radiogroup" aria-label="Have you ever worn braces or an invisible aligner?">
+                <label class="quiz-card-opt">
+                  <input type="radio" name="yesorno" value="No">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span class="quiz-opt-badge">First-Time Patient</span>
+                  <span class="quiz-opt-title">No, Never Worn Braces</span>
+                  <p class="quiz-opt-desc">This will be your first orthodontic treatment to achieve an aligned, confident smile.</p>
+                </label>
+
+                <label class="quiz-card-opt">
+                  <input type="radio" name="yesorno" value="Yes">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span class="quiz-opt-badge">Previous Treatment</span>
+                  <span class="quiz-opt-title">Yes, Previously Had Braces/Aligners</span>
+                  <p class="quiz-opt-desc">Looking to correct teeth relapse, shifting from non-retainer wear, or refine previous results.</p>
+                </label>
+              </div>
+
+              <div class="quiz-nav">
+                <button type="button" class="btn btn--ghost" data-quiz-back>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg>
+                  Back
+                </button>
+                <div class="quiz-nav__right">
+                  <button type="button" class="btn btn--primary" data-quiz-next>
+                    Continue
+                    <svg class="btn__arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3: Primary Smile Concern -->
+            <div class="quiz-step" data-step="3" hidden>
+              <div class="quiz-step__head">
+                <p class="quiz-step__eyebrow">Step 3 of 4 &bull; Main Concern</p>
+                <h2 class="quiz-step__title" tabindex="-1">What issue are you most concerned about?</h2>
+                <p class="quiz-step__lede">Select the primary condition you would like our orthodontic specialists to focus on.</p>
+              </div>
+
+              <div class="quiz-grid quiz-grid--4" role="radiogroup" aria-label="What issue are you most concerned about?">
+                <label class="quiz-card-opt">
+                  <input type="radio" name="issue" value="Spacing Issue">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span class="quiz-opt-badge">Gaps &amp; Spaces</span>
+                  <span class="quiz-opt-title">Spacing Issue</span>
+                  <p class="quiz-opt-desc">Noticeable gaps or spacing between upper or lower teeth that you'd like closed.</p>
+                </label>
+
+                <label class="quiz-card-opt">
+                  <input type="radio" name="issue" value="Crowding Issue">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span class="quiz-opt-badge">Overlapping</span>
+                  <span class="quiz-opt-title">Crowding Issue</span>
+                  <p class="quiz-opt-desc">Teeth overlap, twist, or lack sufficient space along your dental arch.</p>
+                </label>
+
+                <label class="quiz-card-opt">
+                  <input type="radio" name="issue" value="Generally Crooked Teeth">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span class="quiz-opt-badge">Cosmetic Alignment</span>
+                  <span class="quiz-opt-title">Generally Crooked Teeth</span>
+                  <p class="quiz-opt-desc">Uneven smile line or teeth that you want leveled, straightened, and perfected.</p>
+                </label>
+
+                <label class="quiz-card-opt">
+                  <input type="radio" name="issue" value="Bite (underbite, overbite, etc.)">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <span class="quiz-opt-badge">Bite Correction</span>
+                  <span class="quiz-opt-title">Bite Issue</span>
+                  <p class="quiz-opt-desc">Overbite, underbite, crossbite, open bite, or difficulty chewing comfortably.</p>
+                </label>
+              </div>
+
+              <div class="quiz-nav">
+                <button type="button" class="btn btn--ghost" data-quiz-back>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg>
+                  Back
+                </button>
+                <div class="quiz-nav__right">
+                  <button type="button" class="btn btn--primary" data-quiz-next>
+                    Continue
+                    <svg class="btn__arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 4: Visual Teeth Match (The 6 Images) -->
+            <div class="quiz-step" data-step="4" hidden>
+              <div class="quiz-step__head">
+                <p class="quiz-step__eyebrow">Step 4 of 4 &bull; Visual Comparison</p>
+                <h2 class="quiz-step__title" tabindex="-1">Which picture best describes your teeth?</h2>
+                <p class="quiz-step__lede">Select the image that most closely resembles your current teeth alignment.</p>
+              </div>
+
+              <div class="quiz-grid quiz-grid--visual" role="radiogroup" aria-label="Which picture best describes your teeth?">
+                <label class="quiz-card-opt quiz-card-opt--visual">
+                  <input type="radio" name="teeth-spacing" value="Little or no crowding">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <div class="quiz-visual-frame">
+                    <img src="assets/ui/quiz-option-01.png" alt="Illustration representing little or no crowding" width="350" height="155" loading="lazy" decoding="async">
+                  </div>
+                  <span class="quiz-visual-title">Little or no Crowding</span>
+                </label>
+
+                <label class="quiz-card-opt quiz-card-opt--visual">
+                  <input type="radio" name="teeth-spacing" value="Little or no spacing">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <div class="quiz-visual-frame">
+                    <img src="assets/ui/quiz-option-02.png" alt="Illustration representing little or no spacing" width="350" height="157" loading="lazy" decoding="async">
+                  </div>
+                  <span class="quiz-visual-title">Little or no Spacing</span>
+                </label>
+
+                <label class="quiz-card-opt quiz-card-opt--visual">
+                  <input type="radio" name="teeth-spacing" value="Moderate crowding">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <div class="quiz-visual-frame">
+                    <img src="assets/ui/quiz-option-03.png" alt="Illustration representing moderate crowding" width="350" height="155" loading="lazy" decoding="async">
+                  </div>
+                  <span class="quiz-visual-title">Moderate Crowding</span>
+                </label>
+
+                <label class="quiz-card-opt quiz-card-opt--visual">
+                  <input type="radio" name="teeth-spacing" value="Moderate spacing">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <div class="quiz-visual-frame">
+                    <img src="assets/ui/quiz-option-04.png" alt="Illustration representing moderate spacing" width="350" height="161" loading="lazy" decoding="async">
+                  </div>
+                  <span class="quiz-visual-title">Moderate Spacing</span>
+                </label>
+
+                <label class="quiz-card-opt quiz-card-opt--visual">
+                  <input type="radio" name="teeth-spacing" value="Severe crowding">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <div class="quiz-visual-frame">
+                    <img src="assets/ui/quiz-option-05.png" alt="Illustration representing severe crowding" width="350" height="153" loading="lazy" decoding="async">
+                  </div>
+                  <span class="quiz-visual-title">Severe Crowding</span>
+                </label>
+
+                <label class="quiz-card-opt quiz-card-opt--visual">
+                  <input type="radio" name="teeth-spacing" value="Severe spacing">
+                  <span class="quiz-check-indicator" aria-hidden="true">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </span>
+                  <div class="quiz-visual-frame">
+                    <img src="assets/ui/quiz-option-06.png" alt="Illustration representing severe spacing" width="350" height="156" loading="lazy" decoding="async">
+                  </div>
+                  <span class="quiz-visual-title">Severe Spacing</span>
+                </label>
+              </div>
+
+              <div class="quiz-nav">
+                <button type="button" class="btn btn--ghost" data-quiz-back>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg>
+                  Back
+                </button>
+                <div class="quiz-nav__right">
+                  <button type="button" class="btn btn--primary" data-quiz-next>
+                    See My Results
+                    <svg class="btn__arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 5: Results & Request Consultation -->
+            <div class="quiz-step" data-step="5" hidden>
+              <!-- Assessment Hero Box -->
+              <div class="quiz-result-hero">
+                <div class="quiz-result-header">
+                  <div class="quiz-result-icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <div>
+                    <span class="quiz-result-match">Excellent Candidate Match</span>
+                    <h2 class="quiz-result-title">Great News! You Are an Ideal Candidate for Invisalign</h2>
+                  </div>
+                </div>
+
+                <div class="quiz-result-quote">
+                  <img src="assets/team/dr-dante-gonzales.webp" alt="Dr. Dante A. Gonzales" width="54" height="54" loading="lazy" decoding="async">
+                  <div>
+                    <p>
+                      &ldquo;As a Diamond Invisalign Provider in the East Bay, our practice routinely achieves outstanding results with clear aligners &mdash; even for moderate to complex crowding, spacing, and bite corrections. You do not need metal wires to achieve your dream smile.&rdquo;
+                    </p>
+                    <strong>Dr. Dante A. Gonzales, DMD, MSD &bull; Board-Certified Orthodontist</strong>
+                  </div>
+                </div>
+
+                <!-- Live Recap of Choices -->
+                <div class="quiz-chips-wrap">
+                  <p class="quiz-chips-label">Your Assessment Summary:</p>
+                  <ul class="quiz-chips" id="quizResultChips"></ul>
+                </div>
+              </div>
+
+              <!-- Consultation Booking Form -->
+              <div class="quiz-form-wrap">
+                <h3 class="quiz-form-title">Claim Your Free Invisalign Smile Consultation</h3>
+                <p class="quiz-form-lede">Enter your details below to receive your customized Invisalign assessment report and schedule your complimentary 3D smile scan with Dr. Gonzales.</p>
+
+                <div class="form__summary" data-form-summary hidden></div>
+
+                <div class="form__grid">
+                  <div class="field">
+                    <label class="field__label" for="quiz-fname">First name <span aria-hidden="true">*</span></label>
+                    <input class="field__input" type="text" id="quiz-fname" name="fname" autocomplete="given-name" required aria-describedby="err-quiz-fname" placeholder="Your first name">
+                    <p class="field__error" id="err-quiz-fname" data-error-for="fname"></p>
+                  </div>
+
+                  <div class="field">
+                    <label class="field__label" for="quiz-lname">Last name <span aria-hidden="true">*</span></label>
+                    <input class="field__input" type="text" id="quiz-lname" name="lname" autocomplete="family-name" required aria-describedby="err-quiz-lname" placeholder="Your last name">
+                    <p class="field__error" id="err-quiz-lname" data-error-for="lname"></p>
+                  </div>
+
+                  <div class="field">
+                    <label class="field__label" for="quiz-phone">Phone number <span aria-hidden="true">*</span></label>
+                    <input class="field__input" type="tel" id="quiz-phone" name="phone" autocomplete="tel" inputmode="tel" required aria-describedby="err-quiz-phone" placeholder="(925) 000-0000">
+                    <p class="field__error" id="err-quiz-phone" data-error-for="phone"></p>
+                  </div>
+
+                  <div class="field">
+                    <label class="field__label" for="quiz-email">Email address <span aria-hidden="true">*</span></label>
+                    <input class="field__input" type="email" id="quiz-email" name="email" autocomplete="email" required aria-describedby="err-quiz-email" placeholder="you@example.com">
+                    <p class="field__error" id="err-quiz-email" data-error-for="email"></p>
+                  </div>
+
+                  <fieldset class="field field--full">
+                    <legend class="field__label">Which orthodontic office do you prefer? <span aria-hidden="true">*</span></legend>
+                    <div class="radios" aria-describedby="err-quiz-office">
+                      <label class="radio">
+                        <input type="radio" name="office" value="Dublin" required>
+                        <span class="radio__mark" aria-hidden="true"></span>
+                        <span class="radio__text"><strong>Dublin Office</strong><em>4532 Dublin Blvd, Dublin, CA</em></span>
+                      </label>
+                      <label class="radio">
+                        <input type="radio" name="office" value="Tracy" required>
+                        <span class="radio__mark" aria-hidden="true"></span>
+                        <span class="radio__text"><strong>Tracy Office</strong><em>1417 N Tracy Blvd, Tracy, CA</em></span>
+                      </label>
+                    </div>
+                    <p class="field__error" id="err-quiz-office" data-error-for="office"></p>
+                  </fieldset>
+
+                  <div class="field field--full">
+                    <label class="field__label" for="quiz-comments">Additional notes or questions (optional)</label>
+                    <textarea class="field__input field__input--area" id="quiz-comments" name="comments" rows="3" placeholder="Tell us about any specific questions you have about Invisalign, timeline, or dental insurance..."></textarea>
+                  </div>
+                </div>
+
+                <div class="quiz-nav quiz-nav--form">
+                  <button type="button" class="btn btn--ghost" data-quiz-back>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m7 7-7-7 7-7"/></svg>
+                    Modify Answers
+                  </button>
+                  <div class="quiz-nav__right">
+                    <button class="btn btn--primary btn--lg" type="submit" name="submit">
+                      Submit Assessment &amp; Request Consultation
+                      <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div><!-- /.quiz-card__body -->
+
+      </div><!-- /.quiz-card -->
+    </div><!-- /.quiz-container -->
+  </div><!-- /.shell -->
+</section>
+
+<!-- ============================================================== HOW IT WORKS -->
+<section class="section quiz-steps-section" aria-labelledby="hiw-title">
+  <div class="shell">
+    <div class="section__head section__head--center">
+      <p class="eyebrow" data-reveal>Simple 3-Step Process</p>
+      <h2 class="section__title" id="hiw-title" data-reveal data-reveal-delay="1">How Your Invisalign Journey Works</h2>
+      <p class="section__lede" data-reveal data-reveal-delay="2">From your quick digital assessment to your transformed smile, our board-certified orthodontic specialists make care seamless and comfortable.</p>
     </div>
-      <div class="prose" data-reveal>
-        <p>How old are you or the person you are inquiring about?</p>
-        <p>6 - 12 13 - 19 Above 19</p>
-        <p>Have you ever worn braces or an invisible aligner?</p>
-        <p>Yes No What issue are you most concerned about? Spacing Issue Crowding Issue Generally Crooked Teeth Bite (underbite, overbite, etc.)</p>
-        <p>Which picture best describes your teeth??</p>
-        <p>Send Message</p>
+
+    <div class="quiz-hiw-grid" data-reveal data-reveal-delay="2">
+      <div class="quiz-hiw-card">
+        <div class="quiz-hiw-num" aria-hidden="true">1</div>
+        <h3>Take the 30-Second Quiz</h3>
+        <p>Answer four simple questions about your smile goals, age, and alignment to instantly determine if clear aligners fit your needs.</p>
       </div>
-    <div class="media-grid" data-reveal>
-      <img src="assets/ui/quiz-option-01.png" alt="" loading="lazy" decoding="async">
-      <img src="assets/ui/quiz-option-02.png" alt="" loading="lazy" decoding="async">
-      <img src="assets/ui/quiz-option-03.png" alt="" loading="lazy" decoding="async">
-      <img src="assets/ui/quiz-option-04.png" alt="" loading="lazy" decoding="async">
-      <img src="assets/ui/quiz-option-05.png" alt="" loading="lazy" decoding="async">
-      <img src="assets/ui/quiz-option-06.png" alt="" loading="lazy" decoding="async">
+
+      <div class="quiz-hiw-card">
+        <div class="quiz-hiw-num" aria-hidden="true">2</div>
+        <h3>Complimentary 3D Scan</h3>
+        <p>Visit our Dublin or Tracy office for a fast, putty-free iTero 3D digital scan. You will see a 3D simulation of your finished smile before you begin.</p>
+      </div>
+
+      <div class="quiz-hiw-card">
+        <div class="quiz-hiw-num" aria-hidden="true">3</div>
+        <h3>Custom Aligners &amp; Support</h3>
+        <p>Receive custom medical-grade SmartTrack aligners. With same-day starts and 0% interest flexible payment plans, transforming your smile is effortless.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== WHY CHOOSE US -->
+<section class="section quiz-steps-section" aria-labelledby="why-title">
+  <div class="shell">
+    <div class="section__head section__head--center">
+      <p class="eyebrow" data-reveal>The Dante Gonzales Difference</p>
+      <h2 class="section__title" id="why-title" data-reveal data-reveal-delay="1">Why Choose Dante Gonzales Orthodontics for Invisalign?</h2>
+      <p class="section__lede" data-reveal data-reveal-delay="2">Orthodontics is all we do. Experience the precision and artistry of the East Bay’s premier orthodontic team.</p>
+    </div>
+
+    <div class="quiz-hiw-grid">
+      <article class="quiz-hiw-card" data-reveal>
+        <p class="quiz-why-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+        </p>
+        <h3>Diamond Invisalign Provider</h3>
+        <p>Ranked in the top 1% of all Invisalign providers in North America. We handle complex crowding, bite corrections, and teens with confidence.</p>
+      </article>
+      <article class="quiz-hiw-card" data-reveal data-reveal-delay="1">
+        <p class="quiz-why-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </p>
+        <h3>Gonzales Lifetime Guarantee</h3>
+        <p>We stand behind your smile for life. If your teeth ever shift in the future, we will put you back in treatment with no new setup fees.</p>
+      </article>
+      <article class="quiz-hiw-card" data-reveal data-reveal-delay="2">
+        <p class="quiz-why-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+        </p>
+        <h3>0% Interest Financing</h3>
+        <p>Affordable monthly payments with zero down payment options, 0% in-house financing, and direct billing to all major dental PPO insurance plans.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================== FAQ -->
+<section class="section quiz-faq-section" aria-labelledby="faq-title">
+  <div class="shell">
+    <div class="section__head section__head--center">
+      <p class="eyebrow" data-reveal>Frequently Asked Questions</p>
+      <h2 class="section__title" id="faq-title" data-reveal data-reveal-delay="1">Invisalign Clear Aligners FAQ</h2>
+      <p class="section__lede" data-reveal data-reveal-delay="2">Have questions about clear aligners? Here are answers to common questions from our patients in Dublin and Tracy.</p>
+    </div>
+
+    <div class="quiz-faq-list" data-reveal data-reveal-delay="2">
+      <details class="quiz-faq-item" open>
+        <summary class="quiz-faq-summary">
+          <span>Can Invisalign fix severe crowding or bite issues?</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="quiz-faq-content">
+          <p>Yes! As a Diamond Invisalign Provider in the top 1% nationwide, Dr. Dante Gonzales utilizes advanced attachments, elastics, and precision digital staging to correct severe crowding, spacing, overbites, underbites, and crossbites that other offices might deem unsuitable for aligners.</p>
+        </div>
+      </details>
+
+      <details class="quiz-faq-item">
+        <summary class="quiz-faq-summary">
+          <span>How much does Invisalign cost compared to metal braces?</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="quiz-faq-content">
+          <p>At Dante Gonzales Orthodontics, the cost of Invisalign is comparable to traditional braces. We believe financial considerations shouldn’t prevent you from choosing the most comfortable treatment. We offer flexible in-house payment options with 0% interest, maximize your dental insurance benefits, and accept HSA/FSA funds.</p>
+        </div>
+      </details>
+
+      <details class="quiz-faq-item">
+        <summary class="quiz-faq-summary">
+          <span>How many hours a day do I need to wear my aligners?</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="quiz-faq-content">
+          <p>You should wear your Invisalign aligners for 20 to 22 hours per day, removing them only to eat, drink anything other than cool water, and brush and floss your teeth. Because they are removable, there are zero dietary restrictions!</p>
+        </div>
+      </details>
+
+      <details class="quiz-faq-item">
+        <summary class="quiz-faq-summary">
+          <span>What happens during my complimentary smile consultation?</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="quiz-faq-content">
+          <p>Your visit includes an in-depth clinical examination by Dr. Gonzales, digital photographs, and a fast 3D iTero scan with an instant outcome simulation so you can see your straight smile before you commit. Our treatment coordinator will also outline your exact treatment timeline and transparent pricing.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -386,6 +1483,51 @@
       <li><img src="assets/ui/review-badge-facebook-reviews.png" alt="Five-star rated on Yelp" width="120" height="44" loading="lazy" decoding="async"></li>
       <li><img src="assets/ui/review-badge-healthgrades.png" alt="Five-star rated on Healthgrades" width="120" height="44" loading="lazy" decoding="async"></li>
     </ul>
+  </div>
+</section>
+
+<!-- ============================================================ CLOSING CTA -->
+<section class="section" aria-label="Book your Invisalign consultation">
+  <div class="shell">
+    <div class="cta-banner" data-reveal>
+      <div class="cta-banner__inner">
+        <span class="cta-banner__badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          Invisalign in Dublin &amp; Tracy
+        </span>
+        <h2 class="cta-banner__title">Rather just talk it through?</h2>
+        <p class="cta-banner__lede">The quiz is the quick route, but you can skip straight to the chair. Book your complimentary Gonzales Smile Assessment and you will leave knowing your options, your timeline and your exact fee &mdash; in writing.</p>
+        <div class="cta-banner__actions">
+          <a class="btn btn--primary btn--lg" href="index.html#appointment">
+            Request Free Consultation
+            <svg class="btn__arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
+          </a>
+          <a class="cta-banner__btn-ghost" href="tel:925-828-2244">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Dublin: (925) 828-2244
+          </a>
+          <a class="cta-banner__btn-ghost" href="tel:209-835-0977">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Tracy: (209) 835-0977
+          </a>
+        </div>
+
+        <div class="cta-banner__trust">
+          <div class="cta-banner__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Complimentary assessment &amp; 3D scan</span>
+          </div>
+          <div class="cta-banner__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Interest-free monthly payment plans</span>
+          </div>
+          <div class="cta-banner__trust-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Board-certified orthodontist</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -507,6 +1649,59 @@
   <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V5m-6 6 6-6 6 6"/></svg>
 </a>
 
+<!-- WhatsApp Floating Action Button -->
+<div class="whatsapp-fab-wrap" id="whatsappFabWrap">
+  <div class="whatsapp-card" id="whatsappCard" role="dialog" aria-modal="false" aria-labelledby="waCardTitle">
+    <div class="whatsapp-card__head">
+      <div class="whatsapp-card__brand">
+        <div class="whatsapp-card__avatar" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#075e54" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </div>
+        <div>
+          <h3 class="whatsapp-card__title" id="waCardTitle">Dante Gonzales Ortho</h3>
+          <span class="whatsapp-card__status">Online &bull; Available to chat</span>
+        </div>
+      </div>
+      <button class="whatsapp-card__close" type="button" id="whatsappCardClose" aria-label="Close chat options">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <div class="whatsapp-card__body">
+      <p class="whatsapp-card__msg">
+        Hi there! 👋 Which office would you like to message on WhatsApp?
+      </p>
+      <ul class="whatsapp-card__options">
+        <li>
+          <a class="whatsapp-card__link" href="https://wa.me/19258282244?text=Hi%2C%20I%20have%20a%20question%20about%20orthodontic%20treatment%20at%20the%20Dublin%20office." target="_blank" rel="noopener noreferrer">
+            <div>
+              <strong>Dublin Office</strong>
+              <span>4532 Dublin Blvd &bull; 925-828-2244</span>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a class="whatsapp-card__link" href="https://wa.me/12098350977?text=Hi%2C%20I%20have%20a%20question%20about%20orthodontic%20treatment%20at%20the%20Tracy%20office." target="_blank" rel="noopener noreferrer">
+            <div>
+              <strong>Tracy Office</strong>
+              <span>1417 N Tracy Blvd &bull; 209-835-0977</span>
+            </div>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <a class="whatsapp-fab" id="whatsappFabBtn" href="https://wa.me/19258282244?text=Hi%2C%20I%20have%20a%20question%20about%20orthodontic%20treatment%20at%20Dante%20Gonzales%20Orthodontics." target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" aria-haspopup="dialog" aria-expanded="false">
+    <span class="whatsapp-fab__pulse" aria-hidden="true"></span>
+    <span class="whatsapp-fab__label">Chat on WhatsApp</span>
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+      <path d="M16 2.5C8.544 2.5 2.5 8.544 2.5 16c0 2.656.772 5.131 2.1 7.222L3 30.5l7.5-1.575A13.43 13.43 0 0 0 16 29.5c7.456 0 13.5-6.044 13.5-13.5S23.456 2.5 16 2.5zm0 24.5c-2.222 0-4.316-.628-6.103-1.716l-.438-.266-4.453.934.95-4.341-.291-.459A10.932 10.932 0 0 1 5 16c0-6.065 4.935-11 11-11s11 4.935 11 11-4.935 11-11 11zm6.05-8.275c-.331-.166-1.956-.966-2.26-1.075-.303-.112-.525-.166-.747.166-.222.331-.859 1.075-1.053 1.297-.194.222-.388.25-.719.084-.331-.166-1.4-.516-2.666-1.644-.984-.878-1.65-1.962-1.844-2.294-.194-.331-.022-.51.144-.675.15-.147.331-.388.497-.581.166-.194.222-.331.331-.553.112-.222.056-.416-.028-.581-.084-.166-.747-1.8-1.025-2.466-.269-.65-.544-.562-.747-.572l-.637-.012c-.222 0-.581.084-.887.416-.303.331-1.162 1.134-1.162 2.766s1.191 3.206 1.356 3.428c.166.222 2.344 3.578 5.678 5.019.794.344 1.412.55 1.894.703.797.253 1.522.219 2.097.134.641-.097 1.956-.8 2.234-1.572.278-.772.278-1.434.194-1.572-.083-.14-.305-.224-.636-.39z"/>
+    </svg>
+  </a>
+</div>
+
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -608,7 +1803,270 @@
 }
 </script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can Invisalign fix severe crowding or bite issues?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! As a Diamond Invisalign Provider in the top 1% nationwide, Dr. Dante Gonzales utilizes advanced attachments, elastics, and precision digital staging to correct severe crowding, spacing, overbites, underbites, and crossbites that other offices might deem unsuitable for aligners."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Invisalign cost compared to metal braces?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At Dante Gonzales Orthodontics, the cost of Invisalign is comparable to traditional braces. We believe financial considerations shouldn’t prevent you from choosing the most comfortable treatment. We offer flexible in-house payment options with 0% interest, maximize your dental insurance benefits, and accept HSA/FSA funds."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many hours a day do I need to wear my aligners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You should wear your Invisalign aligners for 20 to 22 hours per day, removing them only to eat, drink anything other than cool water, and brush and floss your teeth. Because they are removable, there are zero dietary restrictions!"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens during my complimentary smile consultation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your visit includes an in-depth clinical examination by Dr. Gonzales, digital photographs, and a fast 3D iTero scan with an instant outcome simulation so you can see your straight smile before you commit. Our treatment coordinator will also outline your exact treatment timeline and transparent pricing."
+      }
+    }
+  ]
+}
+</script>
+
 <script src="js/main.js" defer></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var quizForm = document.getElementById('invisalignQuizForm');
+  if (!quizForm) return;
+
+  var QUESTION_STEPS = 4;
+  var TOTAL_STEPS = 5; // 4 questions + results & booking
+  var currentStep = 1;
+
+  var stepCards = quizForm.querySelectorAll('.quiz-step');
+  var progressBar = document.getElementById('quizProgressBar');
+  var stepBadge = document.getElementById('quizStepBadge');
+  var resultChips = document.getElementById('quizResultChips');
+
+  // Which radio group each question step owns.
+  var groups = { 1: 'invisalign', 2: 'yesorno', 3: 'issue', 4: 'teeth-spacing' };
+
+  var selections = { age: '', previous: '', concern: '', teeth: '' };
+
+  function checkedValue(name) {
+    var el = quizForm.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : '';
+  }
+
+  function syncHidden() {
+    selections.age = checkedValue('invisalign');
+    selections.previous = checkedValue('yesorno');
+    selections.concern = checkedValue('issue');
+    selections.teeth = checkedValue('teeth-spacing');
+
+    var set = function (id, val) { var el = document.getElementById(id); if (el) el.value = val; };
+    set('hidden_quiz_age', selections.age);
+    set('hidden_quiz_previous', selections.previous);
+    set('hidden_quiz_concern', selections.concern);
+    set('hidden_quiz_teeth', selections.teeth);
+    set('hidden_quiz_summary',
+      'Age: ' + (selections.age || '—') +
+      ' | Prior treatment: ' + (selections.previous || '—') +
+      ' | Concern: ' + (selections.concern || '—') +
+      ' | Teeth match: ' + (selections.teeth || '—'));
+  }
+
+  function renderResultChips() {
+    if (!resultChips) return;
+    syncHidden();
+    resultChips.innerHTML = '';
+
+    var items = [
+      { label: 'Patient Age', val: selections.age },
+      { label: 'Prior Orthodontics', val: selections.previous === 'Yes' ? 'Previously had braces' : (selections.previous ? 'First-time patient' : '') },
+      { label: 'Primary Concern', val: selections.concern },
+      { label: 'Teeth Alignment', val: selections.teeth }
+    ];
+
+    items.forEach(function (item) {
+      if (!item.val) return;
+      var li = document.createElement('li');
+      li.className = 'quiz-chip';
+      var label = document.createElement('span');
+      label.className = 'quiz-chip__label';
+      label.textContent = item.label + ':';
+      var val = document.createElement('strong');
+      val.className = 'quiz-chip__val';
+      val.textContent = item.val;
+      li.appendChild(label);
+      li.appendChild(document.createTextNode(' '));
+      li.appendChild(val);
+      resultChips.appendChild(li);
+    });
+  }
+
+  /* Each question step gets its own "please choose" notice, parked in its nav row. */
+  var notices = {};
+  Object.keys(groups).forEach(function (step) {
+    var card = quizForm.querySelector('.quiz-step[data-step="' + step + '"]');
+    var nav = card && card.querySelector('.quiz-nav');
+    if (!nav) return;
+
+    // Prefer the hint line the step already ships with, so the prompt and the
+    // error occupy one slot rather than sitting side by side.
+    var note = nav.querySelector('.quiz-time-tag');
+    if (!note) {
+      note = document.createElement('p');
+      note.className = 'quiz-time-tag';
+      nav.insertBefore(note, nav.querySelector('.quiz-nav__right'));
+    }
+    note.setAttribute('role', 'status');
+    notices[step] = { el: note, hint: note.textContent.trim() };
+  });
+
+  function showNotice(step) {
+    var n = notices[step];
+    if (!n) return;
+    n.el.textContent = 'Please choose an option to continue.';
+    n.el.classList.add('quiz-nav__note--error');
+  }
+
+  function clearNotice(step) {
+    var n = notices[step];
+    if (!n) return;
+    n.el.textContent = n.hint;
+    n.el.classList.remove('quiz-nav__note--error');
+  }
+
+  function stepAnswered(step) {
+    return !groups[step] || Boolean(checkedValue(groups[step]));
+  }
+
+  function goToStep(step, opts) {
+    if (step < 1) step = 1;
+    if (step > TOTAL_STEPS) step = TOTAL_STEPS;
+    currentStep = step;
+
+    stepCards.forEach(function (el) {
+      var s = parseInt(el.getAttribute('data-step'), 10);
+      var on = s === currentStep;
+      el.classList.toggle('quiz-step--active', on);
+      if (on) { el.removeAttribute('hidden'); } else { el.setAttribute('hidden', ''); }
+    });
+
+    if (progressBar) {
+      var progress = Math.round(Math.min(currentStep, QUESTION_STEPS) / QUESTION_STEPS * 100);
+      progressBar.style.width = progress + '%';
+      progressBar.setAttribute('aria-valuenow', progress);
+    }
+
+    if (stepBadge) {
+      stepBadge.textContent = currentStep <= QUESTION_STEPS
+        ? 'Question ' + currentStep + ' of ' + QUESTION_STEPS
+        : 'Your personalized results';
+    }
+
+    if (currentStep === TOTAL_STEPS) renderResultChips();
+
+    var active = quizForm.querySelector('.quiz-step--active');
+    var heading = active && active.querySelector('.quiz-step__title, .quiz-result-title');
+    if (heading) {
+      if (!heading.hasAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+      if (!opts || !opts.silent) heading.focus({ preventScroll: true });
+    }
+
+    var quizApp = document.getElementById('quiz-app');
+    if (quizApp) {
+      var rect = quizApp.getBoundingClientRect();
+      if (rect.top < -50 || rect.top > 250) {
+        quizApp.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }
+
+  /* Selection: listen on the radio's change event, not the label's click.
+     A label click also forwards a synthetic click to the input, which bubbles
+     back through the label — a click handler there fires twice and would
+     schedule two advances, skipping a question. */
+  quizForm.querySelectorAll('.quiz-card-opt input[type="radio"]').forEach(function (radio) {
+    radio.addEventListener('change', function () {
+      var siblings = quizForm.querySelectorAll('input[name="' + radio.name + '"]');
+      siblings.forEach(function (sib) {
+        var card = sib.closest('.quiz-card-opt');
+        if (card) card.classList.toggle('is-selected', sib.checked);
+      });
+
+      syncHidden();
+      clearNotice(currentStep);
+
+      if (currentStep < TOTAL_STEPS) {
+        window.setTimeout(function () { goToStep(currentStep + 1); }, 260);
+      }
+    });
+  });
+
+  quizForm.querySelectorAll('[data-quiz-back]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      clearNotice(currentStep);
+      goToStep(currentStep - 1);
+    });
+  });
+
+  quizForm.querySelectorAll('[data-quiz-next]').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (!stepAnswered(currentStep)) {
+        showNotice(currentStep);
+        var first = quizForm.querySelector('.quiz-step--active input[type="radio"]');
+        if (first) first.focus();
+        return;
+      }
+      clearNotice(currentStep);
+      goToStep(currentStep + 1);
+    });
+  });
+
+  /* Guard the submit: the booking step can be reached with the Back button
+     after clearing nothing, but never submit a half-answered quiz. */
+  quizForm.addEventListener('submit', function (e) {
+    for (var step = 1; step <= QUESTION_STEPS; step++) {
+      if (!stepAnswered(step)) {
+        e.preventDefault();
+        goToStep(step);
+        showNotice(step);
+        return;
+      }
+    }
+    syncHidden();
+  });
+
+  var heroCta = document.querySelector('a[href="#quiz-app"]');
+  if (heroCta) {
+    heroCta.addEventListener('click', function (e) {
+      var target = document.getElementById('quiz-app');
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  syncHidden();
+  goToStep(1, { silent: true });
+});
+</script>
 
 </body>
 </html>

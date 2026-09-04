@@ -104,13 +104,13 @@
   --t-mid:   .32s;
   --t-slow:  .7s;
 
-  --header-h: 56px;   /* constant: the bar never resizes on scroll */
-  --header-float: 0px;   /* full-width sticky navigation, no floating viewport gap */
-  --header-inset-scrolled: 0px;
+  --header-h: 58px;   /* bar height */
+  --header-float: clamp(10px, 1.4vw, 18px);   /* floating gap from top edge */
+  --header-inset-scrolled: clamp(14px, 3vw, 24px);
   /* the bar's inner gutter; also the left edge the hero copy lines up on */
   --nav-pad: clamp(1rem, 2.6vw, 2.5rem);
-  --nav-lift: 0 4px 20px -6px rgba(20, 35, 46, .08);
-  --nav-lift-scrolled: 0 4px 24px -6px rgba(20, 35, 46, .12);
+  --nav-lift: 0 16px 40px -12px rgba(20, 35, 46, .2), 0 2px 8px -2px rgba(20, 35, 46, .06);
+  --nav-lift-scrolled: 0 22px 50px -14px rgba(20, 35, 46, .26), 0 4px 12px -3px rgba(20, 35, 46, .1);
 }
 
 /* -------------------------------------------------------------- 2. RESET/BASE */
@@ -395,6 +395,28 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   color: var(--ink);
 }
 
+/* Inline restored quote inside prose — smaller than a display pullquote */
+.pullquote--inline p { font-size: clamp(1.05rem, .95rem + .5vw, 1.3rem); }
+.pullquote cite {
+  display: block;
+  margin-top: var(--s-3);
+  font-family: var(--font-sans, inherit);
+  font-size: var(--fs-xs);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+/* Pros / Cons group headings restored above their lists */
+.proscons__heading {
+  margin: var(--s-6) 0 var(--s-2);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg, 1.25rem);
+  font-weight: 600;
+  color: var(--ink);
+}
+.proscons__heading:first-of-type { margin-top: var(--s-5); }
+
 .ticks { display: grid; gap: var(--s-3); margin-top: var(--s-6); }
 .ticks li {
   position: relative;
@@ -567,14 +589,18 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
 
 .header {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  padding: 0;
-  transition: background .3s var(--e-out), box-shadow .3s var(--e-out);
+  padding: var(--header-float) var(--header-float) 0;
+  pointer-events: none;
+  transition: padding .35s var(--e-nav), transform .3s var(--e-out);
 
   --flyout-h: 0px;                       /* set by JS from the open panel */
-  --nav-glass: rgba(255, 255, 255, .96);
+  --nav-glass: rgba(255, 255, 255, .92);
   --nav-blur: saturate(180%) blur(20px);
-  --nav-hairline: rgba(20, 35, 46, .09);
+  --nav-hairline: rgba(20, 35, 46, .1);
   --e-nav: cubic-bezier(.32, .08, .24, 1);   /* Apple's flyout curve */
+}
+.header > * {
+  pointer-events: auto;
 }
 
 .header__bar {
@@ -582,37 +608,43 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   background: var(--nav-glass);
   -webkit-backdrop-filter: var(--nav-blur);
   backdrop-filter: var(--nav-blur);
-  border-bottom: 1px solid var(--nav-hairline);
+  border: 1px solid var(--nav-hairline);
+  border-radius: var(--r-xl, 24px);
   box-shadow: var(--nav-lift);
+  max-width: var(--w-wide, 1420px);
+  margin-inline: auto;
   transition: background .3s var(--e-out), border-color .3s var(--e-out),
-              box-shadow .3s var(--e-out);
+              box-shadow .3s var(--e-out), border-radius .3s var(--e-nav);
 }
 .header.is-scrolled {
-  padding: 0;
+  padding-top: calc(var(--header-float) * 0.75);
+  padding-inline: max(var(--header-float), calc((100% - var(--w-wide)) / 2), var(--header-inset-scrolled));
 }
 .header__inner { transition: height .45s var(--e-nav); }
 .header__logo { transition: width .45s var(--e-nav); }
 @media (min-width: 1181px) {
   .header.is-scrolled { --header-h: 56px; }
-  .header.is-scrolled .header__bar { box-shadow: var(--nav-lift-scrolled); }
+  .header.is-scrolled .header__bar {
+    background: rgba(255, 255, 255, .96);
+    box-shadow: var(--nav-lift-scrolled);
+    border-color: rgba(20, 35, 46, .14);
+  }
 }
 
 /* while a flyout is open the bar and the curtain below it are one surface */
 .header.is-flyout-open .header__bar {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   border-bottom-color: transparent;
 }
 
-/* Over-banner variant: no surface at all at the top — the logo, links and CTA
-   sit directly on the photography. The banner is a bright near-white frame, so
-   this variant carries the same ink as the rest of the site rather than the
-   white-on-dark treatment a dimmed photograph would need. The bar only
-   materialises as the standard white card once scrolled or opened. */
+/* Over-banner variant: floating frosted glass pill on top of banner */
 .header--over-banner .header__bar {
-  background: transparent;
-  border-bottom-color: transparent;
-  -webkit-backdrop-filter: none;
-  backdrop-filter: none;
-  box-shadow: none;
+  background: rgba(255, 255, 255, .84);
+  -webkit-backdrop-filter: saturate(180%) blur(18px);
+  backdrop-filter: saturate(180%) blur(18px);
+  border: 1px solid rgba(255, 255, 255, .7);
+  box-shadow: 0 10px 30px -10px rgba(16, 55, 92, .14);
 }
 .header--over-banner .header__logo--dark { display: block; }
 .header--over-banner .header__logo--light { display: none; }
@@ -640,11 +672,11 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
 .header--over-banner.is-scrolled .header__bar,
 .header--over-banner.is-flyout-open .header__bar,
 .header--over-banner.is-nav-open .header__bar {
-  background: var(--nav-glass);
+  background: rgba(255, 255, 255, .96);
   -webkit-backdrop-filter: var(--nav-blur);
   backdrop-filter: var(--nav-blur);
   border-color: var(--nav-hairline);
-  box-shadow: var(--nav-lift);
+  box-shadow: var(--nav-lift-scrolled);
 }
 .header--over-banner.is-flyout-open .header__bar {
   border-bottom-color: transparent;
@@ -716,7 +748,7 @@ svg[aria-hidden="true"]:not(.quote__stars svg):not(.benefit__icon svg) { fill: n
   width: 100%;
   max-width: 100%;
   margin-inline: 0;
-  padding-inline: clamp(1rem, 2.2vw, 2rem);
+  padding-inline: clamp(1rem, 2.2vw, 1rem);
 }
 
 .header__brand { flex: none; display: block; }
@@ -791,15 +823,17 @@ body.is-modal-open { overflow: hidden; }
    Sits directly under the bar and shares its background, so bar + curtain
    read as a single surface that got taller. */
 .nav__curtain {
-  position: absolute; top: 100%; left: 0; right: 0; z-index: 1;
+  position: absolute; top: 100%; left: -1px; right: -1px; z-index: 1;
   height: var(--flyout-h);
   visibility: hidden;
   pointer-events: none;
   background: var(--nav-glass);
   -webkit-backdrop-filter: var(--nav-blur);
   backdrop-filter: var(--nav-blur);
-  border-bottom: 1px solid var(--nav-hairline);
-  box-shadow: 0 12px 32px rgba(20, 35, 46, .1);
+  border: 1px solid var(--nav-hairline);
+  border-top: 0;
+  border-radius: 0 0 var(--r-xl, 24px) var(--r-xl, 24px);
+  box-shadow: var(--nav-lift-scrolled);
   transition: height .34s var(--e-nav), visibility .34s;
 }
 .header.is-flyout-open .nav__curtain { visibility: visible; }
@@ -952,7 +986,10 @@ body.is-modal-open { overflow: hidden; }
    Apple drops the links and opens a full-height sheet out of the same bar,
    with the top-level rows staggering in and each one expanding in place. */
 @media (max-width: 1180px) {
-  :root { --header-h: 52px; }
+  :root {
+    --header-h: 52px;
+    --header-float: 10px;
+  }
 
   .header__cta { display: none; }
   .burger { display: inline-flex; }
@@ -971,8 +1008,8 @@ body.is-modal-open { overflow: hidden; }
     backdrop-filter: var(--nav-blur);
     border: 1px solid var(--nav-hairline);
     border-top: 0;
-    border-radius: 0 0 var(--r-lg) var(--r-lg);
-    box-shadow: var(--nav-lift);
+    border-radius: 0 0 var(--r-xl, 24px) var(--r-xl, 24px);
+    box-shadow: var(--nav-lift-scrolled);
     transition: height .42s var(--e-nav);
   }
   .nav.is-open {
@@ -2036,44 +2073,46 @@ p.hero__headline {
 }
 
 /* ---- the review card ----
-   Warm paper rather than a plain white box: a faint white-to-ivory wash, a
-   warm hairline, and one wide low-opacity shadow instead of a hard edge. */
+   Clean white card, generous radius, one soft diffuse shadow. The card opens
+   with a round quote badge, closes with a hairline divider and the reviewer. */
 .quote {
   position: relative;
   isolation: isolate;
   flex: 0 0 100%;
-  display: flex; flex-direction: column; gap: var(--s-4);
-  padding: clamp(1.45rem, 1.2rem + .9vw, 1.9rem);
-  background: linear-gradient(180deg, #fff 0%, var(--ivory) 100%);
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
+  display: flex; flex-direction: column;
+  padding: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  background: var(--paper);
+  border: 1px solid rgba(52, 42, 26, .06);
+  border-radius: clamp(16px, 12px + .6vw, 22px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, .9),
-    0 20px 40px -30px rgba(52, 42, 26, .32),
-    0 2px 6px -3px rgba(20, 35, 46, .05);
+    0 1px 2px rgba(20, 35, 46, .04),
+    0 18px 38px -24px rgba(52, 42, 26, .28);
   transition: transform var(--t-mid) var(--e-out),
               box-shadow var(--t-mid) var(--e-out),
               border-color var(--t-mid) var(--e-out);
 }
-/* a real serif quotation mark, gold, sitting behind the top-right corner */
+/* the round quote badge that opens the card */
 .quote::before {
   content: "\201C";
-  position: absolute;
-  z-index: -1;
-  top: .35rem; right: clamp(.9rem, .55rem + 1vw, 1.4rem);
-  font-family: var(--font-display); font-weight: 600;
-  font-size: clamp(2.9rem, 2.3rem + 2vw, 4rem); line-height: 1;
-  color: var(--sand-200);
-  opacity: .42;
+  flex: none;
+  display: grid; place-items: center;
+  width: clamp(46px, 42px + .6vw, 56px);
+  height: clamp(46px, 42px + .6vw, 56px);
+  margin-bottom: var(--s-4);
+  border-radius: 50%;
+  background: linear-gradient(158deg, var(--sun-50) 0%, var(--sand-100) 100%);
+  font-family: var(--font-display); font-weight: 700;
+  font-size: 2.5rem; line-height: 1;
+  padding-top: .36em;              /* optically centre the glyph */
+  color: var(--sand-500);
   pointer-events: none;
 }
 .quote:hover {
   transform: translateY(-3px);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, .9),
-    0 30px 54px -30px rgba(52, 42, 26, .38),
-    0 3px 10px -5px rgba(20, 35, 46, .08);
-  border-color: var(--sand-200);
+    0 1px 2px rgba(20, 35, 46, .05),
+    0 30px 54px -28px rgba(52, 42, 26, .34);
+  border-color: rgba(52, 42, 26, .1);
 }
 
 /* one card per view on phones: stretching every slide to the tallest quote left
@@ -2087,58 +2126,57 @@ p.hero__headline {
 @media (min-width: 760px)  { .carousel__track > .quote { flex-basis: calc((100% - var(--s-5)) / 2); } }
 @media (min-width: 1120px) { .carousel__track > .quote { flex-basis: calc((100% - var(--s-5) * 2) / 3); } }
 
-.quote__stars { display: flex; align-items: center; gap: 4px; color: var(--sand-500); }
+.quote__stars { display: flex; align-items: center; gap: 4px; margin-bottom: .7rem; color: var(--sand-500); }
 .quote__stars svg { width: 15px; height: 15px; }
 .quote__stars img { height: 15px; width: auto; }
 
 .quote__body { flex: 1; }
 .quote__body p {
-  font-family: var(--font-display);
-  font-size: clamp(1.04rem, .99rem + .22vw, 1.18rem);
-  font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: .002em;
-  color: var(--ink);
+  font-size: clamp(1rem, .97rem + .16vw, 1.09rem);
+  font-weight: 450;
+  line-height: 1.62;
+  letter-spacing: 0;
+  color: var(--ink-2);
   text-wrap: pretty;
 }
-.quote__body--short p { font-size: clamp(1.2rem, 1.06rem + .6vw, 1.45rem); }
+.quote__body--short p { font-size: clamp(1.08rem, 1rem + .4vw, 1.22rem); }
 
-/* attribution sits under a short gold rule, not a full-width divider */
+/* attribution sits below a full-width hairline divider */
 .quote__by {
   position: relative;
   margin-top: auto;
   padding-top: var(--s-4);
-  display: flex; align-items: center; gap: .7rem;
+  display: flex; align-items: center; gap: .8rem;
 }
 .quote__by::before {
   content: "";
-  position: absolute; top: 0; left: 0;
-  width: 42px; height: 1px;
-  background: linear-gradient(90deg, var(--sand-500), rgba(192, 143, 61, 0));
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: var(--line);
 }
 /* a struck monogram in the warm palette reads bespoke where a solid
    blue disc reads auto-generated */
 .quote__avatar {
   flex: none;
   display: grid; place-items: center;
-  width: 36px; height: 36px;
+  width: 44px; height: 44px;
   border-radius: 50%;
   background: linear-gradient(158deg, var(--sun-50) 0%, var(--sand-100) 100%);
   border: 1px solid var(--sand-200);
   color: var(--sand-700);
   font-family: var(--font-display); font-weight: 600;
-  font-size: .92rem; letter-spacing: .04em;
+  font-size: 1rem; letter-spacing: .04em;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8);
 }
 .quote__meta { display: grid; gap: 1px; min-width: 0; }
 .quote__name {
-  font-size: var(--fs-sm); font-weight: 700; color: var(--ink);
+  font-size: 1.02rem; font-weight: 700; color: var(--ink);
   letter-spacing: .005em;
 }
 .quote__loc {
-  font-size: var(--fs-xs); font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase;
-  color: var(--sand-700);
+  font-size: var(--fs-xs); font-weight: 600;
+  letter-spacing: .01em; text-transform: none;
+  color: var(--ink-3);
 }
 
 .carousel__controls { display: flex; align-items: center; justify-content: center; gap: var(--s-4); margin-top: var(--s-6); }
@@ -2698,7 +2736,7 @@ p.hero__headline {
 
 /* back to top -------------------------------------------------------------- */
 .to-top {
-  position: fixed; right: clamp(1rem, 2.5vw, 2rem); bottom: clamp(1rem, 2.5vw, 2rem);
+  position: fixed; right: clamp(1rem, 2.5vw, 2rem); bottom: calc(clamp(1rem, 2.5vw, 2rem) + 64px);
   z-index: 80;
   display: grid; place-items: center;
   width: 46px; height: 46px;
@@ -2712,6 +2750,241 @@ p.hero__headline {
 }
 .to-top.is-visible { opacity: 1; transform: translateY(0); }
 .to-top:hover { background: var(--sun-400); color: var(--ink); border-color: var(--sun-500); }
+
+/* whatsapp fab -------------------------------------------------------------- */
+.whatsapp-fab-wrap {
+  position: fixed;
+  right: clamp(1rem, 2.5vw, 2rem);
+  bottom: clamp(1rem, 2.5vw, 2rem);
+  z-index: 90;
+}
+
+.whatsapp-fab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px -4px rgba(18, 140, 126, 0.5), 0 3px 8px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+  outline: none;
+}
+.whatsapp-fab:hover,
+.whatsapp-fab:focus-visible {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(18, 140, 126, 0.65), 0 4px 12px rgba(0, 0, 0, 0.16);
+  color: #ffffff;
+}
+.whatsapp-fab:active {
+  transform: scale(0.96);
+}
+.whatsapp-fab svg {
+  width: 30px;
+  height: 30px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Pulsing radar ring */
+.whatsapp-fab__pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(37, 211, 102, 0.65);
+  animation: waRadar 2.6s infinite ease-out;
+  pointer-events: none;
+}
+@keyframes waRadar {
+  0% { transform: scale(0.92); opacity: 0.85; }
+  60% { transform: scale(1.26); opacity: 0; }
+  100% { transform: scale(1.26); opacity: 0; }
+}
+
+/* Tooltip Badge */
+.whatsapp-fab__label {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: #14232e;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+.whatsapp-fab:hover .whatsapp-fab__label,
+.whatsapp-fab:focus-visible .whatsapp-fab__label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+.whatsapp-fab__label::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #14232e;
+}
+
+/* Office Chooser Popover Card */
+.whatsapp-card {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 14px);
+  width: 310px;
+  max-width: calc(100vw - 2rem);
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 20px 45px -10px rgba(16, 55, 92, 0.28), 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--line-soft, #ece7dd);
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.96);
+  transform-origin: bottom right;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+}
+.whatsapp-card.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.whatsapp-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.15rem;
+  background: linear-gradient(135deg, #075e54 0%, #128c7e 100%);
+  color: #ffffff;
+}
+.whatsapp-card__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.whatsapp-card__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.whatsapp-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.whatsapp-card__title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+  color: #ffffff;
+}
+.whatsapp-card__status {
+  font-size: 0.72rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.whatsapp-card__status::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #25d366;
+}
+.whatsapp-card__close {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  opacity: 0.75;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.15s, background-color 0.15s;
+}
+.whatsapp-card__close:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.whatsapp-card__body {
+  padding: 1rem 1.15rem;
+  background: #f8fafc;
+}
+.whatsapp-card__msg {
+  font-size: 0.8125rem;
+  color: var(--ink-2, #3d5462);
+  line-height: 1.5;
+  margin: 0 0 0.85rem 0;
+}
+.whatsapp-card__options {
+  display: grid;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.whatsapp-card__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.65rem 0.85rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--ink, #14232e);
+  transition: border-color 0.2s, background-color 0.2s, transform 0.2s;
+}
+.whatsapp-card__link:hover {
+  border-color: #25d366;
+  background: #f0fdf4;
+  transform: translateX(2px);
+}
+.whatsapp-card__link strong {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.whatsapp-card__link span {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--ink-3, #6f838f);
+}
+.whatsapp-card__link svg {
+  color: #25d366;
+  flex-shrink: 0;
+}
 
 /* ------------------------------------------------------------- 26. MOTION */
 [data-reveal] { opacity: 1; }
@@ -2937,7 +3210,7 @@ html:not(.js) .carousel__controls { display: none; }
 .page-hero {
   position: relative;
   max-width: var(--w-wide);
-  margin: calc(var(--header-h) + clamp(.75rem, .4rem + 1.2vw, 1.5rem)) auto 0;
+  margin: calc(var(--header-h) + var(--header-float) + clamp(.75rem, .4rem + 1.2vw, 1.5rem)) auto 0;
   border: 1px solid var(--line-soft);
   border-radius: var(--r-lg);
   background:
@@ -3052,6 +3325,14 @@ html:not(.js) .carousel__controls { display: none; }
   text-transform: uppercase;
   color: var(--sand-700);
 }
+.page-hero__serving {
+  margin-top: var(--s-3);
+  max-width: 60ch;
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
 .page-hero__lede {
   margin-top: var(--s-4);
   max-width: 50ch;
@@ -3160,7 +3441,7 @@ html:not(.js) .carousel__controls { display: none; }
      centred, with no .page-hero__media panel */
   display: block;
   max-width: none;
-  margin: var(--header-h) 0 0;
+  margin: calc(var(--header-h) + var(--header-float)) 0 0;
   padding: clamp(2.75rem, 1.8rem + 3.5vw, 4.5rem) 0
            clamp(4.25rem, 2.75rem + 5vw, 7rem);
   background:
@@ -3639,6 +3920,8 @@ html:not(.js) .carousel__controls { display: none; }
    header band butts straight against the block above it */
 .prose + .table-scroll,
 .split + .table-scroll,
+.cta-row + .table-scroll,
+.ticks + .table-scroll,
 .media-grid + .table-scroll { margin-top: clamp(2rem, 1.4rem + 2vw, 3rem); }
 .compare {
   width: 100%; min-width: 640px;
@@ -4390,6 +4673,20 @@ input[type="submit"], input[type="button"], input[type="checkbox"], input[type="
   color: var(--sun-900);
   border-color: var(--sun-300);
 }
+
+/* Before & After — restored smile category labels */
+.smile-categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .6rem;
+  margin: var(--s-6) auto 0;
+  padding: 0;
+  list-style: none;
+}
+.smile-categories .badge-chip { font-size: var(--fs-xs); padding: .4rem .95rem; }
+
+.section__lede--center { max-width: 920px; margin-inline: auto; text-align: center; }
 
 /* 5 column cards grid */
 .cards--5 {
@@ -5189,6 +5486,9 @@ input[type="submit"], input[type="button"], input[type="checkbox"], input[type="
   color: var(--brand-700);
 }
 .split__copy > .prose { margin-top: var(--s-5); }
+/* a subhead following the section title needs its own air, or the two
+   display faces collide */
+.split__copy > .section__title + .split__subhead { margin-top: var(--s-4); }
 .cred-group { margin-top: var(--s-6); }
 .cred-group__label {
   font-size: var(--fs-label);

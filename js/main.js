@@ -917,6 +917,10 @@
         var rule = rules[name];
         if (!rule) return true;
         var input = form.elements[name];
+        // Not every form carries every field (the quiz and the modal both skip
+        // `age`). Without this guard the missing field throws, the exception
+        // unwinds the submit handler, and the form posts unvalidated.
+        if (!input) return true;
         var ok;
         if (rule.radio) {
           ok = Array.prototype.some.call(input, function (r) { return r.checked; });
@@ -1074,6 +1078,109 @@
         share.appendChild(a);
       });
     }
+  })();
+
+  /* -------------------------------------------------------- whatsapp fab */
+  (function initWhatsAppFab() {
+    var wrap = document.getElementById('whatsappFabWrap');
+    if (!wrap) {
+      wrap = document.createElement('div');
+      wrap.className = 'whatsapp-fab-wrap';
+      wrap.id = 'whatsappFabWrap';
+      wrap.innerHTML =
+        '<div class="whatsapp-card" id="whatsappCard" role="dialog" aria-modal="false" aria-labelledby="waCardTitle">' +
+          '<div class="whatsapp-card__head">' +
+            '<div class="whatsapp-card__brand">' +
+              '<div class="whatsapp-card__avatar" aria-hidden="true">' +
+                '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#075e54" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>' +
+              '</div>' +
+              '<div>' +
+                '<h3 class="whatsapp-card__title" id="waCardTitle">Dante Gonzales Ortho</h3>' +
+                '<span class="whatsapp-card__status">Online &bull; Available to chat</span>' +
+              '</div>' +
+            '</div>' +
+            '<button class="whatsapp-card__close" type="button" id="whatsappCardClose" aria-label="Close chat options">' +
+              '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>' +
+            '</button>' +
+          '</div>' +
+          '<div class="whatsapp-card__body">' +
+            '<p class="whatsapp-card__msg">' +
+              'Hi there! 👋 Which office would you like to message on WhatsApp?' +
+            '</p>' +
+            '<ul class="whatsapp-card__options">' +
+              '<li>' +
+                '<a class="whatsapp-card__link" href="https://wa.me/19258282244?text=Hi%2C%20I%20have%20a%20question%20about%20orthodontic%20treatment%20at%20the%20Dublin%20office." target="_blank" rel="noopener noreferrer">' +
+                  '<div>' +
+                    '<strong>Dublin Office</strong>' +
+                    '<span>4532 Dublin Blvd &bull; 925-828-2244</span>' +
+                  '</div>' +
+                  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>' +
+                '</a>' +
+              '</li>' +
+              '<li>' +
+                '<a class="whatsapp-card__link" href="https://wa.me/12098350977?text=Hi%2C%20I%20have%20a%20question%20about%20orthodontic%20treatment%20at%20the%20Tracy%20office." target="_blank" rel="noopener noreferrer">' +
+                  '<div>' +
+                    '<strong>Tracy Office</strong>' +
+                    '<span>1417 N Tracy Blvd &bull; 209-835-0977</span>' +
+                  '</div>' +
+                  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>' +
+                '</a>' +
+              '</li>' +
+            '</ul>' +
+          '</div>' +
+        '</div>' +
+        '<a class="whatsapp-fab" id="whatsappFabBtn" href="https://wa.me/19258282244?text=Hi%2C%20I%20have%20a%20question%20about%20orthodontic%20treatment%20at%20Dante%20Gonzales%20Orthodontics." target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" aria-haspopup="dialog" aria-expanded="false">' +
+          '<span class="whatsapp-fab__pulse" aria-hidden="true"></span>' +
+          '<span class="whatsapp-fab__label">Chat on WhatsApp</span>' +
+          '<svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">' +
+            '<path d="M16 2.5C8.544 2.5 2.5 8.544 2.5 16c0 2.656.772 5.131 2.1 7.222L3 30.5l7.5-1.575A13.43 13.43 0 0 0 16 29.5c7.456 0 13.5-6.044 13.5-13.5S23.456 2.5 16 2.5zm0 24.5c-2.222 0-4.316-.628-6.103-1.716l-.438-.266-4.453.934.95-4.341-.291-.459A10.932 10.932 0 0 1 5 16c0-6.065 4.935-11 11-11s11 4.935 11 11-4.935 11-11 11zm6.05-8.275c-.331-.166-1.956-.966-2.26-1.075-.303-.112-.525-.166-.747.166-.222.331-.859 1.075-1.053 1.297-.194.222-.388.25-.719.084-.331-.166-1.4-.516-2.666-1.644-.984-.878-1.65-1.962-1.844-2.294-.194-.331-.022-.51.144-.675.15-.147.331-.388.497-.581.166-.194.222-.331.331-.553.112-.222.056-.416-.028-.581-.084-.166-.747-1.8-1.025-2.466-.269-.65-.544-.562-.747-.572l-.637-.012c-.222 0-.581.084-.887.416-.303.331-1.162 1.134-1.162 2.766s1.191 3.206 1.356 3.428c.166.222 2.344 3.578 5.678 5.019.794.344 1.412.55 1.894.703.797.253 1.522.219 2.097.134.641-.097 1.956-.8 2.234-1.572.278-.772.278-1.434.194-1.572-.083-.14-.305-.224-.636-.39z"/>' +
+          '</svg>' +
+        '</a>';
+      document.body.appendChild(wrap);
+    }
+
+    var btn = wrap.querySelector('#whatsappFabBtn');
+    var card = wrap.querySelector('#whatsappCard');
+    var closeBtn = wrap.querySelector('#whatsappCardClose');
+    if (!btn || !card) return;
+
+    function toggleCard(open) {
+      var willOpen = typeof open === 'boolean' ? open : !card.classList.contains('is-open');
+      card.classList.toggle('is-open', willOpen);
+      btn.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      toggleCard();
+    });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleCard(false);
+        btn.focus();
+      });
+    }
+
+    document.addEventListener('click', function (e) {
+      if (!wrap.contains(e.target) && card.classList.contains('is-open')) {
+        toggleCard(false);
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && card.classList.contains('is-open')) {
+        toggleCard(false);
+        btn.focus();
+      }
+    });
+
+    wrap.querySelectorAll('.whatsapp-card__link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        toggleCard(false);
+      });
+    });
   })();
 
 })();

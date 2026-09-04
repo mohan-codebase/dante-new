@@ -255,8 +255,10 @@ DirectoryIndex index.html
 
   # These three were listed in the old sitemap but were already broken in
   # production: blogs.php returned a database error, blog1.php and blog2.php
-  # returned zero bytes. Send them to the real blog index rather than a 404.
-  RewriteRule ^(blogs|blog1|blog2)\.php$ /blog.html [R=301,L]
+  # returned zero bytes. blogs.php was the blog index, so it goes to the blog;
+  # blog1/blog2 were blank placeholder carousels with no topic, so they go home.
+  RewriteRule ^blogs\.php$ /blog.html [R=301,L]
+  RewriteRule ^(blog1|blog2)\.php$ / [R=301,L]
 
   # An unfinished SEO stub that never made it into the old sitemap but is
   # linked from the old blog index and marked "index, follow", so it may hold
@@ -287,6 +289,16 @@ DirectoryIndex index.html
   # Two blog posts were given clearer slugs ("...-an-overbite" / "...-an-underbite").
   RewriteRule ^blog/can-invisalign-fix-overbite\.(php|html)$ /blog/can-invisalign-fix-an-overbite.html [R=301,L,NE]
   RewriteRule ^blog/can-invisalign-fix-underbite\.(php|html)$ /blog/can-invisalign-fix-an-underbite.html [R=301,L,NE]
+
+  # best-age-for-braces was a near-duplicate of a post that did migrate - it
+  # differed only in its meta title - so it still points at the surviving article.
+  RewriteRule ^blog/best-age-for-braces\.(php|html)$ /blog/whats-the-best-age-for-braces.html [R=301,L,NE]
+
+  # is-invisalign-worth-it-for-adults was previously folded into the cost/timeline
+  # post. It now exists as its own page, so that consolidation redirect is gone and
+  # the generic .php -> .html rule below carries the legacy URL to it.
+  # NOTE: this page and invisalign-treatment-for-adults-cost-timeline.html share the
+  # same body copy. They compete for the same query until one is rewritten.
 
   # Every other legacy page: same slug, new extension. The condition means a
   # .php URL with no matching .html falls through to the 404 instead of
