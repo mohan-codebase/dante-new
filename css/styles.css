@@ -2602,11 +2602,35 @@ p.hero__headline {
   max-width: 22ch; margin-inline: auto;
 }
 .newsletter__form {
-  display: flex; flex-wrap: wrap; gap: .6rem;
+  display: flex; flex-direction: column; gap: .75rem;
   max-width: 520px; margin: var(--s-7) auto 0;
+  width: 100%;
 }
-.newsletter__form .field__input { flex: 1 1 240px; background: var(--paper); padding-block: .95rem; }
-.newsletter__form .btn { flex: 0 0 auto; }
+.newsletter__form .field__input {
+  width: 100%;
+  background: var(--paper);
+  padding-block: .95rem;
+  text-align: center;
+}
+.newsletter__form .btn {
+  width: 100%;
+  justify-content: center;
+}
+@media (min-width: 480px) {
+  .newsletter__form {
+    flex-direction: row;
+    gap: .6rem;
+  }
+  .newsletter__form .field__input {
+    flex: 1 1 240px;
+    width: auto;
+    text-align: left;
+  }
+  .newsletter__form .btn {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
 .newsletter__status { margin-top: var(--s-4); font-size: var(--fs-sm); color: var(--brand-800); min-height: 1.2em; }
 .newsletter__status.is-error { color: #b23c2c; }
 
